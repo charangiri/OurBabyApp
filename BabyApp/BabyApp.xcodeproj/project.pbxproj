@@ -75,6 +75,7 @@
 		A1EAD2D41CA98CED008D2B37 /* ImmunationsBlueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2D31CA98CED008D2B37 /* ImmunationsBlueTableViewCell.m */; };
 		A1EAD2D71CA98CFB008D2B37 /* ImmunationsGreyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2D61CA98CFB008D2B37 /* ImmunationsGreyTableViewCell.m */; };
 		A1EAD2DA1CA98D08008D2B37 /* ImmunationsWhiteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2D91CA98D08008D2B37 /* ImmunationsWhiteTableViewCell.m */; };
+		A1EAD2DD1CAEBC2B008D2B37 /* MedicationCategoryDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2DC1CAEBC2B008D2B37 /* MedicationCategoryDetail.m */; };
 		D82C28EB1C8F6FDC005798EA /* ScreeningExamination.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C28EA1C8F6FDC005798EA /* ScreeningExamination.m */; };
 		D82C28EE1C8F7012005798EA /* ScreeningOutcomeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C28ED1C8F7012005798EA /* ScreeningOutcomeOptions.m */; };
 		D82C28F11C8F7041005798EA /* ScreeningsOutcome.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C28F01C8F7041005798EA /* ScreeningsOutcome.m */; };
@@ -234,6 +235,8 @@
 		A1EAD2D61CA98CFB008D2B37 /* ImmunationsGreyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImmunationsGreyTableViewCell.m; sourceTree = "<group>"; };
 		A1EAD2D81CA98D08008D2B37 /* ImmunationsWhiteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImmunationsWhiteTableViewCell.h; sourceTree = "<group>"; };
 		A1EAD2D91CA98D08008D2B37 /* ImmunationsWhiteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImmunationsWhiteTableViewCell.m; sourceTree = "<group>"; };
+		A1EAD2DB1CAEBC2B008D2B37 /* MedicationCategoryDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicationCategoryDetail.h; sourceTree = "<group>"; };
+		A1EAD2DC1CAEBC2B008D2B37 /* MedicationCategoryDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationCategoryDetail.m; sourceTree = "<group>"; };
 		D82C28E91C8F6FDC005798EA /* ScreeningExamination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningExamination.h; sourceTree = "<group>"; };
 		D82C28EA1C8F6FDC005798EA /* ScreeningExamination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeningExamination.m; sourceTree = "<group>"; };
 		D82C28EC1C8F7012005798EA /* ScreeningOutcomeOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningOutcomeOptions.h; sourceTree = "<group>"; };
@@ -458,13 +461,13 @@
 				A1EAD2CA1CA96B2F008D2B37 /* immunisationSecondaryTableViewCell.m */,
 				A1EAD2BE1CA904FF008D2B37 /* ImmunisationCalenderDetailViewController.h */,
 				A1EAD2BF1CA904FF008D2B37 /* ImmunisationCalenderDetailViewController.m */,
-				A1EAD2D11CA98CC4008D2B37 /* ImmunisationsCells */,
 				D8AB15CC1C8E41D30062DAFE /* OtherScreeningPage.h */,
 				D8AB15CD1C8E41D30062DAFE /* OtherScreeningPage.m */,
+				D8AB15BE1C8E1AD80062DAFE /* ScreeningParentalViewController.h */,
 				D8AB15BF1C8E1AD80062DAFE /* ScreeningParentalViewController.m */,
 				D86EC0571C99FD7C00E3B176 /* GrowthSummary.h */,
 				D86EC0581C99FD7C00E3B176 /* GrowthSummary.m */,
-				D8AB15BE1C8E1AD80062DAFE /* ScreeningParentalViewController.h */,
+				A1EAD2D11CA98CC4008D2B37 /* ImmunisationsCells */,
 				A13FC7F71C7748AC00362A32 /* LaunchScreen.storyboard */,
 				A13FC7FA1C7748AC00362A32 /* Info.plist */,
 				A13FC7F21C7748AC00362A32 /* BabyApp.xcdatamodeld */,
@@ -533,6 +536,8 @@
 		D8970FB51C98A536009C752B /* Encyclopedia */ = {
 			isa = PBXGroup;
 			children = (
+				A1EAD2DB1CAEBC2B008D2B37 /* MedicationCategoryDetail.h */,
+				A1EAD2DC1CAEBC2B008D2B37 /* MedicationCategoryDetail.m */,
 				D8970FB61C98A6FC009C752B /* EncyclopediaTapScroller.h */,
 				D8970FB71C98A6FC009C752B /* EncyclopediaTapScroller.m */,
 				D86EC0511C99EF0E00E3B176 /* MedicationCategory.h */,
@@ -837,6 +842,7 @@
 				A13FC7EE1C7748AC00362A32 /* ViewController.m in Sources */,
 				A1EAD2D71CA98CFB008D2B37 /* ImmunationsGreyTableViewCell.m in Sources */,
 				A10EB64C1C79DF68002EBC59 /* SignUpViewController.m in Sources */,
+				A1EAD2DD1CAEBC2B008D2B37 /* MedicationCategoryDetail.m in Sources */,
 				D82C28EE1C8F7012005798EA /* ScreeningOutcomeOptions.m in Sources */,
 				A10EB6101C786BBF002EBC59 /* LeftMenuViewController.m in Sources */,
 				A10EB5FB1C786B9A002EBC59 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,

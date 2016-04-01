@@ -43,10 +43,10 @@ UIButton *refBtn;
         [lblName1 addTarget:self action:@selector(onPopViewClicked:) forControlEvents:UIControlEventTouchUpInside];
         k++;
         lblName1.tag=k;
-
+        
         
     }
-  
+    
 }
 
 -(void)setViewMovedUp:(BOOL)movedUp
@@ -99,15 +99,15 @@ UIButton *refBtn;
 {
     [self.view endEditing:YES];
     [self setViewMovedUp:NO];
-
+    
     return YES;
 }
 -(void)onPopViewClicked:(UIButton*)bt
 {
     NSArray *ar=@[@"Needs follow up",@"Normal",@"Needs further evaluation"];
-
-   //  UIButton *lblName1=(UIButton*)[[self.view viewWithTag:100] viewWithTag:120];
-  //  [refBtn setBackgroundColor:[UIColor redColor]];
+    
+    //  UIButton *lblName1=(UIButton*)[[self.view viewWithTag:100] viewWithTag:120];
+    //  [refBtn setBackgroundColor:[UIColor redColor]];
     [refBtn setTitle:[ar objectAtIndex:bt.tag-1] forState:UIControlStateNormal];
     [bt.superview removeFromSuperview];
     [[self.view viewWithTag:300] removeFromSuperview];
@@ -145,13 +145,13 @@ UIButton *refBtn;
     lblName1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     
     [lblName1 addTarget:self action:@selector(showPopView:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     UIView *v2=[[UIView alloc] initWithFrame:CGRectMake(0, v.frame.origin.y+v.frame.size.height+25, self.view.frame.size.width, 60)];
     v.tag=200;
-
+    
     [v2 setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:v2];
-
+    
     UILabel *lblHeading2=nil;
     lblHeading2=[[UILabel alloc] initWithFrame:CGRectMake(20,15,165, 30)];
     lblHeading2.tag=101;
@@ -161,13 +161,13 @@ UIButton *refBtn;
     lblName2=[[UITextField alloc] initWithFrame:CGRectMake(190,15, v2.frame.size.width-195, 30)];
     lblName2.tag=201;
     [v2 addSubview:lblName2];
-
+    
     
     lblHeading1.text=@"Outcome";
     
     lblHeading2.text=@"Next routine check at";
     
-   lblName2.placeholder=@"Date";
+    lblName2.placeholder=@"Date";
     
     screeningOutcomeOptionTable=[[UITableView alloc] initWithFrame:CGRectMake(0, v2.frame.origin.y+v2.frame.size.height+25, self.view.frame.size.width, 180)];
     [self.view addSubview:screeningOutcomeOptionTable];
@@ -189,22 +189,22 @@ UIButton *refBtn;
         lblHeading.tag=10;
         [cell.contentView addSubview:lblHeading];
         
-    UITextField *lblName=nil;
-    lblName=[[UITextField alloc] initWithFrame:CGRectMake(140,15, screeningOutcomeOptionTable.frame.size.width-145, 30)];
+        UITextField *lblName=nil;
+        lblName=[[UITextField alloc] initWithFrame:CGRectMake(140,15, screeningOutcomeOptionTable.frame.size.width-145, 30)];
         lblName.tag=20;
         [cell.contentView addSubview:lblName];
         
         lblName.delegate=self;
-       
-
+        
+        
     }
-   // UITextField *lblName=[cell.contentView viewWithTag:20];
+    // UITextField *lblName=[cell.contentView viewWithTag:20];
     UILabel *lblHeading=[cell.contentView viewWithTag:10];
     
     
     [cell setBackgroundColor:[UIColor whiteColor]];
-   // [lblHeading setTextColor:[UIColor grayColor]];
-   
+    // [lblHeading setTextColor:[UIColor grayColor]];
+    
     [lblHeading setText:[labelArrayOutcomeOption objectAtIndex:indexPath.row]];
     
     return cell;

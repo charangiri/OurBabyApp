@@ -27,14 +27,14 @@ NSArray *labelArrayExamination;
     [v setBackgroundColor:[UIColor colorWithRed:235.0/255.0 green:235.0/255.0 blue:240.0/255.0 alpha:1.0]];
     [self.view addSubview:v];
     
- 
+    
     
     UILabel *lblHeading=[[UILabel alloc] initWithFrame:CGRectMake(30,10, v.frame.size.width-60, 30)];
     [v addSubview:lblHeading];
     [lblHeading setText:@"EYE EXAMINATION:"];
-   // [lblHeading setTextColor:[UIColor blackColor]];
-  //[lblHeading setTextAlignment:NSTextAlignmentCenter];
-
+    // [lblHeading setTextColor:[UIColor blackColor]];
+    //[lblHeading setTextAlignment:NSTextAlignmentCenter];
+    
     
     screeningExaminationTable=[[UITableView alloc] initWithFrame:CGRectMake(0, v.frame.origin.y+v.frame.size.height+10, self.view.frame.size.width, self.view.frame.size.height-(v.frame.origin.y+v.frame.size.height+10))];
     [self.view addSubview:screeningExaminationTable];
@@ -45,10 +45,10 @@ NSArray *labelArrayExamination;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-     if (section==0)
-         return 0;
+    if (section==0)
+        return 0;
     else
-    return 30;
+        return 30;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -63,22 +63,22 @@ NSArray *labelArrayExamination;
         lblName=[[UILabel alloc] initWithFrame:CGRectMake(20,15, screeningExaminationTable.frame.size.width-80, 30)];
         lblName.tag=10;
         [lblName setFont:[UIFont fontWithName:@"HelveticaNeueCyr-Light" size:16]];
-
+        
         [cell.contentView addSubview:lblName];
         
         if (indexPath.section==0)
         {
-        if(indexPath.row==1||indexPath.row==2)
-        lblName.frame=CGRectMake(lblName.frame.origin.x+20, lblName.frame.origin.y, lblName.frame.size.width-20,lblName.frame.size.height);
+            if(indexPath.row==1||indexPath.row==2)
+                lblName.frame=CGRectMake(lblName.frame.origin.x+20, lblName.frame.origin.y, lblName.frame.size.width-20,lblName.frame.size.height);
         }
         
         if(indexPath.row>0||indexPath.section==1)
         {
-        UIButton *btIcon=[[UIButton alloc] initWithFrame:CGRectMake(screeningExaminationTable.frame.size.width-40,10,30,30)];
-        btIcon.tag=20;
-        [cell.contentView addSubview:btIcon];
-        [btIcon setContentMode:UIViewContentModeScaleAspectFill];
-        [btIcon setClipsToBounds:YES];
+            UIButton *btIcon=[[UIButton alloc] initWithFrame:CGRectMake(screeningExaminationTable.frame.size.width-40,10,30,30)];
+            btIcon.tag=20;
+            [cell.contentView addSubview:btIcon];
+            [btIcon setContentMode:UIViewContentModeScaleAspectFill];
+            [btIcon setClipsToBounds:YES];
         }
         
         if(indexPath.section==0)
@@ -88,7 +88,7 @@ NSArray *labelArrayExamination;
                 UISegmentedControl *sgt=[self maheSegmentControl:YES];
                 [cell.contentView addSubview:sgt];
                 sgt.tag=30;
-
+                
             }
             
         }
@@ -97,17 +97,17 @@ NSArray *labelArrayExamination;
     
     if((indexPath.section==0&&(indexPath.row>=1&&indexPath.row<=5))||(indexPath.section==1&&indexPath.row==0))
     {
-    [btIcon setHidden:NO];
-    if((indexPath.section==0&&indexPath.row>2))
-        [btIcon setBackgroundImage:[UIImage imageNamed:@"crv.png"] forState:UIControlStateNormal];
-
-    else
-        [btIcon setBackgroundImage:[UIImage imageNamed:@"Screenings-checked_03.png"] forState:UIControlStateNormal];
+        [btIcon setHidden:NO];
+        if((indexPath.section==0&&indexPath.row>2))
+            [btIcon setBackgroundImage:[UIImage imageNamed:@"crv.png"] forState:UIControlStateNormal];
+        
+        else
+            [btIcon setBackgroundImage:[UIImage imageNamed:@"Screenings-checked_03.png"] forState:UIControlStateNormal];
     }
     else
         [btIcon setHidden:YES];
-
-
+    
+    
     UITextField *lblName=[cell.contentView viewWithTag:10];
     
     [lblName setTextColor:[UIColor grayColor]];
@@ -120,11 +120,11 @@ NSArray *labelArrayExamination;
     else
     {
         [lblName setText:[labelArrayExamination lastObject]];
-
+        
     }
-
     
-
+    
+    
     return cell;
     
 }
@@ -153,7 +153,7 @@ NSArray *labelArrayExamination;
     if(section==1)
         return 1;
     else
-    return labelArrayExamination.count-1;
+        return labelArrayExamination.count-1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

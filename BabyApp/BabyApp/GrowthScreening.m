@@ -30,7 +30,7 @@ NSArray *labelArrayGrowth;
     [self.view addSubview:screeningGrowthTable];
     screeningGrowthTable.dataSource=self;
     screeningGrowthTable.delegate=self;
-
+    
     // Do any additional setup after loading the view.
 }
 
@@ -52,22 +52,22 @@ NSArray *labelArrayGrowth;
         lblMesure=[[UILabel alloc] initWithFrame:CGRectMake(screeningGrowthTable.frame.size.width-50,15, 40, 30)];
         lblMesure.tag=20;
         [cell.contentView addSubview:lblMesure];
-
         
-       
+        
+        
         
     }
     UITextField *lblName=[cell.contentView viewWithTag:10];
     UILabel *lblMesure=[cell.contentView viewWithTag:20];
-
-   
+    
+    
     [cell setBackgroundColor:[UIColor whiteColor]];
-
+    
     [lblMesure setTextColor:[UIColor grayColor]];
     
     [lblName setPlaceholder:[[[labelArrayGrowth objectAtIndex:indexPath.row] componentsSeparatedByString:@"*"] objectAtIndex:0]];
     [lblMesure setText:[[[labelArrayGrowth objectAtIndex:indexPath.row] componentsSeparatedByString:@"*"] objectAtIndex:1]];
-
+    
     return cell;
     
 }
@@ -102,13 +102,13 @@ NSArray *labelArrayGrowth;
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
