@@ -9,6 +9,8 @@
 #import "BioDataTableViewController.h"
 #import "ProfilePicTableViewCell.h"
 #import "BioDataTableViewCell.h"
+#import "KeyConstants.h"
+
 
 @interface BioDataTableViewController ()
 {
@@ -43,11 +45,11 @@
     {
         
         return 270;
-
+        
     }
     else{
         return 50;
-  
+        
     }
 }
 
@@ -65,35 +67,57 @@
     
     if (indexPath.row==0)
     {
-            
-            cell=(ProfilePicTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ProfilePicCellIdentifier"];
-            return cell;
+        
+        cell=(ProfilePicTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ProfilePicCellIdentifier"];
+        return cell;
     }
     else
     {
-            cell1 = (BioDataTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"BioDataCellIdentifier"];
+        cell1 = (BioDataTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"BioDataCellIdentifier"];
         cell1.titleLabel.text=titleArray[indexPath.row];
-      
-//        cell1.backgroundView = [[UIImageView alloc] initWithImage:[ [UIImage imageNamed:@"blue_background_small.png"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:5.0] ];
-//        cell1.selectedBackgroundView =  [[UIImageView alloc] initWithImage:[ [UIImage imageNamed:@"blue_background_small.png"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:5.0] ];
         
-            return cell1;
-       
+        //        cell1.backgroundView = [[UIImageView alloc] initWithImage:[ [UIImage imageNamed:@"blue_background_small.png"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:5.0] ];
+        //        cell1.selectedBackgroundView =  [[UIImageView alloc] initWithImage:[ [UIImage imageNamed:@"blue_background_small.png"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:5.0] ];
+        
+        return cell1;
+        
     }
-
+    
     
     
     //BioDataCellIdentifier  ProfilePicCellIdentifier
- 
+    
     // Configure the cell...
     
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-if(indexPath.row==1)
-    [self performSegueWithIdentifier:@"birthSegue" sender:self];
+    if(indexPath.row==1)
+        [self performSegueWithIdentifier:@"birthSegue" sender:self];
+    else if(indexPath.row == 2)
+    {
+        [self performSegueWithIdentifier:Segue_ParticularsOfParentsVC sender:self];
+    }
+    else if (indexPath.row == 3)
+    {
+        //NewbornScreeningVC_Segue
+        [self performSegueWithIdentifier:Segue_NewbornScreeningVC sender:self];
+        
+    }
+    else if (indexPath.row == 4)
+    {
+        //NewbornScreeningVC_Segue
+        [self performSegueWithIdentifier:Segue_investigationOptions sender:self];
+        
+    }
+    else if (indexPath.row == 5)
+    {
+        //DischargeInformationSegue
+        [self performSegueWithIdentifier:Segue_DischargeInformation sender:self];
+    }
 }
+
 
 #pragma mark - Navigation
 

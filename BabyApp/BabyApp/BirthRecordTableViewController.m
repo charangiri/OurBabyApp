@@ -7,10 +7,20 @@
 //
 
 #import "BirthRecordTableViewController.h"
+#import "CommonSelectionListVC.h"
+#import "DateTimeUtil.h"
+#import "CustomIOS7AlertView.h"
 
-@interface BirthRecordTableViewController ()
+@interface BirthRecordTableViewController () <CommonSelectionListVCDelegate, CustomIOS7AlertViewDelegate>
 {
     NSArray *identifierNames;
+    
+    UITapGestureRecognizer *genderGesture, *ethnicGesture, *modeDeliveryGesture, *apgarMinDurationGesture, *apgarMaxDurationGesture, *durationGesture;
+    NSString *keyString;
+    
+    NSInteger selectedIndex;
+    CustomIOS7AlertView *dateAlertView;
+    UIDatePicker *datePicker;
 }
 @end
 
@@ -19,7 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    identifierNames=[[NSArray alloc] initWithObjects:@"birthIdentifier",@"placeIdentifier",@"sexIdentifier",@"ethnicIdentifier",@"durationIdentifier",@"modeIdentifier",@"scoreIdentifier",@"weightIdentifier",@"lenghtIdentifier",@"headIdentifier", nil];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -27,80 +36,170 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.baseHeadCircumferenceView.frame.origin.y+self.baseDurationGestationView.frame.size.height + 20)];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self addGestures];
+}
+
+-(void)addGestures
+{
+    genderGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickGenderButton:)];
+    [self.baseSexView addGestureRecognizer:genderGesture];
+    
+    ethnicGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickEthnicGesture:)];
+    [self.baseEthnicGroupView addGestureRecognizer:ethnicGesture];
+    
+    modeDeliveryGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickModeDeliveryGesture:)];
+    [self.baseModeOfDeliveryView addGestureRecognizer:modeDeliveryGesture];
+    
+    apgarMinDurationGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickApgarMinScoreGesture:)];
+    [self.minDurationView addGestureRecognizer:apgarMinDurationGesture];
+    
+    apgarMaxDurationGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickApgarMaxScoreGesture:)];
+    [self.maxDurationView addGestureRecognizer:apgarMaxDurationGesture];
+    
+    durationGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickDurationGesture:)];
+    [self.baseDurationGestationView addGestureRecognizer:durationGesture];
+}
+
+-(void)onClickGenderButton:(UIGestureRecognizer *)aGesture
+{
+    selectedIndex = 1;
+    keyString = @"Gender";
+    [self openCommonSelectionVC];
+}
+
+-(void)onClickEthnicGesture:(UITapGestureRecognizer *)aTapGesture
+{
+    selectedIndex = 2;
+    keyString = @"Ethnic";
+    [self openCommonSelectionVC];
+}
+
+-(void)onClickModeDeliveryGesture:(UITapGestureRecognizer *)aTapGesture
+{
+    selectedIndex = 3;
+    keyString = @"Delivery";
+    [self openCommonSelectionVC];
+}
+
+-(void)onClickApgarMinScoreGesture:(UITapGestureRecognizer *)aTapGesture
+{
+    selectedIndex = 4;
+    keyString = @"MinScore";
+    [self openCommonSelectionVC];
+}
+
+-(void)onClickApgarMaxScoreGesture:(UITapGestureRecognizer *)aTapGesture
+{
+    selectedIndex = 5;
+    keyString = @"MaxScore";
+    [self openCommonSelectionVC];
+}
+
+//onClickDurationGesture
+-(void)onClickDurationGesture:(UITapGestureRecognizer *)aTapGesture
+{
+    selectedIndex = 6;
+    [self openDate];
+}
+
+-(void)selectedValue:(NSString *)aSelectedValue
+{
+    switch (selectedIndex) {
+        case 1:
+        {
+            [self.txtFldSex setText:aSelectedValue];
+        }
+            break;
+        case 2:
+        {
+            [self.txtFldEthnicGroup setText:aSelectedValue];
+        }
+            break;
+        case 3:
+        {
+            [self.txtFldModeofDelivery setText:aSelectedValue];
+        }
+            break;
+        case 4:
+        {
+            [self.lblMinDuration setText:aSelectedValue];
+        }
+            break;
+        case 5:
+        {
+            [self.lblMaxDuration setText:aSelectedValue];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+-(void)openCommonSelectionVC
+{
+    CommonSelectionListVC *commonSelectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CommonSelectionListVC_SB_ID"];
+    [commonSelectionVC setDelegate:self];
+    commonSelectionVC.keyString = keyString;
+    [self.navigationController pushViewController:commonSelectionVC animated:YES];
+}
+
+-(void)openDate
+{
+    dateAlertView = [[CustomIOS7AlertView alloc] init];
+    [dateAlertView setContainerView:[self createDateView]];
+    [dateAlertView setButtonTitles:[NSMutableArray arrayWithObjects:@"CLOSE", @"SET", nil]];
+    [dateAlertView setDelegate:self];
+    [dateAlertView setUseMotionEffects:true];
+    dateAlertView.tag = selectedIndex;
+    
+    [dateAlertView show];
+}
+
+- (UIView *)createDateView
+{
+    UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 216)];
+    datePicker = [[UIDatePicker alloc] initWithFrame:CGRectZero];
+    datePicker.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    datePicker.frame = CGRectMake(10, 10, 280, 216);
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [demoView addSubview:datePicker];
+    return demoView;
+}
+
+- (void)customIOS7dialogButtonTouchUpInside: (CustomIOS7AlertView *)alertView clickedButtonAtIndex: (NSInteger)buttonIndex
+{
+    [dateAlertView close];
+    NSString * dateFromData = [DateTimeUtil stringFromDateTime:datePicker.date withFormat:@"dd-MM-yyyy"];
+    
+    switch (selectedIndex) {
+        case 6:
+        {
+            [self.txtFldDurationGestation setText:dateFromData];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
-{
-   
-    if (indexPath.row==7) {
-        return 100;
-    }
-        return 60;
-    
-    
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return identifierNames.count;
+- (IBAction)onClickPreviousButton:(id)sender {
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierNames[indexPath.row] forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+- (IBAction)onClickNextButton:(id)sender {
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

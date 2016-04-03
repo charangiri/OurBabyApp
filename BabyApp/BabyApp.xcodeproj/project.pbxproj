@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		01D1537E14D44BCCF3DDC034 /* libPods-BabyApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07094B7CE3DBB90AED91954B /* libPods-BabyApp.a */; };
+		90FC54441CB1A7E300ED0E34 /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC54401CB1A7E300ED0E34 /* CustomIOS7AlertView.m */; };
+		90FC54451CB1A7E300ED0E34 /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 90FC54411CB1A7E300ED0E34 /* Readme.txt */; };
+		90FC54461CB1A7E300ED0E34 /* DateTimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC54431CB1A7E300ED0E34 /* DateTimeUtil.m */; };
+		90FC54611CB1A83400ED0E34 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC54491CB1A83400ED0E34 /* BaseViewController.m */; };
+		90FC54621CB1A83400ED0E34 /* CommonSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC544C1CB1A83400ED0E34 /* CommonSelectionCell.m */; };
+		90FC54631CB1A83400ED0E34 /* CommonSelectionListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC544E1CB1A83400ED0E34 /* CommonSelectionListVC.m */; };
+		90FC54641CB1A83400ED0E34 /* DischargeInformationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC54501CB1A83400ED0E34 /* DischargeInformationVC.m */; };
+		90FC54651CB1A83400ED0E34 /* InvestAddNewTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC54521CB1A83400ED0E34 /* InvestAddNewTestCell.m */; };
+		90FC54661CB1A83400ED0E34 /* InvestigationDefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC54541CB1A83400ED0E34 /* InvestigationDefaultCell.m */; };
+		90FC54671CB1A83400ED0E34 /* InvestigationOptionsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC54561CB1A83400ED0E34 /* InvestigationOptionsData.m */; };
+		90FC54681CB1A83400ED0E34 /* InvestigationOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC54581CB1A83400ED0E34 /* InvestigationOptionsVC.m */; };
+		90FC54691CB1A83400ED0E34 /* InvestOtherTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC545A1CB1A83400ED0E34 /* InvestOtherTestCell.m */; };
+		90FC546A1CB1A83400ED0E34 /* NewbornScreeningVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC545D1CB1A83400ED0E34 /* NewbornScreeningVC.m */; };
+		90FC546B1CB1A83400ED0E34 /* ParticularsOfParentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC54601CB1A83400ED0E34 /* ParticularsOfParentsVC.m */; };
 		A10EB5EA1C784FBA002EBC59 /* blueBar.png in Resources */ = {isa = PBXBuildFile; fileRef = A10EB5E81C784FBA002EBC59 /* blueBar.png */; };
 		A10EB5ED1C786B91002EBC59 /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10EB5EC1C786B91002EBC59 /* SlideNavigationController.m */; };
 		A10EB5F91C786B9A002EBC59 /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = A10EB5F01C786B9A002EBC59 /* SlideNavigationContorllerAnimatorFade.m */; };
@@ -139,6 +153,34 @@
 		07094B7CE3DBB90AED91954B /* libPods-BabyApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BabyApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46DD2D1B8D4AE290187F884E /* Pods-BabyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BabyApp/Pods-BabyApp.release.xcconfig"; sourceTree = "<group>"; };
 		5BCF25B75D8B855570DD77C9 /* Pods-BabyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BabyApp/Pods-BabyApp.debug.xcconfig"; sourceTree = "<group>"; };
+		90FC543F1CB1A7E300ED0E34 /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOS7AlertView.h; sourceTree = "<group>"; };
+		90FC54401CB1A7E300ED0E34 /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOS7AlertView.m; sourceTree = "<group>"; };
+		90FC54411CB1A7E300ED0E34 /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
+		90FC54421CB1A7E300ED0E34 /* DateTimeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTimeUtil.h; sourceTree = "<group>"; };
+		90FC54431CB1A7E300ED0E34 /* DateTimeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTimeUtil.m; sourceTree = "<group>"; };
+		90FC54481CB1A83400ED0E34 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		90FC54491CB1A83400ED0E34 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		90FC544B1CB1A83400ED0E34 /* CommonSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonSelectionCell.h; sourceTree = "<group>"; };
+		90FC544C1CB1A83400ED0E34 /* CommonSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonSelectionCell.m; sourceTree = "<group>"; };
+		90FC544D1CB1A83400ED0E34 /* CommonSelectionListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonSelectionListVC.h; sourceTree = "<group>"; };
+		90FC544E1CB1A83400ED0E34 /* CommonSelectionListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonSelectionListVC.m; sourceTree = "<group>"; };
+		90FC544F1CB1A83400ED0E34 /* DischargeInformationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DischargeInformationVC.h; sourceTree = "<group>"; };
+		90FC54501CB1A83400ED0E34 /* DischargeInformationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DischargeInformationVC.m; sourceTree = "<group>"; };
+		90FC54511CB1A83400ED0E34 /* InvestAddNewTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestAddNewTestCell.h; sourceTree = "<group>"; };
+		90FC54521CB1A83400ED0E34 /* InvestAddNewTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestAddNewTestCell.m; sourceTree = "<group>"; };
+		90FC54531CB1A83400ED0E34 /* InvestigationDefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestigationDefaultCell.h; sourceTree = "<group>"; };
+		90FC54541CB1A83400ED0E34 /* InvestigationDefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestigationDefaultCell.m; sourceTree = "<group>"; };
+		90FC54551CB1A83400ED0E34 /* InvestigationOptionsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestigationOptionsData.h; sourceTree = "<group>"; };
+		90FC54561CB1A83400ED0E34 /* InvestigationOptionsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestigationOptionsData.m; sourceTree = "<group>"; };
+		90FC54571CB1A83400ED0E34 /* InvestigationOptionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestigationOptionsVC.h; sourceTree = "<group>"; };
+		90FC54581CB1A83400ED0E34 /* InvestigationOptionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestigationOptionsVC.m; sourceTree = "<group>"; };
+		90FC54591CB1A83400ED0E34 /* InvestOtherTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestOtherTestCell.h; sourceTree = "<group>"; };
+		90FC545A1CB1A83400ED0E34 /* InvestOtherTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestOtherTestCell.m; sourceTree = "<group>"; };
+		90FC545C1CB1A83400ED0E34 /* NewbornScreeningVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewbornScreeningVC.h; sourceTree = "<group>"; };
+		90FC545D1CB1A83400ED0E34 /* NewbornScreeningVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewbornScreeningVC.m; sourceTree = "<group>"; };
+		90FC545F1CB1A83400ED0E34 /* ParticularsOfParentsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticularsOfParentsVC.h; sourceTree = "<group>"; };
+		90FC54601CB1A83400ED0E34 /* ParticularsOfParentsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticularsOfParentsVC.m; sourceTree = "<group>"; };
+		90FC546D1CB1A8A500ED0E34 /* KeyConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyConstants.h; sourceTree = "<group>"; };
 		A10EB5E81C784FBA002EBC59 /* blueBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueBar.png; sourceTree = "<group>"; };
 		A10EB5EB1C786B91002EBC59 /* SlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationController.h; sourceTree = "<group>"; };
 		A10EB5EC1C786B91002EBC59 /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
@@ -323,6 +365,84 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90FC543D1CB1A7E300ED0E34 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				90FC543E1CB1A7E300ED0E34 /* Date Picker */,
+				90FC54421CB1A7E300ED0E34 /* DateTimeUtil.h */,
+				90FC54431CB1A7E300ED0E34 /* DateTimeUtil.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		90FC543E1CB1A7E300ED0E34 /* Date Picker */ = {
+			isa = PBXGroup;
+			children = (
+				90FC543F1CB1A7E300ED0E34 /* CustomIOS7AlertView.h */,
+				90FC54401CB1A7E300ED0E34 /* CustomIOS7AlertView.m */,
+				90FC54411CB1A7E300ED0E34 /* Readme.txt */,
+			);
+			path = "Date Picker";
+			sourceTree = "<group>";
+		};
+		90FC54471CB1A83400ED0E34 /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				90FC54481CB1A83400ED0E34 /* BaseViewController.h */,
+				90FC54491CB1A83400ED0E34 /* BaseViewController.m */,
+			);
+			path = BaseVC;
+			sourceTree = "<group>";
+		};
+		90FC544A1CB1A83400ED0E34 /* BioData */ = {
+			isa = PBXGroup;
+			children = (
+				90FC544B1CB1A83400ED0E34 /* CommonSelectionCell.h */,
+				90FC544C1CB1A83400ED0E34 /* CommonSelectionCell.m */,
+				90FC544D1CB1A83400ED0E34 /* CommonSelectionListVC.h */,
+				90FC544E1CB1A83400ED0E34 /* CommonSelectionListVC.m */,
+				90FC544F1CB1A83400ED0E34 /* DischargeInformationVC.h */,
+				90FC54501CB1A83400ED0E34 /* DischargeInformationVC.m */,
+				90FC54511CB1A83400ED0E34 /* InvestAddNewTestCell.h */,
+				90FC54521CB1A83400ED0E34 /* InvestAddNewTestCell.m */,
+				90FC54531CB1A83400ED0E34 /* InvestigationDefaultCell.h */,
+				90FC54541CB1A83400ED0E34 /* InvestigationDefaultCell.m */,
+				90FC54551CB1A83400ED0E34 /* InvestigationOptionsData.h */,
+				90FC54561CB1A83400ED0E34 /* InvestigationOptionsData.m */,
+				90FC54571CB1A83400ED0E34 /* InvestigationOptionsVC.h */,
+				90FC54581CB1A83400ED0E34 /* InvestigationOptionsVC.m */,
+				90FC54591CB1A83400ED0E34 /* InvestOtherTestCell.h */,
+				90FC545A1CB1A83400ED0E34 /* InvestOtherTestCell.m */,
+			);
+			path = BioData;
+			sourceTree = "<group>";
+		};
+		90FC545B1CB1A83400ED0E34 /* NewBornScreening */ = {
+			isa = PBXGroup;
+			children = (
+				90FC545C1CB1A83400ED0E34 /* NewbornScreeningVC.h */,
+				90FC545D1CB1A83400ED0E34 /* NewbornScreeningVC.m */,
+			);
+			path = NewBornScreening;
+			sourceTree = "<group>";
+		};
+		90FC545E1CB1A83400ED0E34 /* ParticularsParents */ = {
+			isa = PBXGroup;
+			children = (
+				90FC545F1CB1A83400ED0E34 /* ParticularsOfParentsVC.h */,
+				90FC54601CB1A83400ED0E34 /* ParticularsOfParentsVC.m */,
+			);
+			path = ParticularsParents;
+			sourceTree = "<group>";
+		};
+		90FC546C1CB1A8A500ED0E34 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				90FC546D1CB1A8A500ED0E34 /* KeyConstants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		A10EB6141C786F83002EBC59 /* Slide Supporters */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +547,12 @@
 		A13FC7E51C7748AC00362A32 /* BabyApp */ = {
 			isa = PBXGroup;
 			children = (
+				90FC546C1CB1A8A500ED0E34 /* Constants */,
+				90FC54471CB1A83400ED0E34 /* BaseVC */,
+				90FC544A1CB1A83400ED0E34 /* BioData */,
+				90FC545B1CB1A83400ED0E34 /* NewBornScreening */,
+				90FC545E1CB1A83400ED0E34 /* ParticularsParents */,
+				90FC543D1CB1A7E300ED0E34 /* Utilities */,
 				D8B137EB1C90CF6F007B412D /* Fonts */,
 				A10EB62B1C78B4A9002EBC59 /* images */,
 				A10EB6171C789F05002EBC59 /* Cells */,
@@ -719,6 +845,7 @@
 				A10EB63A1C78C5FE002EBC59 /* blue_background_small.png in Resources */,
 				A10EB6491C79D69F002EBC59 /* button_bg.png in Resources */,
 				A10EB6161C787899002EBC59 /* home_kid.png in Resources */,
+				90FC54451CB1A7E300ED0E34 /* Readme.txt in Resources */,
 				D8AB15C81C8E375B0062DAFE /* stop_watch_time.png in Resources */,
 				A13FC81D1C776F1600362A32 /* background_image.png in Resources */,
 				D8B138141C90CF6F007B412D /* Helvetica-Neue-LT.ttf in Resources */,
@@ -844,15 +971,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90FC54661CB1A83400ED0E34 /* InvestigationDefaultCell.m in Sources */,
 				A1EAD2D01CA9836D008D2B37 /* ImmunisationsTableViewController.m in Sources */,
 				D8AB15C01C8E1AD80062DAFE /* ScreeningParentalViewController.m in Sources */,
 				A10EB6341C78BD6E002EBC59 /* BioDataTableViewCell.m in Sources */,
+				90FC54621CB1A83400ED0E34 /* CommonSelectionCell.m in Sources */,
 				A10EB6311C78BC3B002EBC59 /* BioDataTableViewController.m in Sources */,
 				D82C28F11C8F7041005798EA /* ScreeningsOutcome.m in Sources */,
 				A10EB6201C789F81002EBC59 /* HeartTypeTableViewCell.m in Sources */,
 				A10EB5F91C786B9A002EBC59 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				A10EB6371C78BD83002EBC59 /* ProfilePicTableViewCell.m in Sources */,
 				A1EAD2D41CA98CED008D2B37 /* ImmunationsBlueTableViewCell.m in Sources */,
+				90FC54631CB1A83400ED0E34 /* CommonSelectionListVC.m in Sources */,
 				D82C28EB1C8F6FDC005798EA /* ScreeningExamination.m in Sources */,
 				A13FC7EE1C7748AC00362A32 /* ViewController.m in Sources */,
 				A1EAD2D71CA98CFB008D2B37 /* ImmunationsGreyTableViewCell.m in Sources */,
@@ -861,8 +991,11 @@
 				A1EAD2DD1CAEBC2B008D2B37 /* MedicationCategoryDetail.m in Sources */,
 				D82C28EE1C8F7012005798EA /* ScreeningOutcomeOptions.m in Sources */,
 				A10EB6101C786BBF002EBC59 /* LeftMenuViewController.m in Sources */,
+				90FC54671CB1A83400ED0E34 /* InvestigationOptionsData.m in Sources */,
+				90FC54691CB1A83400ED0E34 /* InvestOtherTestCell.m in Sources */,
 				A10EB5FB1C786B9A002EBC59 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				A1EAD2C81CA96B1C008D2B37 /* immunisationMainTableViewCell.m in Sources */,
+				90FC54441CB1A7E300ED0E34 /* CustomIOS7AlertView.m in Sources */,
 				A13FC7EB1C7748AC00362A32 /* AppDelegate.m in Sources */,
 				A1EAD2CB1CA96B2F008D2B37 /* immunisationSecondaryTableViewCell.m in Sources */,
 				A10EB5ED1C786B91002EBC59 /* SlideNavigationController.m in Sources */,
@@ -875,21 +1008,28 @@
 				D8AB15CB1C8E3E710062DAFE /* GrowthScreening.m in Sources */,
 				A1EAD2BA1CA9030C008D2B37 /* HealthBookletViewController.m in Sources */,
 				A10EB61D1C789F72002EBC59 /* RadioTypeTableViewCell.m in Sources */,
+				90FC546A1CB1A83400ED0E34 /* NewbornScreeningVC.m in Sources */,
+				90FC54681CB1A83400ED0E34 /* InvestigationOptionsVC.m in Sources */,
 				D86EC0591C99FD7C00E3B176 /* GrowthSummary.m in Sources */,
 				D8970FB81C98A6FC009C752B /* EncyclopediaTapScroller.m in Sources */,
+				90FC54641CB1A83400ED0E34 /* DischargeInformationVC.m in Sources */,
 				D86EC0531C99EF0E00E3B176 /* MedicationCategory.m in Sources */,
 				D86EC0561C99EF4B00E3B176 /* ImmunisationType.m in Sources */,
+				90FC54461CB1A7E300ED0E34 /* DateTimeUtil.m in Sources */,
 				A10EB61A1C789F5B002EBC59 /* ProfileTableViewCell.m in Sources */,
 				A10EB62E1C78B699002EBC59 /* HomeTableViewCell.m in Sources */,
 				D8F0AEF41CAF166300EE9BE5 /* ScreeningSummaeryDetail.m in Sources */,
 				A10EB60F1C786BBF002EBC59 /* HomeViewController.m in Sources */,
 				A10EB5FD1C786B9A002EBC59 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				90FC54651CB1A83400ED0E34 /* InvestAddNewTestCell.m in Sources */,
 				A10EB5FC1C786B9A002EBC59 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				A13FC7E81C7748AC00362A32 /* main.m in Sources */,
 				D8AB15B81C8DDAE30062DAFE /* ScreeningViewController.m in Sources */,
 				D8F0AEF51CAF166300EE9BE5 /* ScreeningSummaryViewController.m in Sources */,
 				A13FC7F41C7748AC00362A32 /* BabyApp.xcdatamodeld in Sources */,
+				90FC54611CB1A83400ED0E34 /* BaseViewController.m in Sources */,
 				A10EB65B1C7B7F59002EBC59 /* BirthRecordTableViewController.m in Sources */,
+				90FC546B1CB1A83400ED0E34 /* ParticularsOfParentsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
