@@ -19,6 +19,7 @@ NSArray *labelArraymedicationCategory;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"in MedicationCategory");
     self.navigationItem.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectedMedicationLbl"];
     
     

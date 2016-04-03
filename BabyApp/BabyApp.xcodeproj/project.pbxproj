@@ -113,6 +113,9 @@
 		D8B138151C90CF6F007B412D /* HelveticaNeueCyr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8B138001C90CF6F007B412D /* HelveticaNeueCyr-Light.otf */; };
 		D8B138161C90CF6F007B412D /* HelveticaNeueCyr-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8B138011C90CF6F007B412D /* HelveticaNeueCyr-Roman.otf */; };
 		D8B138171C90CF6F007B412D /* HelveticaNeueCyr-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8B138021C90CF6F007B412D /* HelveticaNeueCyr-UltraLight.otf */; };
+		D8F0AEF41CAF166300EE9BE5 /* ScreeningSummaeryDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F0AEEF1CAF166300EE9BE5 /* ScreeningSummaeryDetail.m */; };
+		D8F0AEF51CAF166300EE9BE5 /* ScreeningSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F0AEF11CAF166300EE9BE5 /* ScreeningSummaryViewController.m */; };
+		D8F0AEF61CAF166300EE9BE5 /* ScreenSumaryDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F0AEF31CAF166300EE9BE5 /* ScreenSumaryDetailCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,6 +288,12 @@
 		D8B138001C90CF6F007B412D /* HelveticaNeueCyr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeueCyr-Light.otf"; sourceTree = "<group>"; };
 		D8B138011C90CF6F007B412D /* HelveticaNeueCyr-Roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeueCyr-Roman.otf"; sourceTree = "<group>"; };
 		D8B138021C90CF6F007B412D /* HelveticaNeueCyr-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeueCyr-UltraLight.otf"; sourceTree = "<group>"; };
+		D8F0AEEE1CAF166300EE9BE5 /* ScreeningSummaeryDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningSummaeryDetail.h; sourceTree = "<group>"; };
+		D8F0AEEF1CAF166300EE9BE5 /* ScreeningSummaeryDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeningSummaeryDetail.m; sourceTree = "<group>"; };
+		D8F0AEF01CAF166300EE9BE5 /* ScreeningSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningSummaryViewController.h; sourceTree = "<group>"; };
+		D8F0AEF11CAF166300EE9BE5 /* ScreeningSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeningSummaryViewController.m; sourceTree = "<group>"; };
+		D8F0AEF21CAF166300EE9BE5 /* ScreenSumaryDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenSumaryDetailCell.h; sourceTree = "<group>"; };
+		D8F0AEF31CAF166300EE9BE5 /* ScreenSumaryDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenSumaryDetailCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -467,6 +476,12 @@
 				D8AB15BF1C8E1AD80062DAFE /* ScreeningParentalViewController.m */,
 				D86EC0571C99FD7C00E3B176 /* GrowthSummary.h */,
 				D86EC0581C99FD7C00E3B176 /* GrowthSummary.m */,
+				D8F0AEEE1CAF166300EE9BE5 /* ScreeningSummaeryDetail.h */,
+				D8F0AEEF1CAF166300EE9BE5 /* ScreeningSummaeryDetail.m */,
+				D8F0AEF01CAF166300EE9BE5 /* ScreeningSummaryViewController.h */,
+				D8F0AEF11CAF166300EE9BE5 /* ScreeningSummaryViewController.m */,
+				D8F0AEF21CAF166300EE9BE5 /* ScreenSumaryDetailCell.h */,
+				D8F0AEF31CAF166300EE9BE5 /* ScreenSumaryDetailCell.m */,
 				A1EAD2D11CA98CC4008D2B37 /* ImmunisationsCells */,
 				A13FC7F71C7748AC00362A32 /* LaunchScreen.storyboard */,
 				A13FC7FA1C7748AC00362A32 /* Info.plist */,
@@ -842,6 +857,7 @@
 				A13FC7EE1C7748AC00362A32 /* ViewController.m in Sources */,
 				A1EAD2D71CA98CFB008D2B37 /* ImmunationsGreyTableViewCell.m in Sources */,
 				A10EB64C1C79DF68002EBC59 /* SignUpViewController.m in Sources */,
+				D8F0AEF61CAF166300EE9BE5 /* ScreenSumaryDetailCell.m in Sources */,
 				A1EAD2DD1CAEBC2B008D2B37 /* MedicationCategoryDetail.m in Sources */,
 				D82C28EE1C8F7012005798EA /* ScreeningOutcomeOptions.m in Sources */,
 				A10EB6101C786BBF002EBC59 /* LeftMenuViewController.m in Sources */,
@@ -865,11 +881,13 @@
 				D86EC0561C99EF4B00E3B176 /* ImmunisationType.m in Sources */,
 				A10EB61A1C789F5B002EBC59 /* ProfileTableViewCell.m in Sources */,
 				A10EB62E1C78B699002EBC59 /* HomeTableViewCell.m in Sources */,
+				D8F0AEF41CAF166300EE9BE5 /* ScreeningSummaeryDetail.m in Sources */,
 				A10EB60F1C786BBF002EBC59 /* HomeViewController.m in Sources */,
 				A10EB5FD1C786B9A002EBC59 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				A10EB5FC1C786B9A002EBC59 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				A13FC7E81C7748AC00362A32 /* main.m in Sources */,
 				D8AB15B81C8DDAE30062DAFE /* ScreeningViewController.m in Sources */,
+				D8F0AEF51CAF166300EE9BE5 /* ScreeningSummaryViewController.m in Sources */,
 				A13FC7F41C7748AC00362A32 /* BabyApp.xcdatamodeld in Sources */,
 				A10EB65B1C7B7F59002EBC59 /* BirthRecordTableViewController.m in Sources */,
 			);
