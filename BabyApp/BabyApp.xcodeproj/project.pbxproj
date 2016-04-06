@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		01D1537E14D44BCCF3DDC034 /* libPods-BabyApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07094B7CE3DBB90AED91954B /* libPods-BabyApp.a */; };
+		90000F501CB3521500BC9BFC /* AddAllergyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90000F4F1CB3521500BC9BFC /* AddAllergyVC.m */; };
+		90000F531CB3528000BC9BFC /* AllergyConditionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90000F521CB3528000BC9BFC /* AllergyConditionVC.m */; };
+		90000F561CB352A000BC9BFC /* MedicalConditionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90000F551CB352A000BC9BFC /* MedicalConditionVC.m */; };
+		90000F591CB3533500BC9BFC /* MedicalConditionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90000F581CB3533400BC9BFC /* MedicalConditionCell.m */; };
+		90EED5A81CB4408700401065 /* CommonScreeingListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EED5A71CB4408700401065 /* CommonScreeingListVC.m */; };
+		90EED5AB1CB440DA00401065 /* CommonScreeingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EED5AA1CB440DA00401065 /* CommonScreeingData.m */; };
+		90EED5AE1CB443F700401065 /* CommonScreeingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EED5AD1CB443F700401065 /* CommonScreeingCell.m */; };
+		90EED5B11CB4473900401065 /* DummyScreeningVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EED5B01CB4473900401065 /* DummyScreeningVC.m */; };
+		90EED5B41CB4553900401065 /* DrugAlergyData.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EED5B31CB4553900401065 /* DrugAlergyData.m */; };
+		90EED5B71CB455D900401065 /* ConditionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EED5B61CB455D900401065 /* ConditionData.m */; };
+		90F044D51CB2D7B40068EC4B /* DrugAlergyListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F044D41CB2D7B40068EC4B /* DrugAlergyListVC.m */; };
+		90F044D81CB2D7D30068EC4B /* DrugAlergyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F044D71CB2D7D30068EC4B /* DrugAlergyCell.m */; };
 		90FC54441CB1A7E300ED0E34 /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC54401CB1A7E300ED0E34 /* CustomIOS7AlertView.m */; };
 		90FC54451CB1A7E300ED0E34 /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 90FC54411CB1A7E300ED0E34 /* Readme.txt */; };
 		90FC54461CB1A7E300ED0E34 /* DateTimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC54431CB1A7E300ED0E34 /* DateTimeUtil.m */; };
@@ -153,6 +165,30 @@
 		07094B7CE3DBB90AED91954B /* libPods-BabyApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BabyApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46DD2D1B8D4AE290187F884E /* Pods-BabyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BabyApp/Pods-BabyApp.release.xcconfig"; sourceTree = "<group>"; };
 		5BCF25B75D8B855570DD77C9 /* Pods-BabyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BabyApp/Pods-BabyApp.debug.xcconfig"; sourceTree = "<group>"; };
+		90000F4E1CB3521500BC9BFC /* AddAllergyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAllergyVC.h; sourceTree = "<group>"; };
+		90000F4F1CB3521500BC9BFC /* AddAllergyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAllergyVC.m; sourceTree = "<group>"; };
+		90000F511CB3528000BC9BFC /* AllergyConditionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllergyConditionVC.h; sourceTree = "<group>"; };
+		90000F521CB3528000BC9BFC /* AllergyConditionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllergyConditionVC.m; sourceTree = "<group>"; };
+		90000F541CB352A000BC9BFC /* MedicalConditionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalConditionVC.h; sourceTree = "<group>"; };
+		90000F551CB352A000BC9BFC /* MedicalConditionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalConditionVC.m; sourceTree = "<group>"; };
+		90000F571CB3533400BC9BFC /* MedicalConditionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalConditionCell.h; sourceTree = "<group>"; };
+		90000F581CB3533400BC9BFC /* MedicalConditionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalConditionCell.m; sourceTree = "<group>"; };
+		90EED5A61CB4408700401065 /* CommonScreeingListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonScreeingListVC.h; sourceTree = "<group>"; };
+		90EED5A71CB4408700401065 /* CommonScreeingListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonScreeingListVC.m; sourceTree = "<group>"; };
+		90EED5A91CB440DA00401065 /* CommonScreeingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonScreeingData.h; sourceTree = "<group>"; };
+		90EED5AA1CB440DA00401065 /* CommonScreeingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonScreeingData.m; sourceTree = "<group>"; };
+		90EED5AC1CB443F700401065 /* CommonScreeingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonScreeingCell.h; sourceTree = "<group>"; };
+		90EED5AD1CB443F700401065 /* CommonScreeingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonScreeingCell.m; sourceTree = "<group>"; };
+		90EED5AF1CB4473900401065 /* DummyScreeningVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyScreeningVC.h; sourceTree = "<group>"; };
+		90EED5B01CB4473900401065 /* DummyScreeningVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyScreeningVC.m; sourceTree = "<group>"; };
+		90EED5B21CB4553900401065 /* DrugAlergyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrugAlergyData.h; sourceTree = "<group>"; };
+		90EED5B31CB4553900401065 /* DrugAlergyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrugAlergyData.m; sourceTree = "<group>"; };
+		90EED5B51CB455D900401065 /* ConditionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionData.h; sourceTree = "<group>"; };
+		90EED5B61CB455D900401065 /* ConditionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionData.m; sourceTree = "<group>"; };
+		90F044D31CB2D7B40068EC4B /* DrugAlergyListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrugAlergyListVC.h; sourceTree = "<group>"; };
+		90F044D41CB2D7B40068EC4B /* DrugAlergyListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrugAlergyListVC.m; sourceTree = "<group>"; };
+		90F044D61CB2D7D30068EC4B /* DrugAlergyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrugAlergyCell.h; sourceTree = "<group>"; };
+		90F044D71CB2D7D30068EC4B /* DrugAlergyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrugAlergyCell.m; sourceTree = "<group>"; };
 		90FC543F1CB1A7E300ED0E34 /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOS7AlertView.h; sourceTree = "<group>"; };
 		90FC54401CB1A7E300ED0E34 /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOS7AlertView.m; sourceTree = "<group>"; };
 		90FC54411CB1A7E300ED0E34 /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
@@ -365,6 +401,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90EED5A51CB4406A00401065 /* Screeings */ = {
+			isa = PBXGroup;
+			children = (
+				90EED5A61CB4408700401065 /* CommonScreeingListVC.h */,
+				90EED5A71CB4408700401065 /* CommonScreeingListVC.m */,
+				90EED5A91CB440DA00401065 /* CommonScreeingData.h */,
+				90EED5AA1CB440DA00401065 /* CommonScreeingData.m */,
+				90EED5AC1CB443F700401065 /* CommonScreeingCell.h */,
+				90EED5AD1CB443F700401065 /* CommonScreeingCell.m */,
+				90EED5AF1CB4473900401065 /* DummyScreeningVC.h */,
+				90EED5B01CB4473900401065 /* DummyScreeningVC.m */,
+			);
+			path = Screeings;
+			sourceTree = "<group>";
+		};
+		90F044D21CB2D7880068EC4B /* Alergy */ = {
+			isa = PBXGroup;
+			children = (
+				90F044D31CB2D7B40068EC4B /* DrugAlergyListVC.h */,
+				90F044D41CB2D7B40068EC4B /* DrugAlergyListVC.m */,
+				90F044D61CB2D7D30068EC4B /* DrugAlergyCell.h */,
+				90F044D71CB2D7D30068EC4B /* DrugAlergyCell.m */,
+				90000F4E1CB3521500BC9BFC /* AddAllergyVC.h */,
+				90000F4F1CB3521500BC9BFC /* AddAllergyVC.m */,
+				90000F511CB3528000BC9BFC /* AllergyConditionVC.h */,
+				90000F521CB3528000BC9BFC /* AllergyConditionVC.m */,
+				90000F541CB352A000BC9BFC /* MedicalConditionVC.h */,
+				90000F551CB352A000BC9BFC /* MedicalConditionVC.m */,
+				90000F571CB3533400BC9BFC /* MedicalConditionCell.h */,
+				90000F581CB3533400BC9BFC /* MedicalConditionCell.m */,
+				90EED5B21CB4553900401065 /* DrugAlergyData.h */,
+				90EED5B31CB4553900401065 /* DrugAlergyData.m */,
+				90EED5B51CB455D900401065 /* ConditionData.h */,
+				90EED5B61CB455D900401065 /* ConditionData.m */,
+			);
+			path = Alergy;
+			sourceTree = "<group>";
+		};
 		90FC543D1CB1A7E300ED0E34 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +621,8 @@
 		A13FC7E51C7748AC00362A32 /* BabyApp */ = {
 			isa = PBXGroup;
 			children = (
+				90EED5A51CB4406A00401065 /* Screeings */,
+				90F044D21CB2D7880068EC4B /* Alergy */,
 				90FC546C1CB1A8A500ED0E34 /* Constants */,
 				90FC54471CB1A83400ED0E34 /* BaseVC */,
 				90FC544A1CB1A83400ED0E34 /* BioData */,
@@ -972,6 +1048,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90FC54661CB1A83400ED0E34 /* InvestigationDefaultCell.m in Sources */,
+				90EED5A81CB4408700401065 /* CommonScreeingListVC.m in Sources */,
 				A1EAD2D01CA9836D008D2B37 /* ImmunisationsTableViewController.m in Sources */,
 				D8AB15C01C8E1AD80062DAFE /* ScreeningParentalViewController.m in Sources */,
 				A10EB6341C78BD6E002EBC59 /* BioDataTableViewCell.m in Sources */,
@@ -990,15 +1067,18 @@
 				D8F0AEF61CAF166300EE9BE5 /* ScreenSumaryDetailCell.m in Sources */,
 				A1EAD2DD1CAEBC2B008D2B37 /* MedicationCategoryDetail.m in Sources */,
 				D82C28EE1C8F7012005798EA /* ScreeningOutcomeOptions.m in Sources */,
+				90F044D81CB2D7D30068EC4B /* DrugAlergyCell.m in Sources */,
 				A10EB6101C786BBF002EBC59 /* LeftMenuViewController.m in Sources */,
 				90FC54671CB1A83400ED0E34 /* InvestigationOptionsData.m in Sources */,
 				90FC54691CB1A83400ED0E34 /* InvestOtherTestCell.m in Sources */,
+				90000F531CB3528000BC9BFC /* AllergyConditionVC.m in Sources */,
 				A10EB5FB1C786B9A002EBC59 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				A1EAD2C81CA96B1C008D2B37 /* immunisationMainTableViewCell.m in Sources */,
 				90FC54441CB1A7E300ED0E34 /* CustomIOS7AlertView.m in Sources */,
 				A13FC7EB1C7748AC00362A32 /* AppDelegate.m in Sources */,
 				A1EAD2CB1CA96B2F008D2B37 /* immunisationSecondaryTableViewCell.m in Sources */,
 				A10EB5ED1C786B91002EBC59 /* SlideNavigationController.m in Sources */,
+				90000F561CB352A000BC9BFC /* MedicalConditionVC.m in Sources */,
 				A10EB5FA1C786B9A002EBC59 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				A1EAD2C51CA96AB8008D2B37 /* immunisationTableViewController.m in Sources */,
 				A1EAD2DA1CA98D08008D2B37 /* ImmunationsWhiteTableViewCell.m in Sources */,
@@ -1011,13 +1091,20 @@
 				90FC546A1CB1A83400ED0E34 /* NewbornScreeningVC.m in Sources */,
 				90FC54681CB1A83400ED0E34 /* InvestigationOptionsVC.m in Sources */,
 				D86EC0591C99FD7C00E3B176 /* GrowthSummary.m in Sources */,
+				90F044D51CB2D7B40068EC4B /* DrugAlergyListVC.m in Sources */,
+				90000F591CB3533500BC9BFC /* MedicalConditionCell.m in Sources */,
 				D8970FB81C98A6FC009C752B /* EncyclopediaTapScroller.m in Sources */,
 				90FC54641CB1A83400ED0E34 /* DischargeInformationVC.m in Sources */,
+				90EED5AE1CB443F700401065 /* CommonScreeingCell.m in Sources */,
+				90EED5B71CB455D900401065 /* ConditionData.m in Sources */,
+				90EED5AB1CB440DA00401065 /* CommonScreeingData.m in Sources */,
 				D86EC0531C99EF0E00E3B176 /* MedicationCategory.m in Sources */,
 				D86EC0561C99EF4B00E3B176 /* ImmunisationType.m in Sources */,
 				90FC54461CB1A7E300ED0E34 /* DateTimeUtil.m in Sources */,
 				A10EB61A1C789F5B002EBC59 /* ProfileTableViewCell.m in Sources */,
+				90EED5B11CB4473900401065 /* DummyScreeningVC.m in Sources */,
 				A10EB62E1C78B699002EBC59 /* HomeTableViewCell.m in Sources */,
+				90000F501CB3521500BC9BFC /* AddAllergyVC.m in Sources */,
 				D8F0AEF41CAF166300EE9BE5 /* ScreeningSummaeryDetail.m in Sources */,
 				A10EB60F1C786BBF002EBC59 /* HomeViewController.m in Sources */,
 				A10EB5FD1C786B9A002EBC59 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
@@ -1028,6 +1115,7 @@
 				D8F0AEF51CAF166300EE9BE5 /* ScreeningSummaryViewController.m in Sources */,
 				A13FC7F41C7748AC00362A32 /* BabyApp.xcdatamodeld in Sources */,
 				90FC54611CB1A83400ED0E34 /* BaseViewController.m in Sources */,
+				90EED5B41CB4553900401065 /* DrugAlergyData.m in Sources */,
 				A10EB65B1C7B7F59002EBC59 /* BirthRecordTableViewController.m in Sources */,
 				90FC546B1CB1A83400ED0E34 /* ParticularsOfParentsVC.m in Sources */,
 			);

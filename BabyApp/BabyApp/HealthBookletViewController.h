@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface HealthBookletViewController : UIViewController
+@interface HealthBookletViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UIView *baseCircleView;
 - (IBAction)screeningAction:(id)sender;
 - (IBAction)childSafetyAction:(id)sender;

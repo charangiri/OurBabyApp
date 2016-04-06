@@ -99,19 +99,19 @@
     {
         [self performSegueWithIdentifier:Segue_ParticularsOfParentsVC sender:self];
     }
-    else if (indexPath.row == 3)
+    else if (indexPath.row == 4)
     {
         //NewbornScreeningVC_Segue
         [self performSegueWithIdentifier:Segue_NewbornScreeningVC sender:self];
         
     }
-    else if (indexPath.row == 4)
+    else if (indexPath.row == 5)
     {
         //NewbornScreeningVC_Segue
         [self performSegueWithIdentifier:Segue_investigationOptions sender:self];
         
     }
-    else if (indexPath.row == 5)
+    else if (indexPath.row == 6)
     {
         //DischargeInformationSegue
         [self performSegueWithIdentifier:Segue_DischargeInformation sender:self];

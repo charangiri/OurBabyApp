@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KeyConstants.h"
 
 @interface BaseViewController : UIViewController
 

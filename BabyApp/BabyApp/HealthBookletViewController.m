@@ -112,7 +112,10 @@
 }
 
 
-- (IBAction)screeningAction:(id)sender {
+- (IBAction)screeningAction:(id)sender
+{
+    UIViewController *dummyVC = [self.storyboard instantiateViewControllerWithIdentifier:SB_ID_DummyVC];
+    [self.navigationController pushViewController:dummyVC animated:YES];
 }
 
 - (IBAction)childSafetyAction:(id)sender {

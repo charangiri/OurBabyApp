@@ -24,3 +24,6 @@
 
 #define SB_ID_ParticularsOfParentsVC    @"SB_ID_ParticularsOfParentsVC"
 #define SB_ID_NewbornScreeningVC        @"NewbornScreeningVC_SB_ID"
+
+#define SB_ID_DummyVC                   @"DummyScreeningVC_SB_ID"
+#define SB_ID_CommonScreeningVC         @"CommonScreeingListVC_SB_ID"
