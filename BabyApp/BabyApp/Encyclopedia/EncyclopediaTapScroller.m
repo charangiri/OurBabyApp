@@ -142,7 +142,10 @@ NSArray *hed;
     [self.view bringSubviewToFront:page1];
     
 }
-
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
 
 /*-(void)viewWillAppear:(BOOL)animated
 {

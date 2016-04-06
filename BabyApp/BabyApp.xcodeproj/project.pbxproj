@@ -44,7 +44,6 @@
 		A10EB6001C786BA3002EBC59 /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = A10EB5FE1C786BA3002EBC59 /* menu-button.png */; };
 		A10EB60F1C786BBF002EBC59 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10EB6051C786BBF002EBC59 /* HomeViewController.m */; };
 		A10EB6101C786BBF002EBC59 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10EB6071C786BBF002EBC59 /* LeftMenuViewController.m */; };
-		A10EB6161C787899002EBC59 /* home_kid.png in Resources */ = {isa = PBXBuildFile; fileRef = A10EB6151C787899002EBC59 /* home_kid.png */; };
 		A10EB61A1C789F5B002EBC59 /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A10EB6191C789F5B002EBC59 /* ProfileTableViewCell.m */; };
 		A10EB61D1C789F72002EBC59 /* RadioTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A10EB61C1C789F72002EBC59 /* RadioTypeTableViewCell.m */; };
 		A10EB6201C789F81002EBC59 /* HeartTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A10EB61F1C789F81002EBC59 /* HeartTypeTableViewCell.m */; };
@@ -102,6 +101,8 @@
 		A1EAD2D71CA98CFB008D2B37 /* ImmunationsGreyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2D61CA98CFB008D2B37 /* ImmunationsGreyTableViewCell.m */; };
 		A1EAD2DA1CA98D08008D2B37 /* ImmunationsWhiteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2D91CA98D08008D2B37 /* ImmunationsWhiteTableViewCell.m */; };
 		A1EAD2DD1CAEBC2B008D2B37 /* MedicationCategoryDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2DC1CAEBC2B008D2B37 /* MedicationCategoryDetail.m */; };
+		A1EAD2E31CB57057008D2B37 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2E21CB57057008D2B37 /* SettingsTableViewController.m */; };
+		A1EAD2E51CB57669008D2B37 /* home_kid.png in Resources */ = {isa = PBXBuildFile; fileRef = A1EAD2E41CB57669008D2B37 /* home_kid.png */; };
 		D82C28EB1C8F6FDC005798EA /* ScreeningExamination.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C28EA1C8F6FDC005798EA /* ScreeningExamination.m */; };
 		D82C28EE1C8F7012005798EA /* ScreeningOutcomeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C28ED1C8F7012005798EA /* ScreeningOutcomeOptions.m */; };
 		D82C28F11C8F7041005798EA /* ScreeningsOutcome.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C28F01C8F7041005798EA /* ScreeningsOutcome.m */; };
@@ -236,7 +237,6 @@
 		A10EB6051C786BBF002EBC59 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		A10EB6061C786BBF002EBC59 /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
 		A10EB6071C786BBF002EBC59 /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
-		A10EB6151C787899002EBC59 /* home_kid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_kid.png; sourceTree = "<group>"; };
 		A10EB6181C789F5B002EBC59 /* ProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
 		A10EB6191C789F5B002EBC59 /* ProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
 		A10EB61B1C789F72002EBC59 /* RadioTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioTypeTableViewCell.h; sourceTree = "<group>"; };
@@ -318,6 +318,9 @@
 		A1EAD2D91CA98D08008D2B37 /* ImmunationsWhiteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImmunationsWhiteTableViewCell.m; sourceTree = "<group>"; };
 		A1EAD2DB1CAEBC2B008D2B37 /* MedicationCategoryDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicationCategoryDetail.h; sourceTree = "<group>"; };
 		A1EAD2DC1CAEBC2B008D2B37 /* MedicationCategoryDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationCategoryDetail.m; sourceTree = "<group>"; };
+		A1EAD2E11CB57057008D2B37 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		A1EAD2E21CB57057008D2B37 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		A1EAD2E41CB57669008D2B37 /* home_kid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_kid.png; sourceTree = "<group>"; };
 		D82C28E91C8F6FDC005798EA /* ScreeningExamination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningExamination.h; sourceTree = "<group>"; };
 		D82C28EA1C8F6FDC005798EA /* ScreeningExamination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeningExamination.m; sourceTree = "<group>"; };
 		D82C28EC1C8F7012005798EA /* ScreeningOutcomeOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningOutcomeOptions.h; sourceTree = "<group>"; };
@@ -562,6 +565,7 @@
 		A10EB62B1C78B4A9002EBC59 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A1EAD2E41CB57669008D2B37 /* home_kid.png */,
 				A1EAD2CC1CA98235008D2B37 /* teeth.png */,
 				A1EAD2C11CA90855008D2B37 /* back.png */,
 				D8AB15C71C8E375B0062DAFE /* stop_watch_time.png */,
@@ -585,7 +589,6 @@
 				A10EB6251C78B3B8002EBC59 /* needle_icon.png */,
 				A10EB6211C78B027002EBC59 /* healthBooklet.png */,
 				A10EB6221C78B027002EBC59 /* enyc.png */,
-				A10EB6151C787899002EBC59 /* home_kid.png */,
 				A10EB5E81C784FBA002EBC59 /* blueBar.png */,
 				A13FC81C1C776F1600362A32 /* background_image.png */,
 				A10EB6441C79D394002EBC59 /* lock.png */,
@@ -684,6 +687,8 @@
 				D8F0AEF11CAF166300EE9BE5 /* ScreeningSummaryViewController.m */,
 				D8F0AEF21CAF166300EE9BE5 /* ScreenSumaryDetailCell.h */,
 				D8F0AEF31CAF166300EE9BE5 /* ScreenSumaryDetailCell.m */,
+				A1EAD2E11CB57057008D2B37 /* SettingsTableViewController.h */,
+				A1EAD2E21CB57057008D2B37 /* SettingsTableViewController.m */,
 				A1EAD2D11CA98CC4008D2B37 /* ImmunisationsCells */,
 				A13FC7F71C7748AC00362A32 /* LaunchScreen.storyboard */,
 				A13FC7FA1C7748AC00362A32 /* Info.plist */,
@@ -920,7 +925,6 @@
 				A1EAD2C21CA90855008D2B37 /* back.png in Resources */,
 				A10EB63A1C78C5FE002EBC59 /* blue_background_small.png in Resources */,
 				A10EB6491C79D69F002EBC59 /* button_bg.png in Resources */,
-				A10EB6161C787899002EBC59 /* home_kid.png in Resources */,
 				90FC54451CB1A7E300ED0E34 /* Readme.txt in Resources */,
 				D8AB15C81C8E375B0062DAFE /* stop_watch_time.png in Resources */,
 				A13FC81D1C776F1600362A32 /* background_image.png in Resources */,
@@ -963,6 +967,7 @@
 				A13FC8211C776F6800362A32 /* img_logo.png in Resources */,
 				A10EB6241C78B027002EBC59 /* enyc.png in Resources */,
 				A10EB63B1C78C5FE002EBC59 /* blue_line.png in Resources */,
+				A1EAD2E51CB57669008D2B37 /* home_kid.png in Resources */,
 				D87C07971C8788A100C118FC /* menu-button@2x.png in Resources */,
 				A13FC7F11C7748AC00362A32 /* Main.storyboard in Resources */,
 				D8B138151C90CF6F007B412D /* HelveticaNeueCyr-Light.otf in Resources */,
@@ -1095,6 +1100,7 @@
 				90000F591CB3533500BC9BFC /* MedicalConditionCell.m in Sources */,
 				D8970FB81C98A6FC009C752B /* EncyclopediaTapScroller.m in Sources */,
 				90FC54641CB1A83400ED0E34 /* DischargeInformationVC.m in Sources */,
+				A1EAD2E31CB57057008D2B37 /* SettingsTableViewController.m in Sources */,
 				90EED5AE1CB443F700401065 /* CommonScreeingCell.m in Sources */,
 				90EED5B71CB455D900401065 /* ConditionData.m in Sources */,
 				90EED5AB1CB440DA00401065 /* CommonScreeingData.m in Sources */,

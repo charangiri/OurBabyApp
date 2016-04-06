@@ -26,6 +26,10 @@
     
      self.navigationItem.rightBarButtonItem = [self addLeftButton];
 }
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
 
 -(UIBarButtonItem *)addLeftButton
 {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S6B-qe-PWf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S6B-qe-PWf">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -1499,7 +1499,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="aU8-Sa-HKO" firstAttribute="width" secondItem="aP3-TC-blI" secondAttribute="width" id="3bL-UC-5bB"/>
                             <constraint firstItem="C3U-NC-RPd" firstAttribute="width" secondItem="qlT-cK-8qf" secondAttribute="width" id="6bB-2J-ZhE"/>
@@ -1607,12 +1606,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baT-cW-47f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1206" y="-1348.5"/>
+            <point key="canvasLocation" x="1330" y="-1655"/>
         </scene>
         <!--Screening-->
         <scene sceneID="UmU-ta-SRX">
             <objects>
-                <viewController id="zck-ct-apZ" customClass="ScreeningViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Screening" id="zck-ct-apZ" customClass="ScreeningViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xDY-bc-Y0L"/>
                         <viewControllerLayoutGuide type="bottom" id="XS3-hs-ZWf"/>
@@ -1643,10 +1642,38 @@
             </objects>
             <point key="canvasLocation" x="1025" y="-354"/>
         </scene>
+        <!--Settings Table View Controller-->
+        <scene sceneID="I8q-Ku-v2l">
+            <objects>
+                <tableViewController storyboardIdentifier="Setting" id="awC-bh-cJv" customClass="SettingsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8eo-zW-7dr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KE1-w6-WHs">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KE1-w6-WHs" id="SRN-lv-uxy">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="awC-bh-cJv" id="XOu-Aa-4BV"/>
+                            <outlet property="delegate" destination="awC-bh-cJv" id="TjS-Px-nnm"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GG6-te-jab" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="993" y="-2986"/>
+        </scene>
         <!--Encyclopedia Tap Scroller-->
         <scene sceneID="cfW-ZL-ZUc">
             <objects>
-                <viewController id="ALA-Cj-thC" customClass="EncyclopediaTapScroller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EncyclopediaStoryBoard" id="ALA-Cj-thC" customClass="EncyclopediaTapScroller" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ls5-W8-9XG"/>
                         <viewControllerLayoutGuide type="bottom" id="9YA-fQ-gRL"/>
@@ -2276,7 +2303,7 @@
         <!--Immunisation-->
         <scene sceneID="MJf-SD-LUF">
             <objects>
-                <tableViewController title="Immunisation" id="Kqg-7j-Ftc" customClass="immunisationTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Immunisation" title="Immunisation" id="Kqg-7j-Ftc" customClass="immunisationTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="jEm-FW-Ks8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2480,7 +2507,7 @@
         <!--Growth Summary-->
         <scene sceneID="V48-5o-Be2">
             <objects>
-                <viewController id="Rqw-rf-a80" customClass="GrowthSummary" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Growth" id="Rqw-rf-a80" customClass="GrowthSummary" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oO4-xz-Z3T"/>
                         <viewControllerLayoutGuide type="bottom" id="rIN-Hg-WzB"/>
@@ -2502,7 +2529,7 @@
         <!--Health Booklet View Controller-->
         <scene sceneID="4yK-8Z-9al">
             <objects>
-                <viewController id="el2-8O-KkR" customClass="HealthBookletViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Health" id="el2-8O-KkR" customClass="HealthBookletViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UaO-ed-MCh"/>
                         <viewControllerLayoutGuide type="bottom" id="rij-Cr-5nz"/>
@@ -7049,7 +7076,7 @@
         <image name="down_arrow.png" width="20" height="20"/>
         <image name="enyc.png" width="154" height="88"/>
         <image name="healthBooklet.png" width="159" height="93"/>
-        <image name="home_kid.png" width="145" height="181"/>
+        <image name="home_kid.png" width="192" height="298"/>
         <image name="img_logo.png" width="237" height="337"/>
         <image name="lock.png" width="36" height="42"/>
         <image name="mail.png" width="42" height="32"/>

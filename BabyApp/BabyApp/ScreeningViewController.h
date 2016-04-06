@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ScreeningViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+#import "SlideNavigationController.h"
+@interface ScreeningViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,SlideNavigationControllerDelegate>
 @property (nonatomic) UITableView *screeningTable;
 
 @end

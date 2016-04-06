@@ -15,7 +15,10 @@
 @implementation GrowthSummary
 @synthesize growthSummaryTable;
 NSArray *labelArrayGrowthSummary;
-
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
