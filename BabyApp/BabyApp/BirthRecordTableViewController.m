@@ -29,13 +29,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.minDurationView.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.minDurationView.layer.borderWidth = 1.0f;
-    
-    
     self.maxDurationView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.maxDurationView.layer.borderWidth = 1.0f;
     
+    self.minDurationView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.minDurationView.layer.borderWidth = 1.0f;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
