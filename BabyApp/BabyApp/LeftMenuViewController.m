@@ -41,7 +41,7 @@
     dropdownSelected=NO;
 //@"Baby Booklet"
     section1Array=[NSArray arrayWithObjects:@"New Immunisation",@"New Screening", nil];
-    section2Array=[NSArray arrayWithObjects:@"New Immunisation",@"New Screening",@"My Growth Percentiles",@"Health Book",@"Encyclopedia", nil];
+    section2Array=[NSArray arrayWithObjects:@"My Immunisation",@"My Screening",@"My Growth Percentiles",@"Health Book",@"Encyclopedia", nil];
     section3Array=[NSArray arrayWithObjects:@"Settings",@"Sign Out", nil];
 
 
@@ -192,10 +192,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle: nil];
     
+    UIViewController *vc ;
     
-    if (indexPath.row==0 && indexPath.section==0) {
+    if ( indexPath.section==0) {
         
+        if (indexPath.row==0 ) {
+            
         
         if (dropdownSelected) {
             dropdownSelected=NO;
@@ -207,15 +212,27 @@
             dropdownSelected=YES;
         }
         [self.tableView reloadData];
+        }
+        else
+        {
+            dropdownSelected=NO;
+            noofSections=4;
+            [self.tableView reloadData];
+
+             vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
+            [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:NO];
+            
+            
+            [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
+                                                                     withSlideOutAnimation:self.slideOutAnimationEnabled
+                                                                             andCompletion:nil];
+        }
     }
     else if (!dropdownSelected) {
         
         
         
-        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-                                                                 bundle: nil];
-        
-        UIViewController *vc ;
+
         
         if (indexPath.section==1) {
             
