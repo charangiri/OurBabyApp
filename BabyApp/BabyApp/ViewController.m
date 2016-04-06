@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "ConnectionsManager.h"
+#import "NSString+CommonForApp.h"
 
 #define kOFFSET_FOR_KEYBOARD 100.0
 
-@interface ViewController ()
+@interface ViewController () <ServerResponseDelegate>
 
 @end
 
@@ -236,10 +238,49 @@
 
 - (IBAction)signupAction:(id)sender {
     
+    if([self isValidData])
+    {
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        [params setObject:self.usernameTextfield.text forKey:@"email"];
+        [params setObject:self.passwordTextfield.text forKey:@"password"];
+        [params setObject:@"ios" forKey:@"device"];
+        
+        
+        [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
+    }
+    
+    //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+}
+
+-(BOOL)isValidData
+{
+    if(![self.usernameTextfield.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid email address" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.passwordTextfield.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid password" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        return NO;
+    }
+    
+    return YES;
+}
+
+-(void)success:(NSDictionary *)response
+{
     
 }
 
 
+-(void)failure:(NSDictionary *)response
+{
+    
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     

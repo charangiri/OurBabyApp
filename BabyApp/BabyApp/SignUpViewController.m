@@ -7,12 +7,13 @@
 //
 
 #import "SignUpViewController.h"
-
+#import "ConnectionsManager.h"
+#import "NSString+CommonForApp.h"
 
 #define kOFFSET_FOR_KEYBOARD 100.0
 
 
-@interface SignUpViewController ()
+@interface SignUpViewController () <ServerResponseDelegate>
 
 @end
 
@@ -88,7 +89,48 @@
 */
 
 - (IBAction)createAccount:(id)sender {
-    //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
 
+    if([self isValidData])
+    {
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        [params setObject:self.email.text forKey:@"email"];
+        [params setObject:self.passwordTF.text forKey:@"password"];
+        [params setObject:@"ios" forKey:@"device"];
+        
+        
+        [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
+    }
+    
+    //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+}
+
+-(BOOL)isValidData
+{
+    if(![self.email.text isValidEmail])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid email address" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.passwordTF.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid password" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        return NO;
+    }
+    
+    return YES;
+}
+
+-(void)success:(NSDictionary *)response
+{
+    
+}
+
+
+-(void)failure:(NSDictionary *)response
+{
+    
 }
 @end
