@@ -39,8 +39,8 @@
 	[super viewDidLoad];
     noofSections=4;
     dropdownSelected=NO;
-
-    section1Array=[NSArray arrayWithObjects:@"Baby Booklet",@"New Immunisation",@"New Screening", nil];
+//@"Baby Booklet"
+    section1Array=[NSArray arrayWithObjects:@"New Immunisation",@"New Screening", nil];
     section2Array=[NSArray arrayWithObjects:@"New Immunisation",@"New Screening",@"My Growth Percentiles",@"Health Book",@"Encyclopedia", nil];
     section3Array=[NSArray arrayWithObjects:@"Settings",@"Sign Out", nil];
 
@@ -73,14 +73,14 @@
             sectionName = @"";
             break;
         case 1:
-            sectionName = @"MY OPTIONS";
+            sectionName = @"";
             break;
         case 2:
             sectionName = @"Main menu";
             break;
             
         case 3:
-            sectionName=  @"OTHERS";
+            sectionName=  @"";
             break;
             // ...
         default:
@@ -222,15 +222,15 @@
             
             switch (indexPath.row)
             {
+//                case 0:
+//                    vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
+//                    break;
+//                    
                 case 0:
-                    vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
-                    break;
-                    
-                case 1:
                     vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Immunisation"];
                     break;
                     
-                case 2:
+                case 1:
                     vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Screening"];
                     break;
                     
