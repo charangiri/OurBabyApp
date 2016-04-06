@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface EncyclopediaTapScroller : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+#import "SlideNavigationController.h"
+@interface EncyclopediaTapScroller : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,SlideNavigationControllerDelegate>
 @property (nonatomic) UITableView *scrollerTable,*scrollerTable2;
 
 

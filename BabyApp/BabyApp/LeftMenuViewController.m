@@ -191,54 +191,101 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	
     
-    /*
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone"
-															 bundle: nil];
-	
-	UIViewController *vc ;
-	
-	switch (indexPath.row)
-	{
-		case 0:
-			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
-			break;
-			
-		case 1:
-			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ProfileViewController"];
-			break;
-			
-		case 2:
-			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"FriendsViewController"];
-			break;
-			
-		case 3:
-			[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-			[[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
-			return;
-			break;
-	}
-	
-	[[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
-															 withSlideOutAnimation:self.slideOutAnimationEnabled
-																	 andCompletion:nil];
-     
-     */
+    
     
     if (indexPath.row==0 && indexPath.section==0) {
         
-    
-    if (dropdownSelected) {
-        dropdownSelected=NO;
-        noofSections=4;
+        
+        if (dropdownSelected) {
+            dropdownSelected=NO;
+            noofSections=4;
+        }
+        else
+        {
+            noofSections=1;
+            dropdownSelected=YES;
+        }
+        [self.tableView reloadData];
     }
-    else
-    {
-        noofSections=1;
-        dropdownSelected=YES;
-    }
-    [self.tableView reloadData];
+    else if (!dropdownSelected) {
+        
+        
+        
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                                 bundle: nil];
+        
+        UIViewController *vc ;
+        
+        if (indexPath.section==1) {
+            
+            
+            switch (indexPath.row)
+            {
+                case 0:
+                    vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
+                    break;
+                    
+                case 1:
+                    vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Immunisation"];
+                    break;
+                    
+                case 2:
+                    vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Screening"];
+                    break;
+                    
+            }
+        }
+        
+        else if (indexPath.section==2) {
+            
+            
+            switch (indexPath.row)
+            {
+                case 0:
+                    vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Immunisation"];
+                    break;
+                    
+                case 1:
+                    vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Screening"];
+                    break;
+                    
+                case 2:
+                    vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Growth"];
+                    break;
+                    
+                case 3:
+                    vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Health"];
+                    break;
+                case 4:
+                    vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"EncyclopediaStoryBoard"];
+                    break;
+            }
+        }
+        else
+        {
+            if (indexPath.row==0) {
+                vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Setting"];
+                
+            }
+            else
+            {
+                [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:NO];
+                return;
+                
+                
+            }
+            
+            
+            
+        }
+        [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:NO];
+        
+        
+        [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
+                                                                 withSlideOutAnimation:self.slideOutAnimationEnabled
+                                                                         andCompletion:nil];
+        
     }
 }
 

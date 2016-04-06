@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface immunisationTableViewController : UITableViewController
+#import "SlideNavigationController.h"
+@interface immunisationTableViewController : UITableViewController<SlideNavigationControllerDelegate>
 
 @end

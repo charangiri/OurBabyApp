@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface GrowthSummary : UIViewController<UITableViewDataSource,UITableViewDelegate>
+#import "SlideNavigationController.h"
+@interface GrowthSummary : UIViewController<UITableViewDataSource,UITableViewDelegate,SlideNavigationControllerDelegate>
 @property (nonatomic) UITableView *growthSummaryTable;
 
 @end

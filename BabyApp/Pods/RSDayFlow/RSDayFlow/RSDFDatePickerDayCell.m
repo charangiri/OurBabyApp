@@ -141,7 +141,7 @@
 - (UIColor *)markImageColor
 {
     if (!_markImageColor) {
-        _markImageColor = [UIColor colorWithRed:184/255.0f green:184/255.0f blue:184/255.0f alpha:1.0f];
+        _markImageColor = [UIColor colorWithRed:103/255.0f green:231/255.0f blue:223/255.0f alpha:1.0f];
     }
     return _markImageColor;
 }
@@ -213,7 +213,7 @@
     self.overlayImageView.hidden = !self.isHighlighted || self.isNotThisMonth || self.isOutOfRange;
     self.markImageView.hidden = !self.isMarked || self.isNotThisMonth || self.isOutOfRange;
     self.dividerImageView.hidden = self.isNotThisMonth;
-
+    
     if (self.isNotThisMonth) {
         self.dateLabel.textColor = [self notThisMonthLabelTextColor];
         self.dateLabel.font = [self dayLabelFont];
@@ -262,7 +262,7 @@
             }
         }
     }
-
+    
 }
 
 + (NSCache *)imageCache
@@ -338,7 +338,7 @@
 
 - (UIColor *)dayLabelTextColor
 {
-    return [UIColor blackColor];
+    return [UIColor grayColor];
 }
 
 - (UIColor *)dayOffLabelTextColor
@@ -378,7 +378,7 @@
 
 - (UIColor *)todayLabelTextColor
 {
-    return [UIColor colorWithRed:0/255.0f green:121/255.0f blue:255/255.0f alpha:1.0f];
+    return [UIColor colorWithRed:103/255.0f green:231/255.0f blue:223/255.0f alpha:1.0f];
 }
 
 - (UIFont *)selectedTodayLabelFont
@@ -393,7 +393,7 @@
 
 - (UIColor *)selectedTodayImageColor
 {
-    return [UIColor colorWithRed:0/255.0f green:121/255.0f blue:255/255.0f alpha:1.0f];
+    return [UIColor colorWithRed:103/255.0f green:231/255.0f blue:223/255.0f alpha:1.0f];
 }
 
 - (UIImage *)customSelectedTodayImage
@@ -424,7 +424,7 @@
 
 - (UIColor *)selectedDayImageColor
 {
-    return [UIColor colorWithRed:255/255.0f green:59/255.0f blue:48/255.0f alpha:1.0f];
+    return [UIColor colorWithRed:103/255.0f green:231/255.0f blue:223/255.0f alpha:1.0f];
 }
 
 - (UIImage *)customSelectedDayImage
@@ -466,7 +466,9 @@
 
 - (UIColor *)dividerImageColor
 {
-    return [UIColor colorWithRed:200/255.0f green:200/255.0f blue:200/255.0f alpha:1.0f];
+    //    return [UIColor colorWithRed:200/255.0f green:200/255.0f blue:200/255.0f alpha:1.0f];
+    return [UIColor clearColor];
+    
 }
 
 - (UIImage *)customDividerImage

@@ -33,11 +33,11 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-	self = [super initWithFrame:frame];
-	if (self) {
-		[self commonInitializer];
-	}
-	return self;
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self commonInitializer];
+    }
+    return self;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -58,16 +58,16 @@
 
 - (UILabel *)dateLabel
 {
-	if (!_dateLabel) {
-		_dateLabel = [[UILabel alloc] initWithFrame:self.bounds];
+    if (!_dateLabel) {
+        _dateLabel = [[UILabel alloc] initWithFrame:self.bounds];
         _dateLabel.backgroundColor = [UIColor clearColor];
         _dateLabel.opaque = NO;
-		_dateLabel.textAlignment = NSTextAlignmentLeft;
-		_dateLabel.font = [self monthLabelFont];
-		_dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-		[self addSubview:_dateLabel];
-	}
-	return _dateLabel;
+        _dateLabel.textAlignment = NSTextAlignmentLeft;
+        _dateLabel.font = [self monthLabelFont];
+        _dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self addSubview:_dateLabel];
+    }
+    return _dateLabel;
 }
 
 - (void)setDate:(RSDFDatePickerDate)date
@@ -101,12 +101,12 @@
 
 - (UIColor *)monthLabelTextColor
 {
-    return [UIColor colorWithRed:32/255.0f green:135/255.0f blue:252/255.0f alpha:1.0f];
+    return [UIColor colorWithRed:103/255.0f green:231/255.0f blue:223/255.0f alpha:1.0f];
 }
 
 - (UIColor *)currentMonthLabelTextColor
 {
-    return [UIColor colorWithRed:32/255.0f green:135/255.0f blue:252/255.0f alpha:1.0f];
+    return [UIColor colorWithRed:103/255.0f green:231/255.0f blue:223/255.0f alpha:1.0f];
 }
 
 @end
