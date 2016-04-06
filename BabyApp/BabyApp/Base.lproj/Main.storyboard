@@ -3543,9 +3543,12 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCA-6P-0OM">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCA-6P-0OM">
                                                         <rect key="frame" x="20" y="74" width="300" height="1"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="5Jz-zi-DhZ"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -3584,13 +3587,13 @@
                                                                 <color key="backgroundColor" red="0.2274509804" green="0.56862745100000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3K-D0-cop">
-                                                                <rect key="frame" x="70" y="9" width="77" height="21"/>
+                                                                <rect key="frame" x="70" y="5" width="77" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9 Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMF-Ft-YTH">
-                                                                <rect key="frame" x="70" y="40" width="77" height="21"/>
+                                                                <rect key="frame" x="70" y="35" width="77" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -3605,11 +3608,14 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.2274509804" green="0.56862745100000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="FCA-6P-0OM" secondAttribute="bottom" id="1F9-im-Eej"/>
                                                     <constraint firstItem="qPZ-6v-3nn" firstAttribute="top" secondItem="3f1-sC-ueM" secondAttribute="top" constant="20" id="2Pm-I8-Bnw"/>
+                                                    <constraint firstAttribute="trailing" secondItem="FCA-6P-0OM" secondAttribute="trailing" id="4NX-jM-ObJ"/>
                                                     <constraint firstAttribute="height" constant="75" id="VL3-Us-9ca"/>
                                                     <constraint firstItem="PJ2-K4-KIu" firstAttribute="top" secondItem="3f1-sC-ueM" secondAttribute="top" constant="5" id="VQQ-hn-hLo"/>
                                                     <constraint firstItem="qPZ-6v-3nn" firstAttribute="leading" secondItem="3f1-sC-ueM" secondAttribute="leading" constant="20" id="g7Y-SO-OJI"/>
                                                     <constraint firstItem="PJ2-K4-KIu" firstAttribute="leading" secondItem="qPZ-6v-3nn" secondAttribute="trailing" constant="3" id="hl4-DN-NJ5"/>
+                                                    <constraint firstItem="FCA-6P-0OM" firstAttribute="leading" secondItem="3f1-sC-ueM" secondAttribute="leading" constant="20" id="sCR-II-DAI"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
