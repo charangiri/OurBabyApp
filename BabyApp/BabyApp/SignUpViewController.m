@@ -90,16 +90,16 @@
 
 - (IBAction)createAccount:(id)sender {
 
-    if([self isValidData])
-    {
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        [params setObject:self.email.text forKey:@"email"];
-        [params setObject:self.passwordTF.text forKey:@"password"];
-        [params setObject:@"ios" forKey:@"device"];
-        
-        
-        [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
-    }
+//    if([self isValidData])
+//    {
+//        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+//        [params setObject:self.email.text forKey:@"email"];
+//        [params setObject:self.passwordTF.text forKey:@"password"];
+//        [params setObject:@"ios" forKey:@"device"];
+//        
+//        
+//        [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
+//    }
     
     //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
 }

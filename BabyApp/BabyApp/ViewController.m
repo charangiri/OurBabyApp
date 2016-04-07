@@ -247,7 +247,7 @@
 
 - (IBAction)signupAction:(id)sender {
     
-   /* if([self isValidData])
+    if([self isValidData])
     {
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         [params setObject:self.usernameTextfield.text forKey:@"email"];
@@ -257,7 +257,7 @@
         
         [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
     }
-    */
+    
     [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
 }
 
