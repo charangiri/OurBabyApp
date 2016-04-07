@@ -244,7 +244,7 @@
 //                    break;
 //                    
                 case 0:
-                    vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Immunisation"];
+                    vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"NewImmunisationVC_SB_ID"];
                     break;
                     
                 case 1:

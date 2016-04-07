@@ -11,7 +11,7 @@
 #import "NSString+CommonForApp.h"
 
 #define kOFFSET_FOR_KEYBOARD 100.0
-
+#import "HomeViewController.h"
 @interface ViewController () <ServerResponseDelegate>
 
 @end
@@ -176,10 +176,19 @@
     return YES;
 }
 - (IBAction)signinAction:(id)sender {
-     [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+    
+  //  HomeViewController
+     //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle: nil];
+    HomeViewController *newView = [mainStoryboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    [self.navigationController pushViewController:newView animated:YES];
+    
 }
 
-- (IBAction)facebookSigninAction:(id)sender {
+- (IBAction)facebookSigninAction:(id)sender
+{
+    
 }
 
 - (IBAction)forgotPasswordAction:(id)sender {
@@ -238,7 +247,7 @@
 
 - (IBAction)signupAction:(id)sender {
     
-    if([self isValidData])
+   /* if([self isValidData])
     {
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         [params setObject:self.usernameTextfield.text forKey:@"email"];
@@ -248,8 +257,8 @@
         
         [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
     }
-    
-    //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+    */
+    [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
 }
 
 -(BOOL)isValidData
