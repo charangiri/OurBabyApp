@@ -111,7 +111,7 @@
     cell.imageViewContent.image=[UIImage imageNamed:imagesNames[indexPath.row]];
     cell.titleLabel.text=titlesArray[indexPath.row];
     cell.titleLabel.textColor=[ self colorWithHexString:colorArray[indexPath.row]];
-    cell.subtitleLabel.text=@"Not yet started";
+    cell.subtitleLabel.text=@"No entry yet";
     cell.subtitleLabel.textColor=[UIColor grayColor];
     
     return cell;
