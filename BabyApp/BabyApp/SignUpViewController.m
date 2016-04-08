@@ -88,20 +88,19 @@
 }
 */
 
-- (IBAction)createAccount:(id)sender {
+- (IBAction)createAccount:(id)sender {    //put code here for registration
 
+    NSLog(@"createAccount");
 //    if([self isValidData])
 //    {
 //        NSMutableDictionary *params = [NSMutableDictionary dictionary];
 //        [params setObject:self.email.text forKey:@"email"];
 //        [params setObject:self.passwordTF.text forKey:@"password"];
 //        [params setObject:@"ios" forKey:@"device"];
-//        
-//        
 //        [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
 //    }
     
-    //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+    [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
 }
 
 -(BOOL)isValidData

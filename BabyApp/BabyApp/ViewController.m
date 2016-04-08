@@ -7,12 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "ConnectionsManager.h"
-#import "NSString+CommonForApp.h"
 
 #define kOFFSET_FOR_KEYBOARD 100.0
-#import "HomeViewController.h"
-@interface ViewController () <ServerResponseDelegate>
+
+@interface ViewController ()
 
 @end
 
@@ -20,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.navigationController.navigationBarHidden=YES;
     
     for (NSString* family in [UIFont familyNames])
@@ -32,7 +30,7 @@
             NSLog(@"  %@", name);
         }
     }
-
+    
 }
 
 //
@@ -61,13 +59,13 @@
 //
 //-(void)textFieldDidBeginEditing:(UITextField *)sender
 //{
-//    
+//
 //        //move the main view, so that the keyboard does not hide it.
 //        if  (self.view.frame.origin.y >= 0)
 //        {
 //            [self setViewMovedUp:YES];
 //        }
-//    
+//
 //}
 //
 ////method to move the view up/down whenever the keyboard is shown/dismissed
@@ -75,7 +73,7 @@
 //{
 //    [UIView beginAnimations:nil context:NULL];
 //    [UIView setAnimationDuration:0.3]; // if you want to slide up the view
-//    
+//
 //    CGRect rect = self.view.frame;
 //    if (movedUp)
 //    {
@@ -91,7 +89,7 @@
 //        rect.size.height -= kOFFSET_FOR_KEYBOARD;
 //    }
 //    self.view.frame = rect;
-//    
+//
 //    [UIView commitAnimations];
 //}
 //
@@ -104,7 +102,7 @@
 //                                             selector:@selector(keyboardWillShow)
 //                                                 name:UIKeyboardWillShowNotification
 //                                               object:nil];
-//    
+//
 //    [[NSNotificationCenter defaultCenter] addObserver:self
 //                                             selector:@selector(keyboardWillHide)
 //                                                 name:UIKeyboardWillHideNotification
@@ -118,7 +116,7 @@
 //    [[NSNotificationCenter defaultCenter] removeObserver:self
 //                                                    name:UIKeyboardWillShowNotification
 //                                                  object:nil];
-//    
+//
 //    [[NSNotificationCenter defaultCenter] removeObserver:self
 //                                                    name:UIKeyboardWillHideNotification
 //                                                  object:nil];
@@ -176,19 +174,11 @@
     return YES;
 }
 - (IBAction)signinAction:(id)sender {
-    
-  //  HomeViewController
-     //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-                                                             bundle: nil];
-    HomeViewController *newView = [mainStoryboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-    [self.navigationController pushViewController:newView animated:YES];
-    
+    NSLog(@"signinAction");
+    [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
 }
 
-- (IBAction)facebookSigninAction:(id)sender
-{
-    
+- (IBAction)facebookSigninAction:(id)sender {
 }
 
 - (IBAction)forgotPasswordAction:(id)sender {
@@ -247,49 +237,10 @@
 
 - (IBAction)signupAction:(id)sender {
     
-    if([self isValidData])
-    {
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        [params setObject:self.usernameTextfield.text forKey:@"email"];
-        [params setObject:self.passwordTextfield.text forKey:@"password"];
-        [params setObject:@"ios" forKey:@"device"];
-        
-        
-        [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
-    }
-    
-    [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
-}
-
--(BOOL)isValidData
-{
-    if(![self.usernameTextfield.text isEmpty])
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid email address" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [alert show];
-        
-        return NO;
-    }
-    if([self.passwordTextfield.text isEmpty])
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid password" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [alert show];
-        return NO;
-    }
-    
-    return YES;
-}
-
--(void)success:(NSDictionary *)response
-{
-    
+    NSLog(@"signupAction");
 }
 
 
--(void)failure:(NSDictionary *)response
-{
-    
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     

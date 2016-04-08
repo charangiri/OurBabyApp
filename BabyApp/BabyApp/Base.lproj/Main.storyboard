@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S6B-qe-PWf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S6B-qe-PWf">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -404,6 +404,7 @@
                                 <exclude reference="Ixu-su-NlZ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Kfs-QT-Exb"/>
                                 <exclude reference="aUL-6j-reV"/>
                                 <exclude reference="sXA-Lg-Yg0"/>
                                 <exclude reference="Aoc-aM-bEh"/>
@@ -420,7 +421,6 @@
                                 <exclude reference="WhD-EK-o4h"/>
                                 <exclude reference="IRy-ic-WT7"/>
                                 <exclude reference="e7c-mG-Pkx"/>
-                                <exclude reference="Kfs-QT-Exb"/>
                                 <exclude reference="nvS-vU-3tS"/>
                                 <exclude reference="6rH-mC-FIP"/>
                                 <exclude reference="Lxr-Sw-vek"/>
@@ -437,6 +437,7 @@
                                 <include reference="Ixu-su-NlZ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Kfs-QT-Exb"/>
                                 <include reference="aUL-6j-reV"/>
                                 <include reference="sXA-Lg-Yg0"/>
                                 <include reference="Aoc-aM-bEh"/>
@@ -453,7 +454,6 @@
                                 <include reference="WhD-EK-o4h"/>
                                 <include reference="IRy-ic-WT7"/>
                                 <include reference="e7c-mG-Pkx"/>
-                                <include reference="Kfs-QT-Exb"/>
                                 <include reference="nvS-vU-3tS"/>
                                 <include reference="6rH-mC-FIP"/>
                                 <include reference="Lxr-Sw-vek"/>
@@ -470,16 +470,17 @@
                     <connections>
                         <outlet property="passwordTextfield" destination="jK3-3l-52w" id="jMA-BS-Yqg"/>
                         <outlet property="usernameTextfield" destination="Pav-LT-SyP" id="vko-3c-aBn"/>
+                        <segue destination="09H-zJ-xMF" kind="show" identifier="HomeViewControllerSegue" id="4bi-xS-MzQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="-1564"/>
+            <point key="canvasLocation" x="215" y="-1571"/>
         </scene>
         <!--Create Account-->
         <scene sceneID="gGA-Ws-t4h">
             <objects>
-                <viewController title="Create Account" id="jey-Ku-PKZ" customClass="SignUpViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpView" title="Create Account" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jey-Ku-PKZ" customClass="SignUpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bRx-ZT-Gkd"/>
                         <viewControllerLayoutGuide type="bottom" id="O3u-Tf-1Rf"/>
@@ -759,11 +760,12 @@
                     <connections>
                         <outlet property="email" destination="tXV-S2-mSP" id="5DJ-L4-7MI"/>
                         <outlet property="passwordTF" destination="eSB-MR-9yl" id="YUB-H0-tNB"/>
+                        <segue destination="09H-zJ-xMF" kind="show" identifier="HomeViewControllerSegue" id="Nyv-Vq-ep7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvY-hL-clG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="705" y="-926"/>
+            <point key="canvasLocation" x="403" y="-961"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="ORb-Rv-B6x">
@@ -1603,11 +1605,12 @@
                         <segue destination="ALA-Cj-thC" kind="show" identifier="encyclopediatapscrollersegu" id="qpY-59-97d"/>
                         <segue destination="Rqw-rf-a80" kind="show" identifier="growthsummarysegu" id="a5T-JE-65k"/>
                         <segue destination="el2-8O-KkR" kind="show" identifier="healthBookletsegue" id="toa-Hd-np6"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="t3e-3v-ibD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baT-cW-47f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="-1737"/>
+            <point key="canvasLocation" x="853" y="-1256"/>
         </scene>
         <!--Screening-->
         <scene sceneID="UmU-ta-SRX">
@@ -1630,7 +1633,6 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <segue destination="09H-zJ-xMF" kind="show" identifier="screenpagesegu" id="Z43-no-74V"/>
                         <segue destination="Q04-t1-Zqh" kind="show" identifier="parentalconcernsegu" id="DSt-Bc-FCb"/>
                         <segue destination="dIa-7J-XRO" kind="show" identifier="growthsegu" id="erK-ZH-Gxl"/>
                         <segue destination="b1e-rh-CAd" kind="show" identifier="otherscreensegu" id="J8H-lw-5WP"/>
@@ -7570,4 +7572,8 @@
         <image name="right_arrow.png" width="128" height="128"/>
         <image name="time" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Nyv-Vq-ep7"/>
+        <segue reference="t3e-3v-ibD"/>
+    </inferredMetricsTieBreakers>
 </document>
