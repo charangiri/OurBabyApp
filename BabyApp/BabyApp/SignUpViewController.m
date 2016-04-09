@@ -14,7 +14,8 @@
 
 
 @interface SignUpViewController () <ServerResponseDelegate>
-
+@property (retain, nonatomic) NSMutableData *receivedData;
+@property (retain, nonatomic) NSURLConnection *connection;
 @end
 
 @implementation SignUpViewController

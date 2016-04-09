@@ -54,22 +54,26 @@ static NSString * const BaseURLString = BaseUrl;
     //createGroup
     urlString = [NSString stringWithFormat:@"%@%@", BaseURLString, url];
     NSDictionary *tmpParameters = parameters;
-    if([url isEqualToString:@"cfpuser/create"] || [url isEqualToString:@"userContacts/getAppUsers"])
+   /* if([url isEqualToString:@"cfpuser/create"] || [url isEqualToString:@"userContacts/getAppUsers"])
     {
         [self.requestSerializer setTimeoutInterval:600.0];
     }
     else {
         
         [self.requestSerializer setTimeoutInterval:12.0];
-    }
+    }*/
     
+    [self.requestSerializer setTimeoutInterval:20.0];
+
     [self POST:urlString parameters:tmpParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
+        //NSString *str=(NSString*)responseObject;
+        NSLog(@"str");
         UIApplication *application = [UIApplication sharedApplication];
         AppDelegate *appDelegateRef = (AppDelegate *)application.delegate;
-        //[application endBackgroundTask:appDelegateRef.backgroundTaskIdentifier];
         
         if (responseObject) {
+            
             
             NSDictionary *response = [responseObject objectForKey:@"response"];
             
