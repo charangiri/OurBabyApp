@@ -7,16 +7,11 @@
 //
 
 #import "ViewController.h"
-
 #import "ConnectionsManager.h"
-#import "NSString+CommonForApp.h"
-
 
 #define kOFFSET_FOR_KEYBOARD 100.0
 
-@interface ViewController ()<ServerResponseDelegate>
-@property (retain, nonatomic) NSMutableData *receivedData;
-@property (retain, nonatomic) NSURLConnection *connection;
+@interface ViewController ()<ServerResponseDelegate, UIAlertViewDelegate>
 
 @end
 
@@ -181,20 +176,7 @@
 }
 - (IBAction)signinAction:(id)sender {
     NSLog(@"signinAction");
-    
-   /* NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:self.usernameTextfield.text forKey:@"email"];
-    [params setObject:self.passwordTextfield.text forKey:@"password"];
-    [params setObject:@"ios" forKey:@"device"];
-    
-    NSLog(@"Loging web service Passing arguments=%@",params);
-    [[ConnectionsManager sharedManager] loginUser:params withdelegate:self];*/
-    
-    
-
-    
-    //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
-    [self requesttoserver];
+    [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
 }
 
 - (IBAction)facebookSigninAction:(id)sender {
@@ -215,6 +197,8 @@
                                                    handler:^(UIAlertAction * action){
                                                        //Do Some action here
                                                        UITextField *textField = alert.textFields[0];
+                                                       [self getForgotPassword:textField.text];
+                                                       
                                                        NSLog(@"text was %@", textField.text);
                                                        
                                                    }];
@@ -254,107 +238,37 @@
     }
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *name = [alertView textFieldAtIndex:0].text;
+    [self getForgotPassword:name];
+}
+
+-(void)getForgotPassword:(NSString *)emailAddress
+{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    [dictionary setObject:emailAddress forKey:@"email"];
+    
+    [[ConnectionsManager sharedManager] getForgotPassword:dictionary withdelegate:self];
+}
+
 - (IBAction)signupAction:(id)sender {
     
     NSLog(@"signupAction");
 }
 
--(BOOL)isValidData
-{
-    if(![self.usernameTextfield.text isEmpty])
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid email address" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [alert show];
-        
-        return NO;
-    }
-    if([self.passwordTextfield.text isEmpty])
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid password" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [alert show];
-        return NO;
-    }
-    
-    return YES;
-}
-
-
--(void)requesttoserver
-{
-    
-    //if there is a connection going on just cancel it.
-    [self.connection cancel];
-    
-    //initialize new mutable data
-    NSMutableData *data = [[NSMutableData alloc] init];
-    self.receivedData = data;
-    
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:self.usernameTextfield.text forKey:@"email"];
-    [params setObject:self.passwordTextfield.text forKey:@"password"];
-    [params setObject:@"ios" forKey:@"device"];
-    
-    NSString *Post=[NSString stringWithFormat:@"email=%@&password=%@&@device=ios",self.usernameTextfield.text,self.passwordTextfield.text];
-    
-    NSData *PostData = [Post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
-    NSString *PostLengh=[NSString stringWithFormat:@"%d",[Post length]];
-    NSURL *Url=[NSURL URLWithString: @"http://babyappdev.azurewebsites.net/apiv1/service/login/"];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:Url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:PostLengh forHTTPHeaderField:@"Content-Lenght"];
-    [request setHTTPBody:PostData];
-
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    self.connection = connection;
-    
-    [connection start];
-    
-    
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
-    [self.receivedData appendData:data];
-    
-}
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-    
-    NSLog(@"error%@" , error);
-}
--(void)connectionDidFinishLoading:(NSURLConnection *)connection{
-   // NSString *htmlSTR = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
-    
-    NSError* error;
-    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:self.receivedData
-                                                         options:kNilOptions error:&error];
-    NSLog(@"connectionDidFinishLoading =%@",json);
-    if([[json objectForKey:@"status"] isEqualToString:@"1"])
-    {
-   // [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"userData"];
-    [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
-
-    }
-}
-
-
--(void)success:(NSDictionary *)response
-{
-    NSLog(@"success response=%@",response);
-    [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
-
-}
-
-
--(void)failure:(NSDictionary *)response
-{
-    NSLog(@"failure response=%@",response);
-
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
+    
+}
+
+-(void)success:(id)response
+{
+    
+}
+
+-(void)failure:(id)response
+{
     
 }
 

@@ -15,5 +15,6 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 
 -(void)loginUser:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 -(void)registerUser:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)getForgotPassword:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 
 @end

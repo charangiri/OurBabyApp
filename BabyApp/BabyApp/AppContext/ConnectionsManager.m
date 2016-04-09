@@ -205,4 +205,9 @@ static NSString * const BaseURLString = BaseUrl;
     [self getToURL:@"signup" withParameters:params delegate:delegate];
 }
 
+-(void)getForgotPassword:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"forgot_password" withParameters:params delegate:delegate];
+}
+
 @end
