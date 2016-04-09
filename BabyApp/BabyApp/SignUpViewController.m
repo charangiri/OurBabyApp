@@ -97,10 +97,10 @@
     if([self isValidData])
     {
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        [params setObject:@"Atul" forKey:@"name"];   //
         [params setObject:self.email.text forKey:@"email"];
         [params setObject:self.passwordTF.text forKey:@"password"];
         [params setObject:@"ios" forKey:@"device"];
-        
         [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
     }
     

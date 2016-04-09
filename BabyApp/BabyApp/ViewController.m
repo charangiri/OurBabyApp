@@ -178,7 +178,7 @@
 }
 - (IBAction)signinAction:(id)sender {
     NSLog(@"signinAction");
-   // [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+      // [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
     if([self isValidData])
      [self requesttoserver];
 }
@@ -243,12 +243,11 @@
     
     }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-
        NSLog(@"error%@" , error);
 }
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
     // NSString *htmlSTR = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
-    
+
       NSError* error;
        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:self.receivedData options:kNilOptions error:&error];
        NSLog(@"connectionDidFinishLoading =%@",json);
