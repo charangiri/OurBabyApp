@@ -51,7 +51,7 @@ static NSString * const BaseURLString = BaseUrl;
 - (void) postToURL:(NSString *)url withParameters:(NSDictionary *)parameters delegate:(id<ServerResponseDelegate>)delegate
 {
     NSString *urlString = url;
-//createGroup
+    //createGroup
     urlString = [NSString stringWithFormat:@"%@%@", BaseURLString, url];
     NSDictionary *tmpParameters = parameters;
     if([url isEqualToString:@"cfpuser/create"] || [url isEqualToString:@"userContacts/getAppUsers"])
@@ -59,7 +59,7 @@ static NSString * const BaseURLString = BaseUrl;
         [self.requestSerializer setTimeoutInterval:600.0];
     }
     else {
-    
+        
         [self.requestSerializer setTimeoutInterval:12.0];
     }
     
@@ -78,99 +78,15 @@ static NSString * const BaseURLString = BaseUrl;
                 response = responseObject; //[responseObject objectForKey:@"responseBody"];
             }
             if (response) {
-             
+                
                 //WSBaseResponse *baseResponse = [[WSBaseResponse alloc] initWithDictionary:response];
                 //if(baseResponse.result && [baseResponse.result isSuccess])
                 //{
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        
-                        [delegate success:response];
-                    });
-                //}
-            }
-            else {
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
-                    [self showErrorMessage];
+                    [delegate success:response];
                 });
-            }
-        }
-        else {
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [self showErrorMessage];
-            });
-        }
-    }
-    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        UIApplication *application = [UIApplication sharedApplication];
-        AppDelegate *appDelegateRef = (AppDelegate *)application.delegate;
-        //[application endBackgroundTask:appDelegateRef.backgroundTaskIdentifier];
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            //[DejalActivityView removeView];
-            
-            // If timeout then don't show the timeout error message.
-            if (error.code != NSURLErrorTimedOut) {
-                
-                /*UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                    message:[error localizedDescription]
-                                                                   delegate:nil
-                                                          cancelButtonTitle:@"Ok"
-                                                          otherButtonTitles:nil];
-                [alertView show];*/
-            }
-            
-            if (delegate && [delegate respondsToSelector:@selector(failure:)]) {
-                
-                [delegate failure:nil];
-            }
-        });
-    }];
-}
-
-- (void) getToURL:(NSString *)url withParameters:(NSDictionary *)parameters delegate:(id<ServerResponseDelegate>)delegate
-{
-    NSString *urlString = url;
-    //createGroup
-    
-    urlString = [NSString stringWithFormat:@"%@%@", BaseURLString, url];
-    
-    NSDictionary *tmpParameters = parameters;
-    if([url isEqualToString:@"cfpuser/create"] || [url isEqualToString:@"userContacts/getAppUsers"])
-    {
-        [self.requestSerializer setTimeoutInterval:600.0];
-    }
-    else {
-        
-        [self.requestSerializer setTimeoutInterval:12.0];
-    }
-    
-    [self GET:urlString parameters:tmpParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        UIApplication *application = [UIApplication sharedApplication];
-        AppDelegate *appDelegateRef = (AppDelegate *)application.delegate;
-        //[application endBackgroundTask:appDelegateRef.backgroundTaskIdentifier];
-        
-        if (responseObject) {
-            
-            NSDictionary *response = responseObject; //[responseObject objectForKey:@"responseBody"];
-            
-            if (response) {
-                
-                //if(baseResponse.result && [baseResponse.result isSuccess])
-                //{
-                   // [WSBaseRequest setLoggedUserHeader:baseResponse.header];
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        
-                        [delegate success:response];
-                    });
                 //}
             }
             else {
@@ -218,6 +134,39 @@ static NSString * const BaseURLString = BaseUrl;
        }];
 }
 
+- (void) getToURL:(NSString *)url withParameters:(NSDictionary *)parameters delegate:(id<ServerResponseDelegate>)delegate
+{
+    
+    NSString *urlString = url;
+    urlString = [NSString stringWithFormat:@"%@%@", BaseURLString, url];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if (responseObject) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [delegate success:responseObject];
+            });
+        }
+        
+        NSLog(@"%@", responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+        
+        if (delegate && [delegate respondsToSelector:@selector(failure:)]) {
+            
+            [delegate failure:nil];
+        }
+    }];
+}
+
+
 //Get Streets and Towns
 -(void)gettowns_withdelegate:(id<ServerResponseDelegate>) delegate
 {
@@ -244,12 +193,12 @@ static NSString * const BaseURLString = BaseUrl;
 
 -(void)loginUser:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
 {
-    [self postToURL:@"login" withParameters:params delegate:delegate];
+    [self getToURL:@"login" withParameters:params delegate:delegate];
 }
 
 -(void)registerUser:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
 {
-    [self postToURL:@"signup" withParameters:params delegate:delegate];
+    [self getToURL:@"signup" withParameters:params delegate:delegate];
 }
 
 @end

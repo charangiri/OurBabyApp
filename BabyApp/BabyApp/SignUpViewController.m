@@ -89,18 +89,17 @@
 */
 
 - (IBAction)createAccount:(id)sender {    //put code here for registration
-
-    NSLog(@"createAccount");
-//    if([self isValidData])
-//    {
-//        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//        [params setObject:self.email.text forKey:@"email"];
-//        [params setObject:self.passwordTF.text forKey:@"password"];
-//        [params setObject:@"ios" forKey:@"device"];
-//        [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
-//    }
     
-    [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+    NSLog(@"createAccount");
+    if([self isValidData])
+    {
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        [params setObject:self.email.text forKey:@"email"];
+        [params setObject:self.passwordTF.text forKey:@"password"];
+        [params setObject:@"ios" forKey:@"device"];
+        
+        [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
+    }
 }
 
 -(BOOL)isValidData
@@ -122,14 +121,46 @@
     return YES;
 }
 
--(void)success:(NSDictionary *)response
+-(void)success:(id )response
 {
+    /*
+     message = "User email already exists";
+     status = 0;
+     */
+    NSDictionary *params;
     
+    if([response isKindOfClass:[NSString class]])
+    {
+        NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
+        params = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    }
+    else if ([response isKindOfClass:[NSDictionary class]])
+    {
+        params = response;
+    }
+    
+    id statusStr_ = [params objectForKey:@"status"];
+    
+    NSString *statusStr;
+    
+    statusStr = statusStr_;
+    
+    if([statusStr isEqualToString:@"1"])
+    {
+        [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+    }
+    else if([statusStr isEqualToString:@"0"])
+    {
+        NSString *messageStr = [params objectForKey:@"message"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:[NSString stringWithFormat:@"%@", messageStr] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 
 
--(void)failure:(NSDictionary *)response
+-(void)failure:(id)response
 {
-    
+    //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
 }
+
 @end
