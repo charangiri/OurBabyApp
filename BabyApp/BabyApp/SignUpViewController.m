@@ -22,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden=NO;
+    NSLog(@"SignUpViewController");
     // Do any additional setup after loading the view.
 }
 
@@ -101,6 +103,7 @@
         
         [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
     }
+    
 }
 
 -(BOOL)isValidData
