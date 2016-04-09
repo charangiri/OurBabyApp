@@ -14,7 +14,8 @@
 
 
 @interface SignUpViewController () <ServerResponseDelegate>
-
+@property (retain, nonatomic) NSMutableData *receivedData;
+@property (retain, nonatomic) NSURLConnection *connection;
 @end
 
 @implementation SignUpViewController
@@ -121,6 +122,64 @@
     
     return YES;
 }
+
+-(void)requesttoserver
+{
+    
+    //if there is a connection going on just cancel it.
+    [self.connection cancel];
+    
+    //initialize new mutable data
+    NSMutableData *data = [[NSMutableData alloc] init];
+    self.receivedData = data;
+    
+    
+    //initialize url that is going to be fetched.
+    NSURL *url = [NSURL URLWithString:@"https://www.your urlname"];
+    
+    //initialize a request from url
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
+    
+    //set http method
+    [request setHTTPMethod:@"POST"];
+    
+    //initialize a post data
+    
+    NSString *postData = @"username password";
+    
+    
+    //set request content type we MUST set this value.
+    
+    
+    [request setValue:@"application/x-www-form-urlencoded;" forHTTPHeaderField:@"Content-Type" ];
+    
+    //set post data of request
+    [request setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    //initialize a connection from request
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    self.connection = connection;
+    
+    //start the connection
+    [connection start];
+    
+    
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    [self.receivedData appendData:data];
+    
+}
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    
+    NSLog(@"error%@" , error);
+}
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    NSString *htmlSTR = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
+}
+
 
 -(void)success:(NSDictionary *)response
 {

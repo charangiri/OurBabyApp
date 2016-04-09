@@ -150,6 +150,8 @@
     AFHTTPRequestOperation *operation = [self HTTPRequestOperationWithRequest:request success:success failure:failure];
 
     [self.operationQueue addOperation:operation];
+    
+    NSLog(@"operation=%d ",operation);
 
     return operation;
 }
