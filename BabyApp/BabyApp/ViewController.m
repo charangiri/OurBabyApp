@@ -264,9 +264,44 @@
 
 -(void)success:(id)response
 {
+    /*
+     {
+     message = "Your new password has been sent to you email";
+     status = 1;
+     }
+     */
     
+    NSDictionary *params;
+    
+    if([response isKindOfClass:[NSString class]])
+    {
+        NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
+        params = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    }
+    else if ([response isKindOfClass:[NSDictionary class]])
+    {
+        params = response;
+    }
+    
+    id statusStr_ = [params objectForKey:@"status"];
+    
+    NSString *statusStr;
+    
+    statusStr = statusStr_;
+    
+    if([statusStr isEqualToString:@"1"])
+    {
+        NSString *messageStr = [params objectForKey:@"message"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:[NSString stringWithFormat:@"%@", messageStr] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if([statusStr isEqualToString:@"0"])
+    {
+        NSString *messageStr = [params objectForKey:@"message"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:[NSString stringWithFormat:@"%@", messageStr] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
-
 -(void)failure:(id)response
 {
     
