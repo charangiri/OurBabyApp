@@ -10,8 +10,10 @@
 #import "CommonSelectionListVC.h"
 #import "CustomIOS7AlertView.h"
 #import "DateTimeUtil.h"
+#import "ConnectionsManager.h"
+#import "NSString+CommonForApp.h"
 
-@interface DischargeInformationVC () <CustomIOS7AlertViewDelegate, CommonSelectionListVCDelegate>
+@interface DischargeInformationVC () <CustomIOS7AlertViewDelegate, CommonSelectionListVCDelegate, ServerResponseDelegate>
 {
     CustomIOS7AlertView *dateAlertView;
     NSInteger selectedIndex;
@@ -32,6 +34,20 @@
 {
     [super viewWillAppear:animated];
     [self addTapGestures];
+    [self loadData];
+}
+
+-(void)loadData
+{
+    NSNumber *childID = [[NSUserDefaults standardUserDefaults] objectForKey:@"child_id"];
+    ///if(childID && childID != nil)
+    // {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:@"10" forKey:@"child_id"];
+    
+    [[ConnectionsManager sharedManager] readdischarge_information:dict withdelegate:self];
+    
+    //readParticular:dict withdelegate:self];
 }
 
 -(void)openCommonSelectionVC
@@ -111,6 +127,104 @@
     }
 }
 
+- (IBAction)onClickDoneButton:(id)sender {
+    
+    if([self isValidData])
+    {
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        [params setObject:self.txtFldDate.text forKey:@"date"];
+        [params setObject:self.txtFldWeight.text forKey:@"weight"];
+        [params setObject:self.txtFldBreastFeed.text forKey:@"breast_feeding"];
+        [params setObject:self.txtFldSerum.text forKey:@"serum_billirubin_before_discharge"];
+        [params setObject:[NSNumber numberWithInt:10] forKey:@"child_id"];
+        
+        
+        [[ConnectionsManager sharedManager] adddischarge_information:params withdelegate:self];
+    }
+}
 
+-(BOOL)isValidData
+{
+    if([self.txtFldDate.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Date" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldWeight.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Weight" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldBreastFeed.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid BreastFeed" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldSerum.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Serum" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    return YES;
+}
+
+-(void)success:(id)response
+{
+    NSDictionary *dict = response;
+    id statusStr_ = [dict objectForKey:@"status"];
+    NSString *statusStr;
+    
+    if([statusStr_ isKindOfClass:[NSNumber class]])
+    {
+        statusStr = [statusStr_ stringValue];
+    }
+    else
+    {
+        statusStr = statusStr_;
+    }
+    if([statusStr isEqualToString:@"1"])
+    {
+        NSDictionary *dataDict = [dict objectForKey:@"data"];
+        /*
+         "child_id" : 101
+         "g6fd_deficiency" : ""
+         "tsh" : ""
+         "ft4" : ""
+         "date_tsh_ft4" : ""
+         "iem_screening_done" : ""
+         "date_iem_screening" : ""
+         "qae_abaer" : ""
+         "date" : ""
+         "left_pass" : ""
+         "right_pass" : ""
+         "needs_further_evaluation" : ""
+         */
+        
+        [self.txtFldDate setText:[dataDict objectForKey:@"date"]];
+        [self.txtFldSerum setText:[dataDict objectForKey:@"serum_billirubin_before_discharge"]];
+        [self.txtFldWeight setText:[dataDict objectForKey:@"weight"]];
+        [self.txtFldBreastFeed setText:[dataDict objectForKey:@"breast_feeding"]];
+        
+    }
+    else
+    {
+        NSString *messageStr = [dict objectForKey:@"message"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:messageStr delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+-(void)failure:(id)response
+{
+    
+}
 
 @end

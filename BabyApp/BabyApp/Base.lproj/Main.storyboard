@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S6B-qe-PWf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F1712" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S6B-qe-PWf">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -404,7 +403,6 @@
                                 <exclude reference="Ixu-su-NlZ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Kfs-QT-Exb"/>
                                 <exclude reference="aUL-6j-reV"/>
                                 <exclude reference="sXA-Lg-Yg0"/>
                                 <exclude reference="Aoc-aM-bEh"/>
@@ -421,6 +419,7 @@
                                 <exclude reference="WhD-EK-o4h"/>
                                 <exclude reference="IRy-ic-WT7"/>
                                 <exclude reference="e7c-mG-Pkx"/>
+                                <exclude reference="Kfs-QT-Exb"/>
                                 <exclude reference="nvS-vU-3tS"/>
                                 <exclude reference="6rH-mC-FIP"/>
                                 <exclude reference="Lxr-Sw-vek"/>
@@ -437,7 +436,6 @@
                                 <include reference="Ixu-su-NlZ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Kfs-QT-Exb"/>
                                 <include reference="aUL-6j-reV"/>
                                 <include reference="sXA-Lg-Yg0"/>
                                 <include reference="Aoc-aM-bEh"/>
@@ -454,6 +452,7 @@
                                 <include reference="WhD-EK-o4h"/>
                                 <include reference="IRy-ic-WT7"/>
                                 <include reference="e7c-mG-Pkx"/>
+                                <include reference="Kfs-QT-Exb"/>
                                 <include reference="nvS-vU-3tS"/>
                                 <include reference="6rH-mC-FIP"/>
                                 <include reference="Lxr-Sw-vek"/>
@@ -4431,6 +4430,9 @@
                     <navigationItem key="navigationItem" title="Newborn Screening" id="Z48-xF-c2x">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="V3s-yb-wue">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onClickDoneButton:" destination="dii-wI-uRH" id="vE2-Sb-XNb"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -4750,6 +4752,9 @@
                         <barButtonItem key="backBarButtonItem" title="&lt;" id="Cxb-EG-Msy"/>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="m7e-CV-3dv">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onClickDoneButton:" destination="kYt-F7-AVp" id="mye-2f-K5g"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

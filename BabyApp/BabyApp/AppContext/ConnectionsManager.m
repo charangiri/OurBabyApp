@@ -250,6 +250,7 @@ static NSString * const BaseURLString = BaseUrl;
     [self getToURL:@"birth_record_read" withParameters:params delegate:delegate];
 }
 
+
 -(void)addParticular:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
 {
     [self getToURL:@"particulars_of_parents" withParameters:params delegate:delegate];
@@ -258,6 +259,31 @@ static NSString * const BaseURLString = BaseUrl;
 -(void)readParticular:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
 {
     [self getToURL:@"particulars_of_parents_read" withParameters:params delegate:delegate];
+}
+
+-(void)addnewborn_screening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"newborn_screening" withParameters:params delegate:delegate];
+}
+
+-(void)readnewborn_screening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"newborn_screening_read" withParameters:params delegate:delegate];
+}
+
+-(void)adddischarge_information:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"discharge_information" withParameters:params delegate:delegate];
+}
+
+-(void)readdischarge_information:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"discharge_information_read" withParameters:params delegate:delegate];
+}
+
+-(void)readinvestigations_read:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"investigations_read" withParameters:params delegate:delegate];
 }
 
 @end

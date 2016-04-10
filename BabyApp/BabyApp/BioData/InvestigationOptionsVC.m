@@ -13,8 +13,9 @@
 #import "InvestigationOptionsData.h"
 #import "CustomIOS7AlertView.h"
 #import "DateTimeUtil.h"
+#import "ConnectionsManager.h"
 
-@interface InvestigationOptionsVC () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, CustomIOS7AlertViewDelegate>
+@interface InvestigationOptionsVC () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, CustomIOS7AlertViewDelegate, ServerResponseDelegate>
 {
     NSMutableArray *investigationList;
     
@@ -35,25 +36,33 @@
 
 -(void)loadData
 {
-    NSMutableArray *tempArray = [NSMutableArray array];
+    /*NSMutableArray *tempArray = [NSMutableArray array];
+     
+     InvestigationOptionsData *investigationDataSerum = [[InvestigationOptionsData alloc] init];
+     [investigationDataSerum setTestName:@"Serum Bilirubin:"];
+     [investigationDataSerum setPlaceHolderText:@"mol/L"];
+     [investigationDataSerum setDate:@"xxxx-xx-xx"];
+     
+     [tempArray addObject:investigationDataSerum];
+     
+     InvestigationOptionsData *investigationData = [[InvestigationOptionsData alloc] init];
+     [investigationData setTestName:@"Blood Group:"];
+     [investigationData setPlaceHolderText:@"mol/L"];
+     [investigationData setDate:@"xxxx-xx-xx"];
+     
+     [tempArray addObject:investigationData];
+     
+     investigationList = tempArray;
+     
+     [self.investTableView reloadData];*/
     
-    InvestigationOptionsData *investigationDataSerum = [[InvestigationOptionsData alloc] init];
-    [investigationDataSerum setTestName:@"Serum Bilirubin:"];
-    [investigationDataSerum setPlaceHolderText:@"mol/L"];
-    [investigationDataSerum setDate:@"xxxx-xx-xx"];
+    NSNumber *childID = [[NSUserDefaults standardUserDefaults] objectForKey:@"child_id"];
+    ///if(childID && childID != nil)
+    // {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:@"10" forKey:@"child_id"];
     
-    [tempArray addObject:investigationDataSerum];
-    
-    InvestigationOptionsData *investigationData = [[InvestigationOptionsData alloc] init];
-    [investigationData setTestName:@"Blood Group:"];
-    [investigationData setPlaceHolderText:@"mol/L"];
-    [investigationData setDate:@"xxxx-xx-xx"];
-    
-    [tempArray addObject:investigationData];
-    
-    investigationList = tempArray;
-    
-    [self.investTableView reloadData];
+    [[ConnectionsManager sharedManager] readinvestigations_read:dict withdelegate:self];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -190,5 +199,58 @@
 }
 
 - (IBAction)onClickNextButton:(id)sender {
+}
+
+-(void)success:(id)response
+{
+    NSDictionary *dict = response;
+    id statusStr_ = [dict objectForKey:@"status"];
+    NSString *statusStr;
+    
+    if([statusStr_ isKindOfClass:[NSNumber class]])
+    {
+        statusStr = [statusStr_ stringValue];
+    }
+    else
+    {
+        statusStr = statusStr_;
+    }
+    if([statusStr isEqualToString:@"1"])
+    {
+        id dataDict = [dict objectForKey:@"data"];
+        if([dataDict isKindOfClass:[NSDictionary class]])
+        {
+            /*
+             "child_id" : 101
+             "serum_billirubin" : ""
+             "date_serum" : ""
+             "blood_group" : ""
+             "date_blood_group" : ""
+             "add_test" : ""
+             
+             */
+            
+            
+            NSMutableArray *tempArray = [NSMutableArray array];
+            
+            InvestigationOptionsData *investigationDataSerum = [[InvestigationOptionsData alloc] init];
+            [investigationDataSerum setTestName:[NSString stringWithFormat:@"Serum Bilirubin: %@", [dataDict objectForKey:@"serum_billirubin"]]];
+            [investigationDataSerum setPlaceHolderText:@"mol/L"];
+            [investigationDataSerum setDate:@"xxxx-xx-xx"];
+            
+            [tempArray addObject:investigationDataSerum];
+            
+            
+            investigationList = tempArray;
+            
+            [self.investTableView reloadData];
+        }
+        
+    }
+}
+
+-(void)failure:(id)response
+{
+    
 }
 @end

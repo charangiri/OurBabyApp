@@ -10,8 +10,10 @@
 #import "CommonSelectionListVC.h"
 #import "CustomIOS7AlertView.h"
 #import "DateTimeUtil.h"
+#import "ConnectionsManager.h"
+#import "NSString+CommonForApp.h"
 
-@interface NewbornScreeningVC () <CommonSelectionListVCDelegate, CustomIOS7AlertViewDelegate>
+@interface NewbornScreeningVC () <CommonSelectionListVCDelegate, CustomIOS7AlertViewDelegate, ServerResponseDelegate>
 {
     UITapGestureRecognizer *DeficiencyTapGesture, *dateTSHTapGesture, *IEMTapGesture, *DateIEMTapGesture, *OAETapGesture, *DateOAETapGesture, *LeftTapGesture, *RightTapGesture, *evaluationTapGesture;
     
@@ -214,7 +216,7 @@
         }
             break;
             
-            case 4:
+        case 4:
         {
             [self.txtFldDateIEMScreeming setText:dateFromData];
             break;
@@ -232,6 +234,20 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self loadData];
+    
+}
+
+-(void)loadData
+{
+    NSNumber *childID = [[NSUserDefaults standardUserDefaults] objectForKey:@"child_id"];
+    ///if(childID && childID != nil)
+    // {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:@"10" forKey:@"child_id"];
+    
+    [[ConnectionsManager sharedManager] readnewborn_screening:dict withdelegate:self];
+    //}
 }
 
 - (void)viewDidLayoutSubviews
@@ -245,6 +261,164 @@
 }
 
 -(void)openDatePicker
+{
+    
+}
+
+- (IBAction)onClickDoneButton:(id)sender {
+    
+    if([self isValidData])
+    {
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        [params setObject:self.txtFldG6PD.text forKey:@"g6pd_deficiency"];
+        [params setObject:self.txtFldTSH.text forKey:@"tsh"];
+        [params setObject:self.txtFldTF4.text forKey:@"ft4"];
+        [params setObject:self.txtFldIEMScreeming.text forKey:@"iem_screening_done"];
+        [params setObject:self.txtFldDateIEMScreeming.text forKey:@"date_iem_screening"];
+        [params setObject:self.txtFldOAE.text forKey:@"qae_abaer"];
+        
+        [params setObject:self.txtFldTF4Date.text forKey:@"date"];
+        [params setObject:self.txtFldLeftPass.text forKey:@"left_pass"];
+        [params setObject:self.txtFldBaseRight.text forKey:@"right_pass"];
+        [params setObject:self.txtFldNeedFurthur.text forKey:@"needs_further_evaluation"];
+        [params setObject:[NSNumber numberWithInt:10] forKey:@"child_id"];
+        
+        
+        [[ConnectionsManager sharedManager] addnewborn_screening:params withdelegate:self];
+    }
+}
+
+-(BOOL)isValidData
+{
+    if([self.txtFldG6PD.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid C6PD" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldTSH.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid TSH" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldTF4.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid TF4" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldTF4Date.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Date" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldIEMScreeming.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid IEM Screening" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldDateIEMScreeming.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Date IEM Screening" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldOAE.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid OAE" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldLeftPass.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Left pass" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldBaseRight.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Right pass" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldNeedFurthur.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Need furthur" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    return YES;
+}
+
+-(void)success:(id)response
+{
+    NSDictionary *dict = response;
+    id statusStr_ = [dict objectForKey:@"status"];
+    NSString *statusStr;
+    
+    if([statusStr_ isKindOfClass:[NSNumber class]])
+    {
+        statusStr = [statusStr_ stringValue];
+    }
+    else
+    {
+        statusStr = statusStr_;
+    }
+    if([statusStr isEqualToString:@"1"])
+    {
+        NSDictionary *dataDict = [dict objectForKey:@"data"];
+        /*
+         "child_id" : 101
+         "g6fd_deficiency" : ""
+         "tsh" : ""
+         "ft4" : ""
+         "date_tsh_ft4" : ""
+         "iem_screening_done" : ""
+         "date_iem_screening" : ""
+         "qae_abaer" : ""
+         "date" : ""
+         "left_pass" : ""
+         "right_pass" : ""
+         "needs_further_evaluation" : ""
+         */
+        
+        [self.txtFldDateOAE setText:[dataDict objectForKey:@"g6fd_deficiency"]];
+        [self.txtFldTSH setText:[dataDict objectForKey:@"tsh"]];
+        [self.txtFldTF4 setText:[dataDict objectForKey:@"ft4"]];
+        
+        [self.txtFldTF4Date setText:[dataDict objectForKey:@"date_tsh_ft4"]];
+        [self.txtFldIEMScreeming setText:[dataDict objectForKey:@"iem_screening_done"]];
+        [self.txtFldDateIEMScreeming setText:[dataDict objectForKey:@"date_iem_screening"]];
+        [self.txtFldOAE setText:[dataDict objectForKey:@"qae_abaer"]];
+        
+        [self.txtFldDateOAE setText:[dataDict objectForKey:@"date"]];
+        [self.txtFldLeftPass setText:[dataDict objectForKey:@"left_pass"]];
+        
+        [self.txtFldBaseRight setText:[dataDict objectForKey:@"right_pass"]];
+        [self.txtFldNeedFurthur setText:[dataDict objectForKey:@"needs_further_evaluation"]];
+    }
+    else
+    {
+        NSString *messageStr = [dict objectForKey:@"message"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:messageStr delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+-(void)failure:(id)response
 {
     
 }

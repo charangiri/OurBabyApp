@@ -27,4 +27,11 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 
 -(void)readParticular:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
 
+-(void)addnewborn_screening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)readnewborn_screening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+
+-(void)adddischarge_information:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)readdischarge_information:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+
+-(void)readinvestigations_read:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 @end
