@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BioDataObj.h"
 
 @interface BirthRecordTableViewController : UIViewController
+
+@property (nonatomic, strong) BioDataObj *selectedBioData;
+
 @property (weak, nonatomic) IBOutlet UIView *baseBirthCertificateNoView;
 @property (weak, nonatomic) IBOutlet UITextField *txtFldBirthCertificateNo;
 
@@ -51,5 +55,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblMinDuration;
 @property (weak, nonatomic) IBOutlet UILabel *lblMaxDuration;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+- (IBAction)onClickDone:(id)sender;
 
 @end

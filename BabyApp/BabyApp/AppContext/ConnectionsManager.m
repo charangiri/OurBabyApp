@@ -54,26 +54,15 @@ static NSString * const BaseURLString = BaseUrl;
     //createGroup
     urlString = [NSString stringWithFormat:@"%@%@", BaseURLString, url];
     NSDictionary *tmpParameters = parameters;
-   /* if([url isEqualToString:@"cfpuser/create"] || [url isEqualToString:@"userContacts/getAppUsers"])
-    {
-        [self.requestSerializer setTimeoutInterval:600.0];
-    }
-    else {
-        
-        [self.requestSerializer setTimeoutInterval:12.0];
-    }*/
+    [self.requestSerializer setTimeoutInterval:12.0];
     
-    [self.requestSerializer setTimeoutInterval:20.0];
-
     [self POST:urlString parameters:tmpParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        //NSString *str=(NSString*)responseObject;
-        NSLog(@"str");
         UIApplication *application = [UIApplication sharedApplication];
         AppDelegate *appDelegateRef = (AppDelegate *)application.delegate;
+        //[application endBackgroundTask:appDelegateRef.backgroundTaskIdentifier];
         
         if (responseObject) {
-            
             
             NSDictionary *response = [responseObject objectForKey:@"response"];
             
@@ -170,6 +159,37 @@ static NSString * const BaseURLString = BaseUrl;
     }];
 }
 
+- (void) getToURL:(NSString *)url withImage:(UIImageView *)img withParameters:(NSDictionary *)parameters delegate:(id<ServerResponseDelegate>)delegate
+{
+    
+    NSString *urlString = url;
+    urlString = [NSString stringWithFormat:@"%@%@", BaseURLString, url];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if (responseObject) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [delegate success:responseObject];
+            });
+        }
+        
+        NSLog(@"%@", responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+        
+        if (delegate && [delegate respondsToSelector:@selector(failure:)]) {
+            
+            [delegate failure:nil];
+        }
+    }];
+}
 
 //Get Streets and Towns
 -(void)gettowns_withdelegate:(id<ServerResponseDelegate>) delegate
@@ -205,9 +225,39 @@ static NSString * const BaseURLString = BaseUrl;
     [self getToURL:@"signup" withParameters:params delegate:delegate];
 }
 
+-(void)getBioData:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"add_bio_read" withParameters:params delegate:delegate];
+}
+
+-(void)saveBioData:(NSDictionary *)params andImage:(UIImageView *)img withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    [self getToURL:@"add_bio" withImage:img withParameters:params delegate:delegate];
+}
+
 -(void)getForgotPassword:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
 {
     [self getToURL:@"forgot_password" withParameters:params delegate:delegate];
+}
+
+-(void)addBirthRecord:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    [self getToURL:@"birth_record" withParameters:params delegate:delegate];
+}
+
+-(void)readBirthRecord:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    [self getToURL:@"birth_record_read" withParameters:params delegate:delegate];
+}
+
+-(void)addParticular:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"particulars_of_parents" withParameters:params delegate:delegate];
+}
+
+-(void)readParticular:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    [self getToURL:@"particulars_of_parents_read" withParameters:params delegate:delegate];
 }
 
 @end

@@ -10,15 +10,38 @@
 #import "ProfilePicTableViewCell.h"
 #import "BioDataTableViewCell.h"
 #import "KeyConstants.h"
+#import "BioDataObj.h"
+#import "ConnectionsManager.h"
+#import "BirthRecordTableViewController.h"
 
-
-@interface BioDataTableViewController ()
+@interface BioDataTableViewController () <ServerResponseDelegate>
 {
     NSArray *titleArray;
+    
+    BioDataObj *bioDataObj;
+    
+    //CustomIOS7AlertView *dateAlertView;
+    UIDatePicker *datePicker;
 }
 @end
 
 @implementation BioDataTableViewController
+
+
+- (IBAction)onClickDoneButton:(id)sender {
+    
+    ProfilePicTableViewCell *cell = (ProfilePicTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:@"" forKey:@"baby_image"];
+    [params setObject:cell.btnDateOfBirth.titleLabel.text forKey:@"dob"];
+    [params setObject:cell.txtFldName.text forKey:@"name"];
+    [params setObject:@"64" forKey:@"user_id"];
+    [params setObject:@"10" forKey:@"child_id"];
+    [params setObject:[NSNumber numberWithInt:1] forKey:@"action"];
+    
+    [[ConnectionsManager sharedManager] saveBioData:params andImage:cell.userProflePic withdelegate:self];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +55,25 @@
     titleArray=[NSArray arrayWithObjects:@"",@"BIRTH RECORD",@"PARTICULAR OF PARENTS",@"SIGNIFICANT EVENTS",@"NEWBORN SCREENING",@"INVESTIGATION(S) DONE (if any)",@"INFORMATION ON DISCHARGE", nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self loadBioData];
+}
+
+-(void)loadBioData
+{
+    NSNumber *childID = [[NSUserDefaults standardUserDefaults] objectForKey:@"child_id"];
+    ///if(childID && childID != nil)
+    // {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:@"10" forKey:@"child_id"];
+    
+    [[ConnectionsManager sharedManager] getBioData:dict withdelegate:self];
+    //}
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -43,16 +85,13 @@
 {
     if (indexPath.row==0)
     {
-        
         return 270;
-        
     }
-    else{
+    else
+    {
         return 50;
-        
     }
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return titleArray.count;
@@ -60,15 +99,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-    
     ProfilePicTableViewCell *cell = nil;
     BioDataTableViewCell *cell1=nil;
     
     if (indexPath.row==0)
     {
-        
         cell=(ProfilePicTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ProfilePicCellIdentifier"];
+        [cell.btnDateOfBirth addTarget:self action:@selector(onClickDateOfBirth:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.txtFldName setText:bioDataObj.name];
+        [cell.btnDateOfBirth.titleLabel setText:bioDataObj.dob];
+        
+        
         return cell;
     }
     else
@@ -125,7 +166,45 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"birthSegue"]) {
+        BirthRecordTableViewController *controller = (BirthRecordTableViewController *)segue.destinationViewController;
+        controller.selectedBioData = bioDataObj;
+    }
+    
 }
 
+-(void)onClickDateOfBirth:(id)sender
+{
+    
+}
+
+-(void)success:(id)response
+{
+    NSDictionary *dict = response;
+    id statusStr_ = [dict objectForKey:@"status"];
+    NSString *statusStr;
+    
+    if([statusStr_ isKindOfClass:[NSNumber class]])
+    {
+        statusStr = [statusStr_ stringValue];
+    }
+    if([statusStr isEqualToString:@"1"])
+    {
+        
+        bioDataObj = [[BioDataObj alloc] init];
+        
+        NSDictionary *datDict = [dict objectForKey:@"data"];
+        bioDataObj.name = [datDict objectForKey:@"name"];
+        bioDataObj.dob = [datDict objectForKey:@"dob"];
+        
+        [self.tableView reloadData];
+    }
+}
+
+-(void)failure:(id)response
+{
+    
+}
 
 @end

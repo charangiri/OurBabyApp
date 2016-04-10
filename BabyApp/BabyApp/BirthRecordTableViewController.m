@@ -10,8 +10,10 @@
 #import "CommonSelectionListVC.h"
 #import "DateTimeUtil.h"
 #import "CustomIOS7AlertView.h"
+#import "ConnectionsManager.h"
+#import "NSString+CommonForApp.h"
 
-@interface BirthRecordTableViewController () <CommonSelectionListVCDelegate, CustomIOS7AlertViewDelegate>
+@interface BirthRecordTableViewController () <CommonSelectionListVCDelegate, CustomIOS7AlertViewDelegate, ServerResponseDelegate>
 {
     NSArray *identifierNames;
     
@@ -25,6 +27,8 @@
 @end
 
 @implementation BirthRecordTableViewController
+@synthesize selectedBioData;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,6 +38,8 @@
     
     self.minDurationView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.minDurationView.layer.borderWidth = 1.0f;
+    
+    [self.txtFldHeadCircunference setText:@"152"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -51,6 +57,15 @@
 {
     [super viewWillAppear:animated];
     [self addGestures];
+    [self loadData];
+}
+
+-(void)loadData
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:[NSNumber numberWithInt:10] forKey:@"child_id"];
+    
+    [[ConnectionsManager sharedManager] readBirthRecord:dict withdelegate:self];
 }
 
 -(void)addGestures
@@ -207,5 +222,171 @@
 }
 
 - (IBAction)onClickNextButton:(id)sender {
+}
+- (IBAction)onClickDone:(id)sender
+{
+    
+    if([self isValidData])
+    {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        
+        [dict setObject:self.txtFldBirthCertificateNo.text forKey:@"birth_certificate_no"];
+        [dict setObject:self.txtfldPlaceOfDelivery.text forKey:@"place_of_delivery"];
+        [dict setObject:self.txtFldSex.text forKey:@"sex"];
+        [dict setObject:self.txtFldEthnicGroup.text forKey:@"ethnic_group"];
+        [dict setObject:self.txtFldDurationGestation.text forKey:@"duration_of_gestation"];
+        [dict setObject:self.txtFldModeofDelivery.text forKey:@"mode_of_delivery"];
+        [dict setObject:self.lblMinDuration.text forKey:@"apgar_score1"];
+        [dict setObject:self.lblMaxDuration.text forKey:@"apgar_score2"];
+        [dict setObject:self.txtFldWeightAtBirth.text forKey:@"weight_at_birth"];
+        [dict setObject:self.txtFldLengthAtBirth.text forKey:@"length_at_birth"];
+        [dict setObject:self.txtFldHeadCircunference.text forKey:@"head_circumference"];
+        
+        [dict setObject:@"10" forKey:@"child_id"];
+        [dict setObject:selectedBioData.name forKey:@"name"];
+        [dict setObject:selectedBioData.dob forKey:@"dob"];
+        
+        [[ConnectionsManager sharedManager] addBirthRecord:dict withdelegate:self];
+    }
+}
+
+-(BOOL)isValidData
+{
+    if([self.txtFldBirthCertificateNo.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Birth Certificate" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtfldPlaceOfDelivery.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Place of delivery" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldSex.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid sex" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldEthnicGroup.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid EthnicGroup" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldDurationGestation.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Duration" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldModeofDelivery.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Mode of delivery" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.lblMinDuration.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Min Duration" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.lblMaxDuration.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Max Duration" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    
+    
+    if([self.txtFldWeightAtBirth.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Weight" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldLengthAtBirth.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Length" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldHeadCircunference.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Head Circumference" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    return YES;
+}
+
+-(void)success:(id)response
+{
+    NSDictionary *dict = response;
+    id statusStr_ = [dict objectForKey:@"status"];
+    NSString *statusStr;
+    
+    if([statusStr_ isKindOfClass:[NSNumber class]])
+    {
+        statusStr = [statusStr_ stringValue];
+    }
+    else
+    {
+        statusStr = statusStr_;
+    }
+    if([statusStr isEqualToString:@"1"])
+    {
+        NSDictionary *dataDict = [dict objectForKey:@"data"];
+        /*
+         "apgar_score1" = 3;
+         "apgar_score2" = 3;
+         "birth_certificate_no" = 1235;
+         "child_id" = 10;
+         dob = "01-07-2016";
+         "duration_of_gestation" = "10-04-2016";
+         "ethnic_group" = Asian;
+         "head_circumference" = 0;
+         "length_at_birth" = 522;
+         "mode_of_delivery" = "Normal delivery";
+         name = mukesh;
+         "place_of_delivery" = vishrantiwadi;
+         sex = Female;
+         "weight_at_birth" = 522;
+         */
+        
+        [self.txtFldBirthCertificateNo setText:[dataDict objectForKey:@"birth_certificate_no"]];
+        [self.txtFldDurationGestation setText:[dataDict objectForKey:@"duration_of_gestation"]];
+        [self.txtFldEthnicGroup setText:[dataDict objectForKey:@"ethnic_group"]];
+        
+        [self.txtFldHeadCircunference setText:[dataDict objectForKey:@"head_circumference"]];
+        [self.txtFldLengthAtBirth setText:[dataDict objectForKey:@"length_at_birth"]];
+        [self.txtFldModeofDelivery setText:[dataDict objectForKey:@"mode_of_delivery"]];
+        [self.txtfldPlaceOfDelivery setText:[dataDict objectForKey:@"place_of_delivery"]];
+        
+        [self.txtFldSex setText:[dataDict objectForKey:@"sex"]];
+        [self.txtFldWeightAtBirth setText:[dataDict objectForKey:@"weight_at_birth"]];
+        
+        [self.lblMinDuration setText:[dataDict objectForKey:@"apgar_score1"]];
+        [self.lblMaxDuration setText:[dataDict objectForKey:@"apgar_score2"]];
+    }
+}
+
+-(void)failure:(id)response
+{
+    
 }
 @end

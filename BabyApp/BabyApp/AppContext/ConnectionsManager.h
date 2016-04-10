@@ -17,4 +17,14 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 -(void)registerUser:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 -(void)getForgotPassword:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 
+-(void)getBioData:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)saveBioData:(NSDictionary *)params andImage:(UIImageView *)img withdelegate:(id<ServerResponseDelegate>)delegate;
+
+-(void)addBirthRecord:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)readBirthRecord:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+
+-(void)addParticular:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+
+-(void)readParticular:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
+
 @end

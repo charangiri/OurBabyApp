@@ -403,6 +403,7 @@
                                 <exclude reference="Ixu-su-NlZ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Kfs-QT-Exb"/>
                                 <exclude reference="aUL-6j-reV"/>
                                 <exclude reference="sXA-Lg-Yg0"/>
                                 <exclude reference="Aoc-aM-bEh"/>
@@ -410,6 +411,7 @@
                                 <exclude reference="cIu-Ka-cGA"/>
                                 <exclude reference="nBC-We-nbs"/>
                                 <exclude reference="pn5-kM-htF"/>
+                                <exclude reference="k41-Qr-NG8"/>
                                 <exclude reference="200-7a-VQC"/>
                                 <exclude reference="XMd-V5-qny"/>
                                 <exclude reference="dhi-4C-Y1I"/>
@@ -418,7 +420,6 @@
                                 <exclude reference="WhD-EK-o4h"/>
                                 <exclude reference="IRy-ic-WT7"/>
                                 <exclude reference="e7c-mG-Pkx"/>
-                                <exclude reference="Kfs-QT-Exb"/>
                                 <exclude reference="nvS-vU-3tS"/>
                                 <exclude reference="6rH-mC-FIP"/>
                                 <exclude reference="Lxr-Sw-vek"/>
@@ -427,7 +428,6 @@
                                 <exclude reference="q4r-OG-X5V"/>
                                 <exclude reference="VBG-dv-45R"/>
                                 <exclude reference="tWo-hb-SLk"/>
-                                <exclude reference="k41-Qr-NG8"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -436,6 +436,7 @@
                                 <include reference="Ixu-su-NlZ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Kfs-QT-Exb"/>
                                 <include reference="aUL-6j-reV"/>
                                 <include reference="sXA-Lg-Yg0"/>
                                 <include reference="Aoc-aM-bEh"/>
@@ -443,6 +444,7 @@
                                 <include reference="cIu-Ka-cGA"/>
                                 <include reference="nBC-We-nbs"/>
                                 <include reference="pn5-kM-htF"/>
+                                <exclude reference="k41-Qr-NG8"/>
                                 <include reference="200-7a-VQC"/>
                                 <include reference="XMd-V5-qny"/>
                                 <include reference="dhi-4C-Y1I"/>
@@ -451,7 +453,6 @@
                                 <include reference="WhD-EK-o4h"/>
                                 <include reference="IRy-ic-WT7"/>
                                 <include reference="e7c-mG-Pkx"/>
-                                <include reference="Kfs-QT-Exb"/>
                                 <include reference="nvS-vU-3tS"/>
                                 <include reference="6rH-mC-FIP"/>
                                 <include reference="Lxr-Sw-vek"/>
@@ -460,7 +461,6 @@
                                 <include reference="q4r-OG-X5V"/>
                                 <include reference="VBG-dv-45R"/>
                                 <include reference="tWo-hb-SLk"/>
-                                <exclude reference="k41-Qr-NG8"/>
                             </mask>
                         </variation>
                     </view>
@@ -1911,6 +1911,11 @@
                                         <exclude reference="w1K-C3-mPY"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="btnDateOfBirth" destination="RCM-Z0-BY4" id="T1e-Pa-Prf"/>
+                                    <outlet property="txtFldName" destination="YsQ-Wx-pn2" id="dGz-Un-otp"/>
+                                    <outlet property="userProflePic" destination="2UX-vo-3tg" id="frz-7i-Mrg"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BioDataCellIdentifier" rowHeight="60" id="ZEt-Be-ege" customClass="BioDataTableViewCell">
                                 <rect key="frame" x="0.0" y="302" width="320" height="60"/>
@@ -2080,6 +2085,9 @@
                         <barButtonItem key="backBarButtonItem" title="&lt;" id="BdY-VF-ebu"/>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="2uH-Ir-YAO">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onClickDoneButton:" destination="Nsp-fl-K9c" id="9aM-cp-lYB"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -3617,6 +3625,9 @@
                         <barButtonItem key="backBarButtonItem" title="&lt;" id="DTb-FP-1Wr"/>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="J4Q-j6-8nh">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onClickDone:" destination="YBk-Ho-IxK" id="NwQ-uk-x4S"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -7402,6 +7413,9 @@
                         <barButtonItem key="backBarButtonItem" title="&lt;" id="ogO-aS-HDv"/>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="HDJ-xy-8VR">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onClickDoneButton:" destination="gpZ-Kb-ukw" id="J9y-Vc-d4w"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

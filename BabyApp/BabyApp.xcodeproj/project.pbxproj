@@ -54,6 +54,7 @@
 		90FC54691CB1A83400ED0E34 /* InvestOtherTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC545A1CB1A83400ED0E34 /* InvestOtherTestCell.m */; };
 		90FC546A1CB1A83400ED0E34 /* NewbornScreeningVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC545D1CB1A83400ED0E34 /* NewbornScreeningVC.m */; };
 		90FC546B1CB1A83400ED0E34 /* ParticularsOfParentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC54601CB1A83400ED0E34 /* ParticularsOfParentsVC.m */; };
+		96957B4B1CBAC50E00578E90 /* BioDataObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 96957B4A1CBAC50E00578E90 /* BioDataObj.m */; };
 		96A9696C1CB8D8D700D1212B /* AllImmunisationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A969631CB8D8D700D1212B /* AllImmunisationCell.m */; };
 		96A9696D1CB8D8D700D1212B /* DueImmunisationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A969651CB8D8D700D1212B /* DueImmunisationCell.m */; };
 		96A9696E1CB8D8D700D1212B /* ImmunisationBaseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A969671CB8D8D700D1212B /* ImmunisationBaseDate.m */; };
@@ -286,6 +287,8 @@
 		90FC545F1CB1A83400ED0E34 /* ParticularsOfParentsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticularsOfParentsVC.h; sourceTree = "<group>"; };
 		90FC54601CB1A83400ED0E34 /* ParticularsOfParentsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticularsOfParentsVC.m; sourceTree = "<group>"; };
 		90FC546D1CB1A8A500ED0E34 /* KeyConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyConstants.h; sourceTree = "<group>"; };
+		96957B491CBAC50E00578E90 /* BioDataObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BioDataObj.h; sourceTree = "<group>"; };
+		96957B4A1CBAC50E00578E90 /* BioDataObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BioDataObj.m; sourceTree = "<group>"; };
 		96A969621CB8D8D700D1212B /* AllImmunisationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllImmunisationCell.h; sourceTree = "<group>"; };
 		96A969631CB8D8D700D1212B /* AllImmunisationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllImmunisationCell.m; sourceTree = "<group>"; };
 		96A969641CB8D8D700D1212B /* DueImmunisationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DueImmunisationCell.h; sourceTree = "<group>"; };
@@ -582,6 +585,8 @@
 		90F165CC1CB5A4CF006B5DD6 /* AppContext */ = {
 			isa = PBXGroup;
 			children = (
+				96957B491CBAC50E00578E90 /* BioDataObj.h */,
+				96957B4A1CBAC50E00578E90 /* BioDataObj.m */,
 				90F165CD1CB5A4DA006B5DD6 /* ConnectionsManager.h */,
 				90F165CE1CB5A4DA006B5DD6 /* ConnectionsManager.m */,
 			);
@@ -828,8 +833,8 @@
 				D82C28EC1C8F7012005798EA /* ScreeningOutcomeOptions.h */,
 				D82C28ED1C8F7012005798EA /* ScreeningOutcomeOptions.m */,
 				D82C28EF1C8F7041005798EA /* ScreeningsOutcome.h */,
-				D82C28F01C8F7041005798EA /* ScreeningsOutcome.m */,
 				A13FC7EF1C7748AC00362A32 /* Main.storyboard */,
+				D82C28F01C8F7041005798EA /* ScreeningsOutcome.m */,
 				A1EAD2B81CA9030C008D2B37 /* HealthBookletViewController.h */,
 				A1EAD2B91CA9030C008D2B37 /* HealthBookletViewController.m */,
 				A1EAD2BB1CA904CF008D2B37 /* ImmunisationCalenderViewController.h */,
@@ -1255,6 +1260,7 @@
 				A1EAD2DD1CAEBC2B008D2B37 /* MedicationCategoryDetail.m in Sources */,
 				D82C28EE1C8F7012005798EA /* ScreeningOutcomeOptions.m in Sources */,
 				90F044D81CB2D7D30068EC4B /* DrugAlergyCell.m in Sources */,
+				96957B4B1CBAC50E00578E90 /* BioDataObj.m in Sources */,
 				96A9696D1CB8D8D700D1212B /* DueImmunisationCell.m in Sources */,
 				90F165BF1CB5A4A0006B5DD6 /* AFSecurityPolicy.m in Sources */,
 				A10EB6101C786BBF002EBC59 /* LeftMenuViewController.m in Sources */,
