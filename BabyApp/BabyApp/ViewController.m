@@ -18,6 +18,7 @@
 @end
 
 @implementation ViewController
+UIActivityIndicatorView *act1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -180,7 +181,14 @@
     NSLog(@"signinAction");
       // [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
     if([self isValidData])
-     [self requesttoserver];
+    {
+        act1=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [act1 setCenter:self.view.center];
+        [self.view addSubview:act1];
+        [act1 startAnimating];
+        [self performSelector:@selector(requesttoserver) withObject:nil afterDelay:0.2];
+     //[self requesttoserver];
+    }
 }
 
 -(BOOL)isValidData
@@ -244,10 +252,14 @@
     }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
        NSLog(@"error%@" , error);
+    [act1 stopAnimating];
+    [act1 removeFromSuperview];
 }
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
     // NSString *htmlSTR = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
 
+      [act1 stopAnimating];
+    [act1 removeFromSuperview];
       NSError* error;
        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:self.receivedData options:kNilOptions error:&error];
        NSLog(@"connectionDidFinishLoading =%@",json);

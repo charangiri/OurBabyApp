@@ -19,6 +19,7 @@
 @end
 
 @implementation SignUpViewController
+UIActivityIndicatorView *act2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -96,6 +97,12 @@
     NSLog(@"createAccount");
     if([self isValidData])
     {
+        act2=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [act2 setCenter:self.view.center];
+        [self.view addSubview:act2];
+        [act2 startAnimating];
+
+        
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         [params setObject:self.userNameTF.text forKey:@"name"];   //
         [params setObject:self.email.text forKey:@"email"];
@@ -135,6 +142,8 @@
 
 -(void)success:(id )response
 {
+    [act2 stopAnimating];
+    [act2 removeFromSuperview];
     /*
      message = "User email already exists";
      status = 0;
@@ -172,6 +181,8 @@
 
 -(void)failure:(id)response
 {
+    [act2 stopAnimating];
+    [act2 removeFromSuperview];
     //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
 }
 
