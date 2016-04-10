@@ -182,7 +182,7 @@ UIActivityIndicatorView *act1;
       // [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
     if([self isValidData])
     {
-        act1=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    act1=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [act1 setCenter:self.view.center];
         [self.view addSubview:act1];
         [act1 startAnimating];
@@ -293,7 +293,14 @@ UIActivityIndicatorView *act1;
                                                    handler:^(UIAlertAction * action){
                                                        //Do Some action here
                                                        UITextField *textField = alert.textFields[0];
-                                                       [self getForgotPassword:textField.text];
+                                                       act1=nil;
+                                                       act1=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+                                                       [act1 setCenter:self.view.center];
+                                                       [self.view addSubview:act1];
+                                                       [act1 startAnimating];
+                                                       [self performSelector:@selector(getForgotPassword:) withObject:textField.text afterDelay:0.2];
+
+                                                      // [self getForgotPassword:textField.text];
                                                        
                                                        NSLog(@"text was %@", textField.text);
                                                        
@@ -360,6 +367,8 @@ UIActivityIndicatorView *act1;
 
 -(void)success:(id)response
 {
+    [act1 stopAnimating];
+    [act1 removeFromSuperview];
     /*
      {
      message = "Your new password has been sent to you email";
@@ -400,7 +409,8 @@ UIActivityIndicatorView *act1;
 }
 -(void)failure:(id)response
 {
-    
+    [act1 stopAnimating];
+    [act1 removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning {
