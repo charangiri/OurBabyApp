@@ -97,7 +97,7 @@
     if([self isValidData])
     {
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        [params setObject:@"Atul" forKey:@"name"];   //
+        [params setObject:self.userNameTF.text forKey:@"name"];   //
         [params setObject:self.email.text forKey:@"email"];
         [params setObject:self.passwordTF.text forKey:@"password"];
         [params setObject:@"ios" forKey:@"device"];
@@ -108,6 +108,14 @@
 
 -(BOOL)isValidData
 {
+    if([self.userNameTF.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter  Your Name" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+
     if(![self.email.text isValidEmail])
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid email address" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
