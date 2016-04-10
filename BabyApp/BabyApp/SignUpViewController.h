@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 - (IBAction)createAccount:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *userNameTF;
 
 @end
