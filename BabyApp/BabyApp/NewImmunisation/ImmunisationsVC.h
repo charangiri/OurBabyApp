@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentImu;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)onClickSwitch:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationItem *imuNavigationItem;
 
 @end

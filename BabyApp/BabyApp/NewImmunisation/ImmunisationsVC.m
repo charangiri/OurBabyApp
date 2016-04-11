@@ -18,7 +18,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"tool"] style:UIBarButtonItemStyleDone target:self action:@selector(onClickAddNew:)];
+    self.imuNavigationItem.rightBarButtonItem = rightButton;
+    
+    
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:NO];
+}
+
+-(void)onClickAddNew:(id)sender
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,11 +57,13 @@
     if (self.segmentImu.selectedSegmentIndex == 0)
     {
         AllImmunisationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AllImmunisationCell"];
+        [cell setBackgroundColor:[UIColor whiteColor]];
         return cell;
     }
     else
     {
         DueImmunisationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DueImmunisationCell"];
+        [cell setBackgroundColor:[UIColor whiteColor]];
         return cell;
     }
 }
@@ -54,7 +72,7 @@
 {
     CGRect frame = tableView.frame;
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 41)];
-    [headerView setBackgroundColor:[UIColor whiteColor]];
+    [headerView setBackgroundColor:[UIColor colorWithRed:231.0f/255.0f green:231.0/255.0f blue:235.0f/255.0f alpha:1.0]];
     
     UILabel *lblHeader = [[UILabel alloc] initWithFrame:CGRectMake(frame.origin.x, 10, frame.size.width, 21)];
     [lblHeader setText:@"Section title"];
@@ -66,6 +84,11 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 50;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
 }
 
 - (IBAction)onClickSwitch:(id)sender
