@@ -10,7 +10,7 @@
 #import "ConnectionsManager.h"
 #import "NSString+CommonForApp.h"
 
-#define kOFFSET_FOR_KEYBOARD 100.0
+#define kOFFSET_FOR_KEYBOARD 80.0
 
 
 @interface SignUpViewController () <ServerResponseDelegate>
@@ -19,6 +19,7 @@
 @end
 
 @implementation SignUpViewController
+UIActivityIndicatorView *act2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -96,16 +97,27 @@
     NSLog(@"createAccount");
     if([self isValidData])
     {
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        [params setObject:self.userNameTF.text forKey:@"name"];   //
-        [params setObject:self.email.text forKey:@"email"];
-        [params setObject:self.passwordTF.text forKey:@"password"];
-        [params setObject:@"ios" forKey:@"device"];
-        [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
+        act2=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [act2 setCenter:self.view.center];
+        [self.view addSubview:act2];
+        [act2 startAnimating];
+
+        [self performSelector:@selector(toCallSignupApi) withObject:nil afterDelay:0.2];
+  
+     
     }
     
 }
 
+-(void)toCallSignupApi
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:self.userNameTF.text forKey:@"name"];   //
+    [params setObject:self.email.text forKey:@"email"];
+    [params setObject:self.passwordTF.text forKey:@"password"];
+    [params setObject:@"ios" forKey:@"device"];
+    [[ConnectionsManager sharedManager] registerUser:params withdelegate:self];
+}
 -(BOOL)isValidData
 {
     if([self.userNameTF.text isEmpty])
@@ -135,6 +147,8 @@
 
 -(void)success:(id )response
 {
+    [act2 stopAnimating];
+    [act2 removeFromSuperview];
     /*
      message = "User email already exists";
      status = 0;
@@ -172,6 +186,8 @@
 
 -(void)failure:(id)response
 {
+    [act2 stopAnimating];
+    [act2 removeFromSuperview];
     //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
 }
 
