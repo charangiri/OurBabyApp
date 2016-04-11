@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "LeftMenuViewController.h"
 #import "HomeTableViewCell.h"
+#import "ImmunisationsVC.h"
 @implementation HomeViewController
 {
     NSArray *titlesArray,*imagesNames,*colorArray;
@@ -119,6 +120,18 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    //ImmunisationsVC_SB_ID
+    if(indexPath.row==0)
+    {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                                 bundle: nil];
+        
+        
+               ImmunisationsVC *ImmunisationsVC = [mainStoryboard instantiateViewControllerWithIdentifier: @"ImmunisationsVC_SB_ID"];
+
+        
+        [self.navigationController pushViewController:ImmunisationsVC animated:YES];
+    }
     if(indexPath.row==1)
     {
     [self performSegueWithIdentifier:@"screenpagesegu" sender:self];
