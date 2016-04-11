@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblDate;
 @property (weak, nonatomic) IBOutlet UIImageView *imgNotePad;
-
+@property (weak, nonatomic) IBOutlet UILabel *lblLine;
+@property (weak, nonatomic) IBOutlet UILabel *lblNext;
 @property (weak, nonatomic) IBOutlet UIView *indicatorView;
 @end

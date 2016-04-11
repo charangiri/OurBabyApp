@@ -44,12 +44,61 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    if (self.segmentImu.selectedSegmentIndex == 0)
+    {
+        if(section == 0)
+        {
+            return 1;
+        }
+        else
+        {
+            return 2;
+        }
+    }
+    else if(self.segmentImu.selectedSegmentIndex == 1)
+    {
+        if(section == 0)
+        {
+            return 1;
+        }
+        else if (section == 1)
+        {
+            return 1;
+        }
+        else
+        {
+            return 2;
+        }
+    }
+    else
+    {
+        if(section == 0)
+        {
+            return 1;
+        }
+        else
+        {
+            return 2;
+        }
+    }
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    if (self.segmentImu.selectedSegmentIndex == 0)
+    {
+        return 2;
+        
+    }
+    else if(self.segmentImu.selectedSegmentIndex == 1)
+    {
+        return 3;
+        
+    }
+    else
+    {
+        return 3;
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -58,12 +107,127 @@
     {
         AllImmunisationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AllImmunisationCell"];
         [cell setBackgroundColor:[UIColor whiteColor]];
+        cell.lblNext.layer.cornerRadius = 10.0f;
+        cell.lblNext.clipsToBounds = YES;
+        
+        if(indexPath.section == 0)
+        {
+            [cell.indicatorView setBackgroundColor:[UIColor greenColor]];
+            [cell.lblLine setHidden:NO];
+            [cell.lblDate setText:@"10/04/13"];
+            [cell.lblDate setTextColor:[UIColor lightGrayColor]];
+            [cell.lblNext setHidden:YES];
+        }
+        else if(indexPath.section == 1)
+        {
+            if(indexPath == 0)
+            {
+                [cell.indicatorView setBackgroundColor:[UIColor greenColor]];
+                [cell.lblLine setHidden:YES];
+                [cell.lblDate setText:@"12/04/13"];
+                [cell.lblDate setTextColor:[UIColor lightGrayColor]];
+                [cell.lblNext setHidden:YES];
+            }
+            else
+            {
+                [cell.indicatorView setBackgroundColor:[UIColor redColor]];
+                [cell.lblLine setHidden:YES];
+                [cell.lblDate setText:@"15/04/13"];
+                [cell.lblDate setTextColor:[UIColor redColor]];
+                [cell.lblNext setHidden:NO];
+                
+            }
+        }
+        
+        
+        return cell;
+    }
+    if (self.segmentImu.selectedSegmentIndex == 1)
+    {
+        AllImmunisationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AllImmunisationCell"];
+        [cell setBackgroundColor:[UIColor whiteColor]];
+        
+        if(indexPath.section == 0)
+        {
+            [cell.indicatorView setBackgroundColor:[UIColor greenColor]];
+            [cell.lblLine setHidden:YES];
+            [cell.lblTitle setText:@"First Dose"];
+            [cell.lblDate setText:@"10/04/13"];
+            [cell.lblDate setTextColor:[UIColor lightGrayColor]];
+            [cell.lblNext setHidden:YES];
+            [cell.imgNotePad setHidden:NO];
+        }
+        else if(indexPath.section == 1)
+        {
+            [cell.indicatorView setBackgroundColor:[UIColor greenColor]];
+            [cell.lblLine setHidden:YES];
+            [cell.lblTitle setText:@"First Dose"];
+            [cell.lblDate setText:@"12/04/13"];
+            [cell.lblDate setTextColor:[UIColor lightGrayColor]];
+            [cell.lblNext setHidden:YES];
+            [cell.imgNotePad setHidden:NO];
+        }
+        else if(indexPath.section == 2)
+        {
+            if(indexPath == 0)
+            {
+                [cell.indicatorView setBackgroundColor:[UIColor greenColor]];
+                [cell.lblLine setHidden:YES];
+                [cell.lblTitle setText:@"First Dose"];
+                [cell.lblDate setText:@"12/08/13"];
+                [cell.lblDate setTextColor:[UIColor lightGrayColor]];
+                [cell.lblNext setHidden:YES];
+                [cell.imgNotePad setHidden:NO];
+            }
+            else
+            {
+                [cell.indicatorView setBackgroundColor:[UIColor greenColor]];
+                [cell.lblLine setHidden:YES];
+                [cell.lblTitle setText:@"Second Dose"];
+                [cell.lblDate setText:@"03/02/13"];
+                [cell.lblDate setTextColor:[UIColor lightGrayColor]];
+                [cell.lblNext setHidden:YES];
+                [cell.imgNotePad setHidden:YES];
+            }
+        }
+        
         return cell;
     }
     else
     {
         DueImmunisationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DueImmunisationCell"];
         [cell setBackgroundColor:[UIColor whiteColor]];
+        
+        if(indexPath.section == 0)
+        {
+            [cell.indicatorView setBackgroundColor:[UIColor redColor]];
+            [cell.lblTitle setText:@"HepB"];
+            [cell.lblDate setText:@"15/04/13"];
+            [cell.lblTitle setFont:[UIFont boldSystemFontOfSize:15]];
+            [cell.lblDate setTextColor:[UIColor redColor]];
+            [cell.lblDose setText:@"Second Dose"];
+        }
+        else if(indexPath.section == 1)
+        {
+            if(indexPath == 0)
+            {
+                [cell.indicatorView setBackgroundColor:[UIColor redColor]];
+                [cell.lblTitle setText:@"Dpat Dose"];
+                [cell.lblTitle setFont:[UIFont boldSystemFontOfSize:15]];
+                [cell.lblDate setText:@"10/09/13"];
+                [cell.lblDate setTextColor:[UIColor lightGrayColor]];
+                [cell.lblDose setText:@"Third Dose"];
+            }
+            else
+            {
+                [cell.indicatorView setBackgroundColor:[UIColor redColor]];
+                [cell.lblTitle setText:@"Polio"];
+                [cell.lblTitle setFont:[UIFont boldSystemFontOfSize:15]];
+                [cell.lblDate setText:@"10/04/13"];
+                [cell.lblDate setTextColor:[UIColor lightGrayColor]];
+                [cell.lblDose setText:@"Second Dose"];
+            }
+        }
         return cell;
     }
 }
@@ -77,6 +241,52 @@
     UILabel *lblHeader = [[UILabel alloc] initWithFrame:CGRectMake(frame.origin.x, 10, frame.size.width, 21)];
     [lblHeader setText:@"Section title"];
     [headerView addSubview:lblHeader];
+    
+    if (self.segmentImu.selectedSegmentIndex == 0)
+    {
+        if(section == 0)
+        {
+            [lblHeader setText:@"BCG (TUBERCULOSIS)"];
+        }
+        if(section == 1)
+        {
+            [lblHeader setText:@"HEPATITIS B"];
+        }
+        else
+        {
+            [lblHeader setText:@"dpAt (DIPTHERIA PERTUSSIS, TETANUS)"];
+        }
+    }
+    else if(self.segmentImu.selectedSegmentIndex == 1)
+    {
+        if(section == 0)
+        {
+            [lblHeader setText:@"BCG (TUBERCULOSIS)"];
+        }
+        if(section == 1)
+        {
+            [lblHeader setText:@"HEPATITIS B"];
+        }
+        else
+        {
+            [lblHeader setText:@"dpAt (DIPTHERIA PERTUSSIS, TETANUS)"];
+        }
+    }
+    else
+    {
+        if(section == 0)
+        {
+            [lblHeader setText:@"BCG (TUBERCULOSIS)"];
+        }
+        if(section == 1)
+        {
+            [lblHeader setText:@"dpAt (DIPTHERIA PERTUSSIS, TETANUS)"];
+        }
+        else
+        {
+            [lblHeader setText:@"POLIO"];
+        }
+    }
     
     return headerView;
 }
@@ -95,15 +305,15 @@
 {
     if (self.segmentImu.selectedSegmentIndex == 0)
     {
-        
+        [self.tableView reloadData];
     }
     else if(self.segmentImu.selectedSegmentIndex == 1)
     {
-        
+        [self.tableView reloadData];
     }
     else if(self.segmentImu.selectedSegmentIndex == 2)
     {
-        
+        [self.tableView reloadData];
     }
 }
 @end
