@@ -10,4 +10,10 @@
 
 @implementation NewImmunisationVC
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.navigationItem.title =@"New Immunisation";
+
+}
 @end
