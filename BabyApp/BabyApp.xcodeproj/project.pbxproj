@@ -114,6 +114,12 @@
 		A13FC8211C776F6800362A32 /* img_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A13FC8201C776F6800362A32 /* img_logo.png */; };
 		A13FC8221C776F6800362A32 /* img_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A13FC8201C776F6800362A32 /* img_logo.png */; };
 		A13FC8231C776F6800362A32 /* img_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A13FC8201C776F6800362A32 /* img_logo.png */; };
+		A1A469651CBD391C009F65BB /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A469641CBD391C009F65BB /* Constants.m */; };
+		A1A469FE1CBD6C66009F65BB /* VisiualActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A469FB1CBD6C66009F65BB /* VisiualActivityViewController.m */; };
+		A1A469FF1CBD6C66009F65BB /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A469FD1CBD6C66009F65BB /* ActivityTableViewCell.m */; };
+		A1A46A091CBD77D6009F65BB /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A46A031CBD77D6009F65BB /* PopoverView.m */; };
+		A1A46A0A1CBD77D6009F65BB /* SHLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A46A061CBD77D6009F65BB /* SHLineGraphView.m */; };
+		A1A46A0B1CBD77D6009F65BB /* SHPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A46A081CBD77D6009F65BB /* SHPlot.m */; };
 		A1EAD2BA1CA9030C008D2B37 /* HealthBookletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2B91CA9030C008D2B37 /* HealthBookletViewController.m */; };
 		A1EAD2BD1CA904CF008D2B37 /* ImmunisationCalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2BC1CA904CF008D2B37 /* ImmunisationCalenderViewController.m */; };
 		A1EAD2C01CA904FF008D2B37 /* ImmunisationCalenderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2BF1CA904FF008D2B37 /* ImmunisationCalenderDetailViewController.m */; };
@@ -375,6 +381,20 @@
 		A13FC8101C7748AC00362A32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A13FC81C1C776F1600362A32 /* background_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_image.png; sourceTree = "<group>"; };
 		A13FC8201C776F6800362A32 /* img_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_logo.png; sourceTree = "<group>"; };
+		A1A469631CBD391C009F65BB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		A1A469641CBD391C009F65BB /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		A1A469FA1CBD6C66009F65BB /* VisiualActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisiualActivityViewController.h; sourceTree = "<group>"; };
+		A1A469FB1CBD6C66009F65BB /* VisiualActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisiualActivityViewController.m; sourceTree = "<group>"; };
+		A1A469FC1CBD6C66009F65BB /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
+		A1A469FD1CBD6C66009F65BB /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCell.m; sourceTree = "<group>"; };
+		A1A46A011CBD77D6009F65BB /* PopoverView_Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView_Configuration.h; sourceTree = "<group>"; };
+		A1A46A021CBD77D6009F65BB /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		A1A46A031CBD77D6009F65BB /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
+		A1A46A041CBD77D6009F65BB /* PopoverViewCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCompatibility.h; sourceTree = "<group>"; };
+		A1A46A051CBD77D6009F65BB /* SHLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLineGraphView.h; sourceTree = "<group>"; };
+		A1A46A061CBD77D6009F65BB /* SHLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLineGraphView.m; sourceTree = "<group>"; };
+		A1A46A071CBD77D6009F65BB /* SHPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPlot.h; sourceTree = "<group>"; };
+		A1A46A081CBD77D6009F65BB /* SHPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPlot.m; sourceTree = "<group>"; };
 		A1EAD2B81CA9030C008D2B37 /* HealthBookletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthBookletViewController.h; sourceTree = "<group>"; };
 		A1EAD2B91CA9030C008D2B37 /* HealthBookletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthBookletViewController.m; sourceTree = "<group>"; };
 		A1EAD2BB1CA904CF008D2B37 /* ImmunisationCalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImmunisationCalenderViewController.h; sourceTree = "<group>"; };
@@ -668,6 +688,8 @@
 		90FC546C1CB1A8A500ED0E34 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				A1A469631CBD391C009F65BB /* Constants.h */,
+				A1A469641CBD391C009F65BB /* Constants.m */,
 				90FC546D1CB1A8A500ED0E34 /* KeyConstants.h */,
 				90F165D01CB5A533006B5DD6 /* WSConstant.h */,
 			);
@@ -795,6 +817,7 @@
 		A13FC7E51C7748AC00362A32 /* BabyApp */ = {
 			isa = PBXGroup;
 			children = (
+				A1A46A001CBD77CB009F65BB /* Graph */,
 				96A969611CB8D8D700D1212B /* NewImmunisation */,
 				90F165CC1CB5A4CF006B5DD6 /* AppContext */,
 				90F165941CB5A479006B5DD6 /* Library */,
@@ -863,6 +886,10 @@
 				D8F0AEF31CAF166300EE9BE5 /* ScreenSumaryDetailCell.m */,
 				A1EAD2E11CB57057008D2B37 /* SettingsTableViewController.h */,
 				A1EAD2E21CB57057008D2B37 /* SettingsTableViewController.m */,
+				A1A469FA1CBD6C66009F65BB /* VisiualActivityViewController.h */,
+				A1A469FB1CBD6C66009F65BB /* VisiualActivityViewController.m */,
+				A1A469FC1CBD6C66009F65BB /* ActivityTableViewCell.h */,
+				A1A469FD1CBD6C66009F65BB /* ActivityTableViewCell.m */,
 				A1EAD2D11CA98CC4008D2B37 /* ImmunisationsCells */,
 				A13FC7F71C7748AC00362A32 /* LaunchScreen.storyboard */,
 				A13FC7FA1C7748AC00362A32 /* Info.plist */,
@@ -899,6 +926,21 @@
 				A13FC8101C7748AC00362A32 /* Info.plist */,
 			);
 			path = BabyAppUITests;
+			sourceTree = "<group>";
+		};
+		A1A46A001CBD77CB009F65BB /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				A1A46A011CBD77D6009F65BB /* PopoverView_Configuration.h */,
+				A1A46A021CBD77D6009F65BB /* PopoverView.h */,
+				A1A46A031CBD77D6009F65BB /* PopoverView.m */,
+				A1A46A041CBD77D6009F65BB /* PopoverViewCompatibility.h */,
+				A1A46A051CBD77D6009F65BB /* SHLineGraphView.h */,
+				A1A46A061CBD77D6009F65BB /* SHLineGraphView.m */,
+				A1A46A071CBD77D6009F65BB /* SHPlot.h */,
+				A1A46A081CBD77D6009F65BB /* SHPlot.m */,
+			);
+			name = Graph;
 			sourceTree = "<group>";
 		};
 		A1EAD2D11CA98CC4008D2B37 /* ImmunisationsCells */ = {
@@ -1231,6 +1273,7 @@
 				90FC54661CB1A83400ED0E34 /* InvestigationDefaultCell.m in Sources */,
 				90F165C41CB5A4A0006B5DD6 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				90F165CB1CB5A4A0006B5DD6 /* UIWebView+AFNetworking.m in Sources */,
+				A1A46A0A1CBD77D6009F65BB /* SHLineGraphView.m in Sources */,
 				90EED5A81CB4408700401065 /* CommonScreeingListVC.m in Sources */,
 				A1EAD2D01CA9836D008D2B37 /* ImmunisationsTableViewController.m in Sources */,
 				D8AB15C01C8E1AD80062DAFE /* ScreeningParentalViewController.m in Sources */,
@@ -1250,11 +1293,13 @@
 				A1EAD2D41CA98CED008D2B37 /* ImmunationsBlueTableViewCell.m in Sources */,
 				90FC54631CB1A83400ED0E34 /* CommonSelectionListVC.m in Sources */,
 				D82C28EB1C8F6FDC005798EA /* ScreeningExamination.m in Sources */,
+				A1A46A091CBD77D6009F65BB /* PopoverView.m in Sources */,
 				A13FC7EE1C7748AC00362A32 /* ViewController.m in Sources */,
 				A1EAD2D71CA98CFB008D2B37 /* ImmunationsGreyTableViewCell.m in Sources */,
 				A10EB64C1C79DF68002EBC59 /* SignUpViewController.m in Sources */,
 				90F165C21CB5A4A0006B5DD6 /* AFURLResponseSerialization.m in Sources */,
 				90F165C91CB5A4A0006B5DD6 /* UIProgressView+AFNetworking.m in Sources */,
+				A1A46A0B1CBD77D6009F65BB /* SHPlot.m in Sources */,
 				D8F0AEF61CAF166300EE9BE5 /* ScreenSumaryDetailCell.m in Sources */,
 				96A9696E1CB8D8D700D1212B /* ImmunisationBaseDate.m in Sources */,
 				A1EAD2DD1CAEBC2B008D2B37 /* MedicationCategoryDetail.m in Sources */,
@@ -1272,8 +1317,10 @@
 				A1EAD2C81CA96B1C008D2B37 /* immunisationMainTableViewCell.m in Sources */,
 				90FC54441CB1A7E300ED0E34 /* CustomIOS7AlertView.m in Sources */,
 				A13FC7EB1C7748AC00362A32 /* AppDelegate.m in Sources */,
+				A1A469651CBD391C009F65BB /* Constants.m in Sources */,
 				A1EAD2CB1CA96B2F008D2B37 /* immunisationSecondaryTableViewCell.m in Sources */,
 				90F165BE1CB5A4A0006B5DD6 /* AFNetworkReachabilityManager.m in Sources */,
+				A1A469FE1CBD6C66009F65BB /* VisiualActivityViewController.m in Sources */,
 				A10EB5ED1C786B91002EBC59 /* SlideNavigationController.m in Sources */,
 				90F165CF1CB5A4DA006B5DD6 /* ConnectionsManager.m in Sources */,
 				90000F561CB352A000BC9BFC /* MedicalConditionVC.m in Sources */,
@@ -1299,6 +1346,7 @@
 				D8970FB81C98A6FC009C752B /* EncyclopediaTapScroller.m in Sources */,
 				90FC54641CB1A83400ED0E34 /* DischargeInformationVC.m in Sources */,
 				A1EAD2E31CB57057008D2B37 /* SettingsTableViewController.m in Sources */,
+				A1A469FF1CBD6C66009F65BB /* ActivityTableViewCell.m in Sources */,
 				90EED5AE1CB443F700401065 /* CommonScreeingCell.m in Sources */,
 				90EED5B71CB455D900401065 /* ConditionData.m in Sources */,
 				90F165C81CB5A4A0006B5DD6 /* UIImageView+AFNetworking.m in Sources */,

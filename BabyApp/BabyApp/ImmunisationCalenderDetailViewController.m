@@ -8,8 +8,11 @@
 
 #import "ImmunisationCalenderDetailViewController.h"
 #import "RSDFDatePickerView.h"
+#import "immunisationMainTableViewCell.h"
+#import "immunisationSecondaryTableViewCell.h"
 
-@interface ImmunisationCalenderDetailViewController ()<RSDFDatePickerViewDelegate,RSDFDatePickerViewDataSource>
+
+@interface ImmunisationCalenderDetailViewController ()<RSDFDatePickerViewDelegate,RSDFDatePickerViewDataSource,UITableViewDataSource,UITableViewDelegate>
 
 @end
 
@@ -18,10 +21,96 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self calenderCreation];
-    // Do any additional setup after loading the view.
+    
+    self.navigationItem.rightBarButtonItem = [self addRightButton];
+    
 }
 
 
+#pragma mark - Table view data source
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    if (indexPath.row==0) {
+        
+        return 90;
+    }
+    return 60;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.row==0) {
+        
+        immunisationMainTableViewCell *cell = (immunisationMainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"mainCell"];
+        cell.backgroundColor=[UIColor whiteColor];
+        cell.dateLabel.text=@"30";
+        cell.monthLabel.text=@"Apr";
+        cell.mainLabel.text=@"HepB(D1)";
+        cell.subTitleLabel.text=@"Hepatits B vaccine, first dose";
+        cell.titleLabel.text=@"Birth";
+        
+        return cell;
+    }
+    else
+    {
+        immunisationSecondaryTableViewCell *cell = (immunisationSecondaryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"secondCell"];
+        cell.backgroundColor=[UIColor whiteColor];
+        cell.subtitleLabel.text=@"Bacillus calmette-Guerin";
+        cell.titleLabel.text=@"BCG";
+        
+        return cell;
+        
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // [self performSegueWithIdentifier:@"ImmunisationsSegue" sender:self];
+}
+
+
+
+#pragma mark - Bar button
+
+
+
+-(UIBarButtonItem *)addRightButton
+{
+    UIImage *buttonImage = [UIImage imageNamed:@"teeth.png"];
+    
+    UIButton *aButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [aButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    
+    aButton.frame = CGRectMake(0.0, 0.0, 40,40);
+    
+    UIBarButtonItem *aBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:aButton];
+    
+    [aButton addTarget:self action:@selector(showCalender) forControlEvents:UIControlEventTouchUpInside];
+    
+    return aBarButtonItem;
+}
+-(void)showCalender
+{
+    //calenderSegue
+    
+    // [self performSegueWithIdentifier:@"calenderSegue" sender:self];
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+#pragma mark - Calender data source
 
 
 // Returns YES if the date should be highlighted or NO if it should not.
@@ -77,7 +166,7 @@
 -(void)calenderCreation
 {
     //    RSDFDatePickerView *datePickerView = [[RSDFDatePickerView alloc] initWithFrame:self.view.bounds];
-    RSDFDatePickerView *datePickerView = [[RSDFDatePickerView alloc] initWithFrame:CGRectMake(0, 40 , _baseView.frame.size.width, _baseView.frame.size.height)];
+    RSDFDatePickerView *datePickerView = [[RSDFDatePickerView alloc] initWithFrame:CGRectMake(0, 40 , self.view.frame.size.width, _baseView.frame.size.height)];
     
     datePickerView.delegate = self;
     datePickerView.dataSource = self;
@@ -93,13 +182,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

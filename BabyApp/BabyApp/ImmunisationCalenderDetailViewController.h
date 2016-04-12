@@ -10,5 +10,6 @@
 
 @interface ImmunisationCalenderDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *baseView;
+@property (weak, nonatomic) IBOutlet UITableView *calenderDatialsTableView;
 
 @end

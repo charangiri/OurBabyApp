@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self circleViewCreation];
+   
 
 }
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
@@ -92,6 +93,7 @@
     
     
     [immunisationButton addTarget:self action:@selector(immunisationButtonAction) forControlEvents:UIControlEventTouchUpInside];
+      [screeningButton addTarget:self action:@selector(screeningButtonAction) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)immunisationButtonAction
@@ -100,6 +102,14 @@
   
     
 }
+
+-(void)screeningButtonAction
+{
+    [self performSegueWithIdentifier:@"activitySegue" sender:self];
+    
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
