@@ -34,4 +34,7 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 -(void)readdischarge_information:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 
 -(void)readinvestigations_read:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+#pragma mark - immunisation
+-(void)addImmunisation:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+
 @end

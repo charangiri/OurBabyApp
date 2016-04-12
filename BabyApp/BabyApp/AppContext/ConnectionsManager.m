@@ -286,4 +286,12 @@ static NSString * const BaseURLString = BaseUrl;
     [self getToURL:@"investigations_read" withParameters:params delegate:delegate];
 }
 
+#pragma mark - immunisation
+
+-(void)addImmunisation:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"add_immunisation" withParameters:params delegate:delegate];
+
+}
+
 @end
