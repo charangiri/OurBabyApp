@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "AwesomeMenu.h"
 #import "SlideNavigationController.h"
-@interface HealthBookletViewController : BaseViewController<SlideNavigationControllerDelegate>
+@interface HealthBookletViewController : BaseViewController<SlideNavigationControllerDelegate,AwesomeMenuDelegate>
 @property (weak, nonatomic) IBOutlet UIView *baseCircleView;
 - (IBAction)screeningAction:(id)sender;
 - (IBAction)childSafetyAction:(id)sender;
