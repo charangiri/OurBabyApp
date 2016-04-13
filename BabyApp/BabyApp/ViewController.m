@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "ConnectionsManager.h"
 #import "NSString+CommonForApp.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 #define kOFFSET_FOR_KEYBOARD 100.0
 
@@ -276,6 +278,100 @@ UIActivityIndicatorView *act1;
 
 
 - (IBAction)facebookSigninAction:(id)sender {
+    
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login
+     logInWithReadPermissions: @[@"public_profile"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             NSLog(@"Logged in");
+             dispatch_async(dispatch_get_main_queue(), ^{
+                                 [self getUserInfoFromFacebook];
+                 
+             });
+         }
+     }];
+}
+
+-(void)getUserInfoFromFacebook
+{
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"email,name,id"}]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (!error) {
+                 NSLog(@"fetched user:%@", result);
+                 NSLog(@"%@",result[@"email"]);
+                 NSString *email = result[@"email"];
+                 NSString *fbId = result[@"id"];
+                 NSString *userName = result[@"name"];
+
+
+                 NSDictionary *params = @{@"email":email,@"username":userName,@"facbook_id":fbId};
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [self callFacebookLoginAPI:params];
+                     
+                 });
+             }
+         }];
+        
+        
+    }
+}
+
+-(void)callFacebookLoginAPI:(NSDictionary *)params
+{
+    NSError *error;
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
+    NSString *Post=[NSString stringWithFormat:@"email=%@&username=%@&facebook_id=%@&@device=ios",params[@"email"],params[@"username"],params[@"facebook_id"]];
+    
+    NSData *PostData = [Post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
+    NSString *PostLengh=[NSString stringWithFormat:@"%d",[Post length]];
+    NSURL *Url=[NSURL URLWithString: @"http://babyappdev.azurewebsites.net/apiv1/service/facebook_login/"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:Url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:PostLengh forHTTPHeaderField:@"Content-Lenght"];
+    [request setHTTPBody:PostData];
+    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            
+
+            NSError* errorJason;
+            NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            NSLog(@"facebook_login response : %@",json);
+            if (!errorJason) {
+
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if([[json objectForKey:@"status"] boolValue])
+                    {
+                        // [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"userData"];
+                        [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+                        
+                    }
+                });
+            }else
+            {
+                NSLog(@"facebook_login error : %@",[errorJason localizedDescription]);
+
+            }
+           
+
+        }
+        else{
+            NSLog(@"facebook_login error : %@",[error localizedDescription]);
+        }
+        
+    }];
+    
+    [postDataTask resume];
+    
 }
 
 - (IBAction)forgotPasswordAction:(id)sender {

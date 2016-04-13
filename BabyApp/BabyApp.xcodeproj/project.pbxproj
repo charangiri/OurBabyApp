@@ -151,6 +151,13 @@
 		A1EAD2DD1CAEBC2B008D2B37 /* MedicationCategoryDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2DC1CAEBC2B008D2B37 /* MedicationCategoryDetail.m */; };
 		A1EAD2E31CB57057008D2B37 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2E21CB57057008D2B37 /* SettingsTableViewController.m */; };
 		A1EAD2E51CB57669008D2B37 /* home_kid.png in Resources */ = {isa = PBXBuildFile; fileRef = A1EAD2E41CB57669008D2B37 /* home_kid.png */; };
+		CDC84AAD1CBE083600D9A3DC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC84AAB1CBE083600D9A3DC /* FBSDKCoreKit.framework */; };
+		CDC84AAE1CBE083600D9A3DC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC84AAC1CBE083600D9A3DC /* FBSDKLoginKit.framework */; };
+		CDC84ABA1CBE084F00D9A3DC /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC84AB11CBE084F00D9A3DC /* SVIndefiniteAnimatedView.m */; };
+		CDC84ABB1CBE084F00D9A3DC /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC84AB31CBE084F00D9A3DC /* SVProgressAnimatedView.m */; };
+		CDC84ABC1CBE084F00D9A3DC /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDC84AB51CBE084F00D9A3DC /* SVProgressHUD.bundle */; };
+		CDC84ABD1CBE084F00D9A3DC /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC84AB71CBE084F00D9A3DC /* SVProgressHUD.m */; };
+		CDC84ABE1CBE084F00D9A3DC /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC84AB91CBE084F00D9A3DC /* SVRadialGradientLayer.m */; };
 		D82C28EB1C8F6FDC005798EA /* ScreeningExamination.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C28EA1C8F6FDC005798EA /* ScreeningExamination.m */; };
 		D82C28EE1C8F7012005798EA /* ScreeningOutcomeOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C28ED1C8F7012005798EA /* ScreeningOutcomeOptions.m */; };
 		D82C28F11C8F7041005798EA /* ScreeningsOutcome.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C28F01C8F7041005798EA /* ScreeningsOutcome.m */; };
@@ -456,6 +463,18 @@
 		A1EAD2E11CB57057008D2B37 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		A1EAD2E21CB57057008D2B37 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		A1EAD2E41CB57669008D2B37 /* home_kid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_kid.png; sourceTree = "<group>"; };
+		CDC84AAB1CBE083600D9A3DC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		CDC84AAC1CBE083600D9A3DC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		CDC84AB01CBE084F00D9A3DC /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		CDC84AB11CBE084F00D9A3DC /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		CDC84AB21CBE084F00D9A3DC /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		CDC84AB31CBE084F00D9A3DC /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		CDC84AB41CBE084F00D9A3DC /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		CDC84AB51CBE084F00D9A3DC /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		CDC84AB61CBE084F00D9A3DC /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		CDC84AB71CBE084F00D9A3DC /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		CDC84AB81CBE084F00D9A3DC /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		CDC84AB91CBE084F00D9A3DC /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		D82C28E91C8F6FDC005798EA /* ScreeningExamination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningExamination.h; sourceTree = "<group>"; };
 		D82C28EA1C8F6FDC005798EA /* ScreeningExamination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeningExamination.m; sourceTree = "<group>"; };
 		D82C28EC1C8F7012005798EA /* ScreeningOutcomeOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningOutcomeOptions.h; sourceTree = "<group>"; };
@@ -518,6 +537,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8AB15BA1C8DEEF10062DAFE /* QuartzCore.framework in Frameworks */,
+				CDC84AAD1CBE083600D9A3DC /* FBSDKCoreKit.framework in Frameworks */,
+				CDC84AAE1CBE083600D9A3DC /* FBSDKLoginKit.framework in Frameworks */,
 				01D1537E14D44BCCF3DDC034 /* libPods-BabyApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +601,8 @@
 		90F165941CB5A479006B5DD6 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				CDC84AAF1CBE084F00D9A3DC /* SVProgressHUD */,
+				CDC84AAA1CBE083600D9A3DC /* FacebookSDK */,
 				90F165951CB5A4A0006B5DD6 /* AFNetworking */,
 				90F165A91CB5A4A0006B5DD6 /* UIKit+AFNetworking */,
 			);
@@ -1024,6 +1047,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CDC84AAA1CBE083600D9A3DC /* FacebookSDK */ = {
+			isa = PBXGroup;
+			children = (
+				CDC84AAB1CBE083600D9A3DC /* FBSDKCoreKit.framework */,
+				CDC84AAC1CBE083600D9A3DC /* FBSDKLoginKit.framework */,
+			);
+			path = FacebookSDK;
+			sourceTree = "<group>";
+		};
+		CDC84AAF1CBE084F00D9A3DC /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				CDC84AB01CBE084F00D9A3DC /* SVIndefiniteAnimatedView.h */,
+				CDC84AB11CBE084F00D9A3DC /* SVIndefiniteAnimatedView.m */,
+				CDC84AB21CBE084F00D9A3DC /* SVProgressAnimatedView.h */,
+				CDC84AB31CBE084F00D9A3DC /* SVProgressAnimatedView.m */,
+				CDC84AB41CBE084F00D9A3DC /* SVProgressHUD-Prefix.pch */,
+				CDC84AB51CBE084F00D9A3DC /* SVProgressHUD.bundle */,
+				CDC84AB61CBE084F00D9A3DC /* SVProgressHUD.h */,
+				CDC84AB71CBE084F00D9A3DC /* SVProgressHUD.m */,
+				CDC84AB81CBE084F00D9A3DC /* SVRadialGradientLayer.h */,
+				CDC84AB91CBE084F00D9A3DC /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		D809F8731F7AA629EDDB3FE3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1234,6 +1283,7 @@
 				D8B138121C90CF6F007B412D /* AvenirNextLTPro-UltLtCn.otf in Resources */,
 				D8B138111C90CF6F007B412D /* AvenirNextLTPro-Regular.otf in Resources */,
 				A13FC7F61C7748AC00362A32 /* Assets.xcassets in Resources */,
+				CDC84ABC1CBE084F00D9A3DC /* SVProgressHUD.bundle in Resources */,
 				A10EB6001C786BA3002EBC59 /* menu-button.png in Resources */,
 				D8B138041C90CF6F007B412D /* AvenirNextLTPro-BoldCn.otf in Resources */,
 				A1A46A231CBD89AA009F65BB /* bg-addbutton.png in Resources */,
@@ -1350,6 +1400,7 @@
 				90F165CB1CB5A4A0006B5DD6 /* UIWebView+AFNetworking.m in Sources */,
 				A1A46A0A1CBD77D6009F65BB /* SHLineGraphView.m in Sources */,
 				90EED5A81CB4408700401065 /* CommonScreeingListVC.m in Sources */,
+				CDC84ABA1CBE084F00D9A3DC /* SVIndefiniteAnimatedView.m in Sources */,
 				A1EAD2D01CA9836D008D2B37 /* ImmunisationsTableViewController.m in Sources */,
 				D8AB15C01C8E1AD80062DAFE /* ScreeningParentalViewController.m in Sources */,
 				90F165D31CB5A9B5006B5DD6 /* NSString+CommonForApp.m in Sources */,
@@ -1402,6 +1453,7 @@
 				90000F561CB352A000BC9BFC /* MedicalConditionVC.m in Sources */,
 				A10EB5FA1C786B9A002EBC59 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				A1EAD2C51CA96AB8008D2B37 /* immunisationTableViewController.m in Sources */,
+				CDC84ABB1CBE084F00D9A3DC /* SVProgressAnimatedView.m in Sources */,
 				A1EAD2DA1CA98D08008D2B37 /* ImmunationsWhiteTableViewCell.m in Sources */,
 				90F165CA1CB5A4A0006B5DD6 /* UIRefreshControl+AFNetworking.m in Sources */,
 				A1EAD2C01CA904FF008D2B37 /* ImmunisationCalenderDetailViewController.m in Sources */,
@@ -1412,6 +1464,7 @@
 				A1EAD2BA1CA9030C008D2B37 /* HealthBookletViewController.m in Sources */,
 				A10EB61D1C789F72002EBC59 /* RadioTypeTableViewCell.m in Sources */,
 				90F165C31CB5A4A0006B5DD6 /* AFURLSessionManager.m in Sources */,
+				CDC84ABD1CBE084F00D9A3DC /* SVProgressHUD.m in Sources */,
 				90FC546A1CB1A83400ED0E34 /* NewbornScreeningVC.m in Sources */,
 				90FC54681CB1A83400ED0E34 /* InvestigationOptionsVC.m in Sources */,
 				D86EC0591C99FD7C00E3B176 /* GrowthSummary.m in Sources */,
@@ -1450,6 +1503,7 @@
 				A10EB65B1C7B7F59002EBC59 /* BirthRecordTableViewController.m in Sources */,
 				96A969701CB8D8D700D1212B /* ImmunisationsVC.m in Sources */,
 				90FC546B1CB1A83400ED0E34 /* ParticularsOfParentsVC.m in Sources */,
+				CDC84ABE1CBE084F00D9A3DC /* SVRadialGradientLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1592,6 +1646,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Arokya Samy (T638PH9L99)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arokya Samy (T638PH9L99)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BabyApp/Library/FacebookSDK",
+				);
 				INFOPLIST_FILE = BabyApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1609,6 +1667,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Arokya Samy (T638PH9L99)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arokya Samy (T638PH9L99)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BabyApp/Library/FacebookSDK",
+				);
 				INFOPLIST_FILE = BabyApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
