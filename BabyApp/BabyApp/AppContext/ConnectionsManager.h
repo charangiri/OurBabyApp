@@ -15,6 +15,7 @@ src!=nil?src:NSNULL
 #import <Foundation/Foundation.h>
 #import "AFHTTPSessionManager.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "SVProgressHUD.h"
 
 @protocol ServerResponseDelegate <NSObject>
 - (void) success:(id)response;
@@ -53,7 +54,7 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 
 -(void)readAllImmunisation:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 -(void)getVaccineType:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
-
+-(void)readImmunisation:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 //birth_record_update
 -(void)updateBirthRecord:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 -(void)updateParticular:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;

@@ -130,6 +130,10 @@ static NSString * const BaseURLString = BaseUrl;
 - (void) getToURL:(NSString *)url withParameters:(NSDictionary *)parameters delegate:(id<ServerResponseDelegate>)delegate
 {
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD showWithStatus:@"Loading"];
+        
+    });
     NSString *urlString = url;
     urlString = [NSString stringWithFormat:@"%@%@", BaseURLString, url];
     
@@ -138,6 +142,11 @@ static NSString * const BaseURLString = BaseUrl;
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+                        [SVProgressHUD dismiss];
+            
+        });
         
         if (responseObject) {
             
@@ -151,7 +160,11 @@ static NSString * const BaseURLString = BaseUrl;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [SVProgressHUD dismiss];
+            
+        });
         if (delegate && [delegate respondsToSelector:@selector(failure:)]) {
             
             [delegate failure:nil];
@@ -295,7 +308,13 @@ static NSString * const BaseURLString = BaseUrl;
 
 -(void)readAllImmunisation:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
 {
+    //all_immunisation_read
     [self getToURL:@"all_immunisation_read" withParameters:params delegate:delegate];
+}
+-(void)readImmunisation:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    //all_immunisation_read
+    [self getToURL:@"immunisation_read" withParameters:params delegate:delegate];
 }
 
 //get_vaccine_type

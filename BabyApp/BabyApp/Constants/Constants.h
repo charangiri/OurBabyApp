@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #pragma mark - Basic Configuration - prefix: KYC
 
@@ -36,5 +37,8 @@
 #define kKYICircleMenuButtonImageNameFormat  @"KYICircleMenuButton%.2d.png" // %.2d: 1 - 6
 
 @interface Constants : NSObject
+#pragma mark - Alert
+
++ (void)showOKAlertWithTitle:(NSString *)title message:(NSString *)message presentingVC:(UIViewController *)currentVC;
 
 @end

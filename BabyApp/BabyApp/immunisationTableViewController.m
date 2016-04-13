@@ -9,8 +9,9 @@
 #import "immunisationTableViewController.h"
 #import "immunisationMainTableViewCell.h"
 #import "immunisationSecondaryTableViewCell.h"
+#import "ConnectionsManager.h"
 
-@interface immunisationTableViewController ()
+@interface immunisationTableViewController ()<ServerResponseDelegate>
 
 @end
 
@@ -25,6 +26,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     
      self.navigationItem.rightBarButtonItem = [self addLeftButton];
+    [self callreadAllImmunisation];
 }
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
@@ -195,6 +197,30 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+}
+
+#pragma mark - reade immunisation
+//all_immunisation_read
+-(void)callreadAllImmunisation
+{
+    NSDictionary *params = @{@"user_id":@64,
+                             @"child_id":@10};
+    [[ConnectionsManager sharedManager] readAllImmunisation:params withdelegate:self
+     ];
+//    [[ConnectionsManager sharedManager] getVaccineType:nil withdelegate:self
+//     ];
+//    getVaccineType
+}
+
+#pragma mark - serverreseponse delegate
+-(void)success:(id)response
+{
+    NSLog(@"read immunisation respone : %@",response);
+}
+-(void)failure:(id)response
+{
+    NSLog(@"read immunisation failure respone : %@",response);
+
 }
 
 

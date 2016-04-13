@@ -11,6 +11,7 @@
 #import "NSString+CommonForApp.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "Constants/Constants.h"
 
 #define kOFFSET_FOR_KEYBOARD 100.0
 
@@ -184,10 +185,11 @@ UIActivityIndicatorView *act1;
       // [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
     if([self isValidData])
     {
-    act1=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [act1 setCenter:self.view.center];
-        [self.view addSubview:act1];
-        [act1 startAnimating];
+//    act1=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//        [act1 setCenter:self.view.center];
+//        [self.view addSubview:act1];
+//        [act1 startAnimating];
+        [SVProgressHUD showWithStatus:@"Loading"];
         [self performSelector:@selector(requesttoserver) withObject:nil afterDelay:0.2];
      //[self requesttoserver];
     }
@@ -197,15 +199,18 @@ UIActivityIndicatorView *act1;
 {
     if([self.usernameTextfield.text isEmpty])
             {
-                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid email address" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-                   [alert show];
+//                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid email address" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+//                   [alert show];
+                [Constants showOKAlertWithTitle:@"Info" message:@"Please enter valid email address" presentingVC:self];
         
                    return NO;
                 }
     if([self.passwordTextfield.text isEmpty])
            {
-                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid password" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-                   [alert show];
+//                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid password" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+//                   [alert show];
+               [Constants showOKAlertWithTitle:@"Info" message:@"Please enter valid password" presentingVC:self];
+
                   return NO;
               }
     
@@ -214,7 +219,7 @@ UIActivityIndicatorView *act1;
 
 -(void)requesttoserver
 {
-
+    
         //if there is a connection going on just cancel it.
       [self.connection cancel];
     
@@ -256,12 +261,22 @@ UIActivityIndicatorView *act1;
        NSLog(@"error%@" , error);
     [act1 stopAnimating];
     [act1 removeFromSuperview];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [SVProgressHUD dismiss];
+        
+    });
 }
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
     // NSString *htmlSTR = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
 
       [act1 stopAnimating];
     [act1 removeFromSuperview];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [SVProgressHUD dismiss];
+        
+    });
       NSError* error;
        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:self.receivedData options:kNilOptions error:&error];
        NSLog(@"connectionDidFinishLoading =%@",json);
@@ -307,9 +322,12 @@ UIActivityIndicatorView *act1;
 
 -(void)getUserInfoFromFacebook
 {
+    [SVProgressHUD showWithStatus:@"Loading"];
+
     if ([FBSDKAccessToken currentAccessToken]) {
         [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"email,name,id"}]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             
              if (!error) {
                  NSLog(@"fetched user:%@", result);
                  NSLog(@"%@",result[@"email"]);
@@ -324,6 +342,16 @@ UIActivityIndicatorView *act1;
                      
                  });
              }
+             else
+             {
+                  [Constants showOKAlertWithTitle:@"Error" message:@"Unable to login, Please try again after some time." presentingVC:self];
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     
+                     [SVProgressHUD dismiss];
+                     
+                 });
+
+             }
          }];
         
         
@@ -332,6 +360,7 @@ UIActivityIndicatorView *act1;
 
 -(void)callFacebookLoginAPI:(NSDictionary *)params
 {
+
     NSError *error;
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -347,6 +376,11 @@ UIActivityIndicatorView *act1;
     [request setValue:PostLengh forHTTPHeaderField:@"Content-Lenght"];
     [request setHTTPBody:PostData];
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [SVProgressHUD dismiss];
+            
+        });
         if (!error) {
             
 
@@ -366,6 +400,7 @@ UIActivityIndicatorView *act1;
             }else
             {
                 NSLog(@"facebook_login error : %@",[errorJason localizedDescription]);
+                [Constants showOKAlertWithTitle:@"Error" message:@"Unable to login, Please try again after some time." presentingVC:self];
 
             }
            
@@ -373,6 +408,7 @@ UIActivityIndicatorView *act1;
         }
         else{
             NSLog(@"facebook_login error : %@",[error localizedDescription]);
+             [Constants showOKAlertWithTitle:@"Error" message:@"Unable to login, Please try again after some time." presentingVC:self];
         }
         
     }];
