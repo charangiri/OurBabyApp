@@ -17,7 +17,7 @@
 @implementation EncyclopediaTapScroller
 @synthesize scrollerTable,scrollerTable2,scroll1,page1;
 NSArray *labelArrayScroller,*labelArrayScroller2;
-/*
+
  -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     CGFloat width = scrollView.frame.size.width;
@@ -33,7 +33,8 @@ NSArray *labelArrayScroller,*labelArrayScroller2;
      [page1 setCurrentPage:1];
     
     NSLog(@"current page=%ld",(long)page1.currentPage);
-}*/
+}
+
 NSArray *hed;
 - (void)viewDidLoad {
     [super viewDidLoad];
