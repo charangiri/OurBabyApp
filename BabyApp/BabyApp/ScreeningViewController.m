@@ -166,7 +166,7 @@ NSLog(@"didDeselectRowAtIndexPath");
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
-    return YES;
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning {

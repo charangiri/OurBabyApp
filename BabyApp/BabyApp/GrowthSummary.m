@@ -17,7 +17,7 @@
 NSArray *labelArrayGrowthSummary;
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
-    return YES;
+    return NO;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

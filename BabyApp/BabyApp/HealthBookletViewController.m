@@ -25,7 +25,7 @@
 }
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
-    return YES;
+    return NO;
 }
 
 -(void)circleViewCreation
