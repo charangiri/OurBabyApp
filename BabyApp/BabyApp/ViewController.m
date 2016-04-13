@@ -280,6 +280,13 @@ UIActivityIndicatorView *act1;
 - (IBAction)facebookSigninAction:(id)sender {
     
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    login.loginBehavior = FBSDKLoginBehaviorBrowser;
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]]) {
+        // Facebook app is installed
+        login.loginBehavior = FBSDKLoginBehaviorNative;
+
+        
+    }
     [login
      logInWithReadPermissions: @[@"public_profile"]
      fromViewController:self
