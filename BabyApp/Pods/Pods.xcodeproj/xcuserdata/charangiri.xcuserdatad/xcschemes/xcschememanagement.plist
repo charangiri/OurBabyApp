@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PDTSimpleCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BabyApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +32,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3672CF824ABB0B09F5FF111FB1364A4B</key>
+		<key>9F634CFAA9D93C2071AD7FAC27140AA8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>803D516D4C57FA186CB36AC1F461F9BC</key>
+		<key>CD76B6308DD72A17009A1E62A6C5255E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D653A59DB64AB2BE4631D99A6C318E21</key>
 		<dict>
 			<key>primary</key>
 			<true/>

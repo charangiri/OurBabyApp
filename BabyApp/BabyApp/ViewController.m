@@ -179,8 +179,8 @@ UIActivityIndicatorView *act1;
 }
 - (IBAction)signinAction:(id)sender {
     NSLog(@"signinAction");
-      // [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
-    if([self isValidData])
+      [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+  /*  if([self isValidData])
     {
     act1=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [act1 setCenter:self.view.center];
@@ -188,7 +188,7 @@ UIActivityIndicatorView *act1;
         [act1 startAnimating];
         [self performSelector:@selector(requesttoserver) withObject:nil afterDelay:0.2];
      //[self requesttoserver];
-    }
+    }*/
 }
 
 -(BOOL)isValidData

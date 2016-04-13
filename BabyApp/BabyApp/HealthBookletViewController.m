@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self circleViewCreation];
+   
 
 }
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
@@ -29,25 +30,25 @@
 
 -(void)circleViewCreation
 {
-    width= 250;
-    imageSize=70;
-   
+//    width= 250;
+//    imageSize=70;
+//   
+//    
+//    
+//    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+//    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(_baseCircleView.frame.origin.x, _baseCircleView.frame.origin.y, width, width)] CGPath]];
+//    [[_baseCircleView layer] addSublayer:circleLayer];
+//    [circleLayer setStrokeColor:[[UIColor grayColor] CGColor]];
+//    [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
+//    [circleLayer setLineWidth:  15.0f];
+//    
+//    float  centerImageLocation =width/2 -imageSize/2;
+//    
+//    UIView *circleView=[[UIView alloc] initWithFrame:CGRectMake(centerImageLocation, centerImageLocation, imageSize, imageSize)];
+//    circleView.backgroundColor = [UIColor blueColor];
+//    [_baseCircleView addSubview:circleView];
     
-    
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(_baseCircleView.frame.origin.x, _baseCircleView.frame.origin.y, width, width)] CGPath]];
-    [[_baseCircleView layer] addSublayer:circleLayer];
-    [circleLayer setStrokeColor:[[UIColor grayColor] CGColor]];
-    [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
-    [circleLayer setLineWidth:  15.0f];
-    
-    float  centerImageLocation =width/2 -imageSize/2;
-    
-    UIView *circleView=[[UIView alloc] initWithFrame:CGRectMake(centerImageLocation, centerImageLocation, imageSize, imageSize)];
-    circleView.backgroundColor = [UIColor blueColor];
-    [_baseCircleView addSubview:circleView];
-    
-    
+    /*
     UIButton *immunisationButton;
     UIButton *screeningButton;
     UIButton *percentilesButton;
@@ -92,6 +93,10 @@
     
     
     [immunisationButton addTarget:self action:@selector(immunisationButtonAction) forControlEvents:UIControlEventTouchUpInside];
+      [screeningButton addTarget:self action:@selector(screeningButtonAction) forControlEvents:UIControlEventTouchUpInside];
+     
+     */
+    [self circleView];
 }
 
 -(void)immunisationButtonAction
@@ -100,6 +105,78 @@
   
     
 }
+
+-(void)screeningButtonAction
+{
+    [self performSegueWithIdentifier:@"activitySegue" sender:self];
+    
+    
+}
+
+-(void)circleView
+{
+UIImage *storyMenuItemImage = [UIImage imageNamed:@"bg-menuitem.png"];
+UIImage *storyMenuItemImagePressed = [UIImage imageNamed:@"bg-menuitem-highlighted.png"];
+
+UIImage *starImage = [UIImage imageNamed:@"icon-star.png"];
+
+// Default Menu
+
+AwesomeMenuItem *starMenuItem1 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
+                                                       highlightedImage:storyMenuItemImagePressed
+                                                           ContentImage:starImage
+                                                highlightedContentImage:nil];
+AwesomeMenuItem *starMenuItem2 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
+                                                       highlightedImage:storyMenuItemImagePressed
+                                                           ContentImage:starImage
+                                                highlightedContentImage:nil];
+AwesomeMenuItem *starMenuItem3 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
+                                                       highlightedImage:storyMenuItemImagePressed
+                                                           ContentImage:starImage
+                                                highlightedContentImage:nil];
+AwesomeMenuItem *starMenuItem4 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
+                                                       highlightedImage:storyMenuItemImagePressed
+                                                           ContentImage:starImage
+                                                highlightedContentImage:nil];
+AwesomeMenuItem *starMenuItem5 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
+                                                       highlightedImage:storyMenuItemImagePressed
+                                                           ContentImage:starImage
+                                                highlightedContentImage:nil];
+
+NSArray *menuItems = [NSArray arrayWithObjects:starMenuItem1, starMenuItem2, starMenuItem3, starMenuItem4, starMenuItem5, nil];
+
+AwesomeMenuItem *startItem = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg-addbutton.png"]
+                                                   highlightedImage:[UIImage imageNamed:@"bg-addbutton-highlighted.png"]
+                                                       ContentImage:[UIImage imageNamed:@"icon-plus.png"]
+                                            highlightedContentImage:[UIImage imageNamed:@"icon-plus-highlighted.png"]];
+
+AwesomeMenu *menu = [[AwesomeMenu alloc] initWithFrame:self.view.bounds startItem:startItem menuItems:menuItems];
+menu.delegate = self;
+[_baseCircleView addSubview:menu];
+
+
+}
+- (void)awesomeMenu:(AwesomeMenu *)menu didSelectIndex:(NSInteger)idx
+{
+    NSLog(@"Select the index : %d",idx);
+    
+    if (idx ==0) {
+        [self performSegueWithIdentifier:@"immunisationTableSegue" sender:self];
+
+    }
+    else if (idx==1)
+    {
+        [self performSegueWithIdentifier:@"activitySegue" sender:self];
+
+    }
+}
+- (void)awesomeMenuDidFinishAnimationClose:(AwesomeMenu *)menu {
+    NSLog(@"Menu was closed!");
+}
+- (void)awesomeMenuDidFinishAnimationOpen:(AwesomeMenu *)menu {
+    NSLog(@"Menu is open!");
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
