@@ -1,3 +1,17 @@
+
+#define IsNULL(val) (val==nil || [val isKindOfClass:[NSNull class]])
+#define safeAssign(dest, src) \
+{	id value = src; \
+if(value) \
+dest = value; }
+
+#define SAFE(src) \
+src!=nil?src:NSNULL
+
+#define IsNULL(val) (val==nil || [val isKindOfClass:[NSNull class]])
+
+#define SAFE_DEF(value, default) ((value==nil)?(default):(value))
+
 #import <Foundation/Foundation.h>
 #import "AFHTTPSessionManager.h"
 #import "AFHTTPRequestOperationManager.h"
@@ -36,5 +50,14 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 -(void)readinvestigations_read:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 #pragma mark - immunisation
 -(void)addImmunisation:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+
+-(void)readAllImmunisation:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)getVaccineType:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+
+//birth_record_update
+-(void)updateBirthRecord:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)updateParticular:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
+-(void)updatenewborn_screening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)updatedischarge_information:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 
 @end

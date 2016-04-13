@@ -23,6 +23,8 @@
     NSInteger selectedIndex;
     CustomIOS7AlertView *dateAlertView;
     UIDatePicker *datePicker;
+    
+    BOOL isUpdate;
 }
 @end
 
@@ -41,6 +43,9 @@
     
     [self.txtFldHeadCircunference setText:@"152"];
     
+    [self loadData];
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -56,8 +61,14 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     [self addGestures];
-    [self loadData];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)loadData
@@ -246,7 +257,14 @@
         [dict setObject:selectedBioData.name forKey:@"name"];
         [dict setObject:selectedBioData.dob forKey:@"dob"];
         
-        [[ConnectionsManager sharedManager] addBirthRecord:dict withdelegate:self];
+        if(isUpdate)
+        {
+            [[ConnectionsManager sharedManager] updateBirthRecord:dict withdelegate:self];
+        }
+        else
+        {
+            [[ConnectionsManager sharedManager] addBirthRecord:dict withdelegate:self];
+        }
     }
 }
 
@@ -382,6 +400,8 @@
         
         [self.lblMinDuration setText:[dataDict objectForKey:@"apgar_score1"]];
         [self.lblMaxDuration setText:[dataDict objectForKey:@"apgar_score2"]];
+        
+        isUpdate = YES;
     }
 }
 

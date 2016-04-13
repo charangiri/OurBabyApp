@@ -21,6 +21,8 @@
     
     CustomIOS7AlertView *dateAlertView;
     UIDatePicker *datePicker;
+    
+    BOOL isUpdate;
 }
 @end
 
@@ -283,8 +285,14 @@
         [params setObject:self.txtFldNeedFurthur.text forKey:@"needs_further_evaluation"];
         [params setObject:[NSNumber numberWithInt:10] forKey:@"child_id"];
         
-        
-        [[ConnectionsManager sharedManager] addnewborn_screening:params withdelegate:self];
+        if(isUpdate)
+        {
+            [[ConnectionsManager sharedManager] updatenewborn_screening:params withdelegate:self];
+        }
+        else
+        {
+            [[ConnectionsManager sharedManager] addnewborn_screening:params withdelegate:self];
+        }
     }
 }
 
@@ -394,6 +402,9 @@
          "right_pass" : ""
          "needs_further_evaluation" : ""
          */
+        
+        isUpdate = YES;
+        
         
         [self.txtFldDateOAE setText:[dataDict objectForKey:@"g6fd_deficiency"]];
         [self.txtFldTSH setText:[dataDict objectForKey:@"tsh"]];

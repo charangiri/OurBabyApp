@@ -291,7 +291,41 @@ static NSString * const BaseURLString = BaseUrl;
 -(void)addImmunisation:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
 {
     [self getToURL:@"add_immunisation" withParameters:params delegate:delegate];
+}
 
+-(void)readAllImmunisation:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"all_immunisation_read" withParameters:params delegate:delegate];
+}
+
+//get_vaccine_type
+
+-(void)getVaccineType:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"get_vaccine_type" withParameters:params delegate:delegate];
+}
+
+//birth_record_update
+-(void)updateBirthRecord:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"birth_record_update" withParameters:params delegate:delegate];
+}
+
+//particulars_of_parents_update
+-(void)updateParticular:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    [self getToURL:@"particulars_of_parents_update" withParameters:params delegate:delegate];
+}
+
+-(void)updatenewborn_screening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"newborn_screening_update" withParameters:params delegate:delegate];
+}
+
+//discharge_information_update
+-(void)updatedischarge_information:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"discharge_information_update" withParameters:params delegate:delegate];
 }
 
 @end

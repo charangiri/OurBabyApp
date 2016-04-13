@@ -13,6 +13,8 @@
 @interface ParticularsOfParentsVC () <ServerResponseDelegate>
 {
     NSArray *identifierNames;
+    
+    BOOL isUpdate;
 }
 @end
 
@@ -59,8 +61,14 @@
         [params setObject:self.txtFldFatherTelOff.text forKey:@"father_tel_off"];
         [params setObject:self.txtFldFatherTelHp.text forKey:@"father_tel_hp"];
         
-        
-        [[ConnectionsManager sharedManager] addParticular:params withdelegate:self];
+        if(isUpdate)
+        {
+            [[ConnectionsManager sharedManager] updateParticular:params withdelegate:self];
+        }
+        else
+        {
+            [[ConnectionsManager sharedManager] addParticular:params withdelegate:self];
+        }
     }
 }
 
@@ -281,6 +289,9 @@
          sex = Female;
          "weight_at_birth" = 522;
          */
+        
+        isUpdate = YES;
+        
         
         [self.txtFldName setText:[dataDict objectForKey:@"mother_name"]];
         [self.txtFldOccupation setText:[dataDict objectForKey:@"mother_occupation"]];

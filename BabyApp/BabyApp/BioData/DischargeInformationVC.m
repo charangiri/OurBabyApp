@@ -20,6 +20,8 @@
     UIDatePicker *datePicker;
     
     UITapGestureRecognizer *dateTapGesture, *breastFeedTapGesture;
+    
+    BOOL isUpdate;
 }
 @end
 
@@ -138,8 +140,14 @@
         [params setObject:self.txtFldSerum.text forKey:@"serum_billirubin_before_discharge"];
         [params setObject:[NSNumber numberWithInt:10] forKey:@"child_id"];
         
-        
-        [[ConnectionsManager sharedManager] adddischarge_information:params withdelegate:self];
+        if(isUpdate)
+        {
+            [[ConnectionsManager sharedManager] updatedischarge_information:params withdelegate:self];
+        }
+        else
+        {
+            [[ConnectionsManager sharedManager] adddischarge_information:params withdelegate:self];
+        }
     }
 }
 
@@ -207,6 +215,8 @@
          "right_pass" : ""
          "needs_further_evaluation" : ""
          */
+        
+        isUpdate = YES;
         
         [self.txtFldDate setText:[dataDict objectForKey:@"date"]];
         [self.txtFldSerum setText:[dataDict objectForKey:@"serum_billirubin_before_discharge"]];
