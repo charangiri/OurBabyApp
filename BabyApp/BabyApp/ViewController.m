@@ -12,6 +12,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "Constants/Constants.h"
+#import "AppDelegate.h"
 
 #define kOFFSET_FOR_KEYBOARD 100.0
 
@@ -283,8 +284,9 @@ UIActivityIndicatorView *act1;
        if([[json objectForKey:@"status"] isEqualToString:@"1"])
         {
               // [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"userData"];
-               [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+               //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
         
+            [self openHomeVC];
         }
     }
 
@@ -393,7 +395,9 @@ UIActivityIndicatorView *act1;
                     if([[json objectForKey:@"status"] boolValue])
                     {
                         // [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"userData"];
-                        [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+                        //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+                        
+                        [self openHomeVC];
                         
                     }
                 });
@@ -555,6 +559,12 @@ UIActivityIndicatorView *act1;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)openHomeVC
+{
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate checkValidUser];
 }
 
 @end

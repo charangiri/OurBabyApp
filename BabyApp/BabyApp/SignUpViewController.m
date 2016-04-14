@@ -9,6 +9,7 @@
 #import "SignUpViewController.h"
 #import "ConnectionsManager.h"
 #import "NSString+CommonForApp.h"
+#import "AppDelegate.h"
 
 #define kOFFSET_FOR_KEYBOARD 80.0
 
@@ -173,7 +174,8 @@ UIActivityIndicatorView *act2;
     
     if([statusStr isEqualToString:@"1"])
     {
-        [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+        [self openHomeVC];
+        //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
     }
     else if([statusStr isEqualToString:@"0"])
     {
@@ -189,6 +191,12 @@ UIActivityIndicatorView *act2;
     [act2 stopAnimating];
     [act2 removeFromSuperview];
     //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+}
+
+-(void)openHomeVC
+{
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate checkValidUser];
 }
 
 @end

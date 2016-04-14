@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
 	
+    [self.navigationItem setTitle:@"Baby Booklet"];
     self.navigationController.navigationBarHidden=NO;
 
     imagesNames=[NSArray arrayWithObjects:@"needle_icon.png",@"screening_icon.png",@"growth_icon.png", nil];

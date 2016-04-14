@@ -21,6 +21,6 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-
+-(void)checkValidUser;
 @end
 

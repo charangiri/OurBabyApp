@@ -21,7 +21,7 @@
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
     
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+    /*UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                              bundle: nil];
     
     LeftMenuViewController *leftMenu = (LeftMenuViewController*)[mainStoryboard
@@ -45,7 +45,7 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidReveal object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSString *menu = note.userInfo[@"menu"];
         NSLog(@"Revealed %@", menu);
-    }];
+    }];*/
 
     UIImage *customBackButton=nil;
     
@@ -184,5 +184,44 @@
         }
     }
 }
+
+
+-(void)checkValidUser
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SlideNavigationController *homeVC = [storyBoard instantiateViewControllerWithIdentifier:@"SlideNavigationController_SB_ID"];
+    //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    self.window.rootViewController = homeVC;
+    
+    
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle: nil];
+    
+    LeftMenuViewController *leftMenu = (LeftMenuViewController*)[mainStoryboard
+                                                                 instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
+    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
+    
+    // Creating a custom bar button for right menu
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *menu = note.userInfo[@"menu"];
+        NSLog(@"Closed %@", menu);
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidOpen object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *menu = note.userInfo[@"menu"];
+        NSLog(@"Opened %@", menu);
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidReveal object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *menu = note.userInfo[@"menu"];
+        NSLog(@"Revealed %@", menu);
+    }];
+    
+}
+
 
 @end
