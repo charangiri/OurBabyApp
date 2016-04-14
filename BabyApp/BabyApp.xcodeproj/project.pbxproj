@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01D1537E14D44BCCF3DDC034 /* libPods-BabyApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07094B7CE3DBB90AED91954B /* libPods-BabyApp.a */; };
+		5228659F1CBF62900025F8C7 /* ConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5228659E1CBF62900025F8C7 /* ConditionViewController.m */; };
 		90000F501CB3521500BC9BFC /* AddAllergyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90000F4F1CB3521500BC9BFC /* AddAllergyVC.m */; };
 		90000F531CB3528000BC9BFC /* AllergyConditionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90000F521CB3528000BC9BFC /* AllergyConditionVC.m */; };
 		90000F561CB352A000BC9BFC /* MedicalConditionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90000F551CB352A000BC9BFC /* MedicalConditionVC.m */; };
@@ -218,6 +219,8 @@
 /* Begin PBXFileReference section */
 		07094B7CE3DBB90AED91954B /* libPods-BabyApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BabyApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46DD2D1B8D4AE290187F884E /* Pods-BabyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BabyApp/Pods-BabyApp.release.xcconfig"; sourceTree = "<group>"; };
+		5228659D1CBF62900025F8C7 /* ConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionViewController.h; sourceTree = "<group>"; };
+		5228659E1CBF62900025F8C7 /* ConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionViewController.m; sourceTree = "<group>"; };
 		5BCF25B75D8B855570DD77C9 /* Pods-BabyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BabyApp/Pods-BabyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		90000F4E1CB3521500BC9BFC /* AddAllergyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAllergyVC.h; sourceTree = "<group>"; };
 		90000F4F1CB3521500BC9BFC /* AddAllergyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAllergyVC.m; sourceTree = "<group>"; };
@@ -558,6 +561,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		522865991CBF612C0025F8C7 /* Medical Problems */ = {
+			isa = PBXGroup;
+			children = (
+				5228659D1CBF62900025F8C7 /* ConditionViewController.h */,
+				5228659E1CBF62900025F8C7 /* ConditionViewController.m */,
+			);
+			path = "Medical Problems";
+			sourceTree = "<group>";
+		};
 		90EED5A51CB4406A00401065 /* Screeings */ = {
 			isa = PBXGroup;
 			children = (
@@ -872,6 +884,7 @@
 		A13FC7E51C7748AC00362A32 /* BabyApp */ = {
 			isa = PBXGroup;
 			children = (
+				522865991CBF612C0025F8C7 /* Medical Problems */,
 				A1A46A0C1CBD8855009F65BB /* CircleView */,
 				A1A46A001CBD77CB009F65BB /* Graph */,
 				96A969611CB8D8D700D1212B /* NewImmunisation */,
@@ -1437,6 +1450,7 @@
 				90FC54691CB1A83400ED0E34 /* InvestOtherTestCell.m in Sources */,
 				90000F531CB3528000BC9BFC /* AllergyConditionVC.m in Sources */,
 				A10EB5FB1C786B9A002EBC59 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
+				5228659F1CBF62900025F8C7 /* ConditionViewController.m in Sources */,
 				A1EAD2C81CA96B1C008D2B37 /* immunisationMainTableViewCell.m in Sources */,
 				90FC54441CB1A7E300ED0E34 /* CustomIOS7AlertView.m in Sources */,
 				A13FC7EB1C7748AC00362A32 /* AppDelegate.m in Sources */,
