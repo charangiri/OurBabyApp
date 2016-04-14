@@ -7,8 +7,11 @@
 //
 
 #import "EncyclopediaTapScroller.h"
+#import "KeyConstants.h"
+#import "ConnectionsManager.h"
 
-@interface EncyclopediaTapScroller ()
+
+@interface EncyclopediaTapScroller ()<ServerResponseDelegate>
 @property UIScrollView *scroll1;
 @property UIPageControl *page1;
 
@@ -21,27 +24,26 @@ NSArray *labelArrayScroller,*labelArrayScroller2;
  -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     CGFloat width = scrollView.frame.size.width;
-    NSInteger page = (scrollView.contentOffset.x + (0.5f * width)) / width;
+  //  NSInteger page = (scrollView.contentOffset.x + (0.5f * width)) / width;
+    NSInteger page = scrollView.contentOffset.x / width;
+
     [page1 setCurrentPage:page];
     
     self.navigationItem.title = [hed objectAtIndex:page];
-    
-    
-    if((((int)scrollView.contentOffset.x)%((int)scrollView.frame.size.width))<=0)
-     [page1 setCurrentPage:0];
-     else
-     [page1 setCurrentPage:1];
     
     NSLog(@"current page=%ld",(long)page1.currentPage);
 }
 
 NSArray *hed;
+int n;
 - (void)viewDidLoad {
     [super viewDidLoad];
     hed=@[@"Medication",@"Immunisation"];
     self.navigationItem.title = [hed objectAtIndex:0];
-    
-    
+    n=1;
+    [[ConnectionsManager sharedManager] getMedicationEncyclopedia:nil withdelegate:self];
+
+
     
     labelArrayScroller=[NSArray arrayWithObjects:@"ANTIHISTAMINES",@"FEVER MEDICATIONS",@"COUGH EXPETORANTS",@"MUCOLYTICS",@"MIXED COUGH PREPARATIONS",@"NASAL",@"LOZENGES",@"ANTINIOTICS",@"ANTIEMETICS",@"ANTISPAMODIC",@"TOPICAL", nil];
     
@@ -137,7 +139,7 @@ NSArray *hed;
     
     page1=[[UIPageControl alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2-15, 60, 30, 20)];
     [page1 setNumberOfPages:2];
-    [page1 setCurrentPage:1];
+    [page1 setCurrentPage:0];
     
     [self.view addSubview:page1];
     [self.view bringSubviewToFront:page1];
@@ -327,6 +329,47 @@ NSArray *hed;
 {
     return 60;
 }
+
+
+-(void)success:(id)response
+{
+    NSDictionary *dict = response;
+    id statusStr_ = [dict objectForKey:@"status"];
+    NSString *statusStr;
+    
+    if([statusStr_ isKindOfClass:[NSNumber class]])
+    {
+        statusStr = [statusStr_ stringValue];
+    }
+    else
+    {
+        statusStr = statusStr_;
+    }
+    if([statusStr isEqualToString:@"1"])
+    {
+        NSDictionary *dataDict = [dict objectForKey:@"data"];
+        
+        NSLog(@"\n---------------\ndataDict=%@",dataDict);
+    }
+    else
+    {
+        NSString *messageStr = [dict objectForKey:@"message"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:messageStr delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
+if(n==1)
+    {
+        [[ConnectionsManager sharedManager] getImmunisationEncyclopedia:nil withdelegate:self];
+        n++;
+    }
+}
+
+-(void)failure:(id)response
+{
+    NSLog(@"failure");
+
+}
+
 
 -(void)btnClicked2
 {

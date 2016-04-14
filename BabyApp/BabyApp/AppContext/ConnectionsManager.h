@@ -60,5 +60,7 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 -(void)updateParticular:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
 -(void)updatenewborn_screening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 -(void)updatedischarge_information:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)getMedicationEncyclopedia:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)getImmunisationEncyclopedia:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 
 @end

@@ -226,6 +226,18 @@ static NSString * const BaseURLString = BaseUrl;
     [alert show];
 }
 
+-(void)getMedicationEncyclopedia:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"get_medication_encyclopedia" withParameters:params delegate:delegate];
+}
+
+-(void)getImmunisationEncyclopedia:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"get_immunisation_encyclopedia" withParameters:params delegate:delegate];
+}
+
+
+
 
 
 -(void)loginUser:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
