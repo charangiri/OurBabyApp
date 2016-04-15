@@ -10,6 +10,7 @@
 
 @interface MedicalConditionVC : BaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)AddButtonAction:(id)sender;
 
 
 @property (nonatomic, strong) NSMutableArray *listOfObjects;

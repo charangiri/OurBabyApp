@@ -9,6 +9,7 @@
 #import "BaseViewController.h"
 
 @interface DrugAlergyListVC : BaseViewController <UITableViewDataSource,UITableViewDelegate>
+- (IBAction)addDrug:(id)sender;
 @property (nonatomic, strong) NSMutableArray *listOfObjects;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

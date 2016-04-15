@@ -9,7 +9,7 @@
 #import "MedicalConditionVC.h"
 #import "ConditionData.h"
 #import "MedicalConditionCell.h"
-
+#import "AllergyConditionVC.h"
 @implementation MedicalConditionVC
 @synthesize listOfObjects;
 
@@ -74,5 +74,15 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 120;
+}
+- (IBAction)AddButtonAction:(id)sender {
+    UIStoryboard *storyboard = self.navigationController.storyboard;
+    
+    AllergyConditionVC *detailPage = [storyboard
+                                instantiateViewControllerWithIdentifier:@"MedicalConditionVC_SB_ID"];
+    
+    [self.navigationController pushViewController:detailPage animated:YES];
+    
+
 }
 @end

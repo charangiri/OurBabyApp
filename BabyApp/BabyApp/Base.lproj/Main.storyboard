@@ -5429,6 +5429,9 @@
                         <barButtonItem key="backBarButtonItem" title="&lt;" id="q6b-jG-zsY"/>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="Fuz-fC-TuJ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="addDrug:" destination="o7C-v4-Ibu" id="CQn-a6-PHQ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -5939,6 +5942,9 @@
                     <barButtonItem key="backBarButtonItem" title="&lt;" id="1mp-yH-AW3"/>
                     <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="kz3-Uw-9EQ">
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="AddButtonAction:" destination="R3K-58-PpA" id="i7d-we-bZa"/>
+                        </connections>
                     </barButtonItem>
                 </navigationItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZO-KS-bT0" userLabel="First Responder" sceneMemberID="firstResponder"/>

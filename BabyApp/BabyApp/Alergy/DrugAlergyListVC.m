@@ -9,6 +9,7 @@
 #import "DrugAlergyListVC.h"
 #import "DrugAlergyCell.h"
 #import "DrugAlergyData.h"
+#import "AddAllergyVC.h"
 
 @implementation DrugAlergyListVC
 @synthesize listOfObjects;
@@ -82,5 +83,15 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 120;
+}
+- (IBAction)addDrug:(id)sender {
+    UIStoryboard *storyboard = self.navigationController.storyboard;
+    
+    AddAllergyVC *detailPage = [storyboard
+                                    instantiateViewControllerWithIdentifier:@"AddAllergyVC_SB_ID"];
+    
+    [self.navigationController pushViewController:detailPage animated:YES];
+    
+
 }
 @end
