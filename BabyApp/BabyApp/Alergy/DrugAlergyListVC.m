@@ -70,6 +70,9 @@
     DrugAlergyCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     DrugAlergyData *data = [listOfObjects objectAtIndex:indexPath.row];
+    cell.btnEdit.tag=indexPath.row+100;
+    [cell.btnEdit addTarget:self
+               action:@selector(editAlergy:) forControlEvents:UIControlEventTouchDown];
     [cell populateData:data];
     
     return cell;
@@ -93,5 +96,14 @@
     [self.navigationController pushViewController:detailPage animated:YES];
     
 
+}
+-(void)editAlergy:(id)sender
+{
+    UIStoryboard *storyboard = self.navigationController.storyboard;
+    
+    AddAllergyVC *detailPage = [storyboard
+                                instantiateViewControllerWithIdentifier:@"AddAllergyVC_SB_ID"];
+    
+    [self.navigationController pushViewController:detailPage animated:YES];
 }
 @end

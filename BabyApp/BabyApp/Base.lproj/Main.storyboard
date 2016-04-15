@@ -5443,10 +5443,10 @@
             </objects>
             <point key="canvasLocation" x="3072" y="-3430"/>
         </scene>
-        <!--Add AllergyVC-->
+        <!--Allergy-->
         <scene sceneID="wGI-IG-I71">
             <objects>
-                <viewController storyboardIdentifier="AddAllergyVC_SB_ID" id="j4f-Y4-QOL" customClass="AddAllergyVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddAllergyVC_SB_ID" title="Allergy" id="j4f-Y4-QOL" customClass="AddAllergyVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ep0-TW-glF"/>
                         <viewControllerLayoutGuide type="bottom" id="mHZ-l5-9XM"/>
@@ -5716,16 +5716,19 @@
                     <barButtonItem key="backBarButtonItem" title="&lt; Cancel" id="lhd-Oi-lyg"/>
                     <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="qHi-QK-TEv">
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="saveAction:" destination="j4f-Y4-QOL" id="ihG-1D-jWe"/>
+                        </connections>
                     </barButtonItem>
                 </navigationItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J35-zU-RPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3525" y="-3448"/>
         </scene>
-        <!--Allergy ConditionVC-->
+        <!--Condition-->
         <scene sceneID="J4U-du-gRX">
             <objects>
-                <viewController storyboardIdentifier="AllergyConditionVC_SB_ID" id="lyq-Tz-cCg" customClass="AllergyConditionVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AllergyConditionVC_SB_ID" title="Condition" id="lyq-Tz-cCg" customClass="AllergyConditionVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yOU-ZT-6Hd"/>
                         <viewControllerLayoutGuide type="bottom" id="Kyx-Zv-kpB"/>
@@ -5735,7 +5738,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6j-zt-awF">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="140"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TlC-PV-n2m">
                                         <rect key="frame" x="0.0" y="40" width="320" height="40"/>
@@ -5797,7 +5800,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9v-9N-8Pb">
-                                <rect key="frame" x="20" y="148" width="280" height="21"/>
+                                <rect key="frame" x="20" y="208" width="280" height="21"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="KXt-uE-NDL"/>
@@ -5807,7 +5810,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mOc-YN-lea">
-                                <rect key="frame" x="20" y="169" width="280" height="399"/>
+                                <rect key="frame" x="20" y="229" width="280" height="339"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -5824,24 +5827,27 @@
                             <constraint firstAttribute="trailing" secondItem="m9v-9N-8Pb" secondAttribute="trailing" constant="20" id="JD7-fb-Pfy"/>
                             <constraint firstAttribute="trailing" secondItem="mOc-YN-lea" secondAttribute="trailing" constant="20" id="Lkv-Gm-uss"/>
                             <constraint firstItem="mOc-YN-lea" firstAttribute="leading" secondItem="j52-xv-U63" secondAttribute="leading" constant="20" id="cnh-zu-xNv"/>
-                            <constraint firstItem="h6j-zt-awF" firstAttribute="top" secondItem="j52-xv-U63" secondAttribute="top" id="gOQ-Iu-mRW"/>
+                            <constraint firstItem="h6j-zt-awF" firstAttribute="top" secondItem="j52-xv-U63" secondAttribute="top" constant="60" id="gOQ-Iu-mRW"/>
                             <constraint firstItem="mOc-YN-lea" firstAttribute="top" secondItem="m9v-9N-8Pb" secondAttribute="bottom" id="iHd-IV-4Zh"/>
                             <constraint firstItem="m9v-9N-8Pb" firstAttribute="leading" secondItem="j52-xv-U63" secondAttribute="leading" constant="20" id="vp2-Mz-8Ed"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Condition" id="Rx2-a0-01k">
+                        <barButtonItem key="backBarButtonItem" title="&lt; Cancel" id="4Hz-QL-COD"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="hfd-gI-cEo">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="saveAction:" destination="lyq-Tz-cCg" id="lbb-NQ-1ZS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
-                <navigationItem title="Condition" id="Rx2-a0-01k">
-                    <barButtonItem key="backBarButtonItem" title="&lt; Cancel" id="4Hz-QL-COD"/>
-                    <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="hfd-gI-cEo">
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </barButtonItem>
-                </navigationItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjM-m5-bAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4043" y="-3306"/>
+            <point key="canvasLocation" x="3968" y="-3311"/>
         </scene>
-        <!--Medical ConditionVC-->
+        <!--Medical Condition-->
         <scene sceneID="mQj-PP-SRt">
             <objects>
                 <viewController storyboardIdentifier="MedicalConditionVC_SB_ID" id="R3K-58-PpA" customClass="MedicalConditionVC" sceneMemberID="viewController">
@@ -5913,6 +5919,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
+                                            <outlet property="editButton" destination="TbK-kB-CdF" id="2Ky-FV-Ld3"/>
                                             <outlet property="lblCondition" destination="6Bk-NP-h64" id="qWE-Da-5jc"/>
                                             <outlet property="lblDesc" destination="rNV-hS-Kop" id="19Z-2f-8YJ"/>
                                         </connections>
@@ -5933,20 +5940,20 @@
                             <constraint firstItem="Dp3-A0-Uhi" firstAttribute="leading" secondItem="Sve-TS-0Mw" secondAttribute="leading" id="yGv-Di-D0l"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Medical Condition" id="Qoa-i9-eA2">
+                        <barButtonItem key="backBarButtonItem" title="&lt;" id="1mp-yH-AW3"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="kz3-Uw-9EQ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="AddButtonAction:" destination="R3K-58-PpA" id="i7d-we-bZa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="Dp3-A0-Uhi" id="grt-9e-SSJ"/>
                     </connections>
                 </viewController>
-                <navigationItem title="Medical Condition" id="Qoa-i9-eA2">
-                    <barButtonItem key="backBarButtonItem" title="&lt;" id="1mp-yH-AW3"/>
-                    <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="kz3-Uw-9EQ">
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <action selector="AddButtonAction:" destination="R3K-58-PpA" id="i7d-we-bZa"/>
-                        </connections>
-                    </barButtonItem>
-                </navigationItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZO-KS-bT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4444" y="-3306"/>

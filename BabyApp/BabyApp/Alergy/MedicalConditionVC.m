@@ -61,6 +61,9 @@
     MedicalConditionCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     ConditionData *data = [listOfObjects objectAtIndex:indexPath.row];
+    cell.editButton.tag=indexPath.row+100;
+    [cell.editButton addTarget:self
+                     action:@selector(editMedical:) forControlEvents:UIControlEventTouchDown];
     [cell populateData:data];
     
     return cell;
@@ -79,10 +82,21 @@
     UIStoryboard *storyboard = self.navigationController.storyboard;
     
     AllergyConditionVC *detailPage = [storyboard
-                                instantiateViewControllerWithIdentifier:@"MedicalConditionVC_SB_ID"];
+                                instantiateViewControllerWithIdentifier:@"AllergyConditionVC_SB_ID"];
     
     [self.navigationController pushViewController:detailPage animated:YES];
     
 
+}
+
+-(IBAction)editMedical:(id)sender
+{
+    UIStoryboard *storyboard = self.navigationController.storyboard;
+    
+    AllergyConditionVC *detailPage = [storyboard
+                                      instantiateViewControllerWithIdentifier:@"AllergyConditionVC_SB_ID"];
+    
+    [self.navigationController pushViewController:detailPage animated:YES];
+    
 }
 @end

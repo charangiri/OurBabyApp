@@ -12,6 +12,7 @@
 @interface MedicalConditionCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *lblDesc;
 @property (weak, nonatomic) IBOutlet UILabel *lblCondition;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 
 -(void)populateData:(ConditionData *)conditionData;
 

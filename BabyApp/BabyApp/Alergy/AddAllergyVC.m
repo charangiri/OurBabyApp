@@ -10,4 +10,6 @@
 
 @implementation AddAllergyVC
 
+- (IBAction)saveAction:(id)sender {
+}
 @end

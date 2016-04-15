@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface AddAllergyVC : BaseViewController
+- (IBAction)saveAction:(id)sender;
 
 @end

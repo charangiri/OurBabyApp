@@ -10,4 +10,6 @@
 
 @implementation AllergyConditionVC
 
+- (IBAction)saveAction:(id)sender {
+}
 @end
