@@ -149,6 +149,9 @@
 		A1EAD2DD1CAEBC2B008D2B37 /* MedicationCategoryDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2DC1CAEBC2B008D2B37 /* MedicationCategoryDetail.m */; };
 		A1EAD2E31CB57057008D2B37 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2E21CB57057008D2B37 /* SettingsTableViewController.m */; };
 		A1EAD2E51CB57669008D2B37 /* home_kid.png in Resources */ = {isa = PBXBuildFile; fileRef = A1EAD2E41CB57669008D2B37 /* home_kid.png */; };
+		CD6754F11CC0AFBA002BA5CA /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6754EE1CC0AFBA002BA5CA /* ASValuePopUpView.m */; };
+		CD6754F21CC0AFBA002BA5CA /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6754F01CC0AFBA002BA5CA /* ASValueTrackingSlider.m */; };
+		CD6754F61CC0B5F8002BA5CA /* ChildDevelopementalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6754F51CC0B5F8002BA5CA /* ChildDevelopementalViewController.m */; };
 		CDC84AAD1CBE083600D9A3DC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC84AAB1CBE083600D9A3DC /* FBSDKCoreKit.framework */; };
 		CDC84AAE1CBE083600D9A3DC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC84AAC1CBE083600D9A3DC /* FBSDKLoginKit.framework */; };
 		CDC84ABA1CBE084F00D9A3DC /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC84AB11CBE084F00D9A3DC /* SVIndefiniteAnimatedView.m */; };
@@ -463,6 +466,12 @@
 		A1EAD2E11CB57057008D2B37 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		A1EAD2E21CB57057008D2B37 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		A1EAD2E41CB57669008D2B37 /* home_kid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_kid.png; sourceTree = "<group>"; };
+		CD6754ED1CC0AFBA002BA5CA /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
+		CD6754EE1CC0AFBA002BA5CA /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
+		CD6754EF1CC0AFBA002BA5CA /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
+		CD6754F01CC0AFBA002BA5CA /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
+		CD6754F41CC0B5F8002BA5CA /* ChildDevelopementalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildDevelopementalViewController.h; sourceTree = "<group>"; };
+		CD6754F51CC0B5F8002BA5CA /* ChildDevelopementalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildDevelopementalViewController.m; sourceTree = "<group>"; };
 		CDC84AAB1CBE083600D9A3DC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		CDC84AAC1CBE083600D9A3DC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		CDC84AB01CBE084F00D9A3DC /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
@@ -611,6 +620,7 @@
 		90F165941CB5A479006B5DD6 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				CD6754EC1CC0AFBA002BA5CA /* ASValueTrackingSlider */,
 				CDC84AAF1CBE084F00D9A3DC /* SVProgressHUD */,
 				CDC84AAA1CBE083600D9A3DC /* FacebookSDK */,
 				90F165951CB5A4A0006B5DD6 /* AFNetworking */,
@@ -884,6 +894,7 @@
 		A13FC7E51C7748AC00362A32 /* BabyApp */ = {
 			isa = PBXGroup;
 			children = (
+				CD6754F31CC0B061002BA5CA /* Child Developement */,
 				522865991CBF612C0025F8C7 /* Medical Problems */,
 				A1A46A0C1CBD8855009F65BB /* CircleView */,
 				A1A46A001CBD77CB009F65BB /* Graph */,
@@ -1056,6 +1067,26 @@
 				07094B7CE3DBB90AED91954B /* libPods-BabyApp.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD6754EC1CC0AFBA002BA5CA /* ASValueTrackingSlider */ = {
+			isa = PBXGroup;
+			children = (
+				CD6754ED1CC0AFBA002BA5CA /* ASValuePopUpView.h */,
+				CD6754EE1CC0AFBA002BA5CA /* ASValuePopUpView.m */,
+				CD6754EF1CC0AFBA002BA5CA /* ASValueTrackingSlider.h */,
+				CD6754F01CC0AFBA002BA5CA /* ASValueTrackingSlider.m */,
+			);
+			path = ASValueTrackingSlider;
+			sourceTree = "<group>";
+		};
+		CD6754F31CC0B061002BA5CA /* Child Developement */ = {
+			isa = PBXGroup;
+			children = (
+				CD6754F41CC0B5F8002BA5CA /* ChildDevelopementalViewController.h */,
+				CD6754F51CC0B5F8002BA5CA /* ChildDevelopementalViewController.m */,
+			);
+			path = "Child Developement";
 			sourceTree = "<group>";
 		};
 		CDC84AAA1CBE083600D9A3DC /* FacebookSDK */ = {
@@ -1457,6 +1488,7 @@
 				A1A469651CBD391C009F65BB /* Constants.m in Sources */,
 				A1EAD2CB1CA96B2F008D2B37 /* immunisationSecondaryTableViewCell.m in Sources */,
 				90F165BE1CB5A4A0006B5DD6 /* AFNetworkReachabilityManager.m in Sources */,
+				CD6754F61CC0B5F8002BA5CA /* ChildDevelopementalViewController.m in Sources */,
 				A1A469FE1CBD6C66009F65BB /* VisiualActivityViewController.m in Sources */,
 				A10EB5ED1C786B91002EBC59 /* SlideNavigationController.m in Sources */,
 				90F165CF1CB5A4DA006B5DD6 /* ConnectionsManager.m in Sources */,
@@ -1511,7 +1543,9 @@
 				90FC54611CB1A83400ED0E34 /* BaseViewController.m in Sources */,
 				90EED5B41CB4553900401065 /* DrugAlergyData.m in Sources */,
 				A10EB65B1C7B7F59002EBC59 /* BirthRecordTableViewController.m in Sources */,
+				CD6754F21CC0AFBA002BA5CA /* ASValueTrackingSlider.m in Sources */,
 				96A969701CB8D8D700D1212B /* ImmunisationsVC.m in Sources */,
+				CD6754F11CC0AFBA002BA5CA /* ASValuePopUpView.m in Sources */,
 				90FC546B1CB1A83400ED0E34 /* ParticularsOfParentsVC.m in Sources */,
 				CDC84ABE1CBE084F00D9A3DC /* SVRadialGradientLayer.m in Sources */,
 			);
