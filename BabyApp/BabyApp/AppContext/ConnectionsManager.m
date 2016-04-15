@@ -257,7 +257,7 @@ static NSString * const BaseURLString = BaseUrl;
 
 -(void)saveBioData:(NSDictionary *)params andImage:(UIImageView *)img withdelegate:(id<ServerResponseDelegate>)delegate
 {
-    [self getToURL:@"add_bio" withImage:img withParameters:params delegate:delegate];
+    [self getToURL:@"add_bio" withParameters:params delegate:delegate];
 }
 
 -(void)getForgotPassword:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate

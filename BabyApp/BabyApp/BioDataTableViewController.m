@@ -14,7 +14,7 @@
 #import "ConnectionsManager.h"
 #import "BirthRecordTableViewController.h"
 
-@interface BioDataTableViewController () <ServerResponseDelegate>
+@interface BioDataTableViewController () <ServerResponseDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     NSArray *titleArray;
     
@@ -22,6 +22,11 @@
     
     //CustomIOS7AlertView *dateAlertView;
     UIDatePicker *datePicker;
+    
+    UIImage *userProfilePic;
+    
+    UITapGestureRecognizer *profilePicGesture;
+    
 }
 @end
 
@@ -30,10 +35,16 @@
 
 - (IBAction)onClickDoneButton:(id)sender {
     
-    ProfilePicTableViewCell *cell = (ProfilePicTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    ProfilePicTableViewCell *cell = (ProfilePicTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    NSData *data;
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:@"" forKey:@"baby_image"];
+    if(userProfilePic)
+    {
+        data = UIImageJPEGRepresentation(userProfilePic, 0.2);
+        
+    }
+    [params setObject:data forKey:@"baby_image"];
     [params setObject:cell.btnDateOfBirth.titleLabel.text forKey:@"dob"];
     [params setObject:cell.txtFldName.text forKey:@"name"];
     [params setObject:@"64" forKey:@"user_id"];
@@ -45,9 +56,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadBioData];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    
+    profilePicGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                action:@selector(onClickOpenImageVC:)];
+    
+    
+    
+    
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -59,7 +78,17 @@
 {
     [super viewWillAppear:animated];
     
-    [self loadBioData];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+}
+
+-(void)onClickOpenImageVC:(UITapGestureRecognizer *)aGesture
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Profile pic" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take pic",@"Choose pic", nil];
+    [actionSheet showInView:self.view];
 }
 
 -(void)loadBioData
@@ -109,7 +138,11 @@
         [cell.txtFldName setText:bioDataObj.name];
         [cell.btnDateOfBirth.titleLabel setText:bioDataObj.dob];
         
-        
+        [cell.userProflePic addGestureRecognizer:profilePicGesture];
+        if(userProfilePic)
+        {
+            cell.userProflePic.image = userProfilePic;
+        }
         return cell;
     }
     else
@@ -205,6 +238,56 @@
 -(void)failure:(id)response
 {
     
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        [self takePic];
+    }
+    else
+    {
+        [self openGallery];
+    }
+}
+
+-(void)takePic
+{
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *pickerView =[[UIImagePickerController alloc]init];
+        pickerView.allowsEditing = YES;
+        pickerView.delegate = self;
+        pickerView.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:pickerView animated:YES completion:^{
+            
+        }];
+    }
+}
+
+-(void)openGallery
+{
+    UIImagePickerController *pickerView = [[UIImagePickerController alloc] init];
+    pickerView.allowsEditing = YES;
+    pickerView.delegate = self;
+    [pickerView setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self presentViewController:pickerView animated:YES completion:^{
+        
+    }];
+}
+
+
+#pragma mark - PickerDelegates
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    
+    UIImage * img = [info valueForKey:UIImagePickerControllerEditedImage];
+    userProfilePic = img;
+    [self.tableView reloadData];
 }
 
 @end

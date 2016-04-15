@@ -282,14 +282,12 @@
         else
         {
             if (indexPath.row==0) {
-                vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Setting"];
-                
+                vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"SettingsViewController_SB_ID"];
             }
             else
             {
                 [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:NO];
                 return;
-                
                 
             }
             
