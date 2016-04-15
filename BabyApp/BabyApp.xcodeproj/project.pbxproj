@@ -113,6 +113,7 @@
 		A13FC8211C776F6800362A32 /* img_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A13FC8201C776F6800362A32 /* img_logo.png */; };
 		A13FC8221C776F6800362A32 /* img_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A13FC8201C776F6800362A32 /* img_logo.png */; };
 		A13FC8231C776F6800362A32 /* img_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A13FC8201C776F6800362A32 /* img_logo.png */; };
+		A152479F1CC1626000EA5115 /* PercentialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A152479E1CC1626000EA5115 /* PercentialViewController.m */; };
 		A1A469651CBD391C009F65BB /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A469641CBD391C009F65BB /* Constants.m */; };
 		A1A469FE1CBD6C66009F65BB /* VisiualActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A469FB1CBD6C66009F65BB /* VisiualActivityViewController.m */; };
 		A1A469FF1CBD6C66009F65BB /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A469FD1CBD6C66009F65BB /* ActivityTableViewCell.m */; };
@@ -410,6 +411,8 @@
 		A13FC80E1C7748AC00362A32 /* BabyAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BabyAppUITests.m; sourceTree = "<group>"; };
 		A13FC8101C7748AC00362A32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A13FC8201C776F6800362A32 /* img_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_logo.png; sourceTree = "<group>"; };
+		A152479D1CC1626000EA5115 /* PercentialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PercentialViewController.h; sourceTree = "<group>"; };
+		A152479E1CC1626000EA5115 /* PercentialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PercentialViewController.m; sourceTree = "<group>"; };
 		A1A469631CBD391C009F65BB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A1A469641CBD391C009F65BB /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		A1A469FA1CBD6C66009F65BB /* VisiualActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisiualActivityViewController.h; sourceTree = "<group>"; };
@@ -950,6 +953,8 @@
 				D82C28ED1C8F7012005798EA /* ScreeningOutcomeOptions.m */,
 				D82C28EF1C8F7041005798EA /* ScreeningsOutcome.h */,
 				A13FC7EF1C7748AC00362A32 /* Main.storyboard */,
+				A152479D1CC1626000EA5115 /* PercentialViewController.h */,
+				A152479E1CC1626000EA5115 /* PercentialViewController.m */,
 				D82C28F01C8F7041005798EA /* ScreeningsOutcome.m */,
 				A1EAD2B81CA9030C008D2B37 /* HealthBookletViewController.h */,
 				A1EAD2B91CA9030C008D2B37 /* HealthBookletViewController.m */,
@@ -1558,6 +1563,7 @@
 				90EED5B41CB4553900401065 /* DrugAlergyData.m in Sources */,
 				A10EB65B1C7B7F59002EBC59 /* BirthRecordTableViewController.m in Sources */,
 				CD6754F21CC0AFBA002BA5CA /* ASValueTrackingSlider.m in Sources */,
+				A152479F1CC1626000EA5115 /* PercentialViewController.m in Sources */,
 				96A969701CB8D8D700D1212B /* ImmunisationsVC.m in Sources */,
 				CD6754F11CC0AFBA002BA5CA /* ASValuePopUpView.m in Sources */,
 				90FC546B1CB1A83400ED0E34 /* ParticularsOfParentsVC.m in Sources */,

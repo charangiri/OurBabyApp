@@ -7,11 +7,18 @@
 //
 
 #import "HealthBookletViewController.h"
-
+#import "ScreeningViewController.h"
+#import "DrugAlergyListVC.h"
+#import "MedicalConditionVC.h"
 @interface HealthBookletViewController ()
 {
     float width;
     float imageSize;
+    UIView *overlayView;
+    UIView *percentailOverlayView;
+    UIView *oralOverlayView;
+
+
 }
 @end
 
@@ -20,7 +27,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self circleViewCreation];
-   
+  
+    overlayView=[UIView new];
+    overlayView.frame=self.view.frame;
+    overlayView.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.2];
+    [overlayView setHidden:YES];
+    [self.view addSubview:overlayView];
+
+    
+    percentailOverlayView=[UIView new];
+    percentailOverlayView.frame=self.view.frame;
+    percentailOverlayView.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.2];
+    [percentailOverlayView setHidden:YES];
+    [self.view addSubview:percentailOverlayView];
+    
+    oralOverlayView=[UIView new];
+    oralOverlayView.frame=self.view.frame;
+    oralOverlayView.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.2];
+    [oralOverlayView setHidden:YES];
+    [self.view addSubview:oralOverlayView];
+    
+    
+    
 
 }
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
@@ -164,17 +192,226 @@ menu.delegate = self;
         [self performSegueWithIdentifier:@"immunisationTableSegue" sender:self];
 
     }
-    else if (idx==1)
+    else if (idx==2)
     {
-        [self performSegueWithIdentifier:@"activitySegue" sender:self];
-
+        [self oralAndVisualView];
     }
+    else if (idx==4)
+    {
+        UIStoryboard *storyboard = self.navigationController.storyboard;
+        
+        ScreeningViewController *detailPage = [storyboard
+                                                  instantiateViewControllerWithIdentifier:@"Screening"];
+        
+        [self.navigationController pushViewController:detailPage animated:YES];
+        
+    }
+    else if(idx ==3)
+    {
+        [self AllergyAndMedicalView];
+    }
+    else if(idx ==1)
+    {
+        [self percentailView];
+    }
+    
+  
+    
 }
 - (void)awesomeMenuDidFinishAnimationClose:(AwesomeMenu *)menu {
     NSLog(@"Menu was closed!");
 }
 - (void)awesomeMenuDidFinishAnimationOpen:(AwesomeMenu *)menu {
     NSLog(@"Menu is open!");
+}
+
+-(void)AllergyAndMedicalView
+{
+    
+    [overlayView setHidden:NO];
+   
+    UIButton *backButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [backButton setTitle:@"sda" forState:UIControlStateNormal];
+    backButton.frame=CGRectMake(30, self.view.frame.size.height/2, 40, 40);
+    [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    [overlayView addSubview:backButton];
+
+    UIButton *drugButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [drugButton setTitle:@"drug" forState:UIControlStateNormal];
+    drugButton.frame=CGRectMake(30, backButton.frame.origin.y-60, 40, 40);
+    [drugButton addTarget:self action:@selector(drugAction) forControlEvents:UIControlEventTouchUpInside];
+    [overlayView addSubview:drugButton];
+    
+    UIButton *medicalButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [medicalButton setTitle:@"medical" forState:UIControlStateNormal];
+    medicalButton.frame=CGRectMake(30, backButton.frame.origin.y+60, 40, 40);
+    [medicalButton addTarget:self action:@selector(medicalAction) forControlEvents:UIControlEventTouchUpInside];
+    [overlayView addSubview:medicalButton];
+    
+}
+
+-(void)backAction
+{
+    [overlayView setHidden:YES];
+ 
+}
+
+-(void)drugAction
+{
+    [overlayView setHidden:YES];
+    UIStoryboard *storyboard = self.navigationController.storyboard;
+    
+    DrugAlergyListVC *detailPage = [storyboard
+                                           instantiateViewControllerWithIdentifier:@"DrugAlergyListVC_SB_ID"];
+    
+    [self.navigationController pushViewController:detailPage animated:YES];
+    
+}
+
+-(void)medicalAction
+{
+    [overlayView setHidden:YES];
+    UIStoryboard *storyboard = self.navigationController.storyboard;
+    
+    MedicalConditionVC *detailPage = [storyboard
+                                           instantiateViewControllerWithIdentifier:@"MedicalConditionVC_SB_ID"];
+    
+    [self.navigationController pushViewController:detailPage animated:YES];
+
+}
+
+
+-(void)percentailView
+{
+    
+    [percentailOverlayView setHidden:NO];
+    
+    UIButton *backButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [backButton setTitle:@"sda" forState:UIControlStateNormal];
+    backButton.frame=CGRectMake(self.view.frame.size.width-80, self.view.frame.size.height/4, 40, 40);
+    [backButton addTarget:self action:@selector(overlaybackAction) forControlEvents:UIControlEventTouchUpInside];
+    [percentailOverlayView addSubview:backButton];
+    [backButton setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
+
+  
+    
+    
+    UIButton *headButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [headButton setTitle:@"headButton" forState:UIControlStateNormal];
+    headButton.frame=CGRectMake(backButton.frame.origin.x-80, backButton.frame.origin.y-60, 40, 40);
+    [headButton addTarget:self action:@selector(headAction) forControlEvents:UIControlEventTouchUpInside];
+    [percentailOverlayView addSubview:headButton];
+    
+    UIButton *heightButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [heightButton setTitle:@"heightButton" forState:UIControlStateNormal];
+    heightButton.frame=CGRectMake(headButton.frame.origin.x, headButton.frame.origin.y+60, 40, 40);
+    [heightButton addTarget:self action:@selector(heightAction) forControlEvents:UIControlEventTouchUpInside];
+    [percentailOverlayView addSubview:heightButton];
+    
+    UIButton *weighttButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [weighttButton setTitle:@"weighttButton" forState:UIControlStateNormal];
+    weighttButton.frame=CGRectMake(headButton.frame.origin.x, heightButton.frame.origin.y+60, 40, 40);
+    [weighttButton addTarget:self action:@selector(weightAction) forControlEvents:UIControlEventTouchUpInside];
+    [percentailOverlayView addSubview:weighttButton];
+
+    UIButton *bmiButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [bmiButton setTitle:@"bmiButton" forState:UIControlStateNormal];
+    bmiButton.frame=CGRectMake(headButton.frame.origin.x, weighttButton.frame.origin.y+60, 40, 40);
+    [bmiButton addTarget:self action:@selector(bmiAction) forControlEvents:UIControlEventTouchUpInside];
+    [percentailOverlayView addSubview:bmiButton];
+    
+}
+
+-(void)overlaybackAction
+{
+    [percentailOverlayView setHidden:YES];
+    [self performSegueWithIdentifier:@"percentialSegue" sender:self];
+
+    
+ 
+}
+-(void)headAction
+{
+    [percentailOverlayView setHidden:YES];
+    [self performSegueWithIdentifier:@"percentialSegue" sender:self];
+
+}
+
+-(void)heightAction
+{
+    [percentailOverlayView setHidden:YES];
+    [self performSegueWithIdentifier:@"percentialSegue" sender:self];
+
+}
+
+
+-(void)weightAction
+{
+    [percentailOverlayView setHidden:YES];
+    [self performSegueWithIdentifier:@"percentialSegue" sender:self];
+
+}
+
+
+-(void)bmiAction
+{
+    [percentailOverlayView setHidden:YES];
+    [self performSegueWithIdentifier:@"percentialSegue" sender:self];
+
+}
+
+
+
+
+
+
+-(void)oralAndVisualView
+{
+    
+    [oralOverlayView setHidden:NO];
+    
+    UIButton *backButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [backButton setTitle:@"sda" forState:UIControlStateNormal];
+    backButton.frame=CGRectMake(self.view.frame.size.width-80, self.view.frame.size.height/2, 40, 40);
+    [backButton addTarget:self action:@selector(oralbackAction) forControlEvents:UIControlEventTouchUpInside];
+    [oralOverlayView addSubview:backButton];
+    
+    
+    
+    
+    UIButton *oralButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [oralButton setTitle:@"headButton" forState:UIControlStateNormal];
+    oralButton.frame=CGRectMake(backButton.frame.origin.x, backButton.frame.origin.y-60, 40, 40);
+    [oralButton addTarget:self action:@selector(oralAction) forControlEvents:UIControlEventTouchUpInside];
+    [oralOverlayView addSubview:oralButton];
+    
+    UIButton *visualtButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [visualtButton setTitle:@"heightButton" forState:UIControlStateNormal];
+    visualtButton.frame=CGRectMake(oralButton.frame.origin.x, backButton.frame.origin.y+100, 40, 40);
+    [visualtButton addTarget:self action:@selector(visualAction) forControlEvents:UIControlEventTouchUpInside];
+    [oralOverlayView addSubview:visualtButton];
+    
+    
+}
+
+-(void)oralbackAction
+{
+    [oralOverlayView setHidden:YES];
+ 
+}
+-(void)oralAction
+{
+    [oralOverlayView setHidden:YES];
+    [self performSegueWithIdentifier:@"activitySegue" sender:self];
+
+
+}
+-(void)visualAction
+{
+    [oralOverlayView setHidden:YES];
+    [self performSegueWithIdentifier:@"activitySegue" sender:self];
+
+
 }
 
 - (void)didReceiveMemoryWarning {
