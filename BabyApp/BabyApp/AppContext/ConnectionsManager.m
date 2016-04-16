@@ -9,6 +9,7 @@
 #import "ConnectionsManager.h"
 #import "AppDelegate.h"
 #import "WSConstant.h"
+#import "Constants.h"
 
 static NSString * const BaseURLString = BaseUrl;
 @interface ConnectionsManager ()
@@ -151,12 +152,21 @@ static NSString * const BaseURLString = BaseUrl;
         if (responseObject) {
             
             dispatch_async(dispatch_get_main_queue(), ^{
+                id response = responseObject;
+                if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                     response = [Constants checkForNullValuesInDict:(NSDictionary*)responseObject];
+                    
+                }
+                else if ([responseObject isKindOfClass:[NSArray class]]) {
+                     response = [Constants checkForNullValuesInArray:(NSArray *)responseObject];
+                    
+                }
                 
-                [delegate success:responseObject];
+                [delegate success:response];
             });
         }
         
-        NSLog(@"%@", responseObject);
+        NSLog(@"Result =%@", responseObject);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);
@@ -195,7 +205,7 @@ static NSString * const BaseURLString = BaseUrl;
             });
         }
         
-        NSLog(@"%@", responseObject);
+        NSLog(@"Result =%@", responseObject);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);

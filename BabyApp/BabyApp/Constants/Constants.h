@@ -41,4 +41,8 @@
 
 + (void)showOKAlertWithTitle:(NSString *)title message:(NSString *)message presentingVC:(UIViewController *)currentVC;
 
+#pragma mark - Check Null Values
+
++ (NSArray *)checkForNullValuesInArray:(NSArray *)array;
++ (NSDictionary *)checkForNullValuesInDict:(NSDictionary *)aDictionary;
 @end

@@ -185,7 +185,7 @@ UIActivityIndicatorView *act1;
 }
 - (IBAction)signinAction:(id)sender {
     NSLog(@"signinAction");
-      // [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+//     [self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
     if([self isValidData])
     {
 //    act1=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];

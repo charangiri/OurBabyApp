@@ -14,6 +14,7 @@
 @interface EncyclopediaTapScroller ()<ServerResponseDelegate>
 @property UIScrollView *scroll1;
 @property UIPageControl *page1;
+@property NSArray *medicationArr,*immunisationArr;
 
 @end
 
@@ -127,13 +128,9 @@ int n;
     
     scrollerTable=[[UITableView alloc] initWithFrame:CGRectMake(0, v.frame.origin.y+v.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-(v.frame.origin.y+v.frame.size.height))];
     [v1 addSubview:scrollerTable];
-    scrollerTable.dataSource=self;
-    scrollerTable.delegate=self;
     
     scrollerTable2=[[UITableView alloc] initWithFrame:CGRectMake(0, vv2.frame.origin.y+vv2.frame.size.height, self.view.frame.size.width, scroll1.frame.size.height-(vv2.frame.origin.y+vv2.frame.size.height))];
     [v2 addSubview:scrollerTable2];
-    scrollerTable2.dataSource=self;
-    scrollerTable2.delegate=self;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -290,15 +287,18 @@ int n;
     
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     
-    
+    NSDictionary *d;
     if(self.scrollerTable==tableView)
-        [lblName setText:[labelArrayScroller objectAtIndex:indexPath.row]];
+        d=[_medicationArr objectAtIndex:indexPath.row];
     else
-        [lblName setText:[labelArrayScroller2 objectAtIndex:indexPath.row]];
-    
+        d=[_immunisationArr objectAtIndex:indexPath.row];
+
+     [lblName setText:[d objectForKey:@"title"]];
+     [lblName2 setText:[d objectForKey:@"description"]];
+
     NSLog(@"lblName.text=%@",lblName.text);
     
-    [lblName2 setText:@"Examples:Proingravida,nibh vel velit,aliquet"];
+   // [lblName2 setText:@"Examples:Proingravida,nibh vel velit,aliquet"];
     [lblName setTextColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
     
     return cell;
@@ -306,13 +306,30 @@ int n;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[labelArrayScroller objectAtIndex:indexPath.row] forKey:@"selectedMedicationLbl"];
+    
+    NSDictionary *d;
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSLog(@"didDeselectRowAtIndexPath");
+
+    if(self.scrollerTable==tableView)
+    {   d=[_medicationArr objectAtIndex:indexPath.row];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[d objectForKey:@"title"] forKey:@"selectedMedicationLbl"];
+        [[NSUserDefaults standardUserDefaults] setObject:[d objectForKey:@"items"] forKey:@"selectedMedicationArray"];
+        [self performSegueWithIdentifier:@"medicationcategorysegu" sender:self];
+
+
+    }
+    else
+    {
+        d=[_immunisationArr objectAtIndex:indexPath.row];
+    }
+    
+
+    
     
     //medicationcategorysegu
     
-    [self performSegueWithIdentifier:@"medicationcategorysegu" sender:self];
     
     
 }
@@ -349,7 +366,32 @@ int n;
     {
         NSDictionary *dataDict = [dict objectForKey:@"data"];
         
-        NSLog(@"\n---------------\ndataDict=%@",dataDict);
+        
+       // NSLog(@"\n---------------\ndataDict=%@",dataDict);
+        
+        if(n==1)
+        {
+            _medicationArr=[dict objectForKey:@"data"];
+            NSLog(@"_medicationArr count=%lu",(unsigned long)_medicationArr.count);
+            
+            
+            scrollerTable.dataSource=self;
+            scrollerTable.delegate=self;
+            [scrollerTable reloadData];
+           
+        }
+        if(n==2)
+        {
+            _immunisationArr=[dict objectForKey:@"data"];
+            NSLog(@"_immunisationArr count=%lu",(unsigned long)_immunisationArr.count);
+            
+            scrollerTable2.dataSource=self;
+            scrollerTable2.delegate=self;
+            [scrollerTable2 reloadData];
+
+
+        }
+
     }
     else
     {
@@ -357,6 +399,8 @@ int n;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:messageStr delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
     }
+  
+    
 if(n==1)
     {
         [[ConnectionsManager sharedManager] getImmunisationEncyclopedia:nil withdelegate:self];

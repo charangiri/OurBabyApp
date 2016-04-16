@@ -10,6 +10,7 @@
 #import "ScreeningViewController.h"
 #import "DrugAlergyListVC.h"
 #import "MedicalConditionVC.h"
+#import "PercentialViewController.h"
 @interface HealthBookletViewController ()
 {
     float width;
@@ -17,6 +18,7 @@
     UIView *overlayView;
     UIView *percentailOverlayView;
     UIView *oralOverlayView;
+    int percentialIndex;
 
 
 }
@@ -30,20 +32,20 @@
   
     overlayView=[UIView new];
     overlayView.frame=self.view.frame;
-    overlayView.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.2];
+    overlayView.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.5];
     [overlayView setHidden:YES];
     [self.view addSubview:overlayView];
 
     
     percentailOverlayView=[UIView new];
     percentailOverlayView.frame=self.view.frame;
-    percentailOverlayView.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.2];
+    percentailOverlayView.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.5];
     [percentailOverlayView setHidden:YES];
     [self.view addSubview:percentailOverlayView];
     
     oralOverlayView=[UIView new];
     oralOverlayView.frame=self.view.frame;
-    oralOverlayView.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.2];
+    oralOverlayView.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.5];
     [oralOverlayView setHidden:YES];
     [self.view addSubview:oralOverlayView];
     
@@ -150,7 +152,7 @@ UIImage *starImage1 = [UIImage imageNamed:@"hb_immunisation.png"];
     UIImage *starImage2 = [UIImage imageNamed:@"hb_percentiles.png"];
     UIImage *starImage3= [UIImage imageNamed:@"hb_oral.png"];
     UIImage *starImage4 = [UIImage imageNamed:@"hb_allergy.png"];
-    UIImage *starImage5 = [UIImage imageNamed:@"hb_allergy.png"];
+    UIImage *starImage5 = [UIImage imageNamed:@"screening_icon.png"];
 
 
 // Default Menu
@@ -237,15 +239,22 @@ menu.delegate = self;
    
     UIButton *backButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
     [backButton setTitle:@"sda" forState:UIControlStateNormal];
-    backButton.frame=CGRectMake(30, self.view.frame.size.height/2, 40, 40);
+    [backButton setBackgroundImage:[UIImage imageNamed:@"hb_Alergy_back.png"] forState:UIControlStateNormal];
+    backButton.frame=CGRectMake(30, self.view.frame.size.height/2, 60, 60);
     [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     [overlayView addSubview:backButton];
 
+    
+    
+    
+    
     UIButton *drugButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
     [drugButton setTitle:@"drug" forState:UIControlStateNormal];
     drugButton.frame=CGRectMake(30, backButton.frame.origin.y-60, 40, 40);
     [drugButton addTarget:self action:@selector(drugAction) forControlEvents:UIControlEventTouchUpInside];
     [overlayView addSubview:drugButton];
+    
+    
     
     UIButton *medicalButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
     [medicalButton setTitle:@"medical" forState:UIControlStateNormal];
@@ -330,13 +339,13 @@ menu.delegate = self;
 -(void)overlaybackAction
 {
     [percentailOverlayView setHidden:YES];
-    [self performSegueWithIdentifier:@"percentialSegue" sender:self];
 
     
  
 }
 -(void)headAction
 {
+    percentialIndex=1;
     [percentailOverlayView setHidden:YES];
     [self performSegueWithIdentifier:@"percentialSegue" sender:self];
 
@@ -344,6 +353,7 @@ menu.delegate = self;
 
 -(void)heightAction
 {
+    percentialIndex=2;
     [percentailOverlayView setHidden:YES];
     [self performSegueWithIdentifier:@"percentialSegue" sender:self];
 
@@ -352,6 +362,7 @@ menu.delegate = self;
 
 -(void)weightAction
 {
+    percentialIndex=3;
     [percentailOverlayView setHidden:YES];
     [self performSegueWithIdentifier:@"percentialSegue" sender:self];
 
@@ -360,6 +371,7 @@ menu.delegate = self;
 
 -(void)bmiAction
 {
+    percentialIndex=4;
     [percentailOverlayView setHidden:YES];
     [self performSegueWithIdentifier:@"percentialSegue" sender:self];
 
@@ -429,14 +441,57 @@ menu.delegate = self;
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"percentialSegue"])
+    {
+        // Get reference to the destination view controller
+        PercentialViewController *vc = [segue destinationViewController];
+        if (percentialIndex==1) {
+            
+        }
+        switch (percentialIndex) {
+            case 1:
+                [vc setTitleString:@"Head"];
+                [vc setSuffix:@"cm"];
+                [vc setYaxisName:@"Cirumference"];
+                [vc setTitleLableString:@"PERCENTILES OF HEAD CIRCUMFERENCE-FOR-AGE"];
+                [vc setSubTitleLableString:@"GIRLS AGED 0 TO 24 MONTHS"];
+
+                break;
+            case 2:
+                [vc setTitleString:@"Height"];
+                [vc setSuffix:@"cm"];
+                [vc setYaxisName:@"Height"];
+                [vc setTitleLableString:@"PERCENTILES OF HEIGHT-FOR-AGE"];
+                [vc setSubTitleLableString:@"GIRLS AGED 0 TO 24 MONTHS"];
+                break;
+            case 3:
+                [vc setTitleString:@"Weight"];
+                [vc setSuffix:@"kgs"];
+                [vc setYaxisName:@"Weight"];
+                [vc setTitleLableString:@"PERCENTILES OF WEIGHT-FOR-AGE"];
+                [vc setSubTitleLableString:@"GIRLS AGED 0 TO 24 MONTHS"];
+
+                break;
+            case 4:
+                [vc setTitleString:@"BMI"];
+                [vc setSuffix:@"h/w"];
+                [vc setYaxisName:@"BMI"];
+                [vc setTitleLableString:@"PERCENTILES OF BMI-FOR-AGE"];
+                [vc setSubTitleLableString:@"GIRLS AGED 0 TO 24 MONTHS"];
+
+                break;
+            default:
+                break;
+        }
+    }
+   
 }
 
 
 - (IBAction)screeningAction:(id)sender
 {
-    UIViewController *dummyVC = [self.storyboard instantiateViewControllerWithIdentifier:SB_ID_DummyVC];
+    UIViewController *dummyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ChildDevelopementalViewController"];
     [self.navigationController pushViewController:dummyVC animated:YES];
 }
 

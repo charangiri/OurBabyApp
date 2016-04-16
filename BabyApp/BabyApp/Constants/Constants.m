@@ -24,4 +24,31 @@
     });
 
 }
+#pragma mark - Check Null Values
+
++ (NSArray *)checkForNullValuesInArray:(NSArray *)array {
+    //---- to check whether json response contains null values ----
+    
+    NSMutableArray *arrFinal = [[NSMutableArray alloc] init];
+    for (NSDictionary *dict in array){
+        [arrFinal addObject:[self checkForNullValuesInDict:dict]];
+    }
+    return arrFinal;
+}
+
++ (NSDictionary *)checkForNullValuesInDict:(NSDictionary *)aDictionary {
+    //---- to check whether json response contains null values ----
+    
+    NSMutableDictionary *compactDictionary = [aDictionary mutableCopy];
+    for (NSString *key in [aDictionary allKeys]){
+        if ([aDictionary[key] isKindOfClass:[NSNull class]]){
+            [compactDictionary setValue:@"" forKey:key];
+        }
+        else if ([aDictionary[key] isKindOfClass:[NSDictionary class]]){
+            [compactDictionary setObject:[self checkForNullValuesInDict:aDictionary[key]] forKey:key];
+        }
+    }
+    return compactDictionary;
+}
+
 @end
