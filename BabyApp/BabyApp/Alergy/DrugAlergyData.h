@@ -11,5 +11,5 @@
 @interface DrugAlergyData : NSObject
 
 
-@property (nonatomic,strong) NSString *drugTitle, *reaction, *date, *status;
+@property (nonatomic,strong) NSString *drugTitle, *reaction, *date, *status, *drugID;
 @end

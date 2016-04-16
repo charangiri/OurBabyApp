@@ -10,5 +10,5 @@
 
 @implementation DrugAlergyData
 
-@synthesize drugTitle, reaction, date, status;
+@synthesize drugTitle, reaction, date, status, drugID;
 @end
