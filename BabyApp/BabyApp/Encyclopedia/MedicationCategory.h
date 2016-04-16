@@ -10,5 +10,6 @@
 
 @interface MedicationCategory : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic) UITableView *medicationCategoryTable;
+@property NSArray *labelArraymedicationCategory;
 
 @end

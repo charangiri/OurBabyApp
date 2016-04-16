@@ -166,7 +166,7 @@ static NSString * const BaseURLString = BaseUrl;
             });
         }
         
-        NSLog(@"%@", responseObject);
+        NSLog(@"Result =%@", responseObject);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);
@@ -205,7 +205,7 @@ static NSString * const BaseURLString = BaseUrl;
             });
         }
         
-        NSLog(@"%@", responseObject);
+        NSLog(@"Result =%@", responseObject);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);

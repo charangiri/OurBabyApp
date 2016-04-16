@@ -13,8 +13,7 @@
 @end
 
 @implementation MedicationCategory
-@synthesize medicationCategoryTable;
-NSArray *labelArraymedicationCategory;
+@synthesize medicationCategoryTable,labelArraymedicationCategory;
 
 - (void)viewDidLoad
 {
@@ -23,7 +22,11 @@ NSArray *labelArraymedicationCategory;
     self.navigationItem.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectedMedicationLbl"];
     
     
-    labelArraymedicationCategory=[NSArray arrayWithObjects:@"Lorem Ipsum",@"Aenean sollicitudin",@"Consequat ipsum",@"Consequat del velit", nil];
+  labelArraymedicationCategory=[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedMedicationArray"];
+
+    NSLog(@"selectedMedicationArray count=%lu at 0=%@",(unsigned long)labelArraymedicationCategory.count,[labelArraymedicationCategory objectAtIndex:0]);
+    
+   // labelArraymedicationCategory=[NSArray arrayWithObjects:@"Lorem Ipsum",@"Aenean sollicitudin",@"Consequat ipsum",@"Consequat del velit", nil];
     
     
     medicationCategoryTable=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-60)];
@@ -73,11 +76,15 @@ NSArray *labelArraymedicationCategory;
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     
     
+    NSDictionary *d;
+
+    d=[labelArraymedicationCategory objectAtIndex:indexPath.row];
     
-    [lblName setText:[labelArraymedicationCategory objectAtIndex:indexPath.row]];
+    [lblName setText:[d objectForKey:@"title"]];
+    [lblName2 setText:[d objectForKey:@"description"]];
     
     
-    [lblName2 setText:@"Lorem Ipsum proin gravida nibh vel velit auctor aliquet . Aenean sollicitudin .lorem quis bibendum auctor , nist elit consequat del velit quis aliquet."];
+   
     [lblName2 setTextColor:[UIColor grayColor]];
     
     return cell;
@@ -87,9 +94,12 @@ NSArray *labelArraymedicationCategory;
 {
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    NSLog(@"didDeselectRowAtIndexPath");
+    NSDictionary *d;
     
-    
+    d=[labelArraymedicationCategory objectAtIndex:indexPath.row];
+    NSLog(@"didDeselectRowAtIndexPath d=%@",d);
+
+    [[NSUserDefaults standardUserDefaults] setObject:d forKey:@"selectedMedicationDetail"];
     [self performSegueWithIdentifier:@"medicationcategorydetailsegu" sender:self];
     
     

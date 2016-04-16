@@ -16,6 +16,7 @@
 @synthesize medicationCategoryDetailTable;
 
 NSArray *arraymedicationCategoryDetail;
+NSDictionary *d;
 
 - (void)viewDidLoad
 {
@@ -23,7 +24,11 @@ NSArray *arraymedicationCategoryDetail;
     self.navigationItem.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectedMedicationLbl"];
     
     
-    arraymedicationCategoryDetail=[NSArray arrayWithObjects:@"Lorem Ipsum",@"SIDE EFFECTS",@"DOSAGE",@"OTHER INFO", nil];
+    d=(NSDictionary*)[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedMedicationDetail"];
+    NSLog(@"MedicationCategoryDetail d=%@",d);
+
+    
+    arraymedicationCategoryDetail=[NSArray arrayWithObjects:self.navigationItem.title,@"SIDE EFFECTS",@"DOSAGE",@"OTHER INFO", nil];
     
     
     
@@ -32,11 +37,7 @@ NSArray *arraymedicationCategoryDetail;
     medicationCategoryDetailTable.dataSource=self;
     medicationCategoryDetailTable.delegate=self;
     
-    // [medicationCategoryDetailTable setBounces:NO];
-    
-    // [medicationCategoryDetailTable setBackgroundColor:[UIColor blueColor]];
-    // Do any additional setup after loading the view.
-}
+  }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -69,7 +70,6 @@ NSArray *arraymedicationCategoryDetail;
     UILabel *lblName=[cell.contentView viewWithTag:10];
     UILabel *lblName2=[cell.contentView viewWithTag:20];
     
-    //[lblName setTextColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]]
     if(indexPath.row==0)
     {
         [cell setBackgroundColor:[UIColor colorWithRed:37.0/255.0 green:146.0/255.0 blue:142.0/255.0 alpha:1.0]];
@@ -77,7 +77,7 @@ NSArray *arraymedicationCategoryDetail;
         [lblName2 setTextColor:[UIColor whiteColor]];
         [lblName setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:20]];
         
-        [lblName2 setText:@"Prescription \n \n Lorem Ipsum proin gravida nibh vel velit auctor aliquet . Aenean sollicitudin .lorem quis bibendum auctor , nist elit consequat del velit quis aliquet.lorem quis bibendum auctor , nist elit consequat del velit quis aliquet.Lorem Ipsum proin gravida nibh vel velit auctor aliquet . Aenean sollicitudin .lorem quis bibendum auctor."];
+        [lblName2 setText:[d objectForKey:@"description"]];
         
         
         lblName2.frame=CGRectMake(10,40,medicationCategoryDetailTable.frame.size.width-30,110);
@@ -87,7 +87,7 @@ NSArray *arraymedicationCategoryDetail;
         [cell setBackgroundColor:[UIColor colorWithRed:220.0/255.0 green:220.0/255.0 blue:223.0/255.0 alpha:1.0]];
         [lblName2 setTextColor:[UIColor grayColor]];
         [lblName setTextColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
-        [lblName2 setText:@"Lorem Ipsum proin gravida nibh vel velit auctor aliquet . Aenean sollicitudin .lorem quis"];
+        [lblName2 setText:[d objectForKey:@"sideeffects"]];
         
     }
     else if(indexPath.row==2)
@@ -95,7 +95,7 @@ NSArray *arraymedicationCategoryDetail;
         [cell setBackgroundColor:[UIColor colorWithRed:235.0/255.0 green:235.0/255.0 blue:242.0/255.0 alpha:1.0]];
         [lblName2 setTextColor:[UIColor grayColor]];
         [lblName setTextColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
-        [lblName2 setText:@"Lorem Ipsum proin gravida nibh vel velit auctor aliquet . Aenean sollicitudin .lorem quis"];
+        [lblName2 setText:[d objectForKey:@"dosage"]];
         
     }
     
@@ -104,7 +104,7 @@ NSArray *arraymedicationCategoryDetail;
         [cell setBackgroundColor:[UIColor whiteColor]];
         [lblName2 setTextColor:[UIColor grayColor]];
         [lblName setTextColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
-        [lblName2 setText:@"Lorem Ipsum proin gravida nibh vel velit auctor aliquet . Aenean sollicitudin .lorem quis "];
+        [lblName2 setText:[d objectForKey:@"otherinfo"]];
         
     }
     
