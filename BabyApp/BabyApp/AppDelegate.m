@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-
+#import "WSConstant.h"
+#import "NSUserDefaults+Helpers.h"
 
 @interface AppDelegate ()
 
@@ -47,6 +48,8 @@
         NSLog(@"Revealed %@", menu);
     }];*/
 
+    [self checkValidUser];
+    
     UIImage *customBackButton=nil;
     
     if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
@@ -188,40 +191,50 @@
 
 -(void)checkValidUser
 {
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    SlideNavigationController *homeVC = [storyBoard instantiateViewControllerWithIdentifier:@"SlideNavigationController_SB_ID"];
-    //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:homeVC];
-    self.window.rootViewController = homeVC;
-    
-    
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                              bundle: nil];
     
-    LeftMenuViewController *leftMenu = (LeftMenuViewController*)[mainStoryboard
-                                                                 instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
-    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
-    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
-    
-    // Creating a custom bar button for right menu
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSString *menu = note.userInfo[@"menu"];
-        NSLog(@"Closed %@", menu);
-    }];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidOpen object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSString *menu = note.userInfo[@"menu"];
-        NSLog(@"Opened %@", menu);
-    }];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidReveal object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSString *menu = note.userInfo[@"menu"];
-        NSLog(@"Revealed %@", menu);
-    }];
-    
+    NSString *userID = [NSUserDefaults retrieveObjectForKey:USERID];
+    if(userID && userID != nil)
+    {
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SlideNavigationController *homeVC = [storyBoard instantiateViewControllerWithIdentifier:@"SlideNavigationController_SB_ID"];
+        //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:homeVC];
+        self.window.rootViewController = homeVC;
+        
+        
+        
+        
+        
+        LeftMenuViewController *leftMenu = (LeftMenuViewController*)[mainStoryboard
+                                                                     instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
+        [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+        [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
+        
+        // Creating a custom bar button for right menu
+        
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
+            NSString *menu = note.userInfo[@"menu"];
+            NSLog(@"Closed %@", menu);
+        }];
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidOpen object:nil queue:nil usingBlock:^(NSNotification *note) {
+            NSString *menu = note.userInfo[@"menu"];
+            NSLog(@"Opened %@", menu);
+        }];
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidReveal object:nil queue:nil usingBlock:^(NSNotification *note) {
+            NSString *menu = note.userInfo[@"menu"];
+            NSLog(@"Revealed %@", menu);
+        }];
+    }
+    else
+    {
+        UIViewController *loginVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"ViewController_SB_ID"];
+        self.window.rootViewController = loginVC;
+    }
 }
-
 
 @end

@@ -13,3 +13,5 @@
 #endif /* WSConstant_h */
 
 #define BaseUrl @"http://babyappdev.azurewebsites.net/apiv1/service/"
+#define USERID  @"application_user_id"
+#define CURRENT_CHILD_ID    @"application_current_child_id"

@@ -13,19 +13,27 @@
 #import "BioDataObj.h"
 #import "ConnectionsManager.h"
 #import "BirthRecordTableViewController.h"
+#import "JMImageCache.h"
+#import "UIImageView+JMImageCache.h"
+#import "DateTimeUtil.h"
+#import "CustomIOS7AlertView.h"
+#import "NSUserDefaults+Helpers.h"
+#import "WSConstant.h"
 
-@interface BioDataTableViewController () <ServerResponseDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface BioDataTableViewController () <ServerResponseDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CustomIOS7AlertViewDelegate, UITextFieldDelegate>
 {
     NSArray *titleArray;
     
     BioDataObj *bioDataObj;
     
-    //CustomIOS7AlertView *dateAlertView;
+    CustomIOS7AlertView *dateAlertView;
     UIDatePicker *datePicker;
     
     UIImage *userProfilePic;
     
     UITapGestureRecognizer *profilePicGesture;
+    
+    NSString *userName, *dob;
     
 }
 @end
@@ -36,30 +44,46 @@
 - (IBAction)onClickDoneButton:(id)sender {
     
     ProfilePicTableViewCell *cell = (ProfilePicTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
     NSData *data;
+    NSString *imgStr;
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     if(userProfilePic)
     {
         data = UIImageJPEGRepresentation(userProfilePic, 0.2);
+        imgStr = [data base64EncodedStringWithOptions:0];
         
     }
-    [params setObject:data forKey:@"baby_image"];
+    //[self UIImageToByteArray:userProfilePic]
+    //[params setObject:imgStr forKey:@"baby_image"];
     [params setObject:cell.btnDateOfBirth.titleLabel.text forKey:@"dob"];
     [params setObject:cell.txtFldName.text forKey:@"name"];
-    [params setObject:@"64" forKey:@"user_id"];
-    [params setObject:@"10" forKey:@"child_id"];
-    [params setObject:[NSNumber numberWithInt:1] forKey:@"action"];
+    [params setObject:[NSUserDefaults retrieveObjectForKey:USERID] forKey:@"user_id"];
+    [params setObject:SAFE_DEF([NSUserDefaults retrieveObjectForKey:CURRENT_CHILD_ID], @"") forKey:@"child_id"];
+    
+    NSString *childID = [NSUserDefaults retrieveObjectForKey:CURRENT_CHILD_ID];
+    int status = 1;
+    if(childID && childID != nil)
+    {
+        status = 2;
+    }
+    [params setObject:[NSNumber numberWithInt:status] forKey:@"action"];
     
     [[ConnectionsManager sharedManager] saveBioData:params andImage:cell.userProflePic withdelegate:self];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    bioDataObj = [[BioDataObj alloc] init];
+    
     [self loadBioData];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    
+    [self.navigationItem setTitle:@"Bio Data"];
     
     profilePicGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                 action:@selector(onClickOpenImageVC:)];
@@ -93,14 +117,14 @@
 
 -(void)loadBioData
 {
-    NSNumber *childID = [[NSUserDefaults standardUserDefaults] objectForKey:@"child_id"];
-    ///if(childID && childID != nil)
-    // {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:@"10" forKey:@"child_id"];
-    
-    [[ConnectionsManager sharedManager] getBioData:dict withdelegate:self];
-    //}
+    NSString *childID = [NSUserDefaults retrieveObjectForKey:CURRENT_CHILD_ID];
+    if(childID && childID != nil)
+    {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setObject:childID forKey:@"child_id"];
+        
+        [[ConnectionsManager sharedManager] getBioData:dict withdelegate:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -135,13 +159,21 @@
     {
         cell=(ProfilePicTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ProfilePicCellIdentifier"];
         [cell.btnDateOfBirth addTarget:self action:@selector(onClickDateOfBirth:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.txtFldName setText:bioDataObj.name];
-        [cell.btnDateOfBirth.titleLabel setText:bioDataObj.dob];
+        [cell.userProflePic setUserInteractionEnabled:YES];
+        
+        [cell.txtFldName setDelegate:self];
+        
+        [cell.txtFldName setText:userName];
+        [cell.btnDateOfBirth setTitle:dob forState:UIControlStateNormal];
         
         [cell.userProflePic addGestureRecognizer:profilePicGesture];
         if(userProfilePic)
         {
             cell.userProflePic.image = userProfilePic;
+        }
+        else
+        {
+            [cell.userProflePic setImageWithURL:[NSURL URLWithString:bioDataObj.userProfile] placeholder:[UIImage imageNamed:@"pic.png"]];
         }
         return cell;
     }
@@ -209,7 +241,49 @@
 
 -(void)onClickDateOfBirth:(id)sender
 {
+    [self.view endEditing:YES];
     
+    [self openDate];
+}
+
+-(void)openDate
+{
+    dateAlertView = [[CustomIOS7AlertView alloc] init];
+    [dateAlertView setContainerView:[self createDateView]];
+    [dateAlertView setButtonTitles:[NSMutableArray arrayWithObjects:@"CLOSE", @"SET", nil]];
+    [dateAlertView setDelegate:self];
+    [dateAlertView setUseMotionEffects:true];
+    
+    [dateAlertView show];
+}
+
+- (UIView *)createDateView
+{
+    UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 216)];
+    datePicker = [[UIDatePicker alloc] initWithFrame:CGRectZero];
+    datePicker.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    datePicker.frame = CGRectMake(10, 10, 280, 216);
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [demoView addSubview:datePicker];
+    return demoView;
+}
+
+- (void)customIOS7dialogButtonTouchUpInside: (CustomIOS7AlertView *)alertView clickedButtonAtIndex: (NSInteger)buttonIndex
+{
+    [dateAlertView close];
+    NSString * dateFromData = [DateTimeUtil stringFromDateTime:datePicker.date withFormat:@"dd-MM-yyyy"];
+    
+    ProfilePicTableViewCell *cell = (ProfilePicTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    if(bioDataObj && bioDataObj != nil)
+    {
+        bioDataObj.dob = dateFromData;
+    }
+    
+    dob = dateFromData;
+    [cell.btnDateOfBirth.titleLabel setText:dateFromData];
+    
+    [self.tableView reloadData];
 }
 
 -(void)success:(id)response
@@ -225,11 +299,18 @@
     if([statusStr isEqualToString:@"1"])
     {
         
-        bioDataObj = [[BioDataObj alloc] init];
         
         NSDictionary *datDict = [dict objectForKey:@"data"];
-        bioDataObj.name = [datDict objectForKey:@"name"];
-        bioDataObj.dob = [datDict objectForKey:@"dob"];
+        userName = [datDict objectForKey:@"name"];
+        dob = [datDict objectForKey:@"dob"];
+        bioDataObj.userProfile = [datDict objectForKey:@"baby_image"];
+        bioDataObj.name = userName;
+        bioDataObj.dob = dob;
+        
+        
+        NSString *childID = [datDict objectForKey:@"child_id"];
+        [NSUserDefaults saveObject:childID forKey:CURRENT_CHILD_ID];
+        userProfilePic = nil;
         
         [self.tableView reloadData];
     }
@@ -287,6 +368,24 @@
     
     UIImage * img = [info valueForKey:UIImagePickerControllerEditedImage];
     userProfilePic = img;
+    [self.tableView reloadData];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(bioDataObj && bioDataObj != nil)
+    {
+        bioDataObj.name = textField.text;
+    }
+    
+    userName = textField.text;
+    
     [self.tableView reloadData];
 }
 

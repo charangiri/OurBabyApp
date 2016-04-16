@@ -13,6 +13,8 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "Constants/Constants.h"
 #import "AppDelegate.h"
+#import "NSUserDefaults+Helpers.h"
+#import "WSConstant.h"
 
 #define kOFFSET_FOR_KEYBOARD 100.0
 
@@ -281,14 +283,24 @@ UIActivityIndicatorView *act1;
       NSError* error;
        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:self.receivedData options:kNilOptions error:&error];
        NSLog(@"connectionDidFinishLoading =%@",json);
-       if([[json objectForKey:@"status"] isEqualToString:@"1"])
-        {
-              // [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"userData"];
-               //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+    if([[json objectForKey:@"status"] isEqualToString:@"1"])
+    {
+        // [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"userData"];
+        //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
         
-            [self openHomeVC];
-        }
+        NSString *userId = [[json objectForKey:@"data"] objectForKey:@"user_id"];
+        
+        [NSUserDefaults saveObject:userId forKey:USERID];
+        
+        [self openHomeVC];
     }
+    else
+    {
+        NSString *messageStr = [json objectForKey:@"message"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:messageStr delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+    }
+}
 
 
 
@@ -396,6 +408,10 @@ UIActivityIndicatorView *act1;
                     {
                         // [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"userData"];
                         //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
+                        
+                        NSString *userId = [[json objectForKey:@"data"] objectForKey:@"user_id"];
+                        
+                        [NSUserDefaults saveObject:userId forKey:USERID];
                         
                         [self openHomeVC];
                         

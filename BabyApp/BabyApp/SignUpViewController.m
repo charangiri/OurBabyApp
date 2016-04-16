@@ -10,6 +10,9 @@
 #import "ConnectionsManager.h"
 #import "NSString+CommonForApp.h"
 #import "AppDelegate.h"
+#import "WSConstant.h"
+#import "NSUserDefaults+Helpers.h"
+
 
 #define kOFFSET_FOR_KEYBOARD 80.0
 
@@ -174,6 +177,10 @@ UIActivityIndicatorView *act2;
     
     if([statusStr isEqualToString:@"1"])
     {
+        NSString *userId = [[params objectForKey:@"data"] objectForKey:@"user_id"];
+        
+        [NSUserDefaults saveObject:userId forKey:USERID];
+        
         [self openHomeVC];
         //[self performSegueWithIdentifier:@"HomeViewControllerSegue" sender:self];
     }

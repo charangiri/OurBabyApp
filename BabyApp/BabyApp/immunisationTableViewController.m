@@ -30,7 +30,7 @@
 }
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
-    return YES;
+    return NO;
 }
 
 -(UIBarButtonItem *)addLeftButton

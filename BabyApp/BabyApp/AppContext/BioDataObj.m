@@ -9,6 +9,6 @@
 #import "BioDataObj.h"
 
 @implementation BioDataObj
-@synthesize name, dob;
+@synthesize name, dob, userProfile;
 
 @end

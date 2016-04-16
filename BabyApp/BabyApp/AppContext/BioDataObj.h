@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface BioDataObj : NSObject
-@property (nonatomic, strong) NSString *name, *dob;
+@property (nonatomic, strong) NSString *name, *dob, *userProfile;
 @end

@@ -181,6 +181,9 @@ static NSString * const BaseURLString = BaseUrl;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
+        NSData *imgData = UIImageJPEGRepresentation(img.image, 0.5);
+        
+        [formData appendPartWithFileData:imgData name:@"baby_image" fileName:[NSString stringWithFormat:@"baby_image.png"] mimeType:@"image/png"];
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -257,7 +260,7 @@ static NSString * const BaseURLString = BaseUrl;
 
 -(void)saveBioData:(NSDictionary *)params andImage:(UIImageView *)img withdelegate:(id<ServerResponseDelegate>)delegate
 {
-    [self getToURL:@"add_bio" withParameters:params delegate:delegate];
+    [self getToURL:@"add_bio" withImage:img withParameters:params delegate:delegate];
 }
 
 -(void)getForgotPassword:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate

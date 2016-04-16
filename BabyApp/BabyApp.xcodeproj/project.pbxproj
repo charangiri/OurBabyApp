@@ -62,6 +62,9 @@
 		96A9696E1CB8D8D700D1212B /* ImmunisationBaseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A969671CB8D8D700D1212B /* ImmunisationBaseDate.m */; };
 		96A9696F1CB8D8D700D1212B /* ImmunisationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A969691CB8D8D700D1212B /* ImmunisationData.m */; };
 		96A969701CB8D8D700D1212B /* ImmunisationsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A9696B1CB8D8D700D1212B /* ImmunisationsVC.m */; };
+		96EE83F11CC23131009F4932 /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EE83EC1CC23131009F4932 /* JMImageCache.m */; };
+		96EE83F21CC23131009F4932 /* UIImageView+JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EE83EE1CC23131009F4932 /* UIImageView+JMImageCache.m */; };
+		96EE83F31CC23131009F4932 /* NSUserDefaults+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EE83F01CC23131009F4932 /* NSUserDefaults+Helpers.m */; };
 		A10EB5EA1C784FBA002EBC59 /* blueBar.png in Resources */ = {isa = PBXBuildFile; fileRef = A10EB5E81C784FBA002EBC59 /* blueBar.png */; };
 		A10EB5ED1C786B91002EBC59 /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10EB5EC1C786B91002EBC59 /* SlideNavigationController.m */; };
 		A10EB5F91C786B9A002EBC59 /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = A10EB5F01C786B9A002EBC59 /* SlideNavigationContorllerAnimatorFade.m */; };
@@ -331,6 +334,12 @@
 		96A969691CB8D8D700D1212B /* ImmunisationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImmunisationData.m; sourceTree = "<group>"; };
 		96A9696A1CB8D8D700D1212B /* ImmunisationsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImmunisationsVC.h; sourceTree = "<group>"; };
 		96A9696B1CB8D8D700D1212B /* ImmunisationsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImmunisationsVC.m; sourceTree = "<group>"; };
+		96EE83EB1CC23131009F4932 /* JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMImageCache.h; sourceTree = "<group>"; };
+		96EE83EC1CC23131009F4932 /* JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMImageCache.m; sourceTree = "<group>"; };
+		96EE83ED1CC23131009F4932 /* UIImageView+JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JMImageCache.h"; sourceTree = "<group>"; };
+		96EE83EE1CC23131009F4932 /* UIImageView+JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+JMImageCache.m"; sourceTree = "<group>"; };
+		96EE83EF1CC23131009F4932 /* NSUserDefaults+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Helpers.h"; sourceTree = "<group>"; };
+		96EE83F01CC23131009F4932 /* NSUserDefaults+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Helpers.m"; sourceTree = "<group>"; };
 		A10EB5E81C784FBA002EBC59 /* blueBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueBar.png; sourceTree = "<group>"; };
 		A10EB5EB1C786B91002EBC59 /* SlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationController.h; sourceTree = "<group>"; };
 		A10EB5EC1C786B91002EBC59 /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
@@ -625,6 +634,9 @@
 		90F165941CB5A479006B5DD6 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				96EE83EA1CC23131009F4932 /* Asynch Image */,
+				96EE83EF1CC23131009F4932 /* NSUserDefaults+Helpers.h */,
+				96EE83F01CC23131009F4932 /* NSUserDefaults+Helpers.m */,
 				CD6754EC1CC0AFBA002BA5CA /* ASValueTrackingSlider */,
 				CDC84AAF1CBE084F00D9A3DC /* SVProgressHUD */,
 				CDC84AAA1CBE083600D9A3DC /* FacebookSDK */,
@@ -793,6 +805,17 @@
 				96A9696B1CB8D8D700D1212B /* ImmunisationsVC.m */,
 			);
 			path = NewImmunisation;
+			sourceTree = "<group>";
+		};
+		96EE83EA1CC23131009F4932 /* Asynch Image */ = {
+			isa = PBXGroup;
+			children = (
+				96EE83EB1CC23131009F4932 /* JMImageCache.h */,
+				96EE83EC1CC23131009F4932 /* JMImageCache.m */,
+				96EE83ED1CC23131009F4932 /* UIImageView+JMImageCache.h */,
+				96EE83EE1CC23131009F4932 /* UIImageView+JMImageCache.m */,
+			);
+			path = "Asynch Image";
 			sourceTree = "<group>";
 		};
 		A10EB6141C786F83002EBC59 /* Slide Supporters */ = {
@@ -1453,6 +1476,7 @@
 				90F165C71CB5A4A0006B5DD6 /* UIButton+AFNetworking.m in Sources */,
 				A10EB6201C789F81002EBC59 /* HeartTypeTableViewCell.m in Sources */,
 				A10EB5F91C786B9A002EBC59 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
+				96EE83F11CC23131009F4932 /* JMImageCache.m in Sources */,
 				A10EB6371C78BD83002EBC59 /* ProfilePicTableViewCell.m in Sources */,
 				90F165931CB5A3BD006B5DD6 /* NewImmunisationVC.m in Sources */,
 				A1EAD2D41CA98CED008D2B37 /* ImmunationsBlueTableViewCell.m in Sources */,
@@ -1523,6 +1547,7 @@
 				90EED5AB1CB440DA00401065 /* CommonScreeingData.m in Sources */,
 				D86EC0531C99EF0E00E3B176 /* MedicationCategory.m in Sources */,
 				D86EC0561C99EF4B00E3B176 /* ImmunisationType.m in Sources */,
+				96EE83F21CC23131009F4932 /* UIImageView+JMImageCache.m in Sources */,
 				90FC54461CB1A7E300ED0E34 /* DateTimeUtil.m in Sources */,
 				A10EB61A1C789F5B002EBC59 /* ProfileTableViewCell.m in Sources */,
 				90EED5B11CB4473900401065 /* DummyScreeningVC.m in Sources */,
@@ -1542,6 +1567,7 @@
 				90FC54611CB1A83400ED0E34 /* BaseViewController.m in Sources */,
 				90EED5B41CB4553900401065 /* DrugAlergyData.m in Sources */,
 				A10EB65B1C7B7F59002EBC59 /* BirthRecordTableViewController.m in Sources */,
+				96EE83F31CC23131009F4932 /* NSUserDefaults+Helpers.m in Sources */,
 				CD6754F21CC0AFBA002BA5CA /* ASValueTrackingSlider.m in Sources */,
 				A152479F1CC1626000EA5115 /* PercentialViewController.m in Sources */,
 				96A969701CB8D8D700D1212B /* ImmunisationsVC.m in Sources */,
