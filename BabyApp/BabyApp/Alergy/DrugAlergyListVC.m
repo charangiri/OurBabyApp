@@ -140,63 +140,48 @@
     //    [self.navigationController pushViewController:detailPage animated:YES];
 }
 
+#pragma mark - ServerResponseDelegate
 -(void)success:(id)response
 {
-    /*
-     {
-     data =     {
-     "allergy list" =         (
-     );
-     "child_id" = 52;
-     };
-     message = success;
-     status = 1;
-     }
-     */
-    NSDictionary *dict = response;
-    id statusStr_ = [dict objectForKey:@"status"];
-    NSString *statusStr;
     
-    if([statusStr_ isKindOfClass:[NSNumber class]])
-    {
-        statusStr = [statusStr_ stringValue];
-    }
-    else
-    {
-        statusStr = statusStr_;
-    }
-    if([statusStr isEqualToString:@"1"])
-    {
-        NSDictionary *dataDict = [dict objectForKey:@"data"];
-        NSArray *alleryList = [dataDict objectForKey:@"allergy list"];
-        if(alleryList.count)
-        {
-            
-            NSMutableArray *temp = [NSMutableArray array];
-            
-            for(NSDictionary *dict in alleryList)
-            {
-                //drugTitle, *reaction, *date, *status
-                DrugAlergyData *drug = [[DrugAlergyData alloc] init];
-                drug.reaction = [dict objectForKey:@"allergic_reaction"];
-                drug.drugTitle = [dict objectForKey:@"drug_name"];
-                drug.status = [dict objectForKey:@"status"];
-                drug.date = [dict objectForKey:@"date"];
-                drug.drugID = [dict objectForKey:@"id"];
-                
-                [temp addObject:drug];
-                
-            }
-            
-            listOfObjects = temp;
-            
-        }
-        [self.tableView reloadData];
-    }
-    
-    
+    NSLog(@"Success Response of get_allergy_list : %@ ",response);
+    NSDictionary *responseDict = (NSDictionary *)response;
+    dispatch_async(dispatch_get_main_queue()
+                   , ^{
+                       
+                       if ([responseDict[@"status"] boolValue]) {
+                           
+                           
+                           NSArray *allergyListArry = responseDict[@"allergy_list"];
+                           listOfObjects = [NSMutableArray new];
+                           for (NSDictionary *allerguDict in allergyListArry) {
+                               //                               {
+                               //                                   "id" : "1",
+                               //                                   "drug_name" : "Hep B",
+                               //                                   "allergic_reaction" : "Hepatitis”,
+                               //                                   "date" : "Hep B",
+                               //                                   "status" : "1"
+                               //                               },
+                               
+                               DrugAlergyData *drugData = [[DrugAlergyData alloc] init];
+                               drugData.drugID = allerguDict[@"id"];
+                               drugData.reaction = allerguDict[@"allergic_reaction"];
+                               
+                               drugData.drugTitle = allerguDict[@"drug_name"];
+                               
+                               drugData.status = allerguDict[@"status"];
+                               
+                               drugData.date = allerguDict[@"date"];
+                               [listOfObjects addObject:drugData];
+                               
+                               
+                               
+                           }
+                           [self.tableView reloadData];
+                       }
+                       
+                   });
 }
-
 -(void)failure:(id)response
 {
     
