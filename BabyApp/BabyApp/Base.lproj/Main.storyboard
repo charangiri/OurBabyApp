@@ -5481,6 +5481,9 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="lyq-Tz-cCg" id="uOd-oz-9vq"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <animations/>
@@ -5533,6 +5536,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lyq-Tz-cCg" id="SDe-uW-4A8"/>
+                                </connections>
                             </textView>
                         </subviews>
                         <animations/>
@@ -5560,6 +5566,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="txtFldCondition" destination="HrP-80-nfd" id="SVf-A7-3As"/>
+                        <outlet property="txtViewDesc" destination="mOc-YN-lea" id="2s6-5Q-p6V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjM-m5-bAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

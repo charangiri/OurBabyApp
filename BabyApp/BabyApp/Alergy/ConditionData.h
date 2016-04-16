@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface ConditionData : NSObject
-@property (nonatomic, strong) NSString *condition, *desc;
+@property (nonatomic, strong) NSString *condition, *desc, *condID;
 @end

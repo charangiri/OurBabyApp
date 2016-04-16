@@ -10,13 +10,44 @@
 #import "ConditionData.h"
 #import "MedicalConditionCell.h"
 #import "AllergyConditionVC.h"
+#import "WSConstant.h"
+#import "NSUserDefaults+Helpers.h"
+#import "ConnectionsManager.h"
+
+@interface MedicalConditionVC () <ServerResponseDelegate>
+{
+    
+}
+@end
+
 @implementation MedicalConditionVC
 @synthesize listOfObjects;
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadData];
+    //[self loadData];
+    
+    
+}
+
+-(void)loadAlergyList
+{
+    //get_allergy_list
+    
+    NSString *childID = [NSUserDefaults retrieveObjectForKey:CURRENT_CHILD_ID];
+    if(childID && childID != nil)
+    {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setObject:childID forKey:@"child_id"];
+        [[ConnectionsManager sharedManager] getMedicalList:dict withdelegate:self];
+    }
+    else
+    {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setObject:@"52" forKey:@"child_id"];
+        [[ConnectionsManager sharedManager] getMedicalList:dict withdelegate:self];
+    }
 }
 
 -(void)loadData
@@ -48,6 +79,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self loadAlergyList];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -63,7 +95,7 @@
     ConditionData *data = [listOfObjects objectAtIndex:indexPath.row];
     cell.editButton.tag=indexPath.row+100;
     [cell.editButton addTarget:self
-                     action:@selector(editMedical:) forControlEvents:UIControlEventTouchDown];
+                        action:@selector(editMedical:) forControlEvents:UIControlEventTouchDown];
     [cell populateData:data];
     
     return cell;
@@ -72,6 +104,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ConditionData *drugData = [listOfObjects objectAtIndex:indexPath.row];
+    
+    UIStoryboard *storyboard = self.navigationController.storyboard;
+    
+    AllergyConditionVC *detailPage = [storyboard
+                                      instantiateViewControllerWithIdentifier:@"AllergyConditionVC_SB_ID"];
+    detailPage.coditionData = drugData;
+    [self.navigationController pushViewController:detailPage animated:YES];
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,21 +123,79 @@
     UIStoryboard *storyboard = self.navigationController.storyboard;
     
     AllergyConditionVC *detailPage = [storyboard
-                                instantiateViewControllerWithIdentifier:@"AllergyConditionVC_SB_ID"];
+                                      instantiateViewControllerWithIdentifier:@"AllergyConditionVC_SB_ID"];
     
     [self.navigationController pushViewController:detailPage animated:YES];
     
-
 }
 
 -(IBAction)editMedical:(id)sender
 {
-    UIStoryboard *storyboard = self.navigationController.storyboard;
+    //    UIStoryboard *storyboard = self.navigationController.storyboard;
+    //
+    //    AllergyConditionVC *detailPage = [storyboard
+    //                                      instantiateViewControllerWithIdentifier:@"AllergyConditionVC_SB_ID"];
+    //
+    //    [self.navigationController pushViewController:detailPage animated:YES];
     
-    AllergyConditionVC *detailPage = [storyboard
-                                      instantiateViewControllerWithIdentifier:@"AllergyConditionVC_SB_ID"];
+}
+
+
+-(void)success:(id)response
+{
+    /*
+     {
+     data =     {
+     "allergy list" =         (
+     );
+     "child_id" = 52;
+     };
+     message = success;
+     status = 1;
+     }
+     */
+    NSDictionary *dict = response;
+    id statusStr_ = [dict objectForKey:@"status"];
+    NSString *statusStr;
     
-    [self.navigationController pushViewController:detailPage animated:YES];
+    if([statusStr_ isKindOfClass:[NSNumber class]])
+    {
+        statusStr = [statusStr_ stringValue];
+    }
+    else
+    {
+        statusStr = statusStr_;
+    }
+    if([statusStr isEqualToString:@"1"])
+    {
+        NSDictionary *dataDict = [dict objectForKey:@"data"];
+        NSArray *alleryList = [dataDict objectForKey:@"medical condition list"];
+        if(alleryList.count)
+        {
+            
+            NSMutableArray *temp = [NSMutableArray array];
+            
+            for(NSDictionary *dict in alleryList)
+            {
+                //drugTitle, *reaction, *date, *status
+                ConditionData *drug = [[ConditionData alloc] init];
+                drug.condition = [dict objectForKey:@"condition"];
+                drug.desc = [dict objectForKey:@"notes"];
+                drug.condID = [dict objectForKey:@"id"];
+                
+                [temp addObject:drug];
+                
+            }
+            
+            listOfObjects = temp;
+            
+        }
+        [self.tableView reloadData];
+    }
+}
+
+-(void)failure:(id)response
+{
     
 }
 @end

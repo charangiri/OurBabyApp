@@ -381,4 +381,23 @@ static NSString * const BaseURLString = BaseUrl;
     [self getToURL:@"update_allergy" withParameters:params delegate:delegate];
 }
 
+
+-(void)getMedicalList:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"get_medical_condition_list" withParameters:params delegate:delegate];
+}
+
+-(void)addMedical:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"add_medical_condition" withParameters:params delegate:delegate];
+}
+
+
+//update_allergy
+
+-(void)updateMedical:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"update_medical_condition" withParameters:params delegate:delegate];
+}
+
 @end

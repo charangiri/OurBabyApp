@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
     
-    [self loadAlergyList];
+    
     //[self loadData];
 }
 
@@ -61,6 +61,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self loadAlergyList];
 }
 
 -(void)loadAlergyList

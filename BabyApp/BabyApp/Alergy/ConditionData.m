@@ -9,5 +9,5 @@
 #import "ConditionData.h"
 
 @implementation ConditionData
-@synthesize condition, desc;
+@synthesize condition, desc, condID;
 @end

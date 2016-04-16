@@ -66,4 +66,9 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 -(void)getAlergyList:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 -(void)addAlergy:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 -(void)updateAlergy:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+
+-(void)getMedicalList:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)addMedical:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)updateMedical:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+
 @end

@@ -7,8 +7,14 @@
 //
 
 #import "BaseViewController.h"
+#import "ConditionData.h"
 
 @interface AllergyConditionVC : BaseViewController
 - (IBAction)saveAction:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *txtFldCondition;
+@property (weak, nonatomic) IBOutlet UITextView *txtViewDesc;
+
+@property (nonatomic, strong) ConditionData *coditionData;
 
 @end
