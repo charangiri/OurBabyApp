@@ -71,6 +71,7 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 -(void)addMedical:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 -(void)updateMedical:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 
+-(void)childrenDetails:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 
 //get_development_checklist
 -(void)getDevelopmentCheckList:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
