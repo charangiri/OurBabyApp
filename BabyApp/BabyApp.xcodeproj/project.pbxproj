@@ -130,10 +130,10 @@
 		A1C384CE1CC21E940085C812 /* hb_immunisation.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384CA1CC21E940085C812 /* hb_immunisation.png */; };
 		A1C384CF1CC21E940085C812 /* hb_oral.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384CB1CC21E940085C812 /* hb_oral.png */; };
 		A1C384D01CC21E940085C812 /* hb_percentiles.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384CC1CC21E940085C812 /* hb_percentiles.png */; };
-		A1C384D21CC2203B0085C812 /* hb_Item.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384D11CC2203B0085C812 /* hb_Item.png */; };
 		A1C384D61CC220AC0085C812 /* hb_Alergy_back.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384D31CC220AC0085C812 /* hb_Alergy_back.png */; };
 		A1C384D71CC220AC0085C812 /* hb_Alergy_option.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384D41CC220AC0085C812 /* hb_Alergy_option.png */; };
 		A1C384D81CC220AC0085C812 /* hb_medical_option.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384D51CC220AC0085C812 /* hb_medical_option.png */; };
+		A1C384DA1CC24B270085C812 /* hb_Item.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384D91CC24B270085C812 /* hb_Item.png */; };
 		A1EAD2BA1CA9030C008D2B37 /* HealthBookletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2B91CA9030C008D2B37 /* HealthBookletViewController.m */; };
 		A1EAD2BD1CA904CF008D2B37 /* ImmunisationCalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2BC1CA904CF008D2B37 /* ImmunisationCalenderViewController.m */; };
 		A1EAD2C01CA904FF008D2B37 /* ImmunisationCalenderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2BF1CA904FF008D2B37 /* ImmunisationCalenderDetailViewController.m */; };
@@ -440,10 +440,10 @@
 		A1C384CA1CC21E940085C812 /* hb_immunisation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_immunisation.png; sourceTree = "<group>"; };
 		A1C384CB1CC21E940085C812 /* hb_oral.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_oral.png; sourceTree = "<group>"; };
 		A1C384CC1CC21E940085C812 /* hb_percentiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_percentiles.png; sourceTree = "<group>"; };
-		A1C384D11CC2203B0085C812 /* hb_Item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_Item.png; sourceTree = "<group>"; };
 		A1C384D31CC220AC0085C812 /* hb_Alergy_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_Alergy_back.png; sourceTree = "<group>"; };
 		A1C384D41CC220AC0085C812 /* hb_Alergy_option.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_Alergy_option.png; sourceTree = "<group>"; };
 		A1C384D51CC220AC0085C812 /* hb_medical_option.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_medical_option.png; sourceTree = "<group>"; };
+		A1C384D91CC24B270085C812 /* hb_Item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_Item.png; sourceTree = "<group>"; };
 		A1EAD2B81CA9030C008D2B37 /* HealthBookletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthBookletViewController.h; sourceTree = "<group>"; };
 		A1EAD2B91CA9030C008D2B37 /* HealthBookletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthBookletViewController.m; sourceTree = "<group>"; };
 		A1EAD2BB1CA904CF008D2B37 /* ImmunisationCalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImmunisationCalenderViewController.h; sourceTree = "<group>"; };
@@ -1057,10 +1057,10 @@
 		A1A46A0C1CBD8855009F65BB /* CircleView */ = {
 			isa = PBXGroup;
 			children = (
+				A1C384D91CC24B270085C812 /* hb_Item.png */,
 				A1C384D31CC220AC0085C812 /* hb_Alergy_back.png */,
 				A1C384D41CC220AC0085C812 /* hb_Alergy_option.png */,
 				A1C384D51CC220AC0085C812 /* hb_medical_option.png */,
-				A1C384D11CC2203B0085C812 /* hb_Item.png */,
 				A1C384C91CC21E940085C812 /* hb_allergy.png */,
 				A1C384CA1CC21E940085C812 /* hb_immunisation.png */,
 				A1C384CB1CC21E940085C812 /* hb_oral.png */,
@@ -1369,6 +1369,7 @@
 				D8AB15C21C8E341F0062DAFE /* Screenings-checked_03.png in Resources */,
 				A1EAD2CD1CA98235008D2B37 /* teeth.png in Resources */,
 				A13FC8211C776F6800362A32 /* img_logo.png in Resources */,
+				A1C384DA1CC24B270085C812 /* hb_Item.png in Resources */,
 				A10EB6241C78B027002EBC59 /* enyc.png in Resources */,
 				A10EB63B1C78C5FE002EBC59 /* blue_line.png in Resources */,
 				A1EAD2E51CB57669008D2B37 /* home_kid.png in Resources */,
@@ -1378,7 +1379,6 @@
 				D8B138161C90CF6F007B412D /* HelveticaNeueCyr-Roman.otf in Resources */,
 				A10EB6261C78B3B8002EBC59 /* needle_icon.png in Resources */,
 				A10EB6431C797A46002EBC59 /* signup.png in Resources */,
-				A1C384D21CC2203B0085C812 /* hb_Item.png in Resources */,
 				A10EB6461C79D394002EBC59 /* lock.png in Resources */,
 				A10EB6571C7B7701002EBC59 /* Encyclopedia.png in Resources */,
 			);

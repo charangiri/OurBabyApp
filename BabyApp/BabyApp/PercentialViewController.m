@@ -21,9 +21,9 @@
     [super viewDidLoad];
 
     
-    _titleLabel.text=@"HPB CHECKS ON VISUAL ACUITY";
-    _subTitleLabel.text=@"PRIMARY SCHOOL";
-    
+    _titleLabel.text=_titleLableString;
+    _subTitleLabel.text=_subTitleLableString;
+    self.navigationController.navigationItem.title=_titleString;
     [self graphCreation];
 
 }
@@ -80,7 +80,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 3;
 }
 
 
@@ -132,9 +132,9 @@
     
     NSDictionary *_themeAttributes = @{
                                        kXAxisLabelColorKey : [UIColor colorWithRed:0.48 green:0.48 blue:0.49 alpha:0.4],
-                                       kXAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
+                                       kXAxisLabelFontKey : [UIFont fontWithName:@"HelveticaNeueCyr-Light" size:12],
                                        kYAxisLabelColorKey : [UIColor colorWithRed:0.48 green:0.48 blue:0.49 alpha:0.4],
-                                       kYAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
+                                       kYAxisLabelFontKey : [UIFont fontWithName:@"HelveticaNeueCyr-Light" size:12],
                                        kYAxisLabelSideMarginsKey : @20,
                                        kPlotBackgroundLineColorKey : [UIColor colorWithRed:0.48 green:0.48 blue:0.49 alpha:0.4],
                                        kDotSizeKey : @5
@@ -143,7 +143,7 @@
     
     //set the line graph attributes
     
-    _lineGraph.yAxisRange = @(-12);
+    _lineGraph.yAxisRange = @(12);
     
     
     _lineGraph.yAxisSuffix = _suffix;
@@ -195,7 +195,7 @@
                                            kPlotStrokeWidthKey : @2,
                                            kPlotStrokeColorKey : [UIColor colorWithRed:0.18 green:0.36 blue:0.41 alpha:1],
                                            kPlotPointFillColorKey : [UIColor colorWithRed:0.18 green:0.36 blue:0.41 alpha:1],
-                                           kPlotPointValueFontKey : [UIFont fontWithName:@"TrebuchetMS" size:18]
+                                           kPlotPointValueFontKey : [UIFont fontWithName:@"HelveticaNeueCyr-Light" size:18]
                                            };
     
     _plot1.plotThemeAttributes = _plotThemeAttributes;
@@ -229,7 +229,7 @@
                                             kPlotStrokeWidthKey : @2,
                                             kPlotStrokeColorKey : [UIColor colorWithRed:0.18 green:0.36 blue:0.41 alpha:1],
                                             kPlotPointFillColorKey : [UIColor colorWithRed:0.18 green:0.36 blue:0.41 alpha:1],
-                                            kPlotPointValueFontKey : [UIFont fontWithName:@"TrebuchetMS" size:18]
+                                            kPlotPointValueFontKey : [UIFont fontWithName:@"HelveticaNeueCyr-Light" size:18]
                                             };
     
     _plot1.plotThemeAttributes = _plotThemeAttributes1;

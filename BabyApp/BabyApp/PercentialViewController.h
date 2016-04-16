@@ -18,4 +18,7 @@
 @property(nonatomic,strong) NSString *titleString;
 @property(nonatomic,strong) NSString *suffix;
 @property(nonatomic,strong) NSString *yaxisName;
+
+@property(nonatomic,strong) NSString *titleLableString;
+@property(nonatomic,strong) NSString *subTitleLableString;
 @end
