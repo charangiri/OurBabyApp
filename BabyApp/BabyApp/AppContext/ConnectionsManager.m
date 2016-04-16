@@ -400,4 +400,9 @@ static NSString * const BaseURLString = BaseUrl;
     [self getToURL:@"update_medical_condition" withParameters:params delegate:delegate];
 }
 
+-(void)getDevelopmentCheckList:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    //get_development_checklist
+    [self getToURL:@"get_development_checklist" withParameters:params delegate:delegate];
+}
 @end
