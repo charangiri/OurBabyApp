@@ -152,6 +152,7 @@
 		CD6754F11CC0AFBA002BA5CA /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6754EE1CC0AFBA002BA5CA /* ASValuePopUpView.m */; };
 		CD6754F21CC0AFBA002BA5CA /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6754F01CC0AFBA002BA5CA /* ASValueTrackingSlider.m */; };
 		CD6754F61CC0B5F8002BA5CA /* ChildDevelopementalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6754F51CC0B5F8002BA5CA /* ChildDevelopementalViewController.m */; };
+		CD6A6E8E1CC27DF000A71477 /* XDPopupListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6A6E8D1CC27DF000A71477 /* XDPopupListView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CDC84AAD1CBE083600D9A3DC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC84AAB1CBE083600D9A3DC /* FBSDKCoreKit.framework */; };
 		CDC84AAE1CBE083600D9A3DC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC84AAC1CBE083600D9A3DC /* FBSDKLoginKit.framework */; };
 		CDC84ABA1CBE084F00D9A3DC /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC84AB11CBE084F00D9A3DC /* SVIndefiniteAnimatedView.m */; };
@@ -477,6 +478,8 @@
 		CD6754F01CC0AFBA002BA5CA /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
 		CD6754F41CC0B5F8002BA5CA /* ChildDevelopementalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildDevelopementalViewController.h; sourceTree = "<group>"; };
 		CD6754F51CC0B5F8002BA5CA /* ChildDevelopementalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildDevelopementalViewController.m; sourceTree = "<group>"; };
+		CD6A6E8C1CC27DF000A71477 /* XDPopupListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPopupListView.h; sourceTree = "<group>"; };
+		CD6A6E8D1CC27DF000A71477 /* XDPopupListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPopupListView.m; sourceTree = "<group>"; };
 		CDC84AAB1CBE083600D9A3DC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		CDC84AAC1CBE083600D9A3DC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		CDC84AB01CBE084F00D9A3DC /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
@@ -634,6 +637,7 @@
 		90F165941CB5A479006B5DD6 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				CD6A6E8B1CC27DF000A71477 /* XDPopupListView */,
 				96EE83EA1CC23131009F4932 /* Asynch Image */,
 				96EE83EF1CC23131009F4932 /* NSUserDefaults+Helpers.h */,
 				96EE83F01CC23131009F4932 /* NSUserDefaults+Helpers.m */,
@@ -1115,6 +1119,15 @@
 			path = "Child Developement";
 			sourceTree = "<group>";
 		};
+		CD6A6E8B1CC27DF000A71477 /* XDPopupListView */ = {
+			isa = PBXGroup;
+			children = (
+				CD6A6E8C1CC27DF000A71477 /* XDPopupListView.h */,
+				CD6A6E8D1CC27DF000A71477 /* XDPopupListView.m */,
+			);
+			path = XDPopupListView;
+			sourceTree = "<group>";
+		};
 		CDC84AAA1CBE083600D9A3DC /* FacebookSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -1538,6 +1551,7 @@
 				90F165C01CB5A4A0006B5DD6 /* AFURLConnectionOperation.m in Sources */,
 				90000F591CB3533500BC9BFC /* MedicalConditionCell.m in Sources */,
 				D8970FB81C98A6FC009C752B /* EncyclopediaTapScroller.m in Sources */,
+				CD6A6E8E1CC27DF000A71477 /* XDPopupListView.m in Sources */,
 				90FC54641CB1A83400ED0E34 /* DischargeInformationVC.m in Sources */,
 				A1EAD2E31CB57057008D2B37 /* SettingsTableViewController.m in Sources */,
 				A1A469FF1CBD6C66009F65BB /* ActivityTableViewCell.m in Sources */,

@@ -71,4 +71,9 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 -(void)addMedical:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 -(void)updateMedical:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 
+#pragma mark - get_allergy_list
+
+-(void)getAllergyList:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+
+
 @end

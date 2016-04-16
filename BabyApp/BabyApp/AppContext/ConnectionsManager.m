@@ -400,4 +400,11 @@ static NSString * const BaseURLString = BaseUrl;
     [self getToURL:@"update_medical_condition" withParameters:params delegate:delegate];
 }
 
+#pragma mark - get_allergy_list
+
+-(void)getAllergyList:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"get_allergy_list" withParameters:params delegate:delegate];
+}
+
 @end
