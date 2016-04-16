@@ -415,4 +415,12 @@ static NSString * const BaseURLString = BaseUrl;
     //get_development_checklist
     [self getToURL:@"get_development_checklist" withParameters:params delegate:delegate];
 }
+
+#pragma mark - children_details
+-(void)childrenDetails:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"children_details" withParameters:params delegate:delegate];
+}
+
+
 @end
