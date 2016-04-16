@@ -54,8 +54,13 @@
     //
     //    listOfObjects = temp;
     NSString *childID = [NSUserDefaults retrieveObjectForKey:CURRENT_CHILD_ID];
-NSDictionary *params = @{@"child_id": childID};
-    [self getDrugAllergyList:params];
+    if(childID.length > 0)
+    {
+        NSDictionary *params = @{@"child_id": childID};
+        [self getDrugAllergyList:params];
+    }
+    
+
     //    [self.tableView reloadData];
     
 }
