@@ -12,6 +12,7 @@
 #import "ConnectionsManager.h"
 #import "DateTimeUtil.h"
 #import "CustomIOS7AlertView.h"
+#import "NSString+CommonForApp.h"
 
 @interface AddAllergyVC () <ServerResponseDelegate, CustomIOS7AlertViewDelegate, UITextFieldDelegate>
 {
@@ -26,47 +27,47 @@
 
 - (IBAction)saveAction:(id)sender
 {
-    NSString *childID = [NSUserDefaults retrieveObjectForKey:CURRENT_CHILD_ID];
-    if(childID && childID != nil)
+    if([self isValidData])
     {
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        [dict setObject:childID forKey:@"child_id"];
-        [dict setObject:self.txtFldDrugName.text forKey:@"drug_name"];
-        [dict setObject:self.txtFldAllergyReaction.text forKey:@"allergic_reaction"];
-        [dict setObject:self.btnDate.titleLabel.text forKey:@"date"];
-        [dict setObject:@"1" forKey:@"status"];
-        
-        if(drugAlergyData && drugAlergyData != nil)
+        NSString *childID = [NSUserDefaults retrieveObjectForKey:CURRENT_CHILD_ID];
+        if(childID && childID != nil)
         {
-            [dict setObject:drugAlergyData.drugID forKey:@"id"];
-            [[ConnectionsManager sharedManager] updateAlergy:dict withdelegate:self];
+            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+            [dict setObject:childID forKey:@"child_id"];
+            [dict setObject:self.txtFldDrugName.text forKey:@"drug_name"];
+            [dict setObject:self.txtFldAllergyReaction.text forKey:@"allergic_reaction"];
+            [dict setObject:self.btnDate.titleLabel.text forKey:@"date"];
+            [dict setObject:@"1" forKey:@"status"];
+            
+            if(drugAlergyData && drugAlergyData != nil)
+            {
+                [dict setObject:drugAlergyData.drugID forKey:@"id"];
+                [[ConnectionsManager sharedManager] updateAlergy:dict withdelegate:self];
+            }
+            else
+            {
+                [[ConnectionsManager sharedManager] addAlergy:dict withdelegate:self];
+            }
         }
         else
         {
-            [[ConnectionsManager sharedManager] addAlergy:dict withdelegate:self];
+            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+            [dict setObject:@"52" forKey:@"child_id"];
+            [dict setObject:self.txtFldDrugName.text forKey:@"drug_name"];
+            [dict setObject:self.txtFldAllergyReaction.text forKey:@"allergic_reaction"];
+            [dict setObject:self.btnDate.titleLabel.text forKey:@"date"];
+            [dict setObject:@"1" forKey:@"status"];
+            
+            if(drugAlergyData && drugAlergyData != nil)
+            {
+                [dict setObject:drugAlergyData.drugID forKey:@"id"];
+                [[ConnectionsManager sharedManager] updateAlergy:dict withdelegate:self];
+            }
+            else
+            {
+                [[ConnectionsManager sharedManager] addAlergy:dict withdelegate:self];
+            }
         }
-        
-        
-    }
-    else
-    {
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        [dict setObject:@"52" forKey:@"child_id"];
-        [dict setObject:self.txtFldDrugName.text forKey:@"drug_name"];
-        [dict setObject:self.txtFldAllergyReaction.text forKey:@"allergic_reaction"];
-        [dict setObject:self.btnDate.titleLabel.text forKey:@"date"];
-        [dict setObject:@"1" forKey:@"status"];
-        
-        if(drugAlergyData && drugAlergyData != nil)
-        {
-            [dict setObject:drugAlergyData.drugID forKey:@"id"];
-            [[ConnectionsManager sharedManager] updateAlergy:dict withdelegate:self];
-        }
-        else
-        {
-            [[ConnectionsManager sharedManager] addAlergy:dict withdelegate:self];
-        }
-        
     }
 }
 
@@ -92,7 +93,27 @@
 
 -(BOOL)isValidData
 {
-    
+    if([self.txtFldDrugName.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Drugname" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtFldAllergyReaction.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Reaction" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.btnDate.titleLabel.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Date" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return NO;
+    }
     return YES;
 }
 
@@ -114,6 +135,8 @@
     {
         NSDictionary *dataDict = [dict objectForKey:@"data"];
     }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)failure:(id)response

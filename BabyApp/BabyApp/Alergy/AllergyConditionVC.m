@@ -10,6 +10,7 @@
 #import "ConnectionsManager.h"
 #import "WSConstant.h"
 #import "NSUserDefaults+Helpers.h"
+#import "NSString+CommonForApp.h"
 
 @interface AllergyConditionVC () <ServerResponseDelegate, UITextFieldDelegate>
 
@@ -85,7 +86,20 @@
 
 -(BOOL)isValidData
 {
-    
+    if([self.txtFldCondition.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Medical Codition" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return NO;
+    }
+    if([self.txtViewDesc.text isEmpty])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Please enter valid Notes" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return NO;
+    }
     return YES;
 }
 
@@ -107,6 +121,8 @@
     {
         NSDictionary *dataDict = [dict objectForKey:@"data"];
     }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)failure:(id)response
