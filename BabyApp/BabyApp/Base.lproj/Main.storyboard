@@ -2635,33 +2635,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nb-vf-Wm7">
-                                <rect key="frame" x="10" y="0.0" width="300" height="80"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="W1L-aP-pam"/>
-                                    <constraint firstAttribute="height" constant="80" id="aU8-u2-LOk"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V7H-Yg-KfW">
-                                <rect key="frame" x="0.0" y="89" width="320" height="391"/>
+                                <rect key="frame" x="0.0" y="126" width="320" height="354"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sXo-Gm-fDI" customClass="ASValueTrackingSlider">
+                                <rect key="frame" x="13" y="70" width="289" height="31"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="285" id="2og-bU-vTW"/>
+                                    <constraint firstAttribute="height" constant="30" id="dNf-yc-CSV"/>
+                                </constraints>
+                            </slider>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3nb-vf-Wm7" firstAttribute="top" secondItem="7h9-An-5rl" secondAttribute="top" id="8QG-wG-WDh"/>
-                            <constraint firstItem="fde-3n-ld6" firstAttribute="top" secondItem="V7H-Yg-KfW" secondAttribute="bottom" id="BIK-2k-R19"/>
-                            <constraint firstItem="3nb-vf-Wm7" firstAttribute="centerX" secondItem="7h9-An-5rl" secondAttribute="centerX" id="lm2-dD-nsb"/>
-                            <constraint firstAttribute="trailing" secondItem="V7H-Yg-KfW" secondAttribute="trailing" id="mDc-n4-APH"/>
-                            <constraint firstItem="V7H-Yg-KfW" firstAttribute="leading" secondItem="7h9-An-5rl" secondAttribute="leading" id="nYE-3T-kD8"/>
-                            <constraint firstItem="V7H-Yg-KfW" firstAttribute="top" secondItem="3nb-vf-Wm7" secondAttribute="bottom" constant="9" id="r7H-NH-ikQ"/>
+                            <constraint firstItem="sXo-Gm-fDI" firstAttribute="centerX" secondItem="7h9-An-5rl" secondAttribute="centerX" constant="-2.5" id="Chg-3l-wYs"/>
+                            <constraint firstAttribute="trailing" secondItem="V7H-Yg-KfW" secondAttribute="trailing" id="Ltr-hL-0Ee"/>
+                            <constraint firstItem="V7H-Yg-KfW" firstAttribute="top" secondItem="sXo-Gm-fDI" secondAttribute="bottom" constant="26" id="Onu-z4-lQF"/>
+                            <constraint firstItem="fde-3n-ld6" firstAttribute="top" secondItem="V7H-Yg-KfW" secondAttribute="bottom" id="Qvn-Fu-i5p"/>
+                            <constraint firstItem="sXo-Gm-fDI" firstAttribute="top" secondItem="uRe-lZ-JbS" secondAttribute="bottom" constant="50" id="aGS-4P-1tC"/>
+                            <constraint firstItem="V7H-Yg-KfW" firstAttribute="leading" secondItem="7h9-An-5rl" secondAttribute="leading" id="teT-aA-Rj2"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="slider" destination="sXo-Gm-fDI" id="xy1-gw-DVD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7p-ov-4Qa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

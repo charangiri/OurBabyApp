@@ -18,13 +18,20 @@
 #import "HeartTypeTableViewCell.h"
 #import "ProfileTableViewCell.h"
 
-
-@implementation LeftMenuViewController
+#import "ConnectionsManager.h"
+#import "Constants.h"
+#import "WSConstant.h"
+@interface LeftMenuViewController()<ServerResponseDelegate>
 {
     NSArray *section1Array,*section2Array,*section3Array;
     NSInteger noofSections;
     BOOL dropdownSelected;
+    NSArray *childransArray;
 }
+
+@end
+
+@implementation LeftMenuViewController
 #pragma mark - UIViewController Methods -
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -51,6 +58,7 @@
 	
 	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leftMenu.jpg"]];
 	self.tableView.backgroundView = imageView;
+    [self getAllChildrans];
 }
 
 #pragma mark - UITableView Delegate & Datasrouce -
@@ -94,7 +102,7 @@
 {
     
     if (dropdownSelected) {
-        return 4;
+        return [childransArray count] +1;
 
     }
     else{
@@ -144,8 +152,9 @@
         }
         else
         {
+            NSDictionary *childrenDict = childransArray[indexPath.row-1];
             cell1=[tableView dequeueReusableCellWithIdentifier:@"profileIdentifier"];
-            cell1.babyNameLabel.text=@"Other Kids";
+            cell1.babyNameLabel.text=childrenDict[@"name"];
             cell1.dropdown.hidden=YES;
             return cell1;
         }
@@ -322,5 +331,36 @@
     
 }
 - (IBAction)babyDropdownAction:(id)sender {
+}
+
+-(void)getAllChildrans
+{
+    NSDictionary *params = @{@"user_id" : USERID};
+    [[ConnectionsManager sharedManager] childrenDetails:params  withdelegate:self];
+}
+
+#pragma mark - ServerResponseDelegate
+- (void) success:(id)response
+{
+    NSLog(@"Response of the get childrans : %@",response);
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+       NSDictionary *responseDict = (NSDictionary *)response
+        ;
+        if ([responseDict[@"status"] boolValue]) {
+          
+//            children
+            childransArray = responseDict[@"data"][@"children"];
+        }
+        else{
+            [Constants showOKAlertWithTitle:@"Error" message:@"Unagle to load your childrans list, Please try again after some time" presentingVC:self];
+        }
+    });
+}
+- (void) failure:(id)response
+{
+    NSLog(@"Failure Error of the get childrans : %@",response);
+  
 }
 @end

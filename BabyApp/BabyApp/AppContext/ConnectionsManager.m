@@ -417,4 +417,11 @@ static NSString * const BaseURLString = BaseUrl;
     [self getToURL:@"get_allergy_list" withParameters:params delegate:delegate];
 }
 
+#pragma mark - children_details
+-(void)childrenDetails:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"children_details" withParameters:params delegate:delegate];
+}
+
+
 @end

@@ -74,6 +74,7 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 #pragma mark - get_allergy_list
 
 -(void)getAllergyList:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
-
+#pragma mark - children_details
+-(void)childrenDetails:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
 
 @end
