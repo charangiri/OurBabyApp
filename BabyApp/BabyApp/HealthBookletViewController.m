@@ -143,32 +143,37 @@
 
 -(void)circleView
 {
-UIImage *storyMenuItemImage = [UIImage imageNamed:@"bg-menuitem.png"];
-UIImage *storyMenuItemImagePressed = [UIImage imageNamed:@"bg-menuitem-highlighted.png"];
+UIImage *storyMenuItemImage = [UIImage imageNamed:@"centerImage.png"];
+UIImage *storyMenuItemImagePressed = [UIImage imageNamed:@"centerImage.png"];
 
-UIImage *starImage = [UIImage imageNamed:@"icon-star.png"];
+UIImage *starImage1 = [UIImage imageNamed:@"hb_immunisation.png"];
+    UIImage *starImage2 = [UIImage imageNamed:@"hb_percentiles.png"];
+    UIImage *starImage3= [UIImage imageNamed:@"hb_oral.png"];
+    UIImage *starImage4 = [UIImage imageNamed:@"hb_allergy.png"];
+    UIImage *starImage5 = [UIImage imageNamed:@"hb_allergy.png"];
+
 
 // Default Menu
 
 AwesomeMenuItem *starMenuItem1 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
                                                        highlightedImage:storyMenuItemImagePressed
-                                                           ContentImage:starImage
+                                                           ContentImage:starImage1
                                                 highlightedContentImage:nil];
 AwesomeMenuItem *starMenuItem2 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
                                                        highlightedImage:storyMenuItemImagePressed
-                                                           ContentImage:starImage
+                                                           ContentImage:starImage2
                                                 highlightedContentImage:nil];
 AwesomeMenuItem *starMenuItem3 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
                                                        highlightedImage:storyMenuItemImagePressed
-                                                           ContentImage:starImage
+                                                           ContentImage:starImage3
                                                 highlightedContentImage:nil];
 AwesomeMenuItem *starMenuItem4 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
                                                        highlightedImage:storyMenuItemImagePressed
-                                                           ContentImage:starImage
+                                                           ContentImage:starImage4
                                                 highlightedContentImage:nil];
 AwesomeMenuItem *starMenuItem5 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
                                                        highlightedImage:storyMenuItemImagePressed
-                                                           ContentImage:starImage
+                                                           ContentImage:starImage5
                                                 highlightedContentImage:nil];
 
 NSArray *menuItems = [NSArray arrayWithObjects:starMenuItem1, starMenuItem2, starMenuItem3, starMenuItem4, starMenuItem5, nil];

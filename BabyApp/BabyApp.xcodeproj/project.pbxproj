@@ -122,20 +122,15 @@
 		A1A46A0B1CBD77D6009F65BB /* SHPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A46A081CBD77D6009F65BB /* SHPlot.m */; };
 		A1A46A111CBD8861009F65BB /* AwesomeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A46A0E1CBD8861009F65BB /* AwesomeMenu.m */; };
 		A1A46A121CBD8861009F65BB /* AwesomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A46A101CBD8861009F65BB /* AwesomeMenuItem.m */; };
-		A1A46A211CBD89AA009F65BB /* bg-addbutton-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A131CBD89AA009F65BB /* bg-addbutton-highlighted.png */; };
-		A1A46A221CBD89AA009F65BB /* bg-addbutton-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A141CBD89AA009F65BB /* bg-addbutton-highlighted@2x.png */; };
-		A1A46A231CBD89AA009F65BB /* bg-addbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A151CBD89AA009F65BB /* bg-addbutton.png */; };
-		A1A46A241CBD89AA009F65BB /* bg-addbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A161CBD89AA009F65BB /* bg-addbutton@2x.png */; };
-		A1A46A251CBD89AA009F65BB /* bg-menuitem-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A171CBD89AA009F65BB /* bg-menuitem-highlighted.png */; };
-		A1A46A261CBD89AA009F65BB /* bg-menuitem-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A181CBD89AA009F65BB /* bg-menuitem-highlighted@2x.png */; };
-		A1A46A271CBD89AA009F65BB /* bg-menuitem.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A191CBD89AA009F65BB /* bg-menuitem.png */; };
-		A1A46A281CBD89AA009F65BB /* bg-menuitem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A1A1CBD89AA009F65BB /* bg-menuitem@2x.png */; };
-		A1A46A291CBD89AA009F65BB /* icon-plus-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A1B1CBD89AA009F65BB /* icon-plus-highlighted.png */; };
-		A1A46A2A1CBD89AA009F65BB /* icon-plus-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A1C1CBD89AA009F65BB /* icon-plus-highlighted@2x.png */; };
-		A1A46A2B1CBD89AA009F65BB /* icon-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A1D1CBD89AA009F65BB /* icon-plus.png */; };
-		A1A46A2C1CBD89AA009F65BB /* icon-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A1E1CBD89AA009F65BB /* icon-plus@2x.png */; };
-		A1A46A2D1CBD89AA009F65BB /* icon-star.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A1F1CBD89AA009F65BB /* icon-star.png */; };
-		A1A46A2E1CBD89AA009F65BB /* icon-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A46A201CBD89AA009F65BB /* icon-star@2x.png */; };
+		A1C384C81CC21D8E0085C812 /* centerImage.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384C71CC21D8E0085C812 /* centerImage.png */; };
+		A1C384CD1CC21E940085C812 /* hb_allergy.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384C91CC21E940085C812 /* hb_allergy.png */; };
+		A1C384CE1CC21E940085C812 /* hb_immunisation.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384CA1CC21E940085C812 /* hb_immunisation.png */; };
+		A1C384CF1CC21E940085C812 /* hb_oral.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384CB1CC21E940085C812 /* hb_oral.png */; };
+		A1C384D01CC21E940085C812 /* hb_percentiles.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384CC1CC21E940085C812 /* hb_percentiles.png */; };
+		A1C384D21CC2203B0085C812 /* hb_Item.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384D11CC2203B0085C812 /* hb_Item.png */; };
+		A1C384D61CC220AC0085C812 /* hb_Alergy_back.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384D31CC220AC0085C812 /* hb_Alergy_back.png */; };
+		A1C384D71CC220AC0085C812 /* hb_Alergy_option.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384D41CC220AC0085C812 /* hb_Alergy_option.png */; };
+		A1C384D81CC220AC0085C812 /* hb_medical_option.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384D51CC220AC0085C812 /* hb_medical_option.png */; };
 		A1EAD2BA1CA9030C008D2B37 /* HealthBookletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2B91CA9030C008D2B37 /* HealthBookletViewController.m */; };
 		A1EAD2BD1CA904CF008D2B37 /* ImmunisationCalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2BC1CA904CF008D2B37 /* ImmunisationCalenderViewController.m */; };
 		A1EAD2C01CA904FF008D2B37 /* ImmunisationCalenderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2BF1CA904FF008D2B37 /* ImmunisationCalenderDetailViewController.m */; };
@@ -431,20 +426,15 @@
 		A1A46A0E1CBD8861009F65BB /* AwesomeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenu.m; sourceTree = "<group>"; };
 		A1A46A0F1CBD8861009F65BB /* AwesomeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenuItem.h; sourceTree = "<group>"; };
 		A1A46A101CBD8861009F65BB /* AwesomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenuItem.m; sourceTree = "<group>"; };
-		A1A46A131CBD89AA009F65BB /* bg-addbutton-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-addbutton-highlighted.png"; sourceTree = "<group>"; };
-		A1A46A141CBD89AA009F65BB /* bg-addbutton-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-addbutton-highlighted@2x.png"; sourceTree = "<group>"; };
-		A1A46A151CBD89AA009F65BB /* bg-addbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-addbutton.png"; sourceTree = "<group>"; };
-		A1A46A161CBD89AA009F65BB /* bg-addbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-addbutton@2x.png"; sourceTree = "<group>"; };
-		A1A46A171CBD89AA009F65BB /* bg-menuitem-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-menuitem-highlighted.png"; sourceTree = "<group>"; };
-		A1A46A181CBD89AA009F65BB /* bg-menuitem-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-menuitem-highlighted@2x.png"; sourceTree = "<group>"; };
-		A1A46A191CBD89AA009F65BB /* bg-menuitem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-menuitem.png"; sourceTree = "<group>"; };
-		A1A46A1A1CBD89AA009F65BB /* bg-menuitem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-menuitem@2x.png"; sourceTree = "<group>"; };
-		A1A46A1B1CBD89AA009F65BB /* icon-plus-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-plus-highlighted.png"; sourceTree = "<group>"; };
-		A1A46A1C1CBD89AA009F65BB /* icon-plus-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-plus-highlighted@2x.png"; sourceTree = "<group>"; };
-		A1A46A1D1CBD89AA009F65BB /* icon-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-plus.png"; sourceTree = "<group>"; };
-		A1A46A1E1CBD89AA009F65BB /* icon-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-plus@2x.png"; sourceTree = "<group>"; };
-		A1A46A1F1CBD89AA009F65BB /* icon-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-star.png"; sourceTree = "<group>"; };
-		A1A46A201CBD89AA009F65BB /* icon-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-star@2x.png"; sourceTree = "<group>"; };
+		A1C384C71CC21D8E0085C812 /* centerImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = centerImage.png; sourceTree = "<group>"; };
+		A1C384C91CC21E940085C812 /* hb_allergy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_allergy.png; sourceTree = "<group>"; };
+		A1C384CA1CC21E940085C812 /* hb_immunisation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_immunisation.png; sourceTree = "<group>"; };
+		A1C384CB1CC21E940085C812 /* hb_oral.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_oral.png; sourceTree = "<group>"; };
+		A1C384CC1CC21E940085C812 /* hb_percentiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_percentiles.png; sourceTree = "<group>"; };
+		A1C384D11CC2203B0085C812 /* hb_Item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_Item.png; sourceTree = "<group>"; };
+		A1C384D31CC220AC0085C812 /* hb_Alergy_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_Alergy_back.png; sourceTree = "<group>"; };
+		A1C384D41CC220AC0085C812 /* hb_Alergy_option.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_Alergy_option.png; sourceTree = "<group>"; };
+		A1C384D51CC220AC0085C812 /* hb_medical_option.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_medical_option.png; sourceTree = "<group>"; };
 		A1EAD2B81CA9030C008D2B37 /* HealthBookletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthBookletViewController.h; sourceTree = "<group>"; };
 		A1EAD2B91CA9030C008D2B37 /* HealthBookletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthBookletViewController.m; sourceTree = "<group>"; };
 		A1EAD2BB1CA904CF008D2B37 /* ImmunisationCalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImmunisationCalenderViewController.h; sourceTree = "<group>"; };
@@ -1044,20 +1034,15 @@
 		A1A46A0C1CBD8855009F65BB /* CircleView */ = {
 			isa = PBXGroup;
 			children = (
-				A1A46A131CBD89AA009F65BB /* bg-addbutton-highlighted.png */,
-				A1A46A141CBD89AA009F65BB /* bg-addbutton-highlighted@2x.png */,
-				A1A46A151CBD89AA009F65BB /* bg-addbutton.png */,
-				A1A46A161CBD89AA009F65BB /* bg-addbutton@2x.png */,
-				A1A46A171CBD89AA009F65BB /* bg-menuitem-highlighted.png */,
-				A1A46A181CBD89AA009F65BB /* bg-menuitem-highlighted@2x.png */,
-				A1A46A191CBD89AA009F65BB /* bg-menuitem.png */,
-				A1A46A1A1CBD89AA009F65BB /* bg-menuitem@2x.png */,
-				A1A46A1B1CBD89AA009F65BB /* icon-plus-highlighted.png */,
-				A1A46A1C1CBD89AA009F65BB /* icon-plus-highlighted@2x.png */,
-				A1A46A1D1CBD89AA009F65BB /* icon-plus.png */,
-				A1A46A1E1CBD89AA009F65BB /* icon-plus@2x.png */,
-				A1A46A1F1CBD89AA009F65BB /* icon-star.png */,
-				A1A46A201CBD89AA009F65BB /* icon-star@2x.png */,
+				A1C384D31CC220AC0085C812 /* hb_Alergy_back.png */,
+				A1C384D41CC220AC0085C812 /* hb_Alergy_option.png */,
+				A1C384D51CC220AC0085C812 /* hb_medical_option.png */,
+				A1C384D11CC2203B0085C812 /* hb_Item.png */,
+				A1C384C91CC21E940085C812 /* hb_allergy.png */,
+				A1C384CA1CC21E940085C812 /* hb_immunisation.png */,
+				A1C384CB1CC21E940085C812 /* hb_oral.png */,
+				A1C384CC1CC21E940085C812 /* hb_percentiles.png */,
+				A1C384C71CC21D8E0085C812 /* centerImage.png */,
 				A1A46A0D1CBD8861009F65BB /* AwesomeMenu.h */,
 				A1A46A0E1CBD8861009F65BB /* AwesomeMenu.m */,
 				A1A46A0F1CBD8861009F65BB /* AwesomeMenuItem.h */,
@@ -1308,24 +1293,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10EB6401C797A46002EBC59 /* fbsignin.png in Resources */,
-				A1A46A261CBD89AA009F65BB /* bg-menuitem-highlighted@2x.png in Resources */,
 				A13FC7F91C7748AC00362A32 /* LaunchScreen.storyboard in Resources */,
-				A1A46A2A1CBD89AA009F65BB /* icon-plus-highlighted@2x.png in Resources */,
+				A1C384D61CC220AC0085C812 /* hb_Alergy_back.png in Resources */,
 				A1EAD2C21CA90855008D2B37 /* back.png in Resources */,
 				A10EB63A1C78C5FE002EBC59 /* blue_background_small.png in Resources */,
 				A10EB6491C79D69F002EBC59 /* button_bg.png in Resources */,
 				90FC54451CB1A7E300ED0E34 /* Readme.txt in Resources */,
 				D8AB15C81C8E375B0062DAFE /* stop_watch_time.png in Resources */,
-				A1A46A241CBD89AA009F65BB /* bg-addbutton@2x.png in Resources */,
-				A1A46A281CBD89AA009F65BB /* bg-menuitem@2x.png in Resources */,
 				D8B138141C90CF6F007B412D /* Helvetica-Neue-LT.ttf in Resources */,
+				A1C384D01CC21E940085C812 /* hb_percentiles.png in Resources */,
+				A1C384CE1CC21E940085C812 /* hb_immunisation.png in Resources */,
 				A10EB6471C79D394002EBC59 /* mail.png in Resources */,
 				A10EB6411C797A46002EBC59 /* forgetPassword.png in Resources */,
+				A1C384C81CC21D8E0085C812 /* centerImage.png in Resources */,
 				D8B1380A1C90CF6F007B412D /* AvenirNextLTPro-DemiCnIt.otf in Resources */,
 				D8B1380C1C90CF6F007B412D /* AvenirNextLTPro-HeavyCn.otf in Resources */,
-				A1A46A2E1CBD89AA009F65BB /* icon-star@2x.png in Resources */,
 				D8B138131C90CF6F007B412D /* AvenirNextLTPro-UltLtCnIt.otf in Resources */,
-				A1A46A2D1CBD89AA009F65BB /* icon-star.png in Resources */,
 				D8AB15C61C8E361A0062DAFE /* crv.png in Resources */,
 				D8B1380B1C90CF6F007B412D /* AvenirNextLTPro-DemiIt.otf in Resources */,
 				A10EB6231C78B027002EBC59 /* healthBooklet.png in Resources */,
@@ -1336,46 +1319,43 @@
 				D8B138171C90CF6F007B412D /* HelveticaNeueCyr-UltraLight.otf in Resources */,
 				D8B138061C90CF6F007B412D /* AvenirNextLTPro-Cn.otf in Resources */,
 				A10EB6541C7A35A1002EBC59 /* downarray.png in Resources */,
-				A1A46A2C1CBD89AA009F65BB /* icon-plus@2x.png in Resources */,
 				D8B138071C90CF6F007B412D /* AvenirNextLTPro-CnIt.otf in Resources */,
 				A10EB64E1C7A21FE002EBC59 /* down_arrow.png in Resources */,
 				D8B138031C90CF6F007B412D /* AvenirNextLTPro-Bold.otf in Resources */,
 				D8B138121C90CF6F007B412D /* AvenirNextLTPro-UltLtCn.otf in Resources */,
 				D8B138111C90CF6F007B412D /* AvenirNextLTPro-Regular.otf in Resources */,
+				A1C384D71CC220AC0085C812 /* hb_Alergy_option.png in Resources */,
 				A13FC7F61C7748AC00362A32 /* Assets.xcassets in Resources */,
+				A1C384CD1CC21E940085C812 /* hb_allergy.png in Resources */,
 				CDC84ABC1CBE084F00D9A3DC /* SVProgressHUD.bundle in Resources */,
 				A10EB6001C786BA3002EBC59 /* menu-button.png in Resources */,
 				D8B138041C90CF6F007B412D /* AvenirNextLTPro-BoldCn.otf in Resources */,
-				A1A46A231CBD89AA009F65BB /* bg-addbutton.png in Resources */,
+				A1C384CF1CC21E940085C812 /* hb_oral.png in Resources */,
 				A10EB6521C7A3599002EBC59 /* right_arrow.png in Resources */,
+				A1C384D81CC220AC0085C812 /* hb_medical_option.png in Resources */,
 				D8B138081C90CF6F007B412D /* AvenirNextLTPro-Demi.otf in Resources */,
 				A10EB6501C7A264C002EBC59 /* pic.png in Resources */,
 				A10EB5EA1C784FBA002EBC59 /* blueBar.png in Resources */,
 				D8B1380E1C90CF6F007B412D /* AvenirNextLTPro-It.otf in Resources */,
-				A1A46A2B1CBD89AA009F65BB /* icon-plus.png in Resources */,
-				A1A46A211CBD89AA009F65BB /* bg-addbutton-highlighted.png in Resources */,
 				D8B138101C90CF6F007B412D /* AvenirNextLTPro-MediumCnIt.otf in Resources */,
 				D8B1380D1C90CF6F007B412D /* AvenirNextLTPro-HeavyCnIt.otf in Resources */,
-				A1A46A291CBD89AA009F65BB /* icon-plus-highlighted.png in Resources */,
 				A10EB6581C7B7701002EBC59 /* healthBooklet_button.png in Resources */,
 				A10EB6291C78B455002EBC59 /* growth_icon.png in Resources */,
 				D8B1380F1C90CF6F007B412D /* AvenirNextLTPro-MediumCn.otf in Resources */,
 				A10EB62A1C78B455002EBC59 /* screening_icon.png in Resources */,
 				D8AB15C21C8E341F0062DAFE /* Screenings-checked_03.png in Resources */,
-				A1A46A251CBD89AA009F65BB /* bg-menuitem-highlighted.png in Resources */,
 				A1EAD2CD1CA98235008D2B37 /* teeth.png in Resources */,
-				A1A46A271CBD89AA009F65BB /* bg-menuitem.png in Resources */,
 				A13FC8211C776F6800362A32 /* img_logo.png in Resources */,
 				A10EB6241C78B027002EBC59 /* enyc.png in Resources */,
 				A10EB63B1C78C5FE002EBC59 /* blue_line.png in Resources */,
 				A1EAD2E51CB57669008D2B37 /* home_kid.png in Resources */,
-				A1A46A221CBD89AA009F65BB /* bg-addbutton-highlighted@2x.png in Resources */,
 				D87C07971C8788A100C118FC /* menu-button@2x.png in Resources */,
 				A13FC7F11C7748AC00362A32 /* Main.storyboard in Resources */,
 				D8B138151C90CF6F007B412D /* HelveticaNeueCyr-Light.otf in Resources */,
 				D8B138161C90CF6F007B412D /* HelveticaNeueCyr-Roman.otf in Resources */,
 				A10EB6261C78B3B8002EBC59 /* needle_icon.png in Resources */,
 				A10EB6431C797A46002EBC59 /* signup.png in Resources */,
+				A1C384D21CC2203B0085C812 /* hb_Item.png in Resources */,
 				A10EB6461C79D394002EBC59 /* lock.png in Resources */,
 				A10EB6571C7B7701002EBC59 /* Encyclopedia.png in Resources */,
 			);

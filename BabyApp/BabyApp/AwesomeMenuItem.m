@@ -41,11 +41,11 @@ highlightedContentImage:(UIImage *)hcimg;
 {
     [super layoutSubviews];
     
-    self.bounds = CGRectMake(0, 0, self.image.size.width, self.image.size.height);
+    self.bounds = CGRectMake(0, 0, self.image.size.width/2, self.image.size.height/2);
     
     float width = _contentImageView.image.size.width;
     float height = _contentImageView.image.size.height;
-    _contentImageView.frame = CGRectMake(self.bounds.size.width/2 - width/2, self.bounds.size.height/2 - height/2, width, height);
+    _contentImageView.frame = CGRectMake(self.bounds.size.width/4 - width/4, self.bounds.size.height/4 - height/4, width/2, height/2);
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

@@ -5710,17 +5710,17 @@
                             <constraint firstItem="OO6-R1-W1X" firstAttribute="leading" secondItem="ClI-8V-Ha2" secondAttribute="leading" id="qcB-KJ-CQl"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Allergy" id="gLi-8g-mtm">
+                        <barButtonItem key="backBarButtonItem" title="&lt; Cancel" id="lhd-Oi-lyg"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="qHi-QK-TEv">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="saveAction:" destination="j4f-Y4-QOL" id="ihG-1D-jWe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
-                <navigationItem title="Allergy" id="gLi-8g-mtm">
-                    <barButtonItem key="backBarButtonItem" title="&lt; Cancel" id="lhd-Oi-lyg"/>
-                    <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="qHi-QK-TEv">
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <action selector="saveAction:" destination="j4f-Y4-QOL" id="ihG-1D-jWe"/>
-                        </connections>
-                    </barButtonItem>
-                </navigationItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J35-zU-RPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3525" y="-3448"/>
