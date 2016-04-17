@@ -82,6 +82,8 @@
 {
     [super viewWillAppear:animated];
     // register for keyboard notifications
+    [self.view layoutIfNeeded];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
