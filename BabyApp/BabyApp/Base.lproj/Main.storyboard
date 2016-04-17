@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< Updated upstream
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S6B-qe-PWf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-=======
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S6B-qe-PWf">
-    <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
->>>>>>> Stashed changes
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -442,29 +435,29 @@
                                 <exclude reference="Ixu-su-NlZ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="nvS-vU-3tS"/>
+                                <exclude reference="aUL-6j-reV"/>
                                 <exclude reference="sXA-Lg-Yg0"/>
                                 <exclude reference="Aoc-aM-bEh"/>
                                 <exclude reference="TJy-6p-KIk"/>
-                                <exclude reference="200-7a-VQC"/>
-                                <exclude reference="oH9-Mx-E0N"/>
-                                <exclude reference="vIM-ZC-0al"/>
-                                <exclude reference="WhD-EK-o4h"/>
-                                <exclude reference="nvS-vU-3tS"/>
-                                <exclude reference="6rH-mC-FIP"/>
-                                <exclude reference="2BS-ae-DLv"/>
-                                <exclude reference="ZCZ-uu-TFA"/>
-                                <exclude reference="q4r-OG-X5V"/>
-                                <exclude reference="aUL-6j-reV"/>
                                 <exclude reference="cIu-Ka-cGA"/>
                                 <exclude reference="nBC-We-nbs"/>
                                 <exclude reference="pn5-kM-htF"/>
                                 <exclude reference="k41-Qr-NG8"/>
+                                <exclude reference="200-7a-VQC"/>
                                 <exclude reference="XMd-V5-qny"/>
                                 <exclude reference="dhi-4C-Y1I"/>
+                                <exclude reference="oH9-Mx-E0N"/>
+                                <exclude reference="vIM-ZC-0al"/>
+                                <exclude reference="WhD-EK-o4h"/>
                                 <exclude reference="IRy-ic-WT7"/>
                                 <exclude reference="e7c-mG-Pkx"/>
                                 <exclude reference="Kfs-QT-Exb"/>
+                                <exclude reference="6rH-mC-FIP"/>
                                 <exclude reference="Lxr-Sw-vek"/>
+                                <exclude reference="2BS-ae-DLv"/>
+                                <exclude reference="ZCZ-uu-TFA"/>
+                                <exclude reference="q4r-OG-X5V"/>
                                 <exclude reference="VBG-dv-45R"/>
                                 <exclude reference="tWo-hb-SLk"/>
                             </mask>
@@ -475,29 +468,29 @@
                                 <include reference="Ixu-su-NlZ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="nvS-vU-3tS"/>
+                                <include reference="aUL-6j-reV"/>
                                 <include reference="sXA-Lg-Yg0"/>
                                 <include reference="Aoc-aM-bEh"/>
                                 <include reference="TJy-6p-KIk"/>
-                                <include reference="200-7a-VQC"/>
-                                <include reference="oH9-Mx-E0N"/>
-                                <include reference="vIM-ZC-0al"/>
-                                <include reference="WhD-EK-o4h"/>
-                                <include reference="nvS-vU-3tS"/>
-                                <include reference="6rH-mC-FIP"/>
-                                <include reference="2BS-ae-DLv"/>
-                                <include reference="ZCZ-uu-TFA"/>
-                                <include reference="q4r-OG-X5V"/>
-                                <include reference="aUL-6j-reV"/>
                                 <include reference="cIu-Ka-cGA"/>
                                 <include reference="nBC-We-nbs"/>
                                 <include reference="pn5-kM-htF"/>
                                 <exclude reference="k41-Qr-NG8"/>
+                                <include reference="200-7a-VQC"/>
                                 <include reference="XMd-V5-qny"/>
                                 <include reference="dhi-4C-Y1I"/>
+                                <include reference="oH9-Mx-E0N"/>
+                                <include reference="vIM-ZC-0al"/>
+                                <include reference="WhD-EK-o4h"/>
                                 <include reference="IRy-ic-WT7"/>
                                 <include reference="e7c-mG-Pkx"/>
                                 <include reference="Kfs-QT-Exb"/>
+                                <include reference="6rH-mC-FIP"/>
                                 <include reference="Lxr-Sw-vek"/>
+                                <include reference="2BS-ae-DLv"/>
+                                <include reference="ZCZ-uu-TFA"/>
+                                <include reference="q4r-OG-X5V"/>
                                 <include reference="VBG-dv-45R"/>
                                 <include reference="tWo-hb-SLk"/>
                             </mask>
@@ -2646,6 +2639,10 @@
                                 <rect key="frame" x="0.0" y="126" width="320" height="354"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ycz-sL-8aq" id="E8x-0d-X5I"/>
+                                    <outlet property="delegate" destination="ycz-sL-8aq" id="eDQ-Ab-Mwi"/>
+                                </connections>
                             </tableView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sXo-Gm-fDI" customClass="ASValueTrackingSlider">
                                 <rect key="frame" x="13" y="70" width="289" height="31"/>
@@ -2670,6 +2667,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="slider" destination="sXo-Gm-fDI" id="xy1-gw-DVD"/>
+                        <outlet property="tableView" destination="V7H-Yg-KfW" id="16X-6k-GHe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7p-ov-4Qa" userLabel="First Responder" sceneMemberID="firstResponder"/>

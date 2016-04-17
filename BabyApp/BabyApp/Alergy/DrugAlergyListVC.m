@@ -118,6 +118,11 @@
     [self.navigationController pushViewController:detailPage animated:YES];
 }
 #pragma mark - get Drug allergy Api
+-(void)getDrugAllergyList:(NSDictionary *)param
+{
+    [[ConnectionsManager sharedManager] getAlergyList:param withdelegate:self];
+}
+
 
 #pragma mark - ServerResponseDelegate
 -(void)success:(id)response
