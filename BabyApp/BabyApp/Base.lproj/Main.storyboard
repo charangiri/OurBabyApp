@@ -23,6 +23,18 @@
             <string>AvenirNextLTPro-Regular</string>
             <string>AvenirNextLTPro-Regular</string>
             <string>AvenirNextLTPro-Regular</string>
+            <string>AvenirNextLTPro-Regular</string>
+            <string>AvenirNextLTPro-Regular</string>
+            <string>AvenirNextLTPro-Regular</string>
+            <string>AvenirNextLTPro-Regular</string>
+            <string>AvenirNextLTPro-Regular</string>
+            <string>AvenirNextLTPro-Regular</string>
+            <string>AvenirNextLTPro-Regular</string>
+            <string>AvenirNextLTPro-Regular</string>
+            <string>AvenirNextLTPro-Regular</string>
+            <string>AvenirNextLTPro-Regular</string>
+            <string>AvenirNextLTPro-Regular</string>
+            <string>AvenirNextLTPro-Regular</string>
         </mutableArray>
         <mutableArray key="HelveticaNeueCyr-Light.otf">
             <string>HelveticaNeueCyr-Light</string>
@@ -455,28 +467,28 @@
                                 <exclude reference="aUL-6j-reV"/>
                                 <exclude reference="sXA-Lg-Yg0"/>
                                 <exclude reference="Aoc-aM-bEh"/>
-                                <exclude reference="TJy-6p-KIk"/>
                                 <exclude reference="cIu-Ka-cGA"/>
                                 <exclude reference="nBC-We-nbs"/>
                                 <exclude reference="pn5-kM-htF"/>
-                                <exclude reference="k41-Qr-NG8"/>
-                                <exclude reference="200-7a-VQC"/>
                                 <exclude reference="XMd-V5-qny"/>
-                                <exclude reference="dhi-4C-Y1I"/>
-                                <exclude reference="oH9-Mx-E0N"/>
                                 <exclude reference="vIM-ZC-0al"/>
-                                <exclude reference="WhD-EK-o4h"/>
-                                <exclude reference="IRy-ic-WT7"/>
                                 <exclude reference="e7c-mG-Pkx"/>
-                                <exclude reference="Kfs-QT-Exb"/>
-                                <exclude reference="nvS-vU-3tS"/>
                                 <exclude reference="6rH-mC-FIP"/>
                                 <exclude reference="Lxr-Sw-vek"/>
                                 <exclude reference="2BS-ae-DLv"/>
+                                <exclude reference="TJy-6p-KIk"/>
+                                <exclude reference="IRy-ic-WT7"/>
+                                <exclude reference="Kfs-QT-Exb"/>
+                                <exclude reference="nvS-vU-3tS"/>
                                 <exclude reference="ZCZ-uu-TFA"/>
                                 <exclude reference="q4r-OG-X5V"/>
                                 <exclude reference="VBG-dv-45R"/>
                                 <exclude reference="tWo-hb-SLk"/>
+                                <exclude reference="k41-Qr-NG8"/>
+                                <exclude reference="200-7a-VQC"/>
+                                <exclude reference="dhi-4C-Y1I"/>
+                                <exclude reference="oH9-Mx-E0N"/>
+                                <exclude reference="WhD-EK-o4h"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -488,28 +500,28 @@
                                 <include reference="aUL-6j-reV"/>
                                 <include reference="sXA-Lg-Yg0"/>
                                 <include reference="Aoc-aM-bEh"/>
-                                <include reference="TJy-6p-KIk"/>
                                 <include reference="cIu-Ka-cGA"/>
                                 <include reference="nBC-We-nbs"/>
                                 <include reference="pn5-kM-htF"/>
-                                <exclude reference="k41-Qr-NG8"/>
-                                <include reference="200-7a-VQC"/>
                                 <include reference="XMd-V5-qny"/>
-                                <include reference="dhi-4C-Y1I"/>
-                                <include reference="oH9-Mx-E0N"/>
                                 <include reference="vIM-ZC-0al"/>
-                                <include reference="WhD-EK-o4h"/>
-                                <include reference="IRy-ic-WT7"/>
                                 <include reference="e7c-mG-Pkx"/>
-                                <include reference="Kfs-QT-Exb"/>
-                                <include reference="nvS-vU-3tS"/>
                                 <include reference="6rH-mC-FIP"/>
                                 <include reference="Lxr-Sw-vek"/>
                                 <include reference="2BS-ae-DLv"/>
+                                <include reference="TJy-6p-KIk"/>
+                                <include reference="IRy-ic-WT7"/>
+                                <include reference="Kfs-QT-Exb"/>
+                                <include reference="nvS-vU-3tS"/>
                                 <include reference="ZCZ-uu-TFA"/>
                                 <include reference="q4r-OG-X5V"/>
                                 <include reference="VBG-dv-45R"/>
                                 <include reference="tWo-hb-SLk"/>
+                                <exclude reference="k41-Qr-NG8"/>
+                                <include reference="200-7a-VQC"/>
+                                <include reference="dhi-4C-Y1I"/>
+                                <include reference="oH9-Mx-E0N"/>
+                                <include reference="WhD-EK-o4h"/>
                             </mask>
                         </variation>
                     </view>
@@ -7891,7 +7903,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="1fX-cK-UAg"/>
                                                     <constraint firstAttribute="width" constant="77" id="O4e-AG-Pgg"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -7928,7 +7940,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="ihF-oS-8rQ"/>
                                                     <constraint firstAttribute="width" constant="63" id="sNz-JW-uxH"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -7950,7 +7962,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="btS-p0-97w"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.40375324089999998" green="0.90681957449999995" blue="0.87316296360000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -7978,7 +7990,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="KyF-Nn-Rzk"/>
                                                     <constraint firstAttribute="width" constant="160" id="lbo-q0-ryt"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -8000,7 +8012,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="5Sl-Sg-B46"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.40375324089999998" green="0.90681957449999995" blue="0.87316296360000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -8028,7 +8040,7 @@
                                                     <constraint firstAttribute="width" constant="104" id="dah-x3-p5u"/>
                                                     <constraint firstAttribute="height" constant="21" id="yoL-r6-8Ca"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -8050,7 +8062,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="QLe-u3-Nnv"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.40375324089999998" green="0.90681957449999995" blue="0.87316296360000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -8078,7 +8090,7 @@
                                                     <constraint firstAttribute="width" constant="88" id="N4H-K3-Oru"/>
                                                     <constraint firstAttribute="height" constant="21" id="jUG-N3-uOu"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -8100,7 +8112,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="5A4-Qv-7bo"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.40375324089999998" green="0.90681957449999995" blue="0.87316296360000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -8128,7 +8140,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="MeN-ty-FzZ"/>
                                                     <constraint firstAttribute="width" constant="88" id="b01-FB-Ot7"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -8150,7 +8162,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="xtY-no-xzp"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.40375324089999998" green="0.90681957449999995" blue="0.87316296360000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -8178,7 +8190,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="OQU-v3-dSZ"/>
                                                     <constraint firstAttribute="width" constant="88" id="gcL-4w-eoz"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -8200,7 +8212,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="ixk-RV-UhF"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.40375324089999998" green="0.90681957449999995" blue="0.87316296360000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -8228,7 +8240,7 @@
                                                     <constraint firstAttribute="width" constant="77" id="Eix-b0-J2R"/>
                                                     <constraint firstAttribute="height" constant="21" id="bwI-JL-Tzj"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -8265,7 +8277,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="NvZ-Ii-Gyv"/>
                                                     <constraint firstAttribute="width" constant="63" id="gxD-yG-66F"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -8287,7 +8299,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="fX7-N1-Bdv"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.40375324089999998" green="0.90681957449999995" blue="0.87316296360000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -8315,7 +8327,7 @@
                                                     <constraint firstAttribute="width" constant="160" id="Y4Z-9N-ZEJ"/>
                                                     <constraint firstAttribute="height" constant="21" id="Yo9-EL-1c4"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -8337,7 +8349,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="Qtj-iW-3OG"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.40375324089999998" green="0.90681957449999995" blue="0.87316296360000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -8365,7 +8377,7 @@
                                                     <constraint firstAttribute="width" constant="104" id="d99-3t-wWy"/>
                                                     <constraint firstAttribute="height" constant="21" id="vHn-jV-sP9"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -8387,7 +8399,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="1tK-sF-w7W"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.40375324089999998" green="0.90681957449999995" blue="0.87316296360000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -8415,7 +8427,7 @@
                                                     <constraint firstAttribute="width" constant="88" id="1ds-61-cRv"/>
                                                     <constraint firstAttribute="height" constant="21" id="pVi-f5-OYQ"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -8437,7 +8449,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="r99-nh-eND"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.40375324089999998" green="0.90681957449999995" blue="0.87316296360000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -8465,7 +8477,7 @@
                                                     <constraint firstAttribute="width" constant="88" id="pmH-zR-Df3"/>
                                                     <constraint firstAttribute="height" constant="21" id="qK6-Be-ePD"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -8487,7 +8499,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="R0b-B3-FGH"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.40375324089999998" green="0.90681957449999995" blue="0.87316296360000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -8515,7 +8527,7 @@
                                                     <constraint firstAttribute="width" constant="88" id="8Bd-4R-GGC"/>
                                                     <constraint firstAttribute="height" constant="21" id="YTP-rw-73a"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -8537,7 +8549,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="udS-82-Wjm"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.40375324089999998" green="0.90681957449999995" blue="0.87316296360000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
