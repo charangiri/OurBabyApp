@@ -32,20 +32,20 @@
   
     overlayView=[UIView new];
     overlayView.frame=self.view.frame;
-    overlayView.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.5];
+    overlayView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
     [overlayView setHidden:YES];
     [self.view addSubview:overlayView];
 
     
     percentailOverlayView=[UIView new];
     percentailOverlayView.frame=self.view.frame;
-    percentailOverlayView.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.5];
+    percentailOverlayView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
     [percentailOverlayView setHidden:YES];
     [self.view addSubview:percentailOverlayView];
     
     oralOverlayView=[UIView new];
     oralOverlayView.frame=self.view.frame;
-    oralOverlayView.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.5];
+    oralOverlayView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
     [oralOverlayView setHidden:YES];
     [self.view addSubview:oralOverlayView];
     
@@ -571,8 +571,16 @@ menu.delegate = self;
 {
     UIViewController *dummyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ChildDevelopementalViewController"];
     [self.navigationController pushViewController:dummyVC animated:YES];
+    
+    
+
+    
 }
 
 - (IBAction)childSafetyAction:(id)sender {
+    
+    UIViewController *dummyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"childSafety"];
+    [self.navigationController pushViewController:dummyVC animated:YES];
+    
 }
 @end

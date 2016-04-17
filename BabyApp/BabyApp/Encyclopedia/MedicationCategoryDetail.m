@@ -26,7 +26,7 @@ NSDictionary *d;
     
     d=(NSDictionary*)[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedMedicationDetail"];
     NSLog(@"MedicationCategoryDetail d=%@",d);
-    
+
     
     arraymedicationCategoryDetail=[NSArray arrayWithObjects:self.navigationItem.title,@"SIDE EFFECTS",@"DOSAGE",@"OTHER INFO", nil];
     
@@ -37,7 +37,7 @@ NSDictionary *d;
     medicationCategoryDetailTable.dataSource=self;
     medicationCategoryDetailTable.delegate=self;
     
-}
+  }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

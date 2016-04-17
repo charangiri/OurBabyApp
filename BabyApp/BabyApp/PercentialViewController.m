@@ -23,7 +23,7 @@
     
     _titleLabel.text=_titleLableString;
     _subTitleLabel.text=_subTitleLableString;
-    self.navigationController.navigationItem.title=_titleString;
+    self.title=_titleString;
     [self graphCreation];
 
 }

@@ -105,6 +105,7 @@
 		A10EB6571C7B7701002EBC59 /* Encyclopedia.png in Resources */ = {isa = PBXBuildFile; fileRef = A10EB6551C7B7701002EBC59 /* Encyclopedia.png */; };
 		A10EB6581C7B7701002EBC59 /* healthBooklet_button.png in Resources */ = {isa = PBXBuildFile; fileRef = A10EB6561C7B7701002EBC59 /* healthBooklet_button.png */; };
 		A10EB65B1C7B7F59002EBC59 /* BirthRecordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10EB65A1C7B7F59002EBC59 /* BirthRecordTableViewController.m */; };
+		A13577901CC3944100961DDB /* ChildSafetyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A135778F1CC3944100961DDB /* ChildSafetyViewController.m */; };
 		A13FC7E81C7748AC00362A32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A13FC7E71C7748AC00362A32 /* main.m */; };
 		A13FC7EB1C7748AC00362A32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A13FC7EA1C7748AC00362A32 /* AppDelegate.m */; };
 		A13FC7EE1C7748AC00362A32 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A13FC7ED1C7748AC00362A32 /* ViewController.m */; };
@@ -404,6 +405,8 @@
 		A10EB6561C7B7701002EBC59 /* healthBooklet_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthBooklet_button.png; sourceTree = "<group>"; };
 		A10EB6591C7B7F59002EBC59 /* BirthRecordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirthRecordTableViewController.h; sourceTree = "<group>"; };
 		A10EB65A1C7B7F59002EBC59 /* BirthRecordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirthRecordTableViewController.m; sourceTree = "<group>"; };
+		A135778E1CC3944100961DDB /* ChildSafetyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildSafetyViewController.h; sourceTree = "<group>"; };
+		A135778F1CC3944100961DDB /* ChildSafetyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildSafetyViewController.m; sourceTree = "<group>"; };
 		A13FC7E31C7748AC00362A32 /* BabyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13FC7E71C7748AC00362A32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A13FC7E91C7748AC00362A32 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -989,6 +992,8 @@
 				D82C28ED1C8F7012005798EA /* ScreeningOutcomeOptions.m */,
 				D82C28EF1C8F7041005798EA /* ScreeningsOutcome.h */,
 				A13FC7EF1C7748AC00362A32 /* Main.storyboard */,
+				A135778E1CC3944100961DDB /* ChildSafetyViewController.h */,
+				A135778F1CC3944100961DDB /* ChildSafetyViewController.m */,
 				A152479D1CC1626000EA5115 /* PercentialViewController.h */,
 				A152479E1CC1626000EA5115 /* PercentialViewController.m */,
 				D82C28F01C8F7041005798EA /* ScreeningsOutcome.m */,
@@ -1532,6 +1537,7 @@
 				A1EAD2DD1CAEBC2B008D2B37 /* MedicationCategoryDetail.m in Sources */,
 				D82C28EE1C8F7012005798EA /* ScreeningOutcomeOptions.m in Sources */,
 				90F044D81CB2D7D30068EC4B /* DrugAlergyCell.m in Sources */,
+				A13577901CC3944100961DDB /* ChildSafetyViewController.m in Sources */,
 				96957B4B1CBAC50E00578E90 /* BioDataObj.m in Sources */,
 				96A9696D1CB8D8D700D1212B /* DueImmunisationCell.m in Sources */,
 				90F165BF1CB5A4A0006B5DD6 /* AFSecurityPolicy.m in Sources */,

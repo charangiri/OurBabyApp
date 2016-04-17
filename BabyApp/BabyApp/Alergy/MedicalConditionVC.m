@@ -104,14 +104,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ConditionData *drugData = [listOfObjects objectAtIndex:indexPath.row];
-    
-    UIStoryboard *storyboard = self.navigationController.storyboard;
-    
-    AllergyConditionVC *detailPage = [storyboard
-                                      instantiateViewControllerWithIdentifier:@"AllergyConditionVC_SB_ID"];
-    detailPage.coditionData = drugData;
-    [self.navigationController pushViewController:detailPage animated:YES];
     
 }
 
@@ -129,14 +121,16 @@
     
 }
 
--(IBAction)editMedical:(id)sender
+-(IBAction)editMedical:(UIButton *)sender
 {
-    //    UIStoryboard *storyboard = self.navigationController.storyboard;
-    //
-    //    AllergyConditionVC *detailPage = [storyboard
-    //                                      instantiateViewControllerWithIdentifier:@"AllergyConditionVC_SB_ID"];
-    //
-    //    [self.navigationController pushViewController:detailPage animated:YES];
+    ConditionData *drugData = [listOfObjects objectAtIndex:sender.tag-100];
+    
+    UIStoryboard *storyboard = self.navigationController.storyboard;
+    
+    AllergyConditionVC *detailPage = [storyboard
+                                      instantiateViewControllerWithIdentifier:@"AllergyConditionVC_SB_ID"];
+    detailPage.coditionData = drugData;
+    [self.navigationController pushViewController:detailPage animated:YES];
     
 }
 
