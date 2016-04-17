@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S6B-qe-PWf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F1712" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S6B-qe-PWf">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="AvenirNextLTPro-Bold.otf">
+            <string>AvenirNextLTPro-Bold</string>
+        </mutableArray>
+        <mutableArray key="AvenirNextLTPro-Regular.otf">
+            <string>AvenirNextLTPro-Regular</string>
+            <string>AvenirNextLTPro-Regular</string>
+        </mutableArray>
         <mutableArray key="HelveticaNeueCyr-Light.otf">
             <string>HelveticaNeueCyr-Light</string>
             <string>HelveticaNeueCyr-Light</string>
@@ -436,7 +442,6 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="aUL-6j-reV"/>
-                                <exclude reference="sXA-Lg-Yg0"/>
                                 <exclude reference="Aoc-aM-bEh"/>
                                 <exclude reference="TJy-6p-KIk"/>
                                 <exclude reference="cIu-Ka-cGA"/>
@@ -457,6 +462,7 @@
                                 <exclude reference="2BS-ae-DLv"/>
                                 <exclude reference="ZCZ-uu-TFA"/>
                                 <exclude reference="q4r-OG-X5V"/>
+                                <exclude reference="sXA-Lg-Yg0"/>
                                 <exclude reference="VBG-dv-45R"/>
                                 <exclude reference="tWo-hb-SLk"/>
                                 <exclude reference="k41-Qr-NG8"/>
@@ -469,7 +475,6 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="aUL-6j-reV"/>
-                                <include reference="sXA-Lg-Yg0"/>
                                 <include reference="Aoc-aM-bEh"/>
                                 <include reference="TJy-6p-KIk"/>
                                 <include reference="cIu-Ka-cGA"/>
@@ -490,6 +495,7 @@
                                 <include reference="2BS-ae-DLv"/>
                                 <include reference="ZCZ-uu-TFA"/>
                                 <include reference="q4r-OG-X5V"/>
+                                <include reference="sXA-Lg-Yg0"/>
                                 <include reference="VBG-dv-45R"/>
                                 <include reference="tWo-hb-SLk"/>
                                 <exclude reference="k41-Qr-NG8"/>
@@ -1698,7 +1704,7 @@
                                                     <variation key="heightClass=regular-widthClass=compact" constant="30"/>
                                                 </constraint>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -1722,7 +1728,7 @@
                                                 <constraint firstAttribute="width" constant="220" id="jM1-RI-cCq"/>
                                             </constraints>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -1772,7 +1778,7 @@
                                                 <constraint firstAttribute="width" constant="125" id="KvN-Xd-qFu"/>
                                                 <constraint firstAttribute="height" constant="30" id="UAa-pf-0xe"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -1795,7 +1801,7 @@
                                                 <constraint firstAttribute="height" constant="30" id="5oT-bw-lWG"/>
                                                 <constraint firstAttribute="width" constant="176" id="rrJ-PB-TSK"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                             <state key="normal">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -1992,7 +1998,7 @@
                                                     <variation key="heightClass=regular-widthClass=compact" constant="59"/>
                                                 </constraint>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextLTPro-Bold" family="Avenir Next LT Pro" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -2036,12 +2042,12 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="zGh-R3-O2i">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="zGh-R3-O2i">
+                                            <rect key="frame" x="0.0" y="20" width="120" height="64"/>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="Cy9-aP-FsW"/>
-                                                <constraint firstAttribute="height" constant="40" id="aCy-e0-L9D"/>
+                                                <constraint firstAttribute="width" constant="20" id="Cy9-aP-FsW"/>
+                                                <constraint firstAttribute="height" constant="20" id="aCy-e0-L9D"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -7775,7 +7781,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mhX-95-plw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mhX-95-plw">
                                 <rect key="frame" x="20" y="20" width="560" height="530"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -7820,7 +7826,7 @@
                                     <outlet property="delegate" destination="nWm-Lm-Haw" id="gZC-Fb-8JS"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpQ-my-2JQ">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RpQ-my-2JQ">
                                 <rect key="frame" x="20" y="550" width="560" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
