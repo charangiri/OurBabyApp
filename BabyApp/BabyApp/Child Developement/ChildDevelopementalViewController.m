@@ -13,9 +13,10 @@
 #import "ConnectionsManager.h"
 #import "NSUserDefaults+Helpers.h"
 
-@interface ChildDevelopementalViewController ()<ASValueTrackingSliderDataSource,UITableViewDataSource,UITableViewDelegate>
+@interface ChildDevelopementalViewController ()<ASValueTrackingSliderDataSource,UITableViewDataSource,UITableViewDelegate,ServerResponseDelegate>
 {
     NSArray *childDevelopemntalScreeningArray;
+    NSArray *allChildArray;
 }
 
 
@@ -48,24 +49,25 @@
     _slider.dataSource = self;
     self.title = @"Child Developemental Screening";
     
-    childDevelopemntalScreeningArray = @[
-                                         @{@"title":@"type of screening",
-                                           @"items":@[@"ajsdhgasdgajshgd ajsdhgas dahjgd",
-                                                      @"jahgd asjdhgas dajsgd adasjgd ajdgasd ajghsd ajdgasj dasdgas dajshgd asjdghas dajshgdas dgasd asjhgdas dgas dasjghd",
-                                                      @"dkajdhgasd a ajgsd asdg"
-                                                      
-                                                      ]
-                                           },
-                                         @{@"title":@"type of screening",
-                                           @"items":@[@"ajsdhgasdgajshgd ajsdhgas dahjgd",
-                                                      @"jahgd asjdhgas dajsgd adasjgd ajdgasd ajghsd ajdgasj dasdgas dajshgd asjdghas dajshgdas dgasd asjhgdas dgas dasjghd",
-                                                      @"dkajdhgasd a ajgsd asdg hsdgf sdhfgsd fgs fsdhjgf sd"
-                                                      
-                                                      ]
-                                           }
-                                         
-                                         
-                                         ];
+    /*childDevelopemntalScreeningArray = @[
+     @{@"title":@"type of screening",
+     @"items":@[@"ajsdhgasdgajshgd ajsdhgas dahjgd",
+     @"jahgd asjdhgas dajsgd adasjgd ajdgasd ajghsd ajdgasj dasdgas dajshgd asjdghas dajshgdas dgasd asjhgdas dgas dasjghd",
+     @"dkajdhgasd a ajgsd asdg"
+     
+     ]
+     },
+     @{@"title":@"type of screening",
+     @"items":@[@"ajsdhgasdgajshgd ajsdhgas dahjgd",
+     @"jahgd asjdhgas dajsgd adasjgd ajdgasd ajghsd ajdgasj dasdgas dajshgd asjdghas dajshgdas dgasd asjhgdas dgas dasjghd",
+     @"dkajdhgasd a ajgsd asdg hsdgf sdhfgsd fgs fsdhjgf sd"
+     
+     ]
+     }
+     
+     
+     ];*/
+    [self getChildDevevelopementals];
     
 }
 
@@ -100,7 +102,7 @@
     //    } else if (value >= 50.0) {
     //        s = @"I’m Melting!";
     //    }
-    
+    [self sortDataWithAge:value];
     return s;
 }
 
@@ -165,17 +167,96 @@
 
 #pragma  mark - get child developemenatal screening
 
-
 -(void)getChildDevevelopementals
 {
-    NSString *screeningID = [NSUserDefaults retrieveObjectForKey:CURRENT_CHILD_ID];
+    //    NSString *screeningID = [NSUserDefaults retrieveObjectForKey:CURRENT_CHILD_ID];
+    
+    NSString *screeningID = @"1";
     
     NSString *childID = [NSUserDefaults retrieveObjectForKey:CURRENT_CHILD_ID];
     NSString *userId  = [NSUserDefaults retrieveObjectForKey:USERID];
-    
-    NSDictionary *params = @{@"userid" : userId,@"child_id" : childID };
+    childID = @"1";
+    NSDictionary *params = @{@"child_id" : childID,@"screening_id" : screeningID };
+    [[ConnectionsManager sharedManager] getDevelopmentCheckList:params withdelegate:self];
 }
 
+
+#pragma mark - ServerResponseDelegate
+-(void)success:(id)response
+{
+    NSLog(@"Response of get child dev screening : %@",response);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        NSDictionary *responseDict = (NSDictionary *)response;
+        if ([responseDict[@"status"] boolValue]) {
+            
+            if ([responseDict[@"data"] count] > 0) {
+                allChildArray = responseDict[@"data"];
+                [self sortDataWithAge:12.0];
+                
+                
+            }
+        }
+        else
+        {
+            [Constants showOKAlertWithTitle:@"Error" message:@"Unable to get the list of child developemental, Please try after some time" presentingVC:self];
+        }
+        
+    });
+}
+
+-(void)failure:(id)response
+{
+    NSLog(@"Error of get child dev screening : %@",response);
+    
+}
+
+#pragma mark - sorting data by Age
+
+-(void)sortDataWithAge:(float)age
+{
+    NSMutableArray *sortedList = [NSMutableArray new];
+    
+    for(NSDictionary *sectionDict in allChildArray )
+    {
+        NSArray * items = sectionDict[@"items"];
+        NSMutableArray *sortedItems = [NSMutableArray new];
+        
+        for (NSDictionary *itemDict in items) {
+            NSLog(@"Child Dict : %@",itemDict);
+            if ([itemDict[@"age"] isKindOfClass:[NSDictionary class]]) {
+                NSLog(@"%@ %@",sectionDict,itemDict);
+            }
+            NSString *childAge = (NSString *)itemDict[@"age"];
+            
+            
+            NSRange searchFromRange = [childAge rangeOfString:@"e"];
+            NSRange searchToRange = [childAge rangeOfString:@"M"];
+            NSString *substring = [childAge substringWithRange:NSMakeRange(searchFromRange.location+searchFromRange.length, searchToRange.location-searchFromRange.location-searchFromRange.length)];
+            NSString *agestr = [substring stringByReplacingOccurrencesOfString:@" " withString:@""];
+            if ([agestr floatValue] <= age) {
+                [sortedItems addObject:itemDict];
+            }
+            
+            
+        }
+        
+        if([sortedItems count] > 0){
+            
+            NSDictionary *sortedDict = @{@"id" :sectionDict[@"id"],
+                                         @"title":sectionDict[@"title"],
+                                         @"items": sortedItems
+                                         
+                                         };
+            
+            [sortedList addObject:sortedDict];
+            
+        }
+    }
+    
+    childDevelopemntalScreeningArray = sortedList;
+    [self.tableView reloadData];
+}
 
 
 
