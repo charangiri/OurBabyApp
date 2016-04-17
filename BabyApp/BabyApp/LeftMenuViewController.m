@@ -44,7 +44,7 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-    noofSections=4;
+    noofSections=3;
     dropdownSelected=NO;
 //@"Baby Booklet"
     section1Array=[NSArray arrayWithObjects:@"New Immunisation",@"New Screening", nil];
@@ -84,7 +84,7 @@
             sectionName = @"";
             break;
         case 2:
-            sectionName = @"Main menu";
+            sectionName = @"";
             break;
             
         case 3:
@@ -118,12 +118,12 @@
             break;
             
         case 2:
-            return section2Array.count;
-            break;
-            
-        case 3:
             return section3Array.count;
             break;
+            
+//        case 3:
+//            return section3Array.count;
+//            break;
     }
     }
     return 4;
@@ -180,14 +180,14 @@
                 
             case 2:
                 cell2 = (HeartTypeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"heartTypeIdentifier"];
-                cell2.contentNameLabel.text = section2Array[indexPath.row];
+                cell2.contentNameLabel.text = section3Array[indexPath.row];
                 return cell2;
                 break;
                 
-            case 3:
-                cell2 = (HeartTypeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"heartTypeIdentifier"];
-                cell2.contentNameLabel.text = section3Array[indexPath.row];
-                return cell2;
+//            case 3:
+//                cell2 = (HeartTypeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"heartTypeIdentifier"];
+//                cell2.contentNameLabel.text = section3Array[indexPath.row];
+//                return cell2;
                 break;
         }
     }
@@ -263,7 +263,7 @@
             }
         }
         
-        else if (indexPath.section==2) {
+      /*  else if (indexPath.section==2) {
             
             
             switch (indexPath.row)
@@ -287,7 +287,7 @@
                     vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"EncyclopediaStoryBoard"];
                     break;
             }
-        }
+        }*/
         else
         {
             if (indexPath.row==0) {
