@@ -569,8 +569,8 @@ menu.delegate = self;
 
 - (IBAction)screeningAction:(id)sender
 {
-    UIViewController *dummyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ChildDevelopementalViewController"];
-    [self.navigationController pushViewController:dummyVC animated:YES];
+  /*  UIViewController *dummyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ChildDevelopementalViewController"];
+    [self.navigationController pushViewController:dummyVC animated:YES];*/
     
     
 

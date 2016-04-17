@@ -68,8 +68,9 @@
     NSDictionary *info = [self.screeningSummaryDetailArray objectAtIndex:[indexPath row]];
     NSLog(@"info=%@",info);
     [cell.detailLabel setText:[info objectForKey:lbl]];
-    [cell.statusBtn setBackgroundColor:[UIColor redColor]];
-    
+    [cell.statusBtn setBackgroundColor:[UIColor grayColor]];
+    [[cell.statusBtn layer] setCornerRadius:cell.statusBtn.frame.size.width/2];
+    [cell.statusBtn setClipsToBounds:YES];
     [cell.contentView updateConstraintsIfNeeded];
     [cell layoutIfNeeded];
     

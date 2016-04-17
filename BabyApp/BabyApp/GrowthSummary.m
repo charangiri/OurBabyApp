@@ -155,7 +155,6 @@ NSArray *labelArrayGrowthSummary;
 
 //@synthesize growthSummaryTable;
 //NSArray *labelArrayGrowthSum
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     //  [[NSUserDefaults standardUserDefaults] setObject:[labelArray objectAtIndex:indexPath.row] forKey:@"selectedScreenLbl"];
