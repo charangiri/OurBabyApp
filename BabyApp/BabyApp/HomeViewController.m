@@ -10,8 +10,6 @@
 #import "LeftMenuViewController.h"
 #import "HomeTableViewCell.h"
 #import "ImmunisationsVC.h"
-#import "ScreeningSummaryViewController.h"
-
 @implementation HomeViewController
 {
     NSArray *titlesArray,*imagesNames,*colorArray;
@@ -124,28 +122,20 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     //ImmunisationsVC_SB_ID
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-                                                             bundle: nil];
-    
-    
     if(indexPath.row==0)
     {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                                 bundle: nil];
         
-        ImmunisationsVC *ImmunisationsVC = [mainStoryboard instantiateViewControllerWithIdentifier: @"ImmunisationsVC_SB_ID"];
         
+               ImmunisationsVC *ImmunisationsVC = [mainStoryboard instantiateViewControllerWithIdentifier: @"ImmunisationsVC_SB_ID"];
+
         
         [self.navigationController pushViewController:ImmunisationsVC animated:YES];
     }
     if(indexPath.row==1)
     {
-        //screeningSummaryList
-        
-        ScreeningSummaryViewController *summaryVC = [mainStoryboard instantiateViewControllerWithIdentifier: @"screeningSummaryList"];
-        
-        
-        [self.navigationController pushViewController:summaryVC animated:YES];
-        
-        // [self performSegueWithIdentifier:@"screenpagesegu" sender:self];
+    [self performSegueWithIdentifier:@"screenpagesegu" sender:self];
     }
     else if(indexPath.row==2)
     {
