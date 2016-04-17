@@ -7,11 +7,14 @@
 //
 
 #import "ScreeningSummaryViewController.h"
+#import "HealthBookletViewController.h"
+
 #define Period @"period"
 #define DueStatus @"dueStatus"
 
 @interface ScreeningSummaryViewController ()
 
+- (IBAction)openHealthBook:(id)sender;
 @property (strong, nonatomic) NSArray *screeningSummaryArray;
 
 @end
@@ -91,8 +94,20 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-     [self performSegueWithIdentifier:@"screeningsummarydetailsegu" sender:self];
+  //   [self performSegueWithIdentifier:@"screeningsummarydetailsegu" sender:self];
 }
 
 
+- (IBAction)openHealthBook:(id)sender {
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle: nil];
+    
+    
+    HealthBookletViewController *healthVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"Health"];
+    
+    
+    [self.navigationController pushViewController:healthVC animated:YES];
+    
+    
+}
 @end

@@ -161,7 +161,7 @@ NSArray *labelArrayGrowthSummary;
     //  [[NSUserDefaults standardUserDefaults] setObject:[labelArray objectAtIndex:indexPath.row] forKey:@"selectedScreenLbl"];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSLog(@"didDeselectRowAtIndexPath");
-   [self performSegueWithIdentifier:@"screeningsumarysegu" sender:self];
+ //  [self performSegueWithIdentifier:@"screeningsumarysegu" sender:self];
     
 }
 
