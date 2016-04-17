@@ -19,7 +19,7 @@
     UIView *percentailOverlayView;
     UIView *oralOverlayView;
     int percentialIndex;
-
+    AwesomeMenuItem *starMenuItem4 ;
 
 }
 @end
@@ -169,7 +169,7 @@ AwesomeMenuItem *starMenuItem3 = [[AwesomeMenuItem alloc] initWithImage:storyMen
                                                        highlightedImage:storyMenuItemImagePressed
                                                            ContentImage:starImage3
                                                 highlightedContentImage:nil];
-AwesomeMenuItem *starMenuItem4 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
+ starMenuItem4 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
                                                        highlightedImage:storyMenuItemImagePressed
                                                            ContentImage:starImage4
                                                 highlightedContentImage:nil];
@@ -238,29 +238,41 @@ menu.delegate = self;
     [overlayView setHidden:NO];
    
     UIButton *backButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [backButton setTitle:@"sda" forState:UIControlStateNormal];
     [backButton setBackgroundImage:[UIImage imageNamed:@"hb_Alergy_back.png"] forState:UIControlStateNormal];
-    backButton.frame=CGRectMake(30, self.view.frame.size.height/2, 60, 60);
+    backButton.frame=CGRectMake(30, self.view.frame.size.height/2, 70, 70);
     [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     [overlayView addSubview:backButton];
 
-    
-    
-    
-    
     UIButton *drugButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [drugButton setTitle:@"drug" forState:UIControlStateNormal];
-    drugButton.frame=CGRectMake(30, backButton.frame.origin.y-60, 40, 40);
+        [drugButton setBackgroundImage:[UIImage imageNamed:@"hb_Alergy_option.png"] forState:UIControlStateNormal];
+    drugButton.frame=CGRectMake(40, backButton.frame.origin.y-80, 50, 50);
     [drugButton addTarget:self action:@selector(drugAction) forControlEvents:UIControlEventTouchUpInside];
     [overlayView addSubview:drugButton];
     
+    UILabel *drugLabel =[[UILabel alloc]initWithFrame:CGRectMake(30, drugButton.frame.origin.y+drugButton.frame.size.height, 70, 30)];
+    drugLabel.text=@"Allergy";
+    drugLabel.textAlignment=NSTextAlignmentCenter;
+    drugLabel.textColor=[UIColor whiteColor];
+    [overlayView addSubview:drugLabel];
     
     
     UIButton *medicalButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [medicalButton setTitle:@"medical" forState:UIControlStateNormal];
-    medicalButton.frame=CGRectMake(30, backButton.frame.origin.y+60, 40, 40);
+    [medicalButton setBackgroundImage:[UIImage imageNamed:@"hb_medical_option.png"] forState:UIControlStateNormal];
+    medicalButton.frame=CGRectMake(40, backButton.frame.origin.y+100, 50, 50);
     [medicalButton addTarget:self action:@selector(medicalAction) forControlEvents:UIControlEventTouchUpInside];
     [overlayView addSubview:medicalButton];
+    
+    
+    UILabel *medicalLabel =[[UILabel alloc]initWithFrame:CGRectMake(30, medicalButton.frame.origin.y+medicalButton.frame.size.height, 70, 50)];
+    medicalLabel.text=@"Medical Condition";
+    medicalLabel.numberOfLines=2;
+    medicalLabel.textAlignment=NSTextAlignmentCenter;
+    medicalLabel.textColor=[UIColor whiteColor];
+    [overlayView addSubview:medicalLabel];
+    
+    [drugLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12]];
+    [medicalLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12]];
+    
     
 }
 
@@ -301,8 +313,8 @@ menu.delegate = self;
     [percentailOverlayView setHidden:NO];
     
     UIButton *backButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [backButton setTitle:@"sda" forState:UIControlStateNormal];
-    backButton.frame=CGRectMake(self.view.frame.size.width-80, self.view.frame.size.height/4, 40, 40);
+[backButton setBackgroundImage:[UIImage imageNamed:@"hb_Alergy_back.png"] forState:UIControlStateNormal];
+    backButton.frame=CGRectMake(self.view.frame.size.width-100, self.view.frame.size.height/4+20, 70, 70);
     [backButton addTarget:self action:@selector(overlaybackAction) forControlEvents:UIControlEventTouchUpInside];
     [percentailOverlayView addSubview:backButton];
     [backButton setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
@@ -311,28 +323,75 @@ menu.delegate = self;
     
     
     UIButton *headButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [headButton setTitle:@"headButton" forState:UIControlStateNormal];
-    headButton.frame=CGRectMake(backButton.frame.origin.x-80, backButton.frame.origin.y-60, 40, 40);
+    headButton.frame=CGRectMake(backButton.frame.origin.x-100, backButton.frame.origin.y-60, 50, 50);
     [headButton addTarget:self action:@selector(headAction) forControlEvents:UIControlEventTouchUpInside];
     [percentailOverlayView addSubview:headButton];
     
+    [headButton setBackgroundImage:[UIImage imageNamed:@"hb_Alergy_option.png"] forState:UIControlStateNormal];
+    
+    UILabel *medicalLabel =[[UILabel alloc]initWithFrame:CGRectMake(headButton.frame.origin.x-20, headButton.frame.origin.y+headButton.frame.size.height, 80, 50)];
+    medicalLabel.text=@"Head Circumference";
+    medicalLabel.numberOfLines=2;
+    medicalLabel.textAlignment=NSTextAlignmentCenter;
+    medicalLabel.textColor=[UIColor whiteColor];
+    [percentailOverlayView addSubview:medicalLabel];
+    
+    
     UIButton *heightButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [heightButton setTitle:@"heightButton" forState:UIControlStateNormal];
-    heightButton.frame=CGRectMake(headButton.frame.origin.x, headButton.frame.origin.y+60, 40, 40);
+    [heightButton setBackgroundImage:[UIImage imageNamed:@"hb_Alergy_option.png"] forState:UIControlStateNormal];
+    heightButton.frame=CGRectMake(headButton.frame.origin.x, headButton.frame.origin.y+100, 50, 50);
     [heightButton addTarget:self action:@selector(heightAction) forControlEvents:UIControlEventTouchUpInside];
     [percentailOverlayView addSubview:heightButton];
     
+    
+    UILabel *heightLabel =[[UILabel alloc]initWithFrame:CGRectMake(heightButton.frame.origin.x-10, heightButton.frame.origin.y+heightButton.frame.size.height, 70, 50)];
+    heightLabel.text=@"Height";
+    heightLabel.numberOfLines=2;
+    heightLabel.textAlignment=NSTextAlignmentCenter;
+    heightLabel.textColor=[UIColor whiteColor];
+    [percentailOverlayView addSubview:heightLabel];
+    
+    
+    
     UIButton *weighttButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [weighttButton setTitle:@"weighttButton" forState:UIControlStateNormal];
-    weighttButton.frame=CGRectMake(headButton.frame.origin.x, heightButton.frame.origin.y+60, 40, 40);
+    
+    [weighttButton setBackgroundImage:[UIImage imageNamed:@"hb_Alergy_option.png"] forState:UIControlStateNormal];
+    weighttButton.frame=CGRectMake(headButton.frame.origin.x, heightButton.frame.origin.y+100, 50, 50);
     [weighttButton addTarget:self action:@selector(weightAction) forControlEvents:UIControlEventTouchUpInside];
     [percentailOverlayView addSubview:weighttButton];
 
+    
+    
+    UILabel *weightLabel =[[UILabel alloc]initWithFrame:CGRectMake(weighttButton.frame.origin.x-10, weighttButton.frame.origin.y+weighttButton.frame.size.height, 70, 50)];
+    weightLabel.text=@"Weight";
+    weightLabel.numberOfLines=2;
+    weightLabel.textAlignment=NSTextAlignmentCenter;
+    weightLabel.textColor=[UIColor whiteColor];
+    [percentailOverlayView addSubview:weightLabel];
+    
+
+    
+    
+    
     UIButton *bmiButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [bmiButton setTitle:@"bmiButton" forState:UIControlStateNormal];
-    bmiButton.frame=CGRectMake(headButton.frame.origin.x, weighttButton.frame.origin.y+60, 40, 40);
+    
+    [bmiButton setBackgroundImage:[UIImage imageNamed:@"hb_Alergy_option.png"] forState:UIControlStateNormal];
+    bmiButton.frame=CGRectMake(headButton.frame.origin.x, weighttButton.frame.origin.y+100, 50, 50);
     [bmiButton addTarget:self action:@selector(bmiAction) forControlEvents:UIControlEventTouchUpInside];
     [percentailOverlayView addSubview:bmiButton];
+  
+    UILabel *bmiLabel =[[UILabel alloc]initWithFrame:CGRectMake(bmiButton.frame.origin.x-10, bmiButton.frame.origin.y+bmiButton.frame.size.height, 70, 50)];
+    bmiLabel.text=@"BMI";
+    bmiLabel.numberOfLines=2;
+    bmiLabel.textAlignment=NSTextAlignmentCenter;
+    bmiLabel.textColor=[UIColor whiteColor];
+    [percentailOverlayView addSubview:bmiLabel];
+    
+    [medicalLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:11]];
+    [heightLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12]];
+    [weightLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12]];
+    [bmiLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12]];
+
     
 }
 
@@ -388,8 +447,8 @@ menu.delegate = self;
     [oralOverlayView setHidden:NO];
     
     UIButton *backButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [backButton setTitle:@"sda" forState:UIControlStateNormal];
-    backButton.frame=CGRectMake(self.view.frame.size.width-80, self.view.frame.size.height/2, 40, 40);
+    [backButton setBackgroundImage:[UIImage imageNamed:@"hb_back_oralvisual.png"] forState:UIControlStateNormal];
+    backButton.frame=CGRectMake(self.view.frame.size.width-120, self.view.frame.size.height/2, 70, 70);
     [backButton addTarget:self action:@selector(oralbackAction) forControlEvents:UIControlEventTouchUpInside];
     [oralOverlayView addSubview:backButton];
     
@@ -397,18 +456,37 @@ menu.delegate = self;
     
     
     UIButton *oralButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [oralButton setTitle:@"headButton" forState:UIControlStateNormal];
-    oralButton.frame=CGRectMake(backButton.frame.origin.x, backButton.frame.origin.y-60, 40, 40);
+    [oralButton setBackgroundImage:[UIImage imageNamed:@"hb_teeth.png"] forState:UIControlStateNormal];
+    oralButton.frame=CGRectMake(backButton.frame.origin.x, backButton.frame.origin.y-100, 50, 50);
     [oralButton addTarget:self action:@selector(oralAction) forControlEvents:UIControlEventTouchUpInside];
     [oralOverlayView addSubview:oralButton];
     
+    
+    UILabel *bmiLabel =[[UILabel alloc]initWithFrame:CGRectMake(oralButton.frame.origin.x-10, oralButton.frame.origin.y+oralButton.frame.size.height, 70, 50)];
+    bmiLabel.text=@"Oral Health";
+    bmiLabel.numberOfLines=2;
+    bmiLabel.textAlignment=NSTextAlignmentCenter;
+    bmiLabel.textColor=[UIColor whiteColor];
+    [oralOverlayView addSubview:bmiLabel];
+    
+    
     UIButton *visualtButton =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [visualtButton setTitle:@"heightButton" forState:UIControlStateNormal];
-    visualtButton.frame=CGRectMake(oralButton.frame.origin.x, backButton.frame.origin.y+100, 40, 40);
+    [visualtButton setBackgroundImage:[UIImage imageNamed:@"hb_visual_option.png"] forState:UIControlStateNormal];
+    visualtButton.frame=CGRectMake(oralButton.frame.origin.x, backButton.frame.origin.y+100, 50, 50);
     [visualtButton addTarget:self action:@selector(visualAction) forControlEvents:UIControlEventTouchUpInside];
     [oralOverlayView addSubview:visualtButton];
     
+    UILabel *visualLabel =[[UILabel alloc]initWithFrame:CGRectMake(visualtButton.frame.origin.x-10, visualtButton.frame.origin.y+visualtButton.frame.size.height, 70, 50)];
+    visualLabel.text=@"Visual Check";
+    visualLabel.numberOfLines=2;
+    visualLabel.textAlignment=NSTextAlignmentCenter;
+    visualLabel.textColor=[UIColor whiteColor];
+    [oralOverlayView addSubview:visualLabel];
     
+    [visualLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12]];
+
+    [bmiLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:11]];
+
 }
 
 -(void)oralbackAction

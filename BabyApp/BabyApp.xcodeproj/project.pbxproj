@@ -135,6 +135,9 @@
 		A1C384D71CC220AC0085C812 /* hb_Alergy_option.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384D41CC220AC0085C812 /* hb_Alergy_option.png */; };
 		A1C384D81CC220AC0085C812 /* hb_medical_option.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384D51CC220AC0085C812 /* hb_medical_option.png */; };
 		A1C384DA1CC24B270085C812 /* hb_Item.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384D91CC24B270085C812 /* hb_Item.png */; };
+		A1C384DE1CC35F980085C812 /* hb_back_oralvisual.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384DB1CC35F980085C812 /* hb_back_oralvisual.png */; };
+		A1C384DF1CC35F980085C812 /* hb_teeth.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384DC1CC35F980085C812 /* hb_teeth.png */; };
+		A1C384E01CC35F980085C812 /* hb_visual_option.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C384DD1CC35F980085C812 /* hb_visual_option.png */; };
 		A1EAD2BA1CA9030C008D2B37 /* HealthBookletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2B91CA9030C008D2B37 /* HealthBookletViewController.m */; };
 		A1EAD2BD1CA904CF008D2B37 /* ImmunisationCalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2BC1CA904CF008D2B37 /* ImmunisationCalenderViewController.m */; };
 		A1EAD2C01CA904FF008D2B37 /* ImmunisationCalenderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EAD2BF1CA904FF008D2B37 /* ImmunisationCalenderDetailViewController.m */; };
@@ -448,6 +451,9 @@
 		A1C384D41CC220AC0085C812 /* hb_Alergy_option.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_Alergy_option.png; sourceTree = "<group>"; };
 		A1C384D51CC220AC0085C812 /* hb_medical_option.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_medical_option.png; sourceTree = "<group>"; };
 		A1C384D91CC24B270085C812 /* hb_Item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_Item.png; sourceTree = "<group>"; };
+		A1C384DB1CC35F980085C812 /* hb_back_oralvisual.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_back_oralvisual.png; sourceTree = "<group>"; };
+		A1C384DC1CC35F980085C812 /* hb_teeth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_teeth.png; sourceTree = "<group>"; };
+		A1C384DD1CC35F980085C812 /* hb_visual_option.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hb_visual_option.png; sourceTree = "<group>"; };
 		A1EAD2B81CA9030C008D2B37 /* HealthBookletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthBookletViewController.h; sourceTree = "<group>"; };
 		A1EAD2B91CA9030C008D2B37 /* HealthBookletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthBookletViewController.m; sourceTree = "<group>"; };
 		A1EAD2BB1CA904CF008D2B37 /* ImmunisationCalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImmunisationCalenderViewController.h; sourceTree = "<group>"; };
@@ -1074,6 +1080,9 @@
 		A1A46A0C1CBD8855009F65BB /* CircleView */ = {
 			isa = PBXGroup;
 			children = (
+				A1C384DB1CC35F980085C812 /* hb_back_oralvisual.png */,
+				A1C384DC1CC35F980085C812 /* hb_teeth.png */,
+				A1C384DD1CC35F980085C812 /* hb_visual_option.png */,
 				A1C384D91CC24B270085C812 /* hb_Item.png */,
 				A1C384D31CC220AC0085C812 /* hb_Alergy_back.png */,
 				A1C384D41CC220AC0085C812 /* hb_Alergy_option.png */,
@@ -1357,6 +1366,7 @@
 				A1C384C81CC21D8E0085C812 /* centerImage.png in Resources */,
 				D8B1380A1C90CF6F007B412D /* AvenirNextLTPro-DemiCnIt.otf in Resources */,
 				D8B1380C1C90CF6F007B412D /* AvenirNextLTPro-HeavyCn.otf in Resources */,
+				A1C384E01CC35F980085C812 /* hb_visual_option.png in Resources */,
 				D8B138131C90CF6F007B412D /* AvenirNextLTPro-UltLtCnIt.otf in Resources */,
 				D8AB15C61C8E361A0062DAFE /* crv.png in Resources */,
 				D8B1380B1C90CF6F007B412D /* AvenirNextLTPro-DemiIt.otf in Resources */,
@@ -1386,10 +1396,12 @@
 				A10EB6501C7A264C002EBC59 /* pic.png in Resources */,
 				A10EB5EA1C784FBA002EBC59 /* blueBar.png in Resources */,
 				D8B1380E1C90CF6F007B412D /* AvenirNextLTPro-It.otf in Resources */,
+				A1C384DE1CC35F980085C812 /* hb_back_oralvisual.png in Resources */,
 				D8B138101C90CF6F007B412D /* AvenirNextLTPro-MediumCnIt.otf in Resources */,
 				D8B1380D1C90CF6F007B412D /* AvenirNextLTPro-HeavyCnIt.otf in Resources */,
 				A10EB6581C7B7701002EBC59 /* healthBooklet_button.png in Resources */,
 				A10EB6291C78B455002EBC59 /* growth_icon.png in Resources */,
+				A1C384DF1CC35F980085C812 /* hb_teeth.png in Resources */,
 				D8B1380F1C90CF6F007B412D /* AvenirNextLTPro-MediumCn.otf in Resources */,
 				A10EB62A1C78B455002EBC59 /* screening_icon.png in Resources */,
 				D8AB15C21C8E341F0062DAFE /* Screenings-checked_03.png in Resources */,
