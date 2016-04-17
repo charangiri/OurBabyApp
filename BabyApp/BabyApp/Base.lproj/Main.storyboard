@@ -1021,7 +1021,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ca8-QW-ZYb">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_kid.png" translatesAutoresizingMaskIntoConstraints="NO" id="re7-SZ-SaH">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_kid.png" translatesAutoresizingMaskIntoConstraints="NO" id="re7-SZ-SaH">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <animations/>
                                         <constraints>
@@ -1546,6 +1546,7 @@
                     <navigationItem key="navigationItem" id="uoH-Hp-dNe"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="addBioButton" destination="YaN-wO-xoC" id="aEP-l9-AxQ"/>
                         <segue destination="zck-ct-apZ" kind="show" identifier="screenpagesegu" id="7nK-AJ-vDe"/>
                         <segue destination="ALA-Cj-thC" kind="show" identifier="encyclopediatapscrollersegu" id="qpY-59-97d"/>
                         <segue destination="Rqw-rf-a80" kind="show" identifier="growthsummarysegu" id="a5T-JE-65k"/>

@@ -11,6 +11,7 @@
 #import "HomeTableViewCell.h"
 #import "ImmunisationsVC.h"
 #import "ScreeningSummaryViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation HomeViewController
 {
@@ -34,7 +35,8 @@
 	
     [self.navigationItem setTitle:@"Baby Booklet"];
     self.navigationController.navigationBarHidden=NO;
-
+    [[_addBioButton layer] setBorderWidth:1.0f];
+    [[_addBioButton layer] setBorderColor:[UIColor whiteColor].CGColor];
     imagesNames=[NSArray arrayWithObjects:@"needle_icon.png",@"screening_icon.png",@"growth_icon.png", nil];
     titlesArray=[NSArray arrayWithObjects:@"My Immunisation",@"My Screening",@"My Growth Percentiles", nil];
     colorArray=[NSArray arrayWithObjects:@"D35560",@"F8C34F",@"53B8B1", nil];
@@ -101,7 +103,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    return 70;
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        CGSize result = [[UIScreen mainScreen] bounds].size;
+        
+        if(result.height > 568)
+        {
+            return 110;
+            
+        }
+    }
+    return 75;
 }
 //- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 //{

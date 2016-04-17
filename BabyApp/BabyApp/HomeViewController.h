@@ -11,6 +11,7 @@
 
 @interface HomeViewController : UIViewController <SlideNavigationControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *addBioButton;
 
 
 
