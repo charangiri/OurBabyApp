@@ -41,6 +41,8 @@ NSArray *labelArray;
     
     UILabel *lblHeading=[[UILabel alloc] initWithFrame:CGRectMake(30,10, v.frame.size.width-60, 30)];
     [v addSubview:lblHeading];
+    
+    [lblHeading setFont:[UIFont fontWithName:@"AvenirNextLTPro-Bold" size:15.0f]];
     [lblHeading setText:@"6 MONTHS TO 12 MONTHS"];
     
     [lblHeading setTextColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
