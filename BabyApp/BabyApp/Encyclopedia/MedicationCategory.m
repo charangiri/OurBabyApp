@@ -22,11 +22,11 @@
     self.navigationItem.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectedMedicationLbl"];
     
     
-  labelArraymedicationCategory=[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedMedicationArray"];
-
+    labelArraymedicationCategory=[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedMedicationArray"];
+    
     NSLog(@"selectedMedicationArray count=%lu at 0=%@",(unsigned long)labelArraymedicationCategory.count,[labelArraymedicationCategory objectAtIndex:0]);
     
-   // labelArraymedicationCategory=[NSArray arrayWithObjects:@"Lorem Ipsum",@"Aenean sollicitudin",@"Consequat ipsum",@"Consequat del velit", nil];
+    // labelArraymedicationCategory=[NSArray arrayWithObjects:@"Lorem Ipsum",@"Aenean sollicitudin",@"Consequat ipsum",@"Consequat del velit", nil];
     
     
     medicationCategoryTable=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-60)];
@@ -77,14 +77,14 @@
     
     
     NSDictionary *d;
-
+    
     d=[labelArraymedicationCategory objectAtIndex:indexPath.row];
     
     [lblName setText:[d objectForKey:@"title"]];
     [lblName2 setText:[d objectForKey:@"description"]];
     
     
-   
+    
     [lblName2 setTextColor:[UIColor grayColor]];
     
     return cell;
@@ -98,7 +98,7 @@
     
     d=[labelArraymedicationCategory objectAtIndex:indexPath.row];
     NSLog(@"didDeselectRowAtIndexPath d=%@",d);
-
+    
     [[NSUserDefaults standardUserDefaults] setObject:d forKey:@"selectedMedicationDetail"];
     [self performSegueWithIdentifier:@"medicationcategorydetailsegu" sender:self];
     

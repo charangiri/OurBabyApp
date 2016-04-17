@@ -22,12 +22,12 @@
 @synthesize scrollerTable,scrollerTable2,scroll1,page1;
 NSArray *labelArrayScroller,*labelArrayScroller2;
 
- -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     CGFloat width = scrollView.frame.size.width;
-  //  NSInteger page = (scrollView.contentOffset.x + (0.5f * width)) / width;
+    //  NSInteger page = (scrollView.contentOffset.x + (0.5f * width)) / width;
     NSInteger page = scrollView.contentOffset.x / width;
-
+    
     [page1 setCurrentPage:page];
     
     self.navigationItem.title = [hed objectAtIndex:page];
@@ -43,8 +43,8 @@ int n;
     self.navigationItem.title = [hed objectAtIndex:0];
     n=1;
     [[ConnectionsManager sharedManager] getMedicationEncyclopedia:nil withdelegate:self];
-
-
+    
+    
     
     labelArrayScroller=[NSArray arrayWithObjects:@"ANTIHISTAMINES",@"FEVER MEDICATIONS",@"COUGH EXPETORANTS",@"MUCOLYTICS",@"MIXED COUGH PREPARATIONS",@"NASAL",@"LOZENGES",@"ANTINIOTICS",@"ANTIEMETICS",@"ANTISPAMODIC",@"TOPICAL", nil];
     
@@ -148,108 +148,108 @@ int n;
 }
 
 /*-(void)viewWillAppear:(BOOL)animated
-{
-    
-    labelArrayScroller=[NSArray arrayWithObjects:@"ANTIHISTAMINES",@"FEVER MEDICATIONS",@"COUGH EXPETORANTS",@"MUCOLYTICS",@"MIXED COUGH PREPARATIONS",@"NASAL",@"LOZENGES",@"ANTINIOTICS",@"ANTIEMETICS",@"ANTISPAMODIC",@"TOPICAL", nil];
-    
-    labelArrayScroller2=[NSArray arrayWithObjects:@"BCG",@"HEPATITIS B",@"DTAP",@"MMR", nil];
-    
-    CGRect scrollFrame = CGRectMake(0, 60, [self.view bounds].size.width, [self.view bounds].size.height-60);
-    scroll1 = [[UIScrollView alloc]initWithFrame: scrollFrame];
-    
-    [self.view addSubview:scroll1];
-    [scroll1 setBackgroundColor:[UIColor blueColor]];
-    
-    scroll1.delegate=self;
-    
-    UIView *v1=[[UIView alloc] initWithFrame:CGRectMake(0, 0, scroll1.frame.size.width, scroll1.frame.size.height)];
-    [scroll1 addSubview:v1];
-    [v1 setBackgroundColor:[UIColor redColor]];
-    
-    UIView *v2=[[UIView alloc] initWithFrame:CGRectMake(scroll1.frame.size.width, 0, scroll1.frame.size.width, scroll1.frame.size.height)];
-    
-    NSLog(@"self.view height=%f scrollbar height=%f v1 hight=%f",self.view.frame.size.height,scroll1.frame.size.height,v1.frame.size.height);
-    [scroll1 addSubview:v2];
-    [scroll1 setContentSize:CGSizeMake(scroll1.frame.size.width*2, scroll1.frame.size.height)];
-    [v1 setBackgroundColor:[UIColor redColor]];
-    [v2 setBackgroundColor:[UIColor greenColor]];
-    
-    [scroll1 setBounces:NO];
-    
-    [scroll1 setPagingEnabled:YES];
-    UIView *v=[[UIView alloc] initWithFrame:CGRectMake(0, 0,scroll1.frame.size.width, 150)];
-    [v setBackgroundColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
-    [v1 addSubview:v];
-    
-    UILabel *lbl1=[[UILabel alloc] initWithFrame:CGRectMake(10,5, self.view.frame.size.width-20, 40)];
-    [v addSubview:lbl1];
-    
-    UISearchBar *search=[[UISearchBar alloc] initWithFrame:CGRectMake(10,55, self.view.frame.size.width-20, 40)];
-    [v addSubview:search];
-    
-    UIView *vLine=[[UIView alloc] initWithFrame:CGRectMake(0, 105, self.view.frame.size.width,2)];
-    [vLine setBackgroundColor:[UIColor whiteColor]];
-    [v addSubview:vLine];
-    
-    UILabel *lbl2=[[UILabel alloc] initWithFrame:CGRectMake(10,117, self.view.frame.size.width-20, 40)];
-    [v addSubview:lbl2];
-    
-    [lbl1 setText:@"Type in for a quick search in the database"];
-    [lbl2 setText:@"SEARCH BY CATEGORIES BELOW"];
-    
-    [lbl1 setTextAlignment:NSTextAlignmentCenter];
-    [lbl2 setTextAlignment:NSTextAlignmentCenter];
-    
-    [lbl1 setTextColor:[UIColor whiteColor]];
-    [lbl2 setTextColor:[UIColor whiteColor]];
-    
-    UIView *vv2=[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150)];
-    [vv2 setBackgroundColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
-    [v2 addSubview:vv2];
-    
-    UILabel *lbl12=[[UILabel alloc] initWithFrame:CGRectMake(10,5, self.view.frame.size.width-20, 40)];
-    [vv2 addSubview:lbl12];
-    
-    UISearchBar *search2=[[UISearchBar alloc] initWithFrame:CGRectMake(10,55, self.view.frame.size.width-20, 40)];
-    [vv2 addSubview:search2];
-    
-    UIView *vLine2=[[UIView alloc] initWithFrame:CGRectMake(0, 105, self.view.frame.size.width,2)];
-    [vLine2 setBackgroundColor:[UIColor whiteColor]];
-    [vv2 addSubview:vLine2];
-    
-    UILabel *lbl22=[[UILabel alloc] initWithFrame:CGRectMake(10,117, self.view.frame.size.width-20, 40)];
-    [vv2 addSubview:lbl22];
-    
-    [lbl12 setText:@"Type in for a quick search in the database"];
-    [lbl22 setText:@"SEARCH BY CATEGORIES BELOW"];
-    
-    [lbl12 setTextAlignment:NSTextAlignmentCenter];
-    [lbl22 setTextAlignment:NSTextAlignmentCenter];
-    
-    [lbl12 setTextColor:[UIColor whiteColor]];
-    [lbl22 setTextColor:[UIColor whiteColor]];
-    
-    
-    scrollerTable=[[UITableView alloc] initWithFrame:CGRectMake(0, v.frame.origin.y+v.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-(v.frame.origin.y+v.frame.size.height))];
-    [v1 addSubview:scrollerTable];
-    scrollerTable.dataSource=self;
-    scrollerTable.delegate=self;
-    
-    scrollerTable2=[[UITableView alloc] initWithFrame:CGRectMake(0, vv2.frame.origin.y+vv2.frame.size.height, self.view.frame.size.width, scroll1.frame.size.height-(vv2.frame.origin.y+vv2.frame.size.height))];
-    [v2 addSubview:scrollerTable2];
-    scrollerTable2.dataSource=self;
-    scrollerTable2.delegate=self;
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    page1=[[UIPageControl alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2-15, 60, 30, 20)];
-    [page1 setNumberOfPages:2];
-    [page1 setCurrentPage:0];
-    
-    [self.view addSubview:page1];
-    [self.view bringSubviewToFront:page1];
-}
-*/
+ {
+ 
+ labelArrayScroller=[NSArray arrayWithObjects:@"ANTIHISTAMINES",@"FEVER MEDICATIONS",@"COUGH EXPETORANTS",@"MUCOLYTICS",@"MIXED COUGH PREPARATIONS",@"NASAL",@"LOZENGES",@"ANTINIOTICS",@"ANTIEMETICS",@"ANTISPAMODIC",@"TOPICAL", nil];
+ 
+ labelArrayScroller2=[NSArray arrayWithObjects:@"BCG",@"HEPATITIS B",@"DTAP",@"MMR", nil];
+ 
+ CGRect scrollFrame = CGRectMake(0, 60, [self.view bounds].size.width, [self.view bounds].size.height-60);
+ scroll1 = [[UIScrollView alloc]initWithFrame: scrollFrame];
+ 
+ [self.view addSubview:scroll1];
+ [scroll1 setBackgroundColor:[UIColor blueColor]];
+ 
+ scroll1.delegate=self;
+ 
+ UIView *v1=[[UIView alloc] initWithFrame:CGRectMake(0, 0, scroll1.frame.size.width, scroll1.frame.size.height)];
+ [scroll1 addSubview:v1];
+ [v1 setBackgroundColor:[UIColor redColor]];
+ 
+ UIView *v2=[[UIView alloc] initWithFrame:CGRectMake(scroll1.frame.size.width, 0, scroll1.frame.size.width, scroll1.frame.size.height)];
+ 
+ NSLog(@"self.view height=%f scrollbar height=%f v1 hight=%f",self.view.frame.size.height,scroll1.frame.size.height,v1.frame.size.height);
+ [scroll1 addSubview:v2];
+ [scroll1 setContentSize:CGSizeMake(scroll1.frame.size.width*2, scroll1.frame.size.height)];
+ [v1 setBackgroundColor:[UIColor redColor]];
+ [v2 setBackgroundColor:[UIColor greenColor]];
+ 
+ [scroll1 setBounces:NO];
+ 
+ [scroll1 setPagingEnabled:YES];
+ UIView *v=[[UIView alloc] initWithFrame:CGRectMake(0, 0,scroll1.frame.size.width, 150)];
+ [v setBackgroundColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
+ [v1 addSubview:v];
+ 
+ UILabel *lbl1=[[UILabel alloc] initWithFrame:CGRectMake(10,5, self.view.frame.size.width-20, 40)];
+ [v addSubview:lbl1];
+ 
+ UISearchBar *search=[[UISearchBar alloc] initWithFrame:CGRectMake(10,55, self.view.frame.size.width-20, 40)];
+ [v addSubview:search];
+ 
+ UIView *vLine=[[UIView alloc] initWithFrame:CGRectMake(0, 105, self.view.frame.size.width,2)];
+ [vLine setBackgroundColor:[UIColor whiteColor]];
+ [v addSubview:vLine];
+ 
+ UILabel *lbl2=[[UILabel alloc] initWithFrame:CGRectMake(10,117, self.view.frame.size.width-20, 40)];
+ [v addSubview:lbl2];
+ 
+ [lbl1 setText:@"Type in for a quick search in the database"];
+ [lbl2 setText:@"SEARCH BY CATEGORIES BELOW"];
+ 
+ [lbl1 setTextAlignment:NSTextAlignmentCenter];
+ [lbl2 setTextAlignment:NSTextAlignmentCenter];
+ 
+ [lbl1 setTextColor:[UIColor whiteColor]];
+ [lbl2 setTextColor:[UIColor whiteColor]];
+ 
+ UIView *vv2=[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150)];
+ [vv2 setBackgroundColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
+ [v2 addSubview:vv2];
+ 
+ UILabel *lbl12=[[UILabel alloc] initWithFrame:CGRectMake(10,5, self.view.frame.size.width-20, 40)];
+ [vv2 addSubview:lbl12];
+ 
+ UISearchBar *search2=[[UISearchBar alloc] initWithFrame:CGRectMake(10,55, self.view.frame.size.width-20, 40)];
+ [vv2 addSubview:search2];
+ 
+ UIView *vLine2=[[UIView alloc] initWithFrame:CGRectMake(0, 105, self.view.frame.size.width,2)];
+ [vLine2 setBackgroundColor:[UIColor whiteColor]];
+ [vv2 addSubview:vLine2];
+ 
+ UILabel *lbl22=[[UILabel alloc] initWithFrame:CGRectMake(10,117, self.view.frame.size.width-20, 40)];
+ [vv2 addSubview:lbl22];
+ 
+ [lbl12 setText:@"Type in for a quick search in the database"];
+ [lbl22 setText:@"SEARCH BY CATEGORIES BELOW"];
+ 
+ [lbl12 setTextAlignment:NSTextAlignmentCenter];
+ [lbl22 setTextAlignment:NSTextAlignmentCenter];
+ 
+ [lbl12 setTextColor:[UIColor whiteColor]];
+ [lbl22 setTextColor:[UIColor whiteColor]];
+ 
+ 
+ scrollerTable=[[UITableView alloc] initWithFrame:CGRectMake(0, v.frame.origin.y+v.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-(v.frame.origin.y+v.frame.size.height))];
+ [v1 addSubview:scrollerTable];
+ scrollerTable.dataSource=self;
+ scrollerTable.delegate=self;
+ 
+ scrollerTable2=[[UITableView alloc] initWithFrame:CGRectMake(0, vv2.frame.origin.y+vv2.frame.size.height, self.view.frame.size.width, scroll1.frame.size.height-(vv2.frame.origin.y+vv2.frame.size.height))];
+ [v2 addSubview:scrollerTable2];
+ scrollerTable2.dataSource=self;
+ scrollerTable2.delegate=self;
+ 
+ self.automaticallyAdjustsScrollViewInsets = NO;
+ 
+ page1=[[UIPageControl alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2-15, 60, 30, 20)];
+ [page1 setNumberOfPages:2];
+ [page1 setCurrentPage:0];
+ 
+ [self.view addSubview:page1];
+ [self.view bringSubviewToFront:page1];
+ }
+ */
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -292,13 +292,13 @@ int n;
         d=[_medicationArr objectAtIndex:indexPath.row];
     else
         d=[_immunisationArr objectAtIndex:indexPath.row];
-
-     [lblName setText:[d objectForKey:@"title"]];
-     [lblName2 setText:[d objectForKey:@"description"]];
-
+    
+    [lblName setText:[d objectForKey:@"title"]];
+    [lblName2 setText:[d objectForKey:@"description"]];
+    
     NSLog(@"lblName.text=%@",lblName.text);
     
-   // [lblName2 setText:@"Examples:Proingravida,nibh vel velit,aliquet"];
+    // [lblName2 setText:@"Examples:Proingravida,nibh vel velit,aliquet"];
     [lblName setTextColor:[UIColor colorWithRed:49.0/255.0 green:191.0/255.0 blue:180.0/255.0 alpha:1.0]];
     
     return cell;
@@ -310,22 +310,27 @@ int n;
     NSDictionary *d;
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSLog(@"didDeselectRowAtIndexPath");
-
+    
     if(self.scrollerTable==tableView)
     {   d=[_medicationArr objectAtIndex:indexPath.row];
         
         [[NSUserDefaults standardUserDefaults] setObject:[d objectForKey:@"title"] forKey:@"selectedMedicationLbl"];
         [[NSUserDefaults standardUserDefaults] setObject:[d objectForKey:@"items"] forKey:@"selectedMedicationArray"];
         [self performSegueWithIdentifier:@"medicationcategorysegu" sender:self];
-
-
+        
+        
     }
     else
     {
         d=[_immunisationArr objectAtIndex:indexPath.row];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[d objectForKey:@"title"] forKey:@"selectedMedicationLbl"];
+        [[NSUserDefaults standardUserDefaults] setObject:d forKey:@"selectedImmunisationTypeDetail"];
+        [self performSegueWithIdentifier:@"immunisationtypesegu" sender:self];
+        
     }
     
-
+    
     
     
     //medicationcategorysegu
@@ -337,9 +342,9 @@ int n;
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(self.scrollerTable==tableView)
-        return labelArrayScroller.count;
+        return _medicationArr.count;
     else
-        return labelArrayScroller2.count;
+        return _immunisationArr.count;
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -367,7 +372,7 @@ int n;
         NSDictionary *dataDict = [dict objectForKey:@"data"];
         
         
-       // NSLog(@"\n---------------\ndataDict=%@",dataDict);
+        // NSLog(@"\n---------------\ndataDict=%@",dataDict);
         
         if(n==1)
         {
@@ -378,7 +383,7 @@ int n;
             scrollerTable.dataSource=self;
             scrollerTable.delegate=self;
             [scrollerTable reloadData];
-           
+            
         }
         if(n==2)
         {
@@ -388,10 +393,10 @@ int n;
             scrollerTable2.dataSource=self;
             scrollerTable2.delegate=self;
             [scrollerTable2 reloadData];
-
-
+            
+            
         }
-
+        
     }
     else
     {
@@ -399,9 +404,9 @@ int n;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:messageStr delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
     }
-  
     
-if(n==1)
+    
+    if(n==1)
     {
         [[ConnectionsManager sharedManager] getImmunisationEncyclopedia:nil withdelegate:self];
         n++;
@@ -411,7 +416,7 @@ if(n==1)
 -(void)failure:(id)response
 {
     NSLog(@"failure");
-
+    
 }
 
 

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImmunisationType : UIViewController
+@interface ImmunisationType : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic) UITableView *immunisationDetailTable;
 
 @end
+
+//childcontriler
+//
