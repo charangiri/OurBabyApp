@@ -520,14 +520,13 @@
                                 <exclude reference="Ixu-su-NlZ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="aUL-6j-reV"/>
                                 <exclude reference="sXA-Lg-Yg0"/>
                                 <exclude reference="Aoc-aM-bEh"/>
                                 <exclude reference="TJy-6p-KIk"/>
                                 <exclude reference="cIu-Ka-cGA"/>
                                 <exclude reference="nBC-We-nbs"/>
                                 <exclude reference="pn5-kM-htF"/>
-                                <exclude reference="200-7a-VQC"/>
+                                <exclude reference="XMd-V5-qny"/>
                                 <exclude reference="dhi-4C-Y1I"/>
                                 <exclude reference="oH9-Mx-E0N"/>
                                 <exclude reference="vIM-ZC-0al"/>
@@ -541,10 +540,11 @@
                                 <exclude reference="2BS-ae-DLv"/>
                                 <exclude reference="ZCZ-uu-TFA"/>
                                 <exclude reference="q4r-OG-X5V"/>
+                                <exclude reference="aUL-6j-reV"/>
+                                <exclude reference="200-7a-VQC"/>
                                 <exclude reference="VBG-dv-45R"/>
                                 <exclude reference="tWo-hb-SLk"/>
                                 <exclude reference="k41-Qr-NG8"/>
-                                <exclude reference="XMd-V5-qny"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -553,14 +553,13 @@
                                 <include reference="Ixu-su-NlZ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="aUL-6j-reV"/>
                                 <include reference="sXA-Lg-Yg0"/>
                                 <include reference="Aoc-aM-bEh"/>
                                 <include reference="TJy-6p-KIk"/>
                                 <include reference="cIu-Ka-cGA"/>
                                 <include reference="nBC-We-nbs"/>
                                 <include reference="pn5-kM-htF"/>
-                                <include reference="200-7a-VQC"/>
+                                <include reference="XMd-V5-qny"/>
                                 <include reference="dhi-4C-Y1I"/>
                                 <include reference="oH9-Mx-E0N"/>
                                 <include reference="vIM-ZC-0al"/>
@@ -574,10 +573,11 @@
                                 <include reference="2BS-ae-DLv"/>
                                 <include reference="ZCZ-uu-TFA"/>
                                 <include reference="q4r-OG-X5V"/>
+                                <include reference="aUL-6j-reV"/>
+                                <include reference="200-7a-VQC"/>
                                 <include reference="VBG-dv-45R"/>
                                 <include reference="tWo-hb-SLk"/>
                                 <exclude reference="k41-Qr-NG8"/>
-                                <include reference="XMd-V5-qny"/>
                             </mask>
                         </variation>
                     </view>
@@ -9468,7 +9468,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8q-2n-rfb">
-                                                <rect key="frame" x="0.0" y="40" width="320" height="60"/>
+                                                <rect key="frame" x="0.0" y="20" width="320" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drug name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfx-ww-55U">
                                                         <rect key="frame" x="20" y="19" width="100" height="21"/>
@@ -9504,7 +9504,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvl-dd-1rq">
-                                                <rect key="frame" x="0.0" y="100" width="320" height="60"/>
+                                                <rect key="frame" x="0.0" y="80" width="320" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item that the child is allergic to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lB9-MN-m7Z">
                                                         <rect key="frame" x="20" y="5" width="280" height="21"/>
@@ -9527,7 +9527,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fxk-Ns-QGR">
-                                                <rect key="frame" x="0.0" y="160" width="320" height="60"/>
+                                                <rect key="frame" x="0.0" y="140" width="320" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allergic reaction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fI0-8C-x1z">
                                                         <rect key="frame" x="20" y="19" width="135" height="21"/>
@@ -9563,7 +9563,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Nm-dh-xNC">
-                                                <rect key="frame" x="0.0" y="220" width="320" height="60"/>
+                                                <rect key="frame" x="0.0" y="200" width="320" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type of allergic reaction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tk-OM-I2t">
                                                         <rect key="frame" x="20" y="5" width="280" height="21"/>
@@ -9580,7 +9580,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ih5-OZ-ZnD">
-                                                <rect key="frame" x="0.0" y="280" width="320" height="60"/>
+                                                <rect key="frame" x="0.0" y="260" width="320" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoq-Jv-SvG">
                                                         <rect key="frame" x="20" y="19" width="50" height="21"/>
@@ -9632,7 +9632,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Egv-o8-gY0">
-                                                <rect key="frame" x="0.0" y="340" width="320" height="40"/>
+                                                <rect key="frame" x="0.0" y="320" width="320" height="40"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.79215686269999996" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -9640,7 +9640,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7t9-qf-Pda">
-                                                <rect key="frame" x="0.0" y="380" width="320" height="100"/>
+                                                <rect key="frame" x="0.0" y="360" width="320" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7r-Fs-q1V">
                                                         <rect key="frame" x="160" y="0.0" width="1" height="100"/>
@@ -9653,15 +9653,15 @@
                                                         <color key="textColor" red="0.72549019609999998" green="0.72549019609999998" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmed Allergy                   -" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tk-j1-GwY">
-                                                        <rect key="frame" x="20" y="10" width="120" height="45"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Confirmed Allergy                   -" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tk-j1-GwY">
+                                                        <rect key="frame" x="20" y="10" width="120" height="53"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                         <color key="textColor" red="0.72549019609999998" green="0.72549019609999998" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suspected Allergy                  -" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yqf-ST-lIM">
-                                                        <rect key="frame" x="180" y="10" width="120" height="45"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Suspected Allergy                  -" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yqf-ST-lIM">
+                                                        <rect key="frame" x="180" y="10" width="120" height="53"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
                                                         <color key="textColor" red="0.72549019609999998" green="0.72549019609999998" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -9693,7 +9693,7 @@
                                             <constraint firstItem="Ih5-OZ-ZnD" firstAttribute="top" secondItem="1Nm-dh-xNC" secondAttribute="bottom" id="7u5-Rn-p4Q"/>
                                             <constraint firstAttribute="trailing" secondItem="1Nm-dh-xNC" secondAttribute="trailing" id="9wt-P3-kdK"/>
                                             <constraint firstItem="1Nm-dh-xNC" firstAttribute="leading" secondItem="4HH-oC-wlM" secondAttribute="leading" id="F0e-CA-QF0"/>
-                                            <constraint firstItem="u8q-2n-rfb" firstAttribute="top" secondItem="4HH-oC-wlM" secondAttribute="top" constant="40" id="FUl-kJ-coZ"/>
+                                            <constraint firstItem="u8q-2n-rfb" firstAttribute="top" secondItem="4HH-oC-wlM" secondAttribute="top" constant="20" id="FUl-kJ-coZ"/>
                                             <constraint firstItem="lvl-dd-1rq" firstAttribute="top" secondItem="u8q-2n-rfb" secondAttribute="bottom" id="GWI-BQ-iXW"/>
                                             <constraint firstItem="7t9-qf-Pda" firstAttribute="top" secondItem="Egv-o8-gY0" secondAttribute="bottom" id="Gf9-lu-CHs"/>
                                             <constraint firstItem="Fxk-Ns-QGR" firstAttribute="leading" secondItem="4HH-oC-wlM" secondAttribute="leading" id="LPP-7i-fAn"/>

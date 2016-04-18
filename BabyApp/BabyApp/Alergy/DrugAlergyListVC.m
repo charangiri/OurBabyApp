@@ -26,38 +26,43 @@
 
 -(void)loadData
 {
-    //    NSMutableArray *temp = [NSMutableArray array];
-    //
-    //    DrugAlergyData *drugData = [[DrugAlergyData alloc] init];
-    //    drugData.drugTitle = @"Panadol";
-    //    drugData.reaction = @"Reaction: Anaphylaxis";
-    //    drugData.date = @"Date: 05/0612016";
-    //    drugData.status = @"Confirmed: allergy";
-    //
-    //    [temp addObject:drugData];
-    //
-    //    drugData = [[DrugAlergyData alloc] init];
-    //    drugData.drugTitle = @"Drug 2";
-    //    drugData.reaction = @"Reaction: Anaphylaxis";
-    //    drugData.date = @"Date: 05/0612016";
-    //    drugData.status = @"Confirmed: allergy";
-    //
-    //    [temp addObject:drugData];
-    //
-    //    drugData = [[DrugAlergyData alloc] init];
-    //    drugData.drugTitle = @"Drug 3";
-    //    drugData.reaction = @"Reaction: Anaphylaxis";
-    //    drugData.date = @"Date: 05/0612016";
-    //    drugData.status = @"Confirmed: allergy";
-    //
-    //    [temp addObject:drugData];
-    //
-    //    listOfObjects = temp;
+        NSMutableArray *temp = [NSMutableArray array];
+    
+        DrugAlergyData *drugData = [[DrugAlergyData alloc] init];
+        drugData.drugTitle = @"Panadol";
+        drugData.reaction = @"Reaction: Anaphylaxis";
+        drugData.date = @"Date: 05/0612016";
+        drugData.status = @"Confirmed: allergy";
+    
+        [temp addObject:drugData];
+    
+        drugData = [[DrugAlergyData alloc] init];
+        drugData.drugTitle = @"Drug 2";
+        drugData.reaction = @"Reaction: Anaphylaxis";
+        drugData.date = @"Date: 05/0612016";
+        drugData.status = @"Confirmed: allergy";
+    
+        [temp addObject:drugData];
+    
+        drugData = [[DrugAlergyData alloc] init];
+        drugData.drugTitle = @"Drug 3";
+        drugData.reaction = @"Reaction: Anaphylaxis";
+        drugData.date = @"Date: 05/0612016";
+        drugData.status = @"Confirmed: allergy";
+    
+        [temp addObject:drugData];
+    
     NSString *childID = [NSUserDefaults retrieveObjectForKey:CURRENT_CHILD_ID];
     if(childID.length > 0)
     {
         NSDictionary *params = @{@"child_id": childID};
         [self getDrugAllergyList:params];
+    }
+    else
+    {
+        listOfObjects = temp;
+        [self.tableView reloadData];
+
     }
     
 
