@@ -495,5 +495,9 @@ static NSString * const BaseURLString = BaseUrl;
     [self getToURL:@"update_outcome" withParameters:params delegate:delegate];
 }
 
-
+-(void)getSafetyChecklist:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"get_safety_checklist" withParameters:params delegate:delegate];
+    
+}
 @end

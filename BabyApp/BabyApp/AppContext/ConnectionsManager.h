@@ -93,4 +93,6 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 -(void)readOutCome:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
 -(void)updateOutcome:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
 
+-(void)getSafetyChecklist:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+
 @end
