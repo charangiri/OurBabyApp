@@ -10,6 +10,7 @@
 		01D1537E14D44BCCF3DDC034 /* libPods-BabyApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07094B7CE3DBB90AED91954B /* libPods-BabyApp.a */; };
 		5228659F1CBF62900025F8C7 /* ConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5228659E1CBF62900025F8C7 /* ConditionViewController.m */; };
 		8C4957BA1CC0FC1400C66B13 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4957B91CC0FC1400C66B13 /* SettingsViewController.m */; };
+		8C8ABC4D1CC50A71003B3CC8 /* ScreeningSummaryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8ABC4C1CC50A71003B3CC8 /* ScreeningSummaryData.m */; };
 		90000F501CB3521500BC9BFC /* AddAllergyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90000F4F1CB3521500BC9BFC /* AddAllergyVC.m */; };
 		90000F531CB3528000BC9BFC /* AllergyConditionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90000F521CB3528000BC9BFC /* AllergyConditionVC.m */; };
 		90000F561CB352A000BC9BFC /* MedicalConditionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90000F551CB352A000BC9BFC /* MedicalConditionVC.m */; };
@@ -233,6 +234,8 @@
 		5BCF25B75D8B855570DD77C9 /* Pods-BabyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BabyApp/Pods-BabyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8C4957B81CC0FC1400C66B13 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		8C4957B91CC0FC1400C66B13 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		8C8ABC4B1CC50A71003B3CC8 /* ScreeningSummaryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningSummaryData.h; sourceTree = "<group>"; };
+		8C8ABC4C1CC50A71003B3CC8 /* ScreeningSummaryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeningSummaryData.m; sourceTree = "<group>"; };
 		90000F4E1CB3521500BC9BFC /* AddAllergyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAllergyVC.h; sourceTree = "<group>"; };
 		90000F4F1CB3521500BC9BFC /* AddAllergyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAllergyVC.m; sourceTree = "<group>"; };
 		90000F511CB3528000BC9BFC /* AllergyConditionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllergyConditionVC.h; sourceTree = "<group>"; };
@@ -809,6 +812,8 @@
 		9695B4F21CC2D32100815220 /* ScreeningData */ = {
 			isa = PBXGroup;
 			children = (
+				8C8ABC4B1CC50A71003B3CC8 /* ScreeningSummaryData.h */,
+				8C8ABC4C1CC50A71003B3CC8 /* ScreeningSummaryData.m */,
 				9695B4F31CC2D32100815220 /* ScreeningDevCheckListObj.h */,
 				9695B4F41CC2D32100815220 /* ScreeningDevCheckListObj.m */,
 			);
@@ -1590,6 +1595,7 @@
 				90EED5AE1CB443F700401065 /* CommonScreeingCell.m in Sources */,
 				90EED5B71CB455D900401065 /* ConditionData.m in Sources */,
 				90F165C81CB5A4A0006B5DD6 /* UIImageView+AFNetworking.m in Sources */,
+				8C8ABC4D1CC50A71003B3CC8 /* ScreeningSummaryData.m in Sources */,
 				90EED5AB1CB440DA00401065 /* CommonScreeingData.m in Sources */,
 				D86EC0531C99EF0E00E3B176 /* MedicationCategory.m in Sources */,
 				D86EC0561C99EF4B00E3B176 /* ImmunisationType.m in Sources */,

@@ -75,4 +75,22 @@ typedef void (^CompletionBlock)(NSDictionary *result, NSError *error);
 
 //get_development_checklist
 -(void)getDevelopmentCheckList:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+
+-(void)getScreeningSummary:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)readScreening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+-(void)updateScreening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate;
+
+-(void)updateDevelopmentCheckList:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
+-(void)readGrowth:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
+-(void)updateGrowth:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
+-(void)readOtherScreening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
+-(void)updateOtherScreening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
+//update_other_screening
+
+-(void)updatePhysicalExamination:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
+-(void)readPhysicalExamination:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
+
+-(void)readOutCome:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
+-(void)updateOutcome:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate;
+
 @end

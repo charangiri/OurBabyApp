@@ -145,7 +145,7 @@ static NSString * const BaseURLString = BaseUrl;
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         dispatch_async(dispatch_get_main_queue(), ^{
             
-                        [SVProgressHUD dismiss];
+            [SVProgressHUD dismiss];
             
         });
         
@@ -154,11 +154,11 @@ static NSString * const BaseURLString = BaseUrl;
             dispatch_async(dispatch_get_main_queue(), ^{
                 id response = responseObject;
                 if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                     response = [Constants checkForNullValuesInDict:(NSDictionary*)responseObject];
+                    response = [Constants checkForNullValuesInDict:(NSDictionary*)responseObject];
                     
                 }
                 else if ([responseObject isKindOfClass:[NSArray class]]) {
-                     response = [Constants checkForNullValuesInArray:(NSArray *)responseObject];
+                    response = [Constants checkForNullValuesInArray:(NSArray *)responseObject];
                     
                 }
                 
@@ -420,6 +420,79 @@ static NSString * const BaseURLString = BaseUrl;
 -(void)childrenDetails:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
 {
     [self getToURL:@"children_details" withParameters:params delegate:delegate];
+}
+
+-(void)getScreeningSummary:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"get_screening_summary" withParameters:params delegate:delegate];
+}
+
+//read_screening
+-(void)readScreening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    [self getToURL:@"read_screening" withParameters:params delegate:delegate];
+}
+
+-(void)updateScreening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>) delegate
+{
+    //update_screening
+    [self getToURL:@"update_screening" withParameters:params delegate:delegate];
+}
+
+
+-(void)updateDevelopmentCheckList:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
+//update_development_checklist
+{
+    [self getToURL:@"update_development_checklist" withParameters:params delegate:delegate];
+}
+
+-(void)readGrowth:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    //read_growth
+    [self getToURL:@"read_growth" withParameters:params delegate:delegate];
+    
+}
+
+-(void)updateGrowth:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    //update_growth
+    [self getToURL:@"update_growth" withParameters:params delegate:delegate];
+}
+
+-(void)readOtherScreening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    //read_other_screening
+    [self getToURL:@"read_other_screening" withParameters:params delegate:delegate];
+}
+
+-(void)updateOtherScreening:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    //update_other_screening
+    [self getToURL:@"update_other_screening" withParameters:params delegate:delegate];
+}
+
+-(void)readPhysicalExamination:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    //read_physical_examination
+    [self getToURL:@"read_physical_examination" withParameters:params delegate:delegate];
+}
+
+-(void)updatePhysicalExamination:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    //update_physical_examination
+    [self getToURL:@"update_physical_examination" withParameters:params delegate:delegate];
+}
+
+-(void)readOutCome:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    //read_physical_examination
+    [self getToURL:@"read_outcome" withParameters:params delegate:delegate];
+}
+
+-(void)updateOutcome:(NSDictionary *)params withdelegate:(id<ServerResponseDelegate>)delegate
+{
+    //update_physical_examination
+    [self getToURL:@"update_outcome" withParameters:params delegate:delegate];
 }
 
 

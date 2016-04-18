@@ -11,11 +11,16 @@
 #import "ConnectionsManager.h"
 #import "ScreeningDevCheckListObj.h"
 #import "ScreeningParentalViewController.h"
+#import "NSUserDefaults+Helpers.h"
+#import "WSConstant.h"
+#import "ScreeningSummaryData.h"
 
 @interface ScreeningViewController () <ServerResponseDelegate>
 {
     NSArray *personalSocialList, *fineMotorList, *languageList, *grossMotorList;
     NSMutableArray *allChildDevList;
+    
+    NSArray *screeningSummaryList;
 }
 @end
 
@@ -27,6 +32,7 @@ NSArray *labelArray;
     // Do any additional setup after loading the view.
     
     allChildDevList = [NSMutableArray array];
+    
     
     [self loadData];
     
@@ -89,7 +95,27 @@ NSArray *labelArray;
     screeningTable.dataSource=self;
     screeningTable.delegate=self;
     
+    
+    [self loadScreeningData];
 }
+
+-(void)loadScreeningData
+{
+    NSString *childStr = [NSUserDefaults retrieveObjectForKey:CURRENT_CHILD_ID];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    if(childStr && childStr != nil)
+    {
+        [dict setObject:childStr forKey:@"child_id"];
+    }
+    else
+    {
+        [dict setObject:@"52" forKey:@"child_id"];
+    }
+    
+    [[ConnectionsManager sharedManager] getScreeningSummary:dict withdelegate:self];
+    
+}
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Stores"];
@@ -229,7 +255,6 @@ NSArray *labelArray;
  }
  */
 
-
 -(void)loadData
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -241,7 +266,6 @@ NSArray *labelArray;
     
     [[ConnectionsManager sharedManager] getDevelopmentCheckList:dict withdelegate:self];
 }
-
 
 -(void)success:(id)response
 {
@@ -341,57 +365,81 @@ NSArray *labelArray;
     }
     if([statusStr isEqualToString:@"1"])
     {
-        NSArray *dataList = [dict objectForKey:@"data"];
-        if(dataList.count)
+        id dataList_ = [dict objectForKey:@"data"];
+        if([dataList_ isKindOfClass:[NSDictionary class]])
         {
-            
-            for(NSDictionary *dataDict in dataList)
+            NSArray *itemsArray = [dataList_ objectForKey:@"summary"];
+            if(itemsArray.count)
+            {
+                NSMutableArray *temp = [NSMutableArray array];
+                
+                for(NSDictionary *itemDict in itemsArray)
+                {
+                    ScreeningSummaryData *screen = [[ScreeningSummaryData alloc] init];
+                    screen.screening_id = [itemDict objectForKey:@"screening_id"];
+                    screen.title = [itemDict objectForKey:@"title"];
+                    screen.taken_date = [itemDict objectForKey:@"taken_date"];
+                    screen.status = [itemDict objectForKey:@"status"];
+                    screen.remainder_date = [itemDict objectForKey:@"remainder_date"];
+                    screen.due_date = [itemDict objectForKey:@"due_date"];
+                    
+                    [temp addObject:screen];
+                }
+                
+                screeningSummaryList = temp;
+            }
+        }
+        else if ([dataList_ isKindOfClass:[NSArray class]])
+        {
+            NSArray *dataList = dataList_;
+            if(dataList.count)
             {
                 
-                NSArray *itemsArray = [dataDict objectForKey:@"items"];
-                if(itemsArray.count)
+                for(NSDictionary *dataDict in dataList)
                 {
-                    NSMutableArray *temp = [NSMutableArray array];
                     
-                    for(NSDictionary *itemDict in itemsArray)
+                    NSArray *itemsArray = [dataDict objectForKey:@"items"];
+                    if(itemsArray.count)
                     {
-                        ScreeningDevCheckListObj *screen = [[ScreeningDevCheckListObj alloc] init];
-                        screen.age = [itemDict objectForKey:@"age"];
-                        screen.screenID = [itemDict objectForKey:@"id"];
-                        screen.title = [itemDict objectForKey:@"title"];
-                        screen.status = [itemDict objectForKey:@"status"];
+                        NSMutableArray *temp = [NSMutableArray array];
                         
-                        [temp addObject:screen];
+                        for(NSDictionary *itemDict in itemsArray)
+                        {
+                            ScreeningDevCheckListObj *screen = [[ScreeningDevCheckListObj alloc] init];
+                            screen.age = [itemDict objectForKey:@"age"];
+                            screen.screenID = [itemDict objectForKey:@"id"];
+                            screen.title = [itemDict objectForKey:@"title"];
+                            screen.status = [itemDict objectForKey:@"status"];
+                            
+                            [temp addObject:screen];
+                            
+                            [allChildDevList addObject:screen];
+                        }
                         
-                        [allChildDevList addObject:screen];
-                    }
-                    
-                    
-                    
-                    NSString *titleStr = [dataDict objectForKey:@"title"];
-                    if([titleStr isEqualToString:@"Gross Motor"])
-                    {
-                        grossMotorList = temp;
-                        
-                    }
-                    else if([titleStr isEqualToString:@"Language"])
-                    {
-                        languageList = temp;
-                    }
-                    else if([titleStr isEqualToString:@"Fine Motor-Adaptive"])
-                    {
-                        fineMotorList = temp;
-                    }
-                    else if([titleStr isEqualToString:@"Personal Social"])
-                    {
-                        personalSocialList = temp;
+                        NSString *titleStr = [dataDict objectForKey:@"title"];
+                        if([titleStr isEqualToString:@"Gross Motor"])
+                        {
+                            grossMotorList = temp;
+                            
+                        }
+                        else if([titleStr isEqualToString:@"Language"])
+                        {
+                            languageList = temp;
+                        }
+                        else if([titleStr isEqualToString:@"Fine Motor-Adaptive"])
+                        {
+                            fineMotorList = temp;
+                        }
+                        else if([titleStr isEqualToString:@"Personal Social"])
+                        {
+                            personalSocialList = temp;
+                        }
                     }
                 }
+                
             }
-            
         }
     }
-    
 }
 
 -(void)failure:(id)response
