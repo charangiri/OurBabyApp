@@ -18,9 +18,9 @@
         <mutableArray key="AvenirNextLTPro-Demi.otf">
             <string>AvenirNextLTPro-Demi</string>
             <string>AvenirNextLTPro-Demi</string>
+            <string>AvenirNextLTPro-Demi</string>
         </mutableArray>
         <mutableArray key="AvenirNextLTPro-Regular.otf">
-            <string>AvenirNextLTPro-Regular</string>
             <string>AvenirNextLTPro-Regular</string>
             <string>AvenirNextLTPro-Regular</string>
             <string>AvenirNextLTPro-Regular</string>
@@ -9589,7 +9589,7 @@
                                                             <constraint firstAttribute="height" constant="21" id="atJ-VM-jmK"/>
                                                             <constraint firstAttribute="width" constant="50" id="wfR-xh-V6E"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNextLTPro-Demi" family="Avenir Next LT Pro" pointSize="15"/>
                                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
