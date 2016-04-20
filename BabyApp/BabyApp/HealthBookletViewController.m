@@ -191,6 +191,8 @@ menu.delegate = self;
 
 
 }
+
+
 - (void)awesomeMenu:(AwesomeMenu *)menu didSelectIndex:(NSInteger)idx
 {
     NSLog(@"Select the index : %d",idx);
